@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Comparador de Precios</title>
+    <style>
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .menor-precio {
+            opacity: 1;
+        }
+
+        .mayor-precio {
+            opacity: 0.8;
+        }
+
+        /* ... (tu estilo CSS aquí) */
+        .resultado {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: block;
+            width: 500px;
+
+        }
+        label{
+            display: flex ;
+        }
+
+        section{
+            display: flex;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Comparador de Precios</h1>
+    <section>
+        <div class="container">
+            <div class="cont">
+                <label for="producto">Producto:</label>
+                <input type="text" id="producto">
+            </div>
+            <br> <br>
+            <div class="cont">
+                <label for="supermercado1">Tía:</label>
+                <input type="number" id="supermercado1">
+            </div>
+    
+            <div class="cont">
+                <label for="supermercado2">Dicosavi:</label>
+                <input type="number" id="supermercado2">
+            </div>
+    
+            <div class="cont"> <label for="supermercado3">Tuti:</label>
+                <input type="number" id="supermercado3">
+            </div>
+    
+            <div class="cont">
+                <label for="supermercado4">SuperMaxi:</label>
+                <input type="number" id="supermercado4">
+            </div>
+    
+            <button onclick="calcular()">Guardar y calcular</button>
+        </div>
+
+    </section>
+
+    
+
+    <section>
+        <div id="resultados"></div>
+    </section>
+
+ 
+
+    <script src="script.js"></script>
+</body>
+
+</html>

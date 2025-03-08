@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Torneo Deportivo</title>
+        <style>
+            /* Estilos básicos para la página */
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 40px auto;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+                .button {
+                    background-color: #4CAF50;
+                    color: #fff;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                }
+
+                .button:hover {
+                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Torneo Deportivo</h1>
+            <form id="team-form">
+                <label for="teams">Ingrese los 15 equipos:</label>
+                <textarea id="teams" name="teams" rows="10" cols="30"></textarea>
+                <button type="button" id="add-teams-btn">Agregar Equipos</button>
+                <hr>
+                <label for="num-groups">Número de grupos:</label>
+                <input type="number" id="num-groups" name="num-groups" value="4" min="2" max="8">
+                <button type="button" id="config-groups-btn">Configurar Grupos</button>
+                <hr>
+                <label for="num-teams-advance">Número de equipos que avanzan a cuartos de final:</label>
+                <input type="number" id="num-teams-advance" name="num-teams-advance" value="2" min="1" max="4">
+                <button type="button" id="config-advance-btn">Configurar Avance</button>
+                <hr>
+                <div id="groups-container">
+                    <!-- Aquí se mostrarán los grupos configurados -->
+                </div>
+            </form>
+        </div>
+
+        <script>
+            // Obtener elementos del DOM
+            const teamForm = document.getElementById('team-form');
+            const teamsTextarea = document.getElementById('teams');
+            const numGroupsInput = document.getElementById('num-groups');
+            const numTeamsAdvanceInput = document.getElementById('num-teams-advance');
+            const groupsContainer = document.getElementById('groups-container');
+            const addTeamsBtn = document.getElementById('add-teams-btn');
+            const configGroupsBtn = document.getElementById('config-groups-btn');
+            const configAdvanceBtn = document.getElementById('config-advance-btn');
+
+            // Función para dividir los equipos en grupos
+            function divideTeamsIntoGroups(teams, numGroups) {
+                const groups = [];
+                for (let i = 0; i < numGroups; i++) {
+                    groups.push([]);
+                }
+                teams.forEach((team, index) => {
+                    const groupIndex = index % numGroups;
+                    groups[groupIndex].push(team);
+                });
+                return groups;
+            }
+
+            // Función para mostrar los grupos configurados
+            function displayGroups(groups) {
+                groupsContainer.innerHTML = '';
+                groups.forEach((group, index) => {
+                    const groupHTML = `
+      <h2>Grupo ${index + 1}</h2>
+      <ul>
+        ${group.map(team => `<li>${team}</li>`).join('')}
+      </ul>
+    `;
+                    groupsContainer.innerHTML += groupHTML;
+                });
+            }
+
+            // Función para configurar los grupos
+            function configureGroups() {
+                const teams = teamsTextarea.value.trim().split('\n');
+                const numGroups = parseInt(numGroupsInput.value);
+                const groups = divideTeamsIntoGroups(teams, numGroups);
+                displayGroups(groups);
+            }
+
+            // Función para configurar el avance a cuartos de final
+            function configureAdvance() {
+                const teams = teamsTextarea.value.trim().split('\n');
+                const numTeamsAdvance = parseInt(numTeamsAdvanceInput.value);
+                const advanceTeams = teams.slice(0, numTeamsAdvance);
+                console.log(`Equipos que avanzan a cuartos de final: ${advanceTeams.join(', ')}`);
+            }
+
+            // Agregar eventos a los botones
+            addTeamsBtn.addEventListener('click', () => {
+                teamsTextarea.value = teamsTextarea.value.trim() + '\n';
+            });
+
+            configGroupsBtn.addEventListener('click', configureGroups);
+
+            configAdvanceBtn.addEventListener('click', configureAdvance);
+        </script>
+
+
+
+    </body>
+
+</html>
