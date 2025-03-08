@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <button id="startButton">Empieza el Juego</button>
+    <canvas id="juegoCanvas" width="700" height="700"></canvas>
+   
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const canvas = document.getElementById("juegoCanvas");
+          const ctx = canvas.getContext("2d");
+    
+          let objetivo = {
+            x: 0,
+            y: 0,
+            radio: 20,
+          };
+
+          let tiempoRestante = 10;
+    
+          function nuevoObjetivo() {
+            objetivo.x = Math.random() * (canvas.width - 2 * objetivo.radio) + objetivo.radio;
+            objetivo.y = Math.random() * (canvas.height - 2 * objetivo.radio) + objetivo.radio;
+          }
+    
+          function dibujarObjetivo() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#E2FA00";
+            ctx.beginPath();
+            ctx.arc(objetivo.x, objetivo.y, objetivo.radio, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          function restablecerCronometro(){
+            document.getElementById("timer").textContent = 'Tiempo restante: ${tiempoRestante} segundo'; 
+          }
+
+          function clicEnObjetivo(evento) {
+            const rect = canvas.getBoundingClientRect();
+            const x = evento.clientX - rect.left;
+            const y = evento.clientY - rect.top;
+    
+            const distancia = Math.sqrt(
+              Math.pow(x - objetivo.x, 2) + Math.pow(y - objetivo.y, 2)
+            );
+    
+            if (distancia < objetivo.radio) {
+              alert("¡Has atrapado al objetivo!");
+              nuevoObjetivo();
+              dibujarObjetivo();
+              iniciarJuego(); 
+              location.reload();
+            }
+          }
+    
+          canvas.addEventListener("click", clicEnObjetivo);
+    
+          function moverObjetivo() {
+            nuevoObjetivo();
+            dibujarObjetivo();
+            setTimeout(moverObjetivo, 700); 
+          }
+    
+          let juegoIniciado = false;
+          const startButton = document.getElementById("startButton");
+    
+          function iniciarJuego() {
+            if (!juegoIniciado) {
+              juegoIniciado = true;
+              startButton.disabled = true;
+
+              const intervalo = setInterval(function(){
+                tiempoRestante--;
+                actualizarCronometro();
+                
+                if (tiempoRestante <= 0){
+                    clearInterval(interval);
+                    alert("¡Tiempo agotado! El objetivo se ha escapado.");
+                    nuevoObjetivo();
+                    dibujarObjetivo();
+                    iniciarJuego = false;
+                    startButton.disabled = false;
+                    tiempoRestante = 10;
+                    actualizarCronometro();
+
+                }
+              },1000);
+                
+
+              setTimeout(function () {
+                alert("¡Tiempo agotado! El objetivo se ha escapado.");
+                nuevoObjetivo();
+                dibujarObjetivo();
+                juegoIniciado = false;
+                startButton.disabled = false;
+                tiempoRestante = 10;
+                location.reload();
+                actualizarCronometro();
+              }, 15000);
+    
+              moverObjetivo();
+            }
+          }
+    
+          startButton.addEventListener("click", iniciarJuego);
+        });
+      </script>
+      
+
+    
+
+</body>
+</html>

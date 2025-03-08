@@ -1,0 +1,143 @@
+
+/**/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: black;
+}
+
+h1 {
+    top: 10%;
+    position: absolute;
+    display: flex;
+    font-size: 100px;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+main {
+    transition: 0.8s;
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    height: 150vh;
+}
+
+section {
+    position: relative;
+
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.8s;
+}
+
+section::before {
+    content: '';
+    bottom: 0;
+    width: 100%;
+    height: 150vh;
+   background: linear-gradient(to top, #000000, transparent);
+
+   z-index: 1;
+}
+
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.personaje {
+    top: 20%;
+    left: ;
+    object-fit: contain;
+    justify-content: end;
+}
+
+.fondo {
+    height: 150vh;
+}
+
+.elementos{
+    height: 120px;
+    display: flex;
+}
+
+.elementos img {
+    justify-content: space-around;
+    width: 110px;
+    height: 100px;
+    border: solid 4px rgba(0, 0, 0, 0);
+    border-radius: 50%;
+}
+
+.element {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    filter: drop-shadow(8px 8px 8px rgba(0, 0, 0, 1));
+    opacity: 0.8;
+}
+
+#bg {
+    top: 0px;
+    justify-content: flex-end;
+}
+
+#bg2 {
+    margin-top: ;
+    justify-content: flex-end;
+}
+
+#bg3 {
+    top: -15%;
+    justify-content: flex-end;
+}
+
+#logo {
+    max-width: 100vh;
+    max-height: 20%;
+    left: 25%;
+    top: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+#aire {
+    top: 30%;
+    left: 15%;
+}
+
+#fuego {
+    top: 25%;
+    left: 35%;
+}
+
+#tierra {
+    top: 25%;
+    left: 55%;
+}
+
+#agua {
+    top: 30%;
+    left: 75%;
+}
+
+
+
+.sec {
+    height: 800px;
+}

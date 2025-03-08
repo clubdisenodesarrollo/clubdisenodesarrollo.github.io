@@ -1,0 +1,36 @@
+html{
+    box-sizing: border-box;
+    cursor:crosshair;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+html, body{
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #030302;
+    overflow: hidden;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(30, 30px);
+    grid-template-rows: repeat(15, 30px);
+    grid-gap: 1rem;
+}
+.wrapper .item{
+    background-color: #A72C06;
+}
+
+.item:hover{
+    box-shadow: 0 0 12px 9px white;
+}
