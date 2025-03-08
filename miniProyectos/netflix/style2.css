@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+}
+.netflix{
+    height: 520px;
+    width: 360px;
+    position: relative;
+    overflow: hidden;
+}
+.netflix span {
+    width: 120px;
+    height: 100%;
+    position: absolute;
+    background-color: #fff;
+}
+
+.netflix span:nth-child(1){
+    background-color: #b00612;
+    left: 0;
+}
+.netflix span:nth-child(2){
+    background-color: #e50801;
+    left: 0;
+    z-index: 1;
+    transform-origin: top left;
+    transform: skewX(25deg);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 1);
+}
+.netflix span:nth-child(3){
+    background-color: #b00612;
+    right: 0;
+}
+.netflix::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 120px;
+    left: 0px;
+    background-color: #000;
+    z-index: 2;
+    bottom: -100px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    transform: scale(1.5);
+
+}
+h3{
+    color: #fff;
+    font-size: 60px;
+    text-align: center;
+    letter-spacing: 10px;
+    position: relative;
+    text-transform: uppercase;
+}
+.netflix::after{
+    position: absolute;
+    content: '';
+    width: 400%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background: linear-gradient(to right, transparent, black, black);
+    z-index: 3;
+    animation: animate 2s linear forwards;
+}
+@keyframes animate{
+    0%{
+        right: 0;
+    }
+    100%{
+        right: -400%;
+    }
+}
+
+

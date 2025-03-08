@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            height: 150vh;
+            background-color: black;
+            display: block;
+            background-image: url();
+            background-size:700px;
+            background-repeat: no-repeat;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        
+
+        .bloque{
+            width: fit-content;
+            padding: 0px 0;
+            position: relative;
+        }
+        .bloque2{
+            top: -400px;
+            left: 10px;
+        }
+        .bloque3{
+            top: -700px;
+            left: -10px;
+        }
+        .contenedor {
+            position: relative;
+            filter: blur(0.1);
+            color: #0bef1eff;
+            font-size: 2em;
+            text-align: center;
+            padding: 20px;
+            width: 30px; /* Ancho del contenedor */
+            margin-right: 10px; /* Espacio entre contenedores */
+            float: left; /* Para que estén en fila */
+            opacity: 0; /* Inicialmente invisibles */
+            animation: desplazar 10s linear infinite;
+        }
+
+
+        .contenedor:nth-child(1){
+            font-size: 90px;
+            filter: blur(5px);
+            padding: 0px;
+            top: -50px;
+        }
+        .contenedor:nth-child(3){
+            top: -60px;
+            filter: blur(1px);
+            padding: 5px;
+
+        }
+        .contenedor:nth-child(5){
+            top: -70px;
+            filter: blur(1px);
+
+        }
+        .contenedor:nth-child(7){
+            font-size: 90px;
+
+            top: -80px;
+            filter: blur(1px);
+
+        }
+        .contenedor:nth-child(9){
+            top: -90px;
+            filter: blur(1px);
+
+        }
+
+
+        @keyframes desplazar {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+    <title>Abecedario</title>
+</head>
+<body>
+    <!--   <img src="" alt="Imagen centrada">
+    <div id="imagenCentrada">
+    </div>-->
+     
+    <div class="bloque bloque1 ">
+        <div id="contenedor1" class="contenedor"></div>
+    <div id="contenedor2" class="contenedor"></div>
+    <div id="contenedor3" class="contenedor"></div>
+    <div id="contenedor4" class="contenedor"></div>
+    <div id="contenedor5" class="contenedor"></div>
+    <div id="contenedor6" class="contenedor"></div>
+    <div id="contenedor7" class="contenedor"></div>
+    <div id="contenedor8" class="contenedor"></div>
+    <div id="contenedor9" class="contenedor"></div>
+    <div id="contenedor10" class="contenedor"></div>
+    </div>
+
+    <div class="bloque bloque2">
+        <div id="contenedor1" class="contenedor"></div>
+    <div id="contenedor2" class="contenedor"></div>
+    <div id="contenedor3" class="contenedor"></div>
+    <div id="contenedor4" class="contenedor"></div>
+    <div id="contenedor5" class="contenedor"></div>
+    <div id="contenedor6" class="contenedor"></div>
+    <div id="contenedor7" class="contenedor"></div>
+    <div id="contenedor8" class="contenedor"></div>
+    <div id="contenedor9" class="contenedor"></div>
+    <div id="contenedor10" class="contenedor"></div>
+    </div>
+
+    <div class="bloque bloque3">
+        <div id="contenedor1" class="contenedor"></div>
+    <div id="contenedor2" class="contenedor"></div>
+    <div id="contenedor3" class="contenedor"></div>
+    <div id="contenedor4" class="contenedor"></div>
+    <div id="contenedor5" class="contenedor"></div>
+    <div id="contenedor6" class="contenedor"></div>
+    <div id="contenedor7" class="contenedor"></div>
+    <div id="contenedor8" class="contenedor"></div>
+    <div id="contenedor9" class="contenedor"></div>
+    <div id="contenedor10" class="contenedor"></div>
+    </div>
+
+    <script>
+        const contenedores = document.querySelectorAll('.contenedor');
+        const abecedario = 'CAMP DISEÑO';
+        let index = 0;
+
+        function mostrarSiguienteLetra() {
+            if (index < abecedario.length) {
+                contenedores.forEach((contenedor, i) => {
+                    contenedor.textContent = abecedario[index];
+                    contenedor.style.opacity = 1; // Haciendo visible
+                });
+                index++;
+            } else {
+                // Si ya mostramos todas las letras, reiniciamos el índice
+                index = 0;
+            }
+
+            // Haciendo que la letra aparezca y desaparezca rápidamente
+            setTimeout(mostrarSiguienteLetra, 300);
+        }
+
+        // Llamamos a la función para comenzar el proceso
+        mostrarSiguienteLetra();
+    </script>
+</body>
+</html>

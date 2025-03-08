@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 1000px;
+    max-height: 1200px;
+    background: #111;
+    width: 100%;
+    overflow: hidden;
+}
+
+.ring{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ring i {
+    position: absolute;
+    inset: 0;
+    border: 2px solid #fff;
+    transition: 0.5s;
+}
+
+.contenedor{
+    position: absolute;
+    display: flex;
+    animation: animate2 15s linear infinite;
+}
+.contenedor2{
+    position: absolute;
+    display: flex;
+    animation: animate3 20s linear infinite;
+
+
+}
+
+.ring i:nth-child(1){
+    border-radius: 30% 50% 55% 45% / 50% 30% 40% 45%;
+    animation: animate2 18s linear infinite;
+}
+
+.ring i:nth-child(2){
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    animation: animate2 18s linear infinite;
+}
+
+.ring i:nth-child(3){
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    animation: animate2 18s linear infinite;
+}
+
+.ring i {
+    border: 6px solid var(--clr);
+    filter: drop-shadow(0 0 40px var(--clr));
+}
+
+
+
+@keyframes animate2 {
+    0% {
+        transform: rotate (0deg);
+        scale: 0.8;
+        transition: 1s;
+    }
+    50% {
+            transform: rotate(360deg);
+            scale: 1;
+            transition: 1s;
+        }
+
+       
+            100% {
+                transform: rotate (0deg);
+                scale: 0.8;
+                transition: 1s;
+            }
+
+}
+
+
+
+
+@keyframes animate3 {
+    0% {
+        transform: rotate (0deg);
+        scale: 0.7;
+        transition: 1s;
+    }
+    50% {
+            transform: rotate(360deg);
+            scale: 1;
+            transition: 1s;
+        }
+
+       
+            100% {
+                transform: rotate (0deg);
+                scale: 0.7;
+                transition: 1s;
+            }
+
+}

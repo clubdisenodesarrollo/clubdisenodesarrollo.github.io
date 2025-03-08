@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    top: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+}
+section{
+    display: block;
+    position: relative;
+    margin: 1px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 250px 75px;
+}
+
+.container .ring {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: -30px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid #00ff40;
+    animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.container .ring::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: #00ff40;
+    box-shadow: 0 0 0 5px #00ff4030,
+        0 0 0 10px #00ff4040,
+        0 0 0 20px #00ff4050,
+        0 0 30px #00ff4060,
+        0 0 40px #00ff4070;
+    filter: blur(3px);
+}
+
+.container .ring:nth-child(2) {
+    animation: animate2 4s linear infinite;
+    animation-delay: -1s;
+    border-top: 4px solid transparent;
+    border-left: 4px solid #ff0000;
+}
+
+@keyframes animate2 {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.container .ring:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: initial;
+    bottom: 12px;
+    left: 12px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: #ff0048;
+    box-shadow: 0 0 0 5px #ff000030,
+        0 0 0 10px #ff000040,
+        0 0 0 20px #ff000050,
+        0 0 30px #ff000060,
+        0 0 40px #ff000070;
+    filter: blur(3px);
+}
+
+.container .ring:nth-child(3) {
+    animation: animate2 4s linear infinite;
+    animation-delay: -3s;
+    position: absolute;
+    top: -66.66px;
+    border-top: 4px solid transparent;
+    border-left: 4px solid #0008ff;
+}
+
+.container .ring:nth-child(3)::before{
+    content: '';
+    position: absolute;
+    top: initial;
+    bottom: 12px;
+    left: 12px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: #0008ff;
+    box-shadow: 0 0 0 5px #0008ff30,
+    0 0 0 10px #0008ff40,
+    0 0 0 20px #0008ff50,
+    0 0 30px #0008ff60,
+    0 0 40px #0008ff70;
+    filter: blur(3px);
+}
