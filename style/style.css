@@ -1,0 +1,372 @@
+
+
+
+
+/* Sección de Introducción (50/50) */
+.introduccion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #000000;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.nosotros {
+  background-color: #c0c0c0 !important;
+}
+
+.contenedor-texto {
+  width: 45%; /* Ocupa el 45% del ancho en desktop */
+  justify-content: center;
+}
+
+.contenedor-texto .fila {
+  margin-bottom: 0px;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  margin: 10px;
+  padding: 5px;
+}
+
+.contenedor-texto h2 {
+  font-size: 5rem;
+  color: #234F9E;
+  margin-bottom: 0px;
+}
+
+.contenedor-texto p {
+  font-size: 2rem;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.nosotros .contenedor-texto p {
+  font-size: 1.2rem;
+  color: #000000;
+  line-height: 1.5;
+  text-align: justify;
+}
+.nosotros .contenedor-texto h2 {
+  font-size: 3rem;
+  color: #234F9E;
+  margin: 0px;
+  padding: 0px;
+}
+
+.contenedor-texto .boton {
+  display: inline-block;
+  width: 75%;
+  padding: 10px 20px;
+  background-color: #E23C1B;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.contenedor-texto .boton:hover {
+  background-color: #c53316;
+}
+
+.contenedor-imagen {
+  width: 50%; /* Ocupa el 50% del ancho en desktop */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.contenedor-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Slider */
+.slider-frame {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-frame ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 400%;
+  animation: slide 20s infinite alternate ease-in-out;
+}
+
+.slider-frame li {
+  list-style: none;
+  width: 100%;
+}
+
+.slider-frame img {
+  width: 100%;
+  height:auto;
+}
+
+@keyframes slide {
+  0% { margin-left: 0; }
+  20% { margin-left: 0; }
+  25% { margin-left: -100%; }
+  45% { margin-left: -100%; }
+  50% { margin-left: -200%; }
+  70% { margin-left: -200%; }
+  75% { margin-left: -300%; }
+  95% { margin-left: -300%; }
+  100% { margin-left: 0; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Sección de Logos */
+.logos {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.contenedor-logos img {
+  height: 80px;
+  margin: 0 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Sección de Proyectos */
+.proyectos {
+  padding: 30px 10px;
+  background-color: #c0c0c0;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.titulo-seccion {
+  text-align: center;
+  font-size: 3rem;
+  color: #234F9E;
+  margin: 10px;
+}
+
+.cartas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.carta {
+  width: 40%;
+  height:300px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
+  transition: 0.3s;
+}
+
+
+.carta .contenedor-imagen {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carta .contenedor-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carta .contenido {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.carta:hover .contenido {
+  transform: translateY(0);
+}
+
+.carta .contenido h2 {
+  font-size: 1.1rem;
+  color: #234F9E;
+  margin: 5px;
+}
+
+.carta .contenido p {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 0;
+}
+
+.c-boton {
+  justify-content: center;
+  display: flex;
+}
+
+.c-boton a.boton {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  background-color: #E23C1B;
+  width: 20%;
+  padding: 10px 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.c-boton a.boton:hover {
+  background-color: #e23c1bdb;
+}
+
+/* Sección de Integrantes */
+.integrantes {
+  background-color: #234F9E;
+  padding: 10px;
+  text-align: center;
+}
+
+.integrantes h2 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Sección de Museo Virtual */
+.museo-virtual {
+  padding: 20px;
+  text-align: center;
+}
+
+.museo-virtual iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries para Responsividad */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  .introduccion {
+    padding: 30px;
+  }
+
+  .contenedor-texto, .contenedor-imagen {
+    width: 100%; /* Ocupa el 100% del ancho en tablets */
+    margin-bottom: 20px;
+  }
+
+  .contenedor-imagen {
+    height: 400px; /* Reducir la altura de la imagen en tablets */
+  }
+  .nosotros .contenedor-texto p{
+    font-size: 1rem;
+    color: #333;
+    margin: 10px;
+    
+  }
+
+  .contenedor-texto .boton {
+    width: 60%; /* Aumentar el ancho del botón en tablets */
+  }
+
+  .menu-principal {
+    grid-column: 3 / 11; /* Ajustar el menú para tablets */
+  }
+
+  .redes-sociales {
+    grid-column: 11 / 13; /* Mantener las redes sociales a la derecha */
+  }
+}
+
+/* Móviles (hasta 767px) */
+@media (max-width: 767px) {
+  .carta{
+    width: 350px;
+    transition: 0.3s;
+  }
+  .introduccion {
+    padding: 20px;
+    flex-direction: column; /* Cambia a disposición vertical en móviles */
+  }
+
+  .contenedor-texto, .contenedor-imagen {
+    width: 100%; /* Ocupa el 100% del ancho en móviles */
+    margin-bottom: 20px;
+  }
+
+  .contenedor-imagen {
+    height: 250px; /* Reducir la altura de la imagen en móviles */
+  }
+
+  .contenedor-texto h2 {
+    font-size: 2rem; /* Reducir el tamaño del título en móviles */
+  }
+
+  .contenedor-texto p {
+    font-size: 1rem; /* Reducir el tamaño del texto en móviles */
+  }
+
+  .contenedor-texto .boton {
+    width: 80%; /* Aumentar el ancho del botón en móviles */
+  }
+
+  .menu-principal {
+    display: none;
+    grid-column: 1 / 13; /* Ocupar todo el ancho en móviles */
+    flex-direction: column; /* Cambiar a disposición vertical */
+    gap: 10px;
+  }
+
+  .menu-principal a {
+    width: 100%; /* Botones de ancho completo en móviles */
+  }
+
+  .redes-sociales {
+    grid-column: 1 / 13; /* Ocupar todo el ancho en móviles */
+    justify-content: center; /* Centrar las redes sociales */
+    display: none;
+  }
+}
