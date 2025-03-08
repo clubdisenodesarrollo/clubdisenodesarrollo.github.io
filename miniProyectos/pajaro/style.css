@@ -1,0 +1,35 @@
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider{
+    width: 1000px;
+    height: 1000px;
+    background-size: 100% 100%;
+    backdrop-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+    animation: slider 0.6s linear infinite;
+}
+
+@keyframes slider{
+    0% {
+        background-image: url(p1.png);
+    }
+    20%{
+        background-image: url(p2.png);
+    }
+    40%{
+        background-image: url(p3.png);
+    }
+    60%{
+        background-image: url(p4.png);
+    }
+    80%{
+        background-image: url(p5.png);
+    }
+    100%{
+        background-image: url(p6.png);
+    }
+}
