@@ -131,7 +131,7 @@
 @media (max-width: 767px) {
   .carta {
     width: 90%;
-    height: 200px;
+    height: 150px;
 
     /* 1 carta por fila */
   }
