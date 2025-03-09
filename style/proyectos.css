@@ -1,17 +1,16 @@
 .proyectos {
-    padding: 30px 10px;
-    background-color: #c0c0c0;
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
-  
-  }
-  
-  .titulo-seccion {
-    text-align: center;
-    font-size: 3rem;
-    color: #234F9E;
-    margin: 10px;
-  }
-  
+  padding: 30px 10px;
+  background-color: #c0c0c0;
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.titulo-seccion {
+  text-align: center;
+  font-size: 3rem;
+  color: #234F9E;
+  margin: 10px;
+}
 
 /* Estilos base para las cartas */
 .cartas {
@@ -25,7 +24,7 @@
 .carta {
   width: 30%;
   /* 3 cartas por fila en pantallas grandes */
-  height: 300px;
+  height: 280px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -122,6 +121,8 @@
 @media (max-width: 1024px) {
   .carta {
     width: 45%;
+    height: 230px;
+
     /* 2 cartas por fila */
   }
 }
@@ -130,6 +131,13 @@
 @media (max-width: 767px) {
   .carta {
     width: 90%;
+    height: 200px;
+
     /* 1 carta por fila */
   }
+  .carta .contenedor-imagen {
+    /* Ajusta la imagen al contenedor */
+
+  }
+
 }
