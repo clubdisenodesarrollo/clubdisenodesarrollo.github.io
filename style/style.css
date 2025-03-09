@@ -289,6 +289,12 @@
 
 /* Tablets (768px - 1024px) */
 @media (max-width: 1024px) {
+    .carta {
+    width: 45%;
+    height: 230px;
+
+    /* 2 cartas por fila */
+  }
   .introduccion {
     padding: 30px;
   }
@@ -324,7 +330,9 @@
 /* Móviles (hasta 767px) */
 @media (max-width: 767px) {
   .carta{
-    width: 350px;
+    width: 90%;
+    height: 200px;
+
     transition: 0.3s;
   }
   .introduccion {
