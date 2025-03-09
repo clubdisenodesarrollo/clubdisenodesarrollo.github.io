@@ -212,6 +212,13 @@ const cartas = [
     tag: "otros", // Etiqueta para filtrar
     enlace: "/miniProyectos/toDoList/index.html", // Enlace a la página del proyecto
   },
+    {
+    titulo: "Animación Efecto Matrix",
+    descripcion: "",
+    imagen: "/miniProyectos/Matrix/fondo.png",
+    tag: "otros", // Etiqueta para filtrar
+    enlace: "/miniProyectos/Matrix/index.html", // Enlace a la página del proyecto
+  },
   // Agrega más cartas según sea necesario
 ];
 // Función para renderizar cartas
