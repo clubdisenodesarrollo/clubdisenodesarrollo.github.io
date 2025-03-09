@@ -285,16 +285,35 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Media Queries para Responsividad */
 
 /* Tablets (768px - 1024px) */
 @media (max-width: 1024px) {
-    .carta {
+  .carta {
     width: 45%;
-    height: 230px;
+    height: 250px;
 
     /* 2 cartas por fila */
   }
+
   .introduccion {
     padding: 30px;
   }
@@ -318,22 +337,14 @@
     width: 60%; /* Aumentar el ancho del botón en tablets */
   }
 
-  .menu-principal {
-    grid-column: 3 / 11; /* Ajustar el menú para tablets */
-  }
 
-  .redes-sociales {
-    grid-column: 11 / 13; /* Mantener las redes sociales a la derecha */
-  }
 }
 
 /* Móviles (hasta 767px) */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .carta{
-    width: 90%;
-    height: 150px;
-
-    transition: 0.3s;
+    width: 80%;
+    height: 250px  
   }
   .introduccion {
     padding: 20px;
@@ -361,20 +372,45 @@
     width: 80%; /* Aumentar el ancho del botón en móviles */
   }
 
-  .menu-principal {
-    display: none;
-    grid-column: 1 / 13; /* Ocupar todo el ancho en móviles */
-    flex-direction: column; /* Cambiar a disposición vertical */
-    gap: 10px;
+
+
+}
+
+
+
+@media (max-width: 500px) {
+  .carta {
+    width: 90%;
+    height: 200px;
+
+    /* 1 carta por fila */
   }
 
-  .menu-principal a {
-    width: 100%; /* Botones de ancho completo en móviles */
+
+}
+
+
+@media (max-width: 450px) {
+  .carta {
+    width: 90%;
+    height: 180px;
+
+    /* 1 carta por fila */
   }
 
-  .redes-sociales {
-    grid-column: 1 / 13; /* Ocupar todo el ancho en móviles */
-    justify-content: center; /* Centrar las redes sociales */
-    display: none;
+
+}
+
+
+
+
+@media (max-width: 350px) {
+  .carta {
+    width: 90%;
+    height: 150px;
+
+    /* 1 carta por fila */
   }
+
+
 }
