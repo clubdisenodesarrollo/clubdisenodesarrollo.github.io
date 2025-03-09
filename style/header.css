@@ -1,94 +1,101 @@
 /* Estilos generales */
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #000000;
-    color: #333;
-  }
-  *{
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Header */
-  header {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr); /* 12 columnas */
-    align-items: center;
-    background-color: #000000;
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-  
-  }
-  /* Logo (2 columnas) */
-  .logo {
-    grid-column: 1 / 3; /* Ocupa las columnas 1 y 2 */
-  }
-  
-  .logo img {
-    height: 50px;
-    width: auto;
-  }
-  
-  /* Menú de navegación (4 columnas) */
-  .menu-principal {
-    grid-column: 5 / 9; /* Ocupa las columnas 5 a 8 */
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  
-  .menu-principal a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    background-color: #234F9E;
-    width: 20%;
-    padding: 5px 10px;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  .menu-principal a:last-child {
-    background-color: #E23C1B;
-  }
-  
-  .menu-principal a:hover {
-    background-color: #234e9eda;
-  }
-  
-  .menu-principal a:last-child:hover {
-    background-color: #e23c1be0;
-  }
-  
-  /* Redes sociales (2 columnas) */
-  .redes-sociales {
-    grid-column: 11 / 13; /* Ocupa las columnas 11 y 12 */
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  
-  .redes-sociales a {
-    background-color: white;
-    border-radius: 50%;
-    text-decoration: none;
-  }
-  
-  .icono-red-social img {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s ease;
-  }
-  
-  .icono-red-social:hover img {
-    transform: scale(1.2);
-  }
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #333;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Header */
+header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  /* 12 columnas */
+  align-items: center;
+  background-color: #000000;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+
+}
+
+/* Logo (2 columnas) */
+.logo {
+  grid-column: 1 / 3;
+  /* Ocupa las columnas 1 y 2 */
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Menú de navegación (4 columnas) */
+.menu-principal {
+  grid-column: 5 / 9;
+  /* Ocupa las columnas 5 a 8 */
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.menu-principal a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  background-color: #234F9E;
+  width: 20%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.menu-principal a:last-child {
+  background-color: #E23C1B;
+}
+
+.menu-principal a:hover {
+  background-color: #234e9eda;
+}
+
+.menu-principal a:last-child:hover {
+  background-color: #e23c1be0;
+}
+
+/* Redes sociales (2 columnas) */
+.redes-sociales {
+  grid-column: 11 / 13;
+  /* Ocupa las columnas 11 y 12 */
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.redes-sociales a {
+  background-color: white;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.icono-red-social img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.icono-red-social:hover img {
+  transform: scale(1.2);
+}
+
 
 
 
