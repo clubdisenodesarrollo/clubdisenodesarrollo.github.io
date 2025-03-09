@@ -89,4 +89,70 @@ body {
   .icono-red-social:hover img {
     transform: scale(1.2);
   }
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+
+
+
+
+  .menu-principal {
+    grid-column: 3 / 11;
+    /* Ajustar el menú para tablets */
+  }
+
+  .redes-sociales {
+    grid-column: 11 / 13;
+    /* Mantener las redes sociales a la derecha */
+  }
+}
+
+/* Móviles (hasta 767px) */
+@media (max-width: 767px) {
+
+
+
+
+
+
+
+  .menu-principal {
+    display: none;
+    grid-column: 1 / 13;
+    /* Ocupar todo el ancho en móviles */
+    flex-direction: column;
+    /* Cambiar a disposición vertical */
+    gap: 10px;
+  }
+
+  .menu-principal a {
+    width: 100%;
+    /* Botones de ancho completo en móviles */
+  }
+
+  .redes-sociales {
+    grid-column: 1 / 13;
+    /* Ocupar todo el ancho en móviles */
+    justify-content: center;
+    /* Centrar las redes sociales */
+    display: none;
+  }
+}
