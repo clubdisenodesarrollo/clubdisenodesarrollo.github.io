@@ -24,7 +24,7 @@
 .carta {
   width: 30%;
   /* 3 cartas por fila en pantallas grandes */
-  height: 280px;
+  height: 260px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -121,23 +121,52 @@
 @media (max-width: 1024px) {
   .carta {
     width: 45%;
-    height: 230px;
+    height: 250px;
 
     /* 2 cartas por fila */
   }
 }
 
+@media (max-width: 768px) {
+  .carta {
+    width: 80%;
+    height: 250px;
+
+    /* 1 carta por fila */
+  }
+
+
+}
+
 /* Media query para pantallas de 767px o menos (1 carta por fila) */
-@media (max-width: 767px) {
+@media (max-width: 500px) {
+  .carta {
+    width: 90%;
+    height: 200px;
+
+    /* 1 carta por fila */
+  }
+
+
+}
+@media (max-width: 450px) {
+  .carta {
+    width: 90%;
+    height: 180px;
+
+    /* 1 carta por fila */
+  }
+
+
+}
+
+@media (max-width: 350px) {
   .carta {
     width: 90%;
     height: 150px;
 
     /* 1 carta por fila */
   }
-  .carta .contenedor-imagen {
-    /* Ajusta la imagen al contenedor */
 
-  }
 
 }
