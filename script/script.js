@@ -216,7 +216,7 @@ const cartas = [
     titulo: "Animación Efecto Matrix",
     descripcion: "",
     imagen: "/miniProyectos/Matrix/fondo.png",
-    tag: "otros", // Etiqueta para filtrar
+    tag: "animaciones", // Etiqueta para filtrar
     enlace: "/miniProyectos/Matrix/index.html", // Enlace a la página del proyecto
   },
   // Agrega más cartas según sea necesario
