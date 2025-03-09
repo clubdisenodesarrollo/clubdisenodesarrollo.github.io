@@ -15,127 +15,87 @@ window.addEventListener('scroll', function () {
 
 
 
-
-
-
-
-// Datos de los proyectos (puedes agregar más proyectos aquí)
-const proyectos = [
+// Array de cartas
+const cartas = [
+  {
+    titulo: "Observatorio",
+    descripcion: "",
+    imagen: "/Proyectos/observatorioEspacial/fondo.png",
+    tag: "proyectos", // Etiqueta para filtrar
+    enlace: "/Proyectos/observatorioEspacial/index.html", // Enlace a la página del proyecto
+  },
+  {
+    titulo: "Pump It Up - Juego",
+    descripcion: ".",
+    imagen: "/miniProyectos/pumpItUp/fondo.png",
+    tag: "proyectos", // Etiqueta para filtrar
+    enlace: "/miniProyectos/pumpItUp/index.html", // Enlace a la página del proyecto
+  },
+  {
+    titulo: "Ruta Turística",
+    descripcion: "",
+    imagen: "/Proyectos/rutaTuristica/fondo.png",
+    tag: "proyectos", // Etiqueta para filtrar
+    enlace: "/Proyectos/rutaTuristica/index.html", // Enlace a la página del proyecto
+  },
+  {
+    titulo: "Filtro Web",
+    descripcion: "",
+    imagen: "/Proyectos/filtroWeb/fondo.png",
+    tag: "proyectos", // Etiqueta para filtrar
+    enlace: "/Proyectos/filtroWeb/index.html", // Enlace a la página del proyecto
+  },
   {
     titulo: "Restaurante",
-    imagen: "/Proyectos/CakeWorld/restaurante.png",
-    enlace: "/Proyectos/CakeWorld/index.html",
+    descripcion: "",
+    imagen: "/Proyectos/CakeWorld/fondo.png",
+    tag: "proyectos", // Etiqueta para filtrar
+    enlace: "/Proyectos/CakeWorld/index.html", // Enlace a la página del proyecto
   },
   {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
+    titulo: "Cartelera",
+    descripcion: "",
+    imagen: "/Proyectos/cartelera/fondo.png",
+    tag: "proyectos", // Etiqueta para filtrar
+    enlace: "/Proyectos/cartelera/index.html", // Enlace a la página del proyecto
   },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
-  },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
-  },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
-  },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
-  },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
-  },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
-  },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
-  },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
-  },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
-  },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
-  },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
-  },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/observatorioEspacial/index.html",
-  },
-  {
-    titulo: "Observatorio",
-    imagen: "/Proyectos/observatorioEspacial/observatorio.png",
-    enlace: "/Proyectos/pagina ofi/index.html",
-  },
-  // Agrega más proyectos aquí...
+  // Agrega más cartas según sea necesario
 ];
 
-// Función para generar las cartas
-function generarCartas() {
+// Función para renderizar cartas
+function renderCartas(filterTag = "todos") {
   const contenedorCartas = document.getElementById("cartas");
+  contenedorCartas.innerHTML = ""; // Limpiar el contenedor
 
-  if (!contenedorCartas) {
-    console.error("No se encontró el contenedor de cartas (#cartas).");
-    return;
-  }
+  // Filtrar cartas según la etiqueta
+  const cartasFiltradas = filterTag === "todos"
+    ? cartas // Mostrar todas las cartas
+    : cartas.filter((carta) => carta.tag === filterTag); // Filtrar por etiqueta
 
-  proyectos.forEach((proyecto, index) => {
-    const carta = document.createElement("div");
-    carta.classList.add("carta");
-
-    const enlace = document.createElement("a");
-    enlace.href = proyecto.enlace;
-
-    const contenedorImagen = document.createElement("div");
-    contenedorImagen.classList.add("contenedor-imagen");
-
-    const imagen = document.createElement("img");
-    imagen.src = proyecto.imagen;
-    imagen.alt = proyecto.titulo;
-
-    const contenido = document.createElement("div");
-    contenido.classList.add("contenido");
-
-    const titulo = document.createElement("h2");
-    titulo.textContent = `${index + 1}. ${proyecto.titulo}`; // Agrega el número del proyecto
-    //titulo.textContent = proyecto.titulo;
-
-    contenedorImagen.appendChild(imagen);
-    contenido.appendChild(titulo);
-    enlace.appendChild(contenedorImagen);
-    enlace.appendChild(contenido);
-    carta.appendChild(enlace);
-    contenedorCartas.appendChild(carta);
+  // Generar el HTML de las cartas filtradas
+  cartasFiltradas.forEach((carta) => {
+    const cartaHTML = `
+      <a href="${carta.enlace}" class="carta">
+        <div class="contenedor-imagen">
+          <img src="${carta.imagen}" alt="${carta.titulo}">
+        </div>
+        <div class="contenido">
+          <h2>${carta.titulo}</h2>
+          <p>${carta.descripcion}</p>
+        </div>
+      </a>
+    `;
+    contenedorCartas.innerHTML += cartaHTML;
   });
 }
+// Eventos para los botones de filtro
+document.querySelectorAll(".boton-filtro").forEach((boton) => {
+  boton.addEventListener("click", () => {
+    const tag = boton.getAttribute("data-tag"); // Obtener la etiqueta del botón
+    renderCartas(tag); // Renderizar cartas con la etiqueta seleccionada
+  });
+});
 
+// Renderizar todas las cartas al cargar la página
+document.addEventListener("DOMContentLoaded", () => renderCartas());
 window.onload = generarCartas;
