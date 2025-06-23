@@ -34,9 +34,9 @@ body {
 }
 
 #app {
-    top: 10px;
-    width: 420px;
-    height: 800px;
+    top: 30px;
+    width: 350px;
+    height: 750px;
     position: relative;
     overflow: auto;
     background: transparent;
@@ -160,7 +160,7 @@ body {
 .juego-btn img {
     display: flex;
     position: relative;
-    width: 120px;
+    width: 90px;
     height: auto;
     border-radius: 12px;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
@@ -208,7 +208,7 @@ body {
 
 .btn-nivel {
     position: absolute;
-    width: 150px;
+    width: 120px;
     cursor: pointer;
     z-index: 2;
 }
@@ -232,7 +232,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-end;
     gap: 20px 32px;
     margin-top: 400px;
     z-index: 1;
@@ -253,12 +253,12 @@ body {
 
 .btn-s1 {
     top: -250px;
-    left: 100px;
+    left: 80px;
 }
 
 .btn-s2 {
     top: -300px;
-    left: 290px;
+    left: 260px;
 }
 
 .btn-s3 {
@@ -280,8 +280,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 530px;
-    left: -80px;
+    margin-top: 500px;
+    left: -60px;
     gap: 8px;
     position: relative;
     z-index: 1;
