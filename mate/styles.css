@@ -150,7 +150,7 @@ body {
     align-items: center;
     border-radius: 50%;
     padding: 12px 16px;
-    width: 110px;
+    width: 100px;
     cursor: pointer;
     background-color: transparent;
     font-family: 'Howdybun';
@@ -160,7 +160,7 @@ body {
 .juego-btn img {
     display: flex;
     position: relative;
-    width: 90px;
+    width: 80px;
     height: auto;
     border-radius: 12px;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
@@ -169,28 +169,28 @@ body {
 
 /* Ejemplo de posicionamiento individual, ajusta según tu fondo */
 .juego-btn:nth-child(1) {
-    top: 100px;
+    top: 70px;
     left: 250px;
 }
 
 .juego-btn:nth-child(2) {
-    top: 120px;
-    left: 70px;
+    top: 100px;
+    left: 75px;
 }
 
 .juego-btn:nth-child(3) {
-    top: 300px;
-    left: 250px;
+    top: 270px;
+    left: 230px;
 }
 
 .juego-btn:nth-child(4) {
     top: 400px;
-    left: 70px;
+    left: 80px;
 }
 
 .juego-btn:nth-child(5) {
-    top: 450px;
-    left: 220px;
+    top: 430px;
+    left: 250px;
 }
 
 .juego-label-img {
@@ -292,18 +292,7 @@ body {
     z-index: 1;
 }
 
-.cuadro-ejercicio {
-    width: 48px;
-    height: 48px;
-    border: 3px solid var(--color-verde, #62c34f);
-    border-radius: 12px;
-    background: #fff;
-    font-size: 2rem;
-    color: #222;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 /* Ejercicios RESTA */
 .ejercicios-resta1 {
@@ -470,4 +459,182 @@ body {
     background: #ffeaea;
     border-color: #e74c3c;
     color: #e74c3c;
+}
+
+.input-multi {
+    width: 60px;
+    height: 60px;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 14px;
+    border: 3px solid var(--color-verde, #62c34f);
+    background: #fff;
+    transition: opacity 0.2s, border 0.2s;
+    outline: none;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    opacity: 0.5;
+    margin: 0 1px;
+    font-family: var(--fuente-principal);
+    /* Elimina display:flex y gap, no corresponden a un input */
+}
+
+.input-multi:focus {
+    opacity: 1;
+    border-color: var(--color-azul, #289af3);
+}
+
+.input-multi:disabled {
+    opacity: 1;
+    background: var(--color-verde-claro, #b2e04c);
+    color: #fff;
+    border-color: var(--color-verde, #62c34f);
+    font-size: 2rem;
+}
+
+.input-multi::placeholder {
+    color: #888;
+    opacity: 0.5;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.multi1-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    margin-top: -250px;
+    width: 50%;
+    z-index: 5;
+}
+.cuadro-ejercicio {
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--color-verde, #62c34f);
+    border-radius: 14px;
+    background: #fff;
+    font-size: 2rem;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--fuente-principal);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    opacity: 1;
+}
+
+/* --- MULTIPLICACION EJERCICIO 2 --- */
+.multi2-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    gap: 10px;
+    margin-top: 100px;
+    z-index: 5;
+}
+
+.multi2-multiplicaciones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    width: 50%;
+    width: 200px;
+    margin-bottom: 40px;
+    justify-items: center;
+    justify-content: center;
+}
+
+.multi2-multi {
+    justify-content: center;
+    display: flex;
+    background: var(--color-blanco, #fff);
+    border: 3px solid var(--color-verde, #62c34f);
+    border-radius: 18px;
+    font-size: 1.2rem;
+    color: #222;
+    padding: 10px;
+    width: 50px;
+    text-align: center;
+    cursor: grab;
+    transition: background 0.2s, border 0.2s, transform 0.1s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-family: var(--fuente-principal);
+    opacity: 1;
+    z-index: 2;
+    user-select: none;
+}
+.multi2-multi.dragging {
+    opacity: 0.5;
+    background: #eee;
+}
+
+.multi2-opciones {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0px;
+    width: 80px;
+    justify-items: center;
+    justify-content: center;
+}
+
+.multi2-opcion-row {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    width: 70%;
+    justify-content: center;
+}
+
+.multi2-dropzone {
+    width: 75px;
+    height: 60px;
+    border: 2px dashed var(--color-azul, #289af3);
+    border-radius: 14px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border 0.2s, background 0.2s;
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.multi2-dropzone.drop-hover {
+    border: 2px solid var(--color-azul, #289af3);
+    background: #e0f7fa;
+}
+
+.multi2-dropzone.multi2-incorrecto {
+    border: 2px solid #e74c3c;
+    background: #ffeaea;
+}
+
+.multi2-multi.multi2-correcto {
+    background: var(--color-verde-claro, #b2e04c);
+    border-color: var(--color-verde, #62c34f);
+    color: #fff;
+    cursor: default;
+    scale: 0.8;
+    opacity: 0.8;
+}
+
+.multi2-resultado {
+    font-size: 1.5rem;
+    color: var(--color-morado, #5c2799);
+    background: var(--color-amarillo-claro, #feed6b);
+    border-radius: 14px;
+    padding: 12px;
+    width: 50px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-family: var(--fuente-principal);
 }
