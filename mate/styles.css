@@ -34,6 +34,7 @@ body {
 }
 
 #app {
+    top: 10px;
     width: 420px;
     height: 800px;
     position: relative;
@@ -99,11 +100,11 @@ body {
     display: block;
     margin: 0 auto 48px auto;
     border-radius: 18px;
-    box-shadow: 0 2px 8px rgba(44, 204, 64, 0.12);
+    box-shadow: 0 5px 10px rgb(0, 0, 0);
     transition: transform 0.15s, box-shadow 0.15s;
     position: absolute;
     left: 50%;
-    bottom: 60px;
+    bottom: 20px;
     transform: translateX(-50%);
     z-index: 2;
 }
@@ -173,8 +174,8 @@ body {
 }
 
 .juego-btn:nth-child(2) {
-    top: 150px;
-    left: 50px;
+    top: 120px;
+    left: 70px;
 }
 
 .juego-btn:nth-child(3) {
@@ -184,12 +185,12 @@ body {
 
 .juego-btn:nth-child(4) {
     top: 450px;
-    left: 100px;
+    left: 70px;
 }
 
 .juego-btn:nth-child(5) {
-    top: 630px;
-    left: 220px;
+    top: 530px;
+    left: 250px;
 }
 
 .juego-label-img {
