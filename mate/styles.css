@@ -264,6 +264,10 @@ html, body, #app {
     margin-top: 400px;
     z-index: 1;
 }
+.opciones-suma2{
+    margin-top: 250px ;
+}
+
 
 .btn-s {
     position: relative;
