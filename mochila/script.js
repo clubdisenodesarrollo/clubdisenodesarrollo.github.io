@@ -115,9 +115,12 @@ function renderLecture() {
         </div>
       </div>
       <div class="font-size-bar">
-        <button onclick="changeFontSize(-2)">-</button>
-        <input type="range" min="14" max="40" value="${fontSize}" oninput="setFontSize(this.value)">
-        <button onclick="changeFontSize(2)">+</button>
+        <button onclick="changeFontSize(-2, renderLecture)">-</button>
+        <input type="range" min="14" max="40" value="${fontSize}" oninput="setFontSize(this.value, renderLecture)">
+        <button onclick="changeFontSize(2, renderLecture)">+</button>
+      </div>
+      <div class="lecture-nav" style="margin-top:12px;">
+        <button class="main-btn" onclick="showAhoraVamosAJugar()">SIGUIENTE</button>
       </div>
     </div>
   `;
@@ -217,7 +220,7 @@ function changeFontSize(delta, renderFn) {
 function setFontSize(val, renderFn) {
   stopSpeech();
   fontSize = parseInt(val, 10);
-  if (typeof renderFn === "function") renderFn();
+  if (typeof renderFn === "function" ) renderFn();
 }
 
 // Pantalla INTRODUCCIÓN 2
@@ -245,7 +248,7 @@ function showIntro2() {
         <span id="audioIcon">${audioIcon} AUDIO</span>
       </div>
       <div class="lecture-content">
-        <div class="lecture-title">¿Cómo funciona?</div>
+        <div class="lecture-title">¡Hola! Antes de comenzar, te explicamos cómo usar esta aplicación:</div>
         <div class="lecture-text" id="lectureText"
           style="font-size: ${fontSize}px; line-height: ${lineHeight}; letter-spacing: ${letterSpacing}em;">
           ${introPages[page]}
@@ -287,16 +290,6 @@ function goToGradesFromIntro2() {
   window.intro2Page = 0;
   showGrades();
 }
-function changeFontSizeIntro2(delta) {
-  stopSpeech();
-  fontSize = Math.max(14, Math.min(40, fontSize + delta));
-  showIntro2();
-}
-function setFontSizeIntro2(val) {
-  stopSpeech();
-  fontSize = parseInt(val, 10);
-  showIntro2();
-}
 
 // Pantalla después de las materias: CONOCE LOS SIGNOS DE PUNTUACIÓN
 function showSignosPuntuacionIntro() {
@@ -309,6 +302,24 @@ function showSignosPuntuacionIntro() {
   let lineHeight = baseLineHeight + steps * 0.1;
   let letterSpacing = baseLetterSpacing + steps * 0.01;
 
+  // Datos de los signos
+  const signos = [
+    { img: "signo1.png", texto: "¡Hola! Soy la coma (,) y sirvo para ayudarte a respirar cuando lees. Me usan para hacer pausas pequeñas entre palabras o ideas." },
+    { img: "signo2.png", texto: "¡Hola! Yo soy el punto (.) y me gusta terminar las oraciones. Cuando ves un punto, significa que la idea ha terminado." },
+    { img: "signo3.png", texto: "¡Hola! Yo soy el signo de exclamación (!) y traigo emoción. Me usan cuando alguien grita, se alegra o se sorprende." },
+    { img: "signo4.png", texto: "¡Hola! Soy el signo de interrogación (?), y hago preguntas. Cuando alguien quiere saber algo, ahí estoy yo." }
+  ];
+
+  // Para el audio, concatenamos todos los textos
+  const textoLectura = signos.map(s => s.texto).join(' ');
+
+  let filasHtml = signos.map(s => `
+    <div class="signo-row">
+      <div class="signo-img"><img src="${s.img}" alt="" /></div>
+      <div class="signo-text">${s.texto}</div>
+    </div>
+  `).join('');
+
   document.getElementById('app').innerHTML = `
     <div class="container lecture-container">
       <button class="back-btn" onclick="showSubjects('${currentGrade.id}')">←</button>
@@ -316,16 +327,16 @@ function showSignosPuntuacionIntro() {
         <span id="audioIcon">${audioIcon} AUDIO</span>
       </div>
       <div class="lecture-content">
-        <div class="lecture-title">CONOCE LOS SIGNOS DE PUNTUACIÓN</div>
+        <div class="lecture-title">¡Conozcamos los signos de puntuación!</div>
         <div class="lecture-text" id="lectureText"
           style="font-size: ${fontSize}px; line-height: ${lineHeight}; letter-spacing: ${letterSpacing}em;">
-          Aquí puedes poner una breve descripción sobre los signos de puntuación.
+          ${filasHtml}
         </div>
       </div>
       <div class="font-size-bar">
-        <button onclick="changeFontSizeSignos(-2, showSignosPuntuacionIntro)">-</button>
-        <input type="range" min="14" max="40" value="${fontSize}" oninput="setFontSizeSignos(this.value, showSignosPuntuacionIntro)">
-        <button onclick="changeFontSizeSignos(2, showSignosPuntuacionIntro)">+</button>
+        <button onclick="changeFontSize(-2, showSignosPuntuacionIntro)">-</button>
+        <input type="range" min="14" max="40" value="${fontSize}" oninput="setFontSize(this.value, showSignosPuntuacionIntro)">
+        <button onclick="changeFontSize(2, showSignosPuntuacionIntro)">+</button>
       </div>
       <div class="lecture-nav" style="margin-top:12px;">
         <button class="main-btn" onclick="showPantalla6()">SIGUIENTE</button>
@@ -333,27 +344,15 @@ function showSignosPuntuacionIntro() {
     </div>
   `;
   document.getElementById('audioBtn').onclick = function() {
-    toggleAudioGeneric(() => document.getElementById('lectureText')?.innerText, showSignosPuntuacionIntro);
+    toggleAudioGeneric(() => textoLectura, showSignosPuntuacionIntro);
   };
-}
-function changeFontSizeSignos(delta) {
-  stopSpeech();
-  fontSize = Math.max(14, Math.min(40, fontSize + delta));
-  showSignosPuntuacionIntro();
-}
-function setFontSizeSignos(val) {
-  stopSpeech();
-  fontSize = parseInt(val, 10);
-  showSignosPuntuacionIntro();
 }
 
 // Pantalla GLOSARIO
 function showPantalla6() {
   stopSpeech();
-  const glosarioPages = data.pantalla6 || ["Texto de la pantalla 6 aquí."];
-  if (typeof window.pantalla6Page === "undefined") window.pantalla6Page = 0;
-  let page = window.pantalla6Page;
-  let totalPages = glosarioPages.length;
+  const gradoId = currentGrade?.id || "1";
+  const glosario = (data.glosario && data.glosario[gradoId]) ? data.glosario[gradoId] : [];
   let audioIcon = isSpeaking ? '⏸️' : '▶️';
   if (isPaused) audioIcon = '▶️';
   let baseLineHeight = 1.3;
@@ -361,6 +360,16 @@ function showPantalla6() {
   let steps = Math.floor((fontSize - 14) / 3);
   let lineHeight = baseLineHeight + steps * 0.1;
   let letterSpacing = baseLetterSpacing + steps * 0.01;
+
+  let filasHtml = glosario.map(item => `
+    <div class="glosario-row">
+      <span class="glosario-palabra"><b>${item.palabra}:</b></span>
+      <span class="glosario-definicion">${item.definicion}</span>
+    </div>
+  `).join('');
+
+  // Para el audio, concatena todas las definiciones
+  const textoLectura = glosario.map(item => `${item.palabra}: ${item.definicion}`).join('. ');
 
   document.getElementById('app').innerHTML = `
     <div class="container lecture-container">
@@ -372,12 +381,7 @@ function showPantalla6() {
         <div class="lecture-title">GLOSARIO</div>
         <div class="lecture-text" id="lectureText"
           style="font-size: ${fontSize}px; line-height: ${lineHeight}; letter-spacing: ${letterSpacing}em;">
-          ${glosarioPages[page]}
-        </div>
-        <div class="lecture-nav">
-          <button class="nav-btn" onclick="prevPantalla6Page()" ${page === 0 ? 'disabled' : ''}>⟵</button>
-          <span>${page + 1} / ${totalPages}</span>
-          <button class="nav-btn" onclick="nextPantalla6Page()" ${page === totalPages - 1 ? 'disabled' : ''}>⟶</button>
+          ${filasHtml}
         </div>
       </div>
       <div class="font-size-bar">
@@ -386,102 +390,30 @@ function showPantalla6() {
         <button onclick="changeFontSize(2, showPantalla6)">+</button>
       </div>
       <div class="lecture-nav" style="margin-top:12px;">
-        <button class="main-btn" onclick="showPantalla7()">SIGUIENTE</button>
+        <button class="main-btn" onclick="goToLectureFromGlosario()">SIGUIENTE</button>
       </div>
     </div>
   `;
   document.getElementById('audioBtn').onclick = function() {
-    toggleAudioGeneric(() => document.getElementById('lectureText')?.innerText, showPantalla6);
-  };
-}
-function nextPantalla6Page() {
-  stopSpeech();
-  window.pantalla6Page = Math.min(window.pantalla6Page + 1, (data.pantalla6?.length || 1) - 1);
-  showPantalla6();
-}
-function prevPantalla6Page() {
-  stopSpeech();
-  window.pantalla6Page = Math.max(window.pantalla6Page - 1, 0);
-  showPantalla6();
-}
-
-// Pantalla LA COMUNICACIÓN
-function showPantalla7() {
-  stopSpeech();
-  // Selecciona el grado, materia y lectura correctos por ID
-  currentGrade = data.grados.find(g => g.id === "1");
-  currentSubject = currentGrade.materias.find(m => m.id === "mat1");
-  currentLecture = currentSubject.lecturas.find(l => l.id === "lec1");
-  // Mantén currentPage para navegación entre páginas
-  let lecture = currentLecture;
-  let totalPages = lecture.paginas.length;
-  let pageText = lecture.paginas[currentPage];
-  let audioIcon = isSpeaking ? '⏸️' : '▶️';
-  if (isPaused) audioIcon = '▶️';
-
-  // Calcula estilos dinámicos
-  let baseLineHeight = 1.3;
-  let baseLetterSpacing = 0.02;
-  let steps = Math.floor((fontSize - 14) / 3);
-  let lineHeight = baseLineHeight + steps * 0.1;
-  let letterSpacing = baseLetterSpacing + steps * 0.01;
-
-  document.getElementById('app').innerHTML = `
-    <div class="container lecture-container">
-      <button class="back-btn" onclick="showPantalla6()">←</button>
-      <div class="lecture-audio" id="audioBtn" tabindex="0">
-        <span id="audioIcon">${audioIcon} AUDIO</span>
-      </div>
-      <div class="lecture-content">
-        <div class="lecture-title">${lecture.titulo}</div>
-        <div class="lecture-text" id="lectureText"
-          style="font-size: ${fontSize}px; line-height: ${lineHeight}; letter-spacing: ${letterSpacing}em;">
-          ${pageText}
-        </div>
-        <div class="lecture-nav">
-          <button class="nav-btn" onclick="prevPagePantalla7()" ${currentPage === 0 ? 'disabled' : ''}>⟵</button>
-          <span>${currentPage + 1} / ${totalPages}</span>
-          <button class="nav-btn" onclick="nextPagePantalla7()" ${currentPage === totalPages - 1 ? 'disabled' : ''}>⟶</button>
-        </div>
-      </div>
-      <div class="font-size-bar">
-        <button onclick="changeFontSize(-2, showPantalla7)">-</button>
-        <input type="range" min="14" max="40" value="${fontSize}" oninput="setFontSize(this.value, showPantalla7)">
-        <button onclick="changeFontSize(2, showPantalla7)">+</button>
-      </div>
-      <div class="lecture-nav">
-        <button class="main-btn" onclick="showAhoraVamosAJugar()">SIGUIENTE</button>
-      </div>
-    </div>
-  `;
-  document.getElementById('audioBtn').onclick = function() {
-    toggleAudioGeneric(() => document.getElementById('lectureText')?.innerText, showPantalla7);
+    toggleAudioGeneric(() => textoLectura, showPantalla6);
   };
 }
 
-// Navegación de páginas para pantalla 7
-function nextPagePantalla7() {
-  stopSpeech();
-  if (currentPage < currentLecture.paginas.length - 1) {
-    currentPage++;
-    showPantalla7();
+// Ir a la lectura correcta desde el glosario
+function goToLectureFromGlosario() {
+  // Si ya hay una lectura seleccionada, solo muéstrala
+  if (currentGrade && currentGrade.materias && currentGrade.materias.length > 0) {
+    currentSubject = currentGrade.materias[0];
+    if (currentSubject.lecturas && currentSubject.lecturas.length > 0) {
+      currentLecture = currentSubject.lecturas[0];
+      currentPage = 0;
+      renderLecture();
+      return;
+    }
   }
+  // Si no hay nada, muestra un mensaje de error o vuelve al home
+  showHome();
 }
-function prevPagePantalla7() {
-  stopSpeech();
-  if (currentPage > 0) {
-    currentPage--;
-    showPantalla7();
-  }
-}
-
-// Elimina las funciones duplicadas de cambio de fuente para pantalla 7
-delete window.changeFontSizePantalla7;
-delete window.setFontSizePantalla7;
-
-// Haz globales las nuevas funciones de navegación
-window.nextPagePantalla7 = nextPagePantalla7;
-window.prevPagePantalla7 = prevPagePantalla7;
 
 // Pantalla AHORA VAMOS A JUGAR
 function showAhoraVamosAJugar() {
@@ -496,7 +428,7 @@ function showAhoraVamosAJugar() {
 
   document.getElementById('app').innerHTML = `
     <div class="container lecture-container">
-      <button class="back-btn" onclick="showPantalla7()">←</button>
+      <button class="back-btn" onclick="renderLecture()">←</button>
       <div class="lecture-audio" id="audioBtn" tabindex="0">
         <span id="audioIcon">${audioIcon} AUDIO</span>
       </div>
@@ -508,9 +440,9 @@ function showAhoraVamosAJugar() {
         </div>
       </div>
       <div class="font-size-bar">
-        <button onclick="changeFontSizeAhoraJugar(-2)">-</button>
-        <input type="range" min="14" max="40" value="${fontSize}" oninput="setFontSizeAhoraJugar(this.value)">
-        <button onclick="changeFontSizeAhoraJugar(2)">+</button>
+        <button onclick="changeFontSize(-2, showAhoraVamosAJugar)">-</button>
+        <input type="range" min="14" max="40" value="${fontSize}" oninput="setFontSize(this.value, showAhoraVamosAJugar)">
+        <button onclick="changeFontSize(2, showAhoraVamosAJugar)">+</button>
       </div>
       <div class="lecture-nav" style="margin-top:12px;">
         <button class="main-btn" onclick="showGame()">SIGUIENTE</button>
@@ -520,16 +452,6 @@ function showAhoraVamosAJugar() {
   document.getElementById('audioBtn').onclick = function() {
     toggleAudioGeneric(() => document.getElementById('lectureText')?.innerText, showAhoraVamosAJugar);
   };
-}
-function changeFontSizeAhoraJugar(delta) {
-  stopSpeech();
-  fontSize = Math.max(14, Math.min(40, fontSize + delta));
-  showAhoraVamosAJugar();
-}
-function setFontSizeAhoraJugar(val) {
-  stopSpeech();
-  fontSize = parseInt(val, 10);
-  showAhoraVamosAJugar();
 }
 
 // Pantalla de JUEGO
@@ -576,7 +498,7 @@ function showGame() {
     <div class="container game-container">
       <button class="back-btn" onclick="showAhoraVamosAJugar()">←</button>
       <div class="lecture-content">
-        <div class="lecture-title">Juegos de 5° grado</div>
+        <div class="lecture-title">Juegos de ${currentGrade?.nombre || ''}</div>
         <div class="lecture-text" style="margin-bottom:16px;">
           ${juegosHtml}
         </div>
@@ -632,8 +554,22 @@ function validarJuegosMulti(juegos, updateBtn = true) {
   return allCorrect;
 }
 
-window.onJuegoInputMulti = onJuegoInputMulti;
-window.showGame = showGame;
+// Pantalla de FELICITACIONES
+function showCongrats() {
+  stopSpeech();
+  document.getElementById('app').innerHTML = `
+    <div class="container lecture-container">
+      <div class="lecture-content" style="align-items:center;justify-content:center;">
+        <div class="lecture-title">¡Felicidades!</div>
+        <div class="lecture-text" style="margin-bottom:32px;">
+          Has completado el juego y la lectura.<br><br>
+          ¡Sigue aprendiendo!
+        </div>
+        <button class="main-btn" onclick="showHome()">VOLVER AL INICIO</button>
+      </div>
+    </div>
+  `;
+}
 
 // Inicializar
 window.onload = loadData;
@@ -651,19 +587,10 @@ window.showIntro2 = showIntro2;
 window.nextIntro2Page = nextIntro2Page;
 window.prevIntro2Page = prevIntro2Page;
 window.goToGradesFromIntro2 = goToGradesFromIntro2;
-window.changeFontSizeIntro2 = changeFontSizeIntro2;
-window.setFontSizeIntro2 = setFontSizeIntro2;
 window.showSignosPuntuacionIntro = showSignosPuntuacionIntro;
-window.changeFontSizeSignos = changeFontSizeSignos;
-window.setFontSizeSignos = setFontSizeSignos;
 window.showPantalla6 = showPantalla6;
-window.changeFontSizePantalla6 = changeFontSizePantalla6;
-window.setFontSizePantalla6 = setFontSizePantalla6;
-window.showPantalla7 = showPantalla7;
+window.showPantalla7 = renderLecture;
 window.showAhoraVamosAJugar = showAhoraVamosAJugar;
-window.changeFontSizeAhoraJugar = changeFontSizeAhoraJugar;
-window.setFontSizeAhoraJugar = setFontSizeAhoraJugar;
 window.showGame = showGame;
 window.showCongrats = showCongrats;
-window.nextPantalla6Page = nextPantalla6Page;
-window.prevPantalla6Page = prevPantalla6Page;
+window.goToLectureFromGlosario = goToLectureFromGlosario;
