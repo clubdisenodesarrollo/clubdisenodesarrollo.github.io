@@ -444,7 +444,7 @@ html, body, #app {
 .resta2-opciones {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 45px 0px;
+    gap: 35px 0px;
     justify-items: center;
     align-items: center;
     margin: 0;
