@@ -267,7 +267,7 @@ html, body, #app {
 
 .btn-s {
     position: relative;
-    width: 110px;
+    width: 100px;
     height: auto;
     cursor: pointer;
     border-radius: 12px;
@@ -279,18 +279,18 @@ html, body, #app {
 }
 
 .btn-s1 {
-    top: -250px;
-    left: 80px;
+    top: -240px;
+    left: 85px;
 }
 
 .btn-s2 {
     top: -300px;
-    left: 260px;
+    left: 225px;
 }
 
 .btn-s3 {
     top: -240px;
-    left: 250px;
+    left: 210px;
 }
 
 .btn-s:active {
@@ -307,9 +307,9 @@ html, body, #app {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 500px;
-    left: -60px;
-    gap: 8px;
+    margin-top: 400px;
+    left: -75px;
+    gap: 5px;
     position: relative;
     z-index: 1;
 }
@@ -534,8 +534,8 @@ html, body, #app {
     z-index: 5;
 }
 .cuadro-ejercicio {
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 50px;
     border: 3px solid var(--color-verde, #62c34f);
     border-radius: 14px;
     background: #fff;
