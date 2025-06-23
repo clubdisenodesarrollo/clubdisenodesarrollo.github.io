@@ -275,6 +275,7 @@ function showEjercicioResta2() {
   const botones = app.querySelectorAll('.resta2-opcion');
   botones.forEach(btn => {
     btn.onclick = function() {
+      if (btn.disabled) return; // <-- Evita doble conteo
       if (btn.dataset.correcto === "true") {
         btn.classList.add('opcion-correcta');
         btn.disabled = true;
