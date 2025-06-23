@@ -34,8 +34,8 @@ body {
 }
 
 #app {
-    width: 430px;
-    height: 850px;
+    width: 420px;
+    height: 800px;
     position: relative;
     overflow: auto;
     background: transparent;
@@ -44,7 +44,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     border-radius: 24px;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
 
 }
 
@@ -55,7 +55,7 @@ body {
 .ejercicio-bg {
     position: relative;
     width: 430px;
-    height: 100vh;
+    height: 90vh;
     border-radius: 24px;
     display: flex;
     /* flex-direction: column;*/
@@ -68,7 +68,7 @@ body {
     padding: 0;
 }
 
-.juegos-bg{
+.juegos-bg {
     background-color: white;
 }
 
@@ -218,8 +218,8 @@ body {
 }
 
 .btn-nivel2 {
-    top: 650px;
-    left: 90px;
+    top: 560px;
+    left: 70px;
 }
 
 /* Ejercicios SUMA */
@@ -243,24 +243,26 @@ body {
     height: auto;
     cursor: pointer;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
     transition: transform 0.1s;
     background: transparent;
     z-index: 2;
     margin: 0 8px;
 }
 
-.btn-s1{
-    top: -50px;
+.btn-s1 {
+    top: -250px;
     left: 100px;
 }
-.btn-s2{
-    top: -50px;
-    left: 310px;
+
+.btn-s2 {
+    top: -300px;
+    left: 290px;
 }
-.btn-s3{
-    top: -10px;
-    left: 300px;
+
+.btn-s3 {
+    top: -240px;
+    left: 250px;
 }
 
 .btn-s:active {
@@ -388,4 +390,3 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-
