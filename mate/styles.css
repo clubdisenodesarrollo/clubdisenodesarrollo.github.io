@@ -579,13 +579,14 @@ html, body, #app {
 
 .multi2-multi {
     justify-content: center;
+    align-items: center;
     display: flex;
     background: var(--color-blanco, #fff);
     border: 3px solid var(--color-verde, #62c34f);
     border-radius: 18px;
     font-size: 1.2rem;
     color: #222;
-    padding: 5px;
+    padding: 5px 10px;
     width: 50px;
     text-align: center;
     cursor: grab;
