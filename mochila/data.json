@@ -74,35 +74,13 @@
     }
   ],
   "intro2": [
-    "Bienvenido a la aplicación. Aquí aprenderás de forma divertida.",
-    "Puedes ajustar el tamaño de la letra y escuchar el texto con el botón de audio."
+    "Escucha con atención: Cada texto tiene un botón de audio. Solo debes tocarlo y podrás escuchar la lectura.",
+    "Ajusta el tamaño de letra: Si necesitas que las letras sean más grandes o más pequeñas, puedes usar la barra que está debajo del texto. Deslízala para elegir el tamaño que más te ayude a leer mejor.",
+    "Aprende jugando: Después de cada lectura habrá actividades divertidas para pensar, jugar y aprender.",
+    "Escoge tu grado y materia: Solo tienes que tocar tu grado y luego la materia que deseas explorar. ¡Todo está organizado para que sea fácil!", "Recuerda: puedes pedir ayuda si lo necesitas y repetir el audio cuantas veces quieras."
   ],
-  "pantalla5": [
-    {
-      "img": "signo1.png",
-      "bold": "Punto:",
-      "texto": "Se usa para finalizar oraciones."
-    },
-    {
-      "img": "signo2.png",
-      "bold": "Coma:",
-      "texto": "Separa elementos en una lista."
-    },
-    {
-      "img": "signo3.png",
-      "bold": "Signo de interrogación:",
-      "texto": "Se usa para preguntas."
-    },
-    {
-      "img": "signo4.png",
-      "bold": "Signo de exclamación:",
-      "texto": "Se usa para expresar emociones."
-    }
-  ],
-  "pantalla6": [
-    "Glosario: Conjunto de palabras y definiciones importantes.",
-    "Ejemplo: Comunicación - Proceso de transmitir información."
-  ],
+  
+  
   "pantalla8": {
     "titulo": "Más sobre comunicación",
     "texto": "Existen diferentes formas de comunicación: verbal, no verbal, escrita y visual."
@@ -123,6 +101,138 @@
         "palabra": "Receptor",
         "plantilla": "R _ _ e _ t _ r",
         "pista": "Persona que recibe el mensaje"
+      }
+    ]
+  },
+  "glosario": {
+    "1": [
+      {
+        "palabra": "Interacción",
+        "definicion": "Acción que ocurre cuando dos o más personas se comunican o influyen entre sí."
+      },
+      {
+        "palabra": "Transmite",
+        "definicion": "Enviar o comunicar una información de un lugar o persona a otra."
+      },
+      {
+        "palabra": "Emisor",
+        "definicion": "Persona que envía un mensaje en un proceso de comunicación."
+      },
+      {
+        "palabra": "Receptor",
+        "definicion": "Persona que recibe el mensaje enviado por el emisor."
+      },
+      {
+        "palabra": "Expresan",
+        "definicion": "Comunicar o mostrar pensamientos, sentimientos o ideas."
+      },
+      {
+        "palabra": "Diversas",
+        "definicion": "Que son diferentes entre sí; variadas."
+      },
+      {
+        "palabra": "Propósito",
+        "definicion": "Intención o meta que se quiere alcanzar."
+      },
+      {
+        "palabra": "Determinado",
+        "definicion": "Que ha sido definido o establecido con claridad."
+      },
+      {
+        "palabra": "Intención comunicativa",
+        "definicion": "Razón o meta por la que una persona comunica algo."
+      },
+      {
+        "palabra": "Medio",
+        "definicion": "Canal o forma que se utiliza para hacer llegar un mensaje, como la voz, la escritura o un video."
+      }
+    ],
+    "2": [
+      {
+        "palabra": "Identidad",
+        "definicion": "Conjunto de características que hacen única a una persona o grupo."
+      },
+      {
+        "palabra": "Entorno",
+        "definicion": "Lugar o ambiente en el que vivimos."
+      },
+      {
+        "palabra": "Lengua franca",
+        "definicion": "Idioma usado para que personas de diferentes países puedan entenderse."
+      },
+      {
+        "palabra": "Perjudica",
+        "definicion": "Causa daño o afecta negativamente."
+      },
+      {
+        "palabra": "Representar",
+        "definicion": "Mostrar o expresar algo de cierta forma."
+      },
+      {
+        "palabra": "Artificial",
+        "definicion": "Que no es natural; que fue creado por personas."
+      },
+      {
+        "palabra": "Conocimiento",
+        "definicion": "Lo que las personas saben o aprenden."
+      },
+      {
+        "palabra": "Universal",
+        "definicion": "Que sirve o aplica para todos."
+      },
+      {
+        "palabra": "Conflictos",
+        "definicion": "Problemas o peleas entre personas o grupos."
+      },
+      {
+        "palabra": "Idioma",
+        "definicion": "Sistema de comunicación usado por un país o grupo."
+      }
+    ],
+    "3": [
+      {
+        "palabra": "Mediación",
+        "definicion": "Ayuda o intervención para que algo se logre."
+      },
+      {
+        "palabra": "Intencionada",
+        "definicion": "Que se hace con un propósito o plan."
+      },
+      {
+        "palabra": "Decodificar",
+        "definicion": "Entender lo que está escrito, leerlo y comprenderlo."
+      },
+      {
+        "palabra": "Incomodar",
+        "definicion": "Molestar o causar molestias a otros."
+      },
+      {
+        "palabra": "Espontánea",
+        "definicion": "Que ocurre sin planear, de manera natural."
+      },
+      {
+        "palabra": "Receptor",
+        "definicion": "Persona que recibe un mensaje."
+      },
+      {
+        "palabra": "Peculiaridad",
+        "definicion": "Característica especial o diferente."
+      },
+      {
+        "palabra": "Redacción",
+        "definicion": "Texto que se escribe sobre un tema."
+      },
+      {
+        "palabra": "Planificar",
+        "definicion": "Pensar y organizar antes de hacer algo."
+      },
+      {
+        "palabra": "Revisar",
+        "definicion": "Leer algo con atención para encontrar errores."
+      },
+      {
+        "palabra": "Corregir",
+        "definicion": "Cambiar lo que está mal para que esté bien."
       }
     ]
   }
