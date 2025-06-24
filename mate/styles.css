@@ -680,7 +680,7 @@ body,
     margin-top: 70px;
     width: 100%;
 
-    z-index: 5;
+    z-index: 20;
 }
 
 .division1-img-row {
@@ -881,4 +881,99 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.fraccion1-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    margin-top: 80px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.fraccion1-fila1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    gap: 32px;
+    width: 100%;
+}
+
+.fraccion1-fila2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.fraccion1-frac-imgs {
+    display: flex;
+    gap: 50px;
+}
+
+.fraccion1-frac-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 5px 0;
+    width: 60px;
+    
+}
+
+
+
+
+.fraccion1-input {
+    width: 48px;
+    height: 48px;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    border: 3px solid var(--color-verde, #62c34f);
+    background: #fff;
+    transition: opacity 0.2s, border 0.2s;
+    outline: none;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    opacity: 0.5;
+    font-family: var(--fuente-principal);
+}
+.fraccion1-input:focus {
+    opacity: 1;
+    border-color: var(--color-azul, #289af3);
+}
+.fraccion1-input:disabled,
+.fraccion1-correcto {
+    opacity: 1;
+    background: var(--color-verde-claro, #b2e04c);
+    color: #fff;
+    border-color: var(--color-verde, #62c34f);
+}
+.fraccion1-input::placeholder {
+    color: #888;
+    opacity: 0.5;
+    font-size: 2rem;
+}
+
+.fraccion1-denominador {
+    font-size: 1.6rem;
+    color: #222;
+    font-family: var(--fuente-principal);
+    margin-top: -4px;
+}
+
+/* Mueve el primer contenedor de la fila 1 hacia la izquierda */
+.fraccion1-fila1 .fraccion1-frac-col:first-child {
+    margin-left: -180px; /* Ajusta el valor según lo que necesites */
+}
+
+/* Mueve los contenedores de la fila 2 (las fracciones) hacia la derecha */
+.fraccion1-fila2 .fraccion1-frac-imgs {
+    margin-top: 120px;
+    margin-left: 40px; /* Ajusta el valor según lo que necesites */
 }
