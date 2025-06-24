@@ -752,14 +752,14 @@ body,
 /* NUEVO CÓDIGO EJERCICIO 2 DIVISIÓN */
 .division2-ej2-layout {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Cambia de column a row */
     align-items: center;
+    justify-content: center;
     gap: 36px;
-    margin-top: 10px;
+    margin-top: 120px; /* Ajusta según tu diseño */
     width: 100%;
     position: relative;
     z-index: 10;
-    position: absolute;
 }
 
 .division2-ej2-fila1 {
@@ -976,4 +976,66 @@ input[type="number"]::-webkit-outer-spin-button {
 .fraccion1-fila2 .fraccion1-frac-imgs {
     margin-top: 120px;
     margin-left: 40px; /* Ajusta el valor según lo que necesites */
+}
+
+.division2-ej2-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    margin-top: -300px;
+}
+
+.division2-ej2-num {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border: 3px solid var(--color-verde, #62c34f);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-family: var(--fuente-principal);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin: 0 4px;
+}
+
+.division2-ej2-simbolo {
+    font-size: 2.2rem;
+    color: var(--color-morado, #5c2799);
+    font-weight: bold;
+    margin: 0 4px;
+}
+
+.division2-ej2-input {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 14px;
+    border: 3px solid var(--color-verde, #62c34f);
+    background: #fff;
+    transition: opacity 0.2s, border 0.2s;
+    outline: none;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    opacity: 0.5;
+    font-family: var(--fuente-principal);
+}
+.division2-ej2-input:focus {
+    opacity: 1;
+    border-color: var(--color-azul, #289af3);
+}
+.division2-ej2-input:disabled,
+.division2-ej2-correcto {
+    opacity: 1;
+    background: var(--color-verde-claro, #b2e04c);
+    color: #fff;
+    border-color: var(--color-verde, #62c34f);
+}
+.division2-ej2-input::placeholder {
+    color: #888;
+    opacity: 0.5;
+    font-size: 2rem;
 }
