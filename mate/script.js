@@ -409,6 +409,56 @@ function showEjercicioMulti2() {
     drag.addEventListener('dragend', () => {
       drag.classList.remove('dragging');
     });
+
+    // Soporte táctil
+    drag.addEventListener('touchstart', function(e) {
+      drag.classList.add('dragging');
+      drag.dataset.touching = 'true';
+    });
+
+    drag.addEventListener('touchmove', function(e) {
+      if (!drag.dataset.touching) return;
+      const touch = e.touches[0];
+      drag.style.position = 'fixed';
+      drag.style.left = (touch.clientX - drag.offsetWidth / 2) + 'px';
+      drag.style.top = (touch.clientY - drag.offsetHeight / 2) + 'px';
+
+      // Detecta dropzones bajo el dedo
+      dropzones.forEach(drop => {
+        const rect = drop.getBoundingClientRect();
+        if (
+          touch.clientX > rect.left && touch.clientX < rect.right &&
+          touch.clientY > rect.top && touch.clientY < rect.bottom
+        ) {
+          drop.classList.add('drop-hover');
+        } else {
+          drop.classList.remove('drop-hover');
+        }
+      });
+    });
+
+    drag.addEventListener('touchend', function(e) {
+      drag.style.position = '';
+      drag.style.left = '';
+      drag.style.top = '';
+      drag.classList.remove('dragging');
+      drag.dataset.touching = '';
+
+      const touch = e.changedTouches[0];
+      let dropped = false;
+      dropzones.forEach(drop => {
+        const rect = drop.getBoundingClientRect();
+        drop.classList.remove('drop-hover');
+        if (
+          touch.clientX > rect.left && touch.clientX < rect.right &&
+          touch.clientY > rect.top && touch.clientY < rect.bottom
+        ) {
+          drop.appendChild(drag);
+          dropped = true;
+        }
+      });
+      // Opcional: regresa la imagen a su lugar original si no se soltó en un dropzone
+    });
   });
 
   dropzones.forEach(drop => {
@@ -487,6 +537,56 @@ function showEjercicioDivision1() {
     });
     drag.addEventListener('dragend', () => {
       drag.classList.remove('dragging');
+    });
+
+    // Soporte táctil
+    drag.addEventListener('touchstart', function(e) {
+      drag.classList.add('dragging');
+      drag.dataset.touching = 'true';
+    });
+
+    drag.addEventListener('touchmove', function(e) {
+      if (!drag.dataset.touching) return;
+      const touch = e.touches[0];
+      drag.style.position = 'fixed';
+      drag.style.left = (touch.clientX - drag.offsetWidth / 2) + 'px';
+      drag.style.top = (touch.clientY - drag.offsetHeight / 2) + 'px';
+
+      // Detecta dropzones bajo el dedo
+      dropzones.forEach(drop => {
+        const rect = drop.getBoundingClientRect();
+        if (
+          touch.clientX > rect.left && touch.clientX < rect.right &&
+          touch.clientY > rect.top && touch.clientY < rect.bottom
+        ) {
+          drop.classList.add('drop-hover');
+        } else {
+          drop.classList.remove('drop-hover');
+        }
+      });
+    });
+
+    drag.addEventListener('touchend', function(e) {
+      drag.style.position = '';
+      drag.style.left = '';
+      drag.style.top = '';
+      drag.classList.remove('dragging');
+      drag.dataset.touching = '';
+
+      const touch = e.changedTouches[0];
+      let dropped = false;
+      dropzones.forEach(drop => {
+        const rect = drop.getBoundingClientRect();
+        drop.classList.remove('drop-hover');
+        if (
+          touch.clientX > rect.left && touch.clientX < rect.right &&
+          touch.clientY > rect.top && touch.clientY < rect.bottom
+        ) {
+          drop.appendChild(drag);
+          dropped = true;
+        }
+      });
+      // Opcional: regresa la imagen a su lugar original si no se soltó en un dropzone
     });
   });
 
@@ -721,6 +821,58 @@ function showEjercicioFraccion2() {
     });
     drag.addEventListener('dragend', () => {
       drag.classList.remove('dragging');
+    });
+
+    // Soporte táctil
+    drag.addEventListener('touchstart', function(e) {
+      drag.classList.add('dragging');
+      drag.dataset.touching = 'true';
+    });
+
+    drag.addEventListener('touchmove', function(e) {
+      if (!drag.dataset.touching) return;
+      const touch = e.touches[0];
+      drag.style.position = 'fixed';
+      drag.style.left = (touch.clientX - drag.offsetWidth / 2) + 'px';
+      drag.style.top = (touch.clientY - drag.offsetHeight / 2) + 'px';
+
+      // Detecta dropzones bajo el dedo
+      dropzonesEls.forEach(drop => {
+        const rect = drop.getBoundingClientRect();
+        if (
+          touch.clientX > rect.left && touch.clientX < rect.right &&
+          touch.clientY > rect.top && touch.clientY < rect.bottom
+        ) {
+          drop.classList.add('drop-hover');
+        } else {
+          drop.classList.remove('drop-hover');
+        }
+      });
+    });
+
+    drag.addEventListener('touchend', function(e) {
+      drag.style.position = '';
+      drag.style.left = '';
+      drag.style.top = '';
+      drag.classList.remove('dragging');
+      drag.dataset.touching = '';
+
+      const touch = e.changedTouches[0];
+      let dropped = false;
+      dropzonesEls.forEach(drop => {
+        const rect = drop.getBoundingClientRect();
+        drop.classList.remove('drop-hover');
+        if (
+          touch.clientX > rect.left && touch.clientX < rect.right &&
+          touch.clientY > rect.top && touch.clientY < rect.bottom
+        ) {
+          drop.appendChild(drag);
+          dropped = true;
+        }
+      });
+      if (!dropped) {
+        // Opcional: regresa la imagen a su lugar original si no se soltó en un dropzone
+      }
     });
   });
 
