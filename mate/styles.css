@@ -674,7 +674,7 @@ body,
 /* NUEVO CÓDIGO PARA DIVISIÓN */
 .division1-layout {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     gap: 20px;
     margin-top: 70px;
