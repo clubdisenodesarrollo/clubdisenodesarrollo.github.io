@@ -279,7 +279,7 @@ function showEjercicioResta2() {
   let aciertos = 0;
   const botones = app.querySelectorAll('.resta2-opcion');
   botones.forEach(btn => {
-    btn.onclick = function() {
+    btn.onclick = function () {
       if (btn.disabled) return; // <-- Evita doble conteo
       if (btn.dataset.correcto === "true") {
         btn.classList.add('opcion-correcta');
@@ -500,23 +500,19 @@ function showEjercicioMulti2() {
   app.querySelector('.container').appendChild(crearVolver(() => showNiveles('multiplicacion')));
 }
 
-// --- Ejercicios personalizados DIVISION ---
 function showEjercicioDivision1() {
   const app = document.getElementById('app');
-  // 6 imágenes aleatorias (puedes cambiar los nombres de las imágenes según tus archivos)
-  const imagenes = [
-    'div-img1.png', 'div-img2.png', 'div-img3.png',
-    'div-img4.png', 'div-img5.png', 'div-img6.png'
-  ].sort(() => Math.random() - 0.5);
-
   app.innerHTML = `
     <div class="container ejercicio-bg">
       <img src="f-4-1.png" alt="Fondo ejercicio división 1" class="background-img">
       <div class="division1-layout">
-        <div class="division1-img-row">
-          ${imagenes.map((img, idx) => `
-            <img src="${img}" class="division1-img" id="div-img-${idx}" draggable="true">
-          `).join('')}
+        <div class="division1-img-grid">
+          <img src="div-img1.png" class="division1-img" id="drag-1" draggable="true">
+          <img src="div-img2.png" class="division1-img" id="drag-2" draggable="true">
+          <img src="div-img3.png" class="division1-img" id="drag-3" draggable="true">
+          <img src="div-img4.png" class="division1-img" id="drag-4" draggable="true">
+          <img src="div-img5.png" class="division1-img" id="drag-5" draggable="true">
+          <img src="div-img6.png" class="division1-img" id="drag-6" draggable="true">
         </div>
         <div class="division1-drop-row">
           <div class="division1-dropzone" id="drop-izq"></div>
@@ -526,9 +522,18 @@ function showEjercicioDivision1() {
     </div>
   `;
 
-  // Drag & Drop logic
   const draggables = app.querySelectorAll('.division1-img');
-  const dropzones = app.querySelectorAll('.division1-dropzone');
+  const dropzones = [document.getElementById('drop-izq'), document.getElementById('drop-der')];
+
+  function checkCompletado() {
+    const izq = document.getElementById('drop-izq').children.length;
+    const der = document.getElementById('drop-der').children.length;
+    if (izq === 3 && der === 3) {
+      setTimeout(() => {
+        mostrarModal('¡Correcto! Has completado el ejercicio de división.', showEjercicioDivision2);
+      }, 400);
+    }
+  }
 
   draggables.forEach(drag => {
     drag.addEventListener('dragstart', e => {
@@ -540,12 +545,12 @@ function showEjercicioDivision1() {
     });
 
     // Soporte táctil
-    drag.addEventListener('touchstart', function(e) {
+    drag.addEventListener('touchstart', function (e) {
       drag.classList.add('dragging');
       drag.dataset.touching = 'true';
     });
 
-    drag.addEventListener('touchmove', function(e) {
+    drag.addEventListener('touchmove', function (e) {
       if (!drag.dataset.touching) return;
       const touch = e.touches[0];
       drag.style.position = 'fixed';
@@ -566,7 +571,7 @@ function showEjercicioDivision1() {
       });
     });
 
-    drag.addEventListener('touchend', function(e) {
+    drag.addEventListener('touchend', function (e) {
       drag.style.position = '';
       drag.style.left = '';
       drag.style.top = '';
@@ -582,11 +587,15 @@ function showEjercicioDivision1() {
           touch.clientX > rect.left && touch.clientX < rect.right &&
           touch.clientY > rect.top && touch.clientY < rect.bottom
         ) {
-          drop.appendChild(drag);
-          dropped = true;
+          if (drop.children.length < 3) {
+            drop.appendChild(drag);
+            dropped = true;
+          }
         }
       });
-      // Opcional: regresa la imagen a su lugar original si no se soltó en un dropzone
+      if (dropped) {
+        checkCompletado();
+      }
     });
   });
 
@@ -604,20 +613,9 @@ function showEjercicioDivision1() {
       const dragId = e.dataTransfer.getData('text/plain');
       const dragElem = document.getElementById(dragId);
       if (!dragElem) return;
-      // Evita duplicados
-      if (drop.contains(dragElem)) return;
-      // Quita la imagen de su padre anterior
-      if (dragElem.parentNode) dragElem.parentNode.removeChild(dragElem);
+      if (drop.childNodes.length >= 3) return;
       drop.appendChild(dragElem);
-
-      // Validación: ¿3 en cada zona?
-      const izq = document.getElementById('drop-izq').children.length;
-      const der = document.getElementById('drop-der').children.length;
-      if (izq === 3 && der === 3) {
-        setTimeout(() => {
-          mostrarModal('¡Correcto! Has repartido las imágenes en partes iguales.', showEjercicioDivision2);
-        }, 400);
-      }
+      checkCompletado();
     });
   });
 
@@ -626,11 +624,10 @@ function showEjercicioDivision1() {
 
 function showEjercicioDivision2() {
   const app = document.getElementById('app');
-  // Genera un solo ejercicio: X / 2 = ?
   const resultado = Math.floor(Math.random() * 10) + 1; // 1 a 10
   const dividendo = resultado * 2; // Siempre par, 2 a 20
 
-  app.innerHTML = `
+ app.innerHTML = `
     <div class="container ejercicio-bg">
       <img src="f-4-2.png" alt="Fondo ejercicio división 2" class="background-img">
       <div class="division2-ej2-layout division2-ej2-row-unique">
@@ -652,7 +649,6 @@ function showEjercicioDivision2() {
     </div>
   `;
 
-  // Lógica de validación
   const input = document.getElementById('division2-input');
   input.addEventListener('input', () => {
     if (parseInt(input.value, 10) === resultado) {
@@ -771,46 +767,66 @@ function showEjercicioFraccion1() {
 
   app.querySelector('.container').appendChild(crearVolver(() => showNiveles('fraccion')));
 }
+function seleccionarOpcionFraccion1(valor, esCorrecta, btn) {
+  document.getElementById('respuesta-fraccion1-numerador').value = valor;
+  if (esCorrecta) {
+    setTimeout(() => {
+      mostrarModal('¡Correcto!', showEjercicioFraccion2);
+    }, 400);
+  } else {
+    btn.classList.add('opcion-incorrecta');
+    setTimeout(() => {
+      btn.classList.remove('opcion-incorrecta');
+      document.getElementById('respuesta-fraccion1-numerador').value = '';
+    }, 700);
+  }
+}
 
 function showEjercicioFraccion2() {
   const app = document.getElementById('app');
+  app.innerHTML = `
+    <div class="container ejercicio-bg">
+      <img src="f-5-2.png" alt="Fondo ejercicio fracción 2" class="background-img">
+      <div class="fraccion2-ej2-layout">
+        <div class="fraccion2-ej2-fila2">
+          <div class="fraccion2-ej2-dropzone" id="drop-1"></div>
+          <div class="fraccion2-ej2-dropzone" id="drop-2"></div>
+          <div class="fraccion2-ej2-dropzone" id="drop-3"></div>
+        </div>
+        <div class="fraccion2-ej2-fila3">
+          <img src="com_1.png" class="fraccion2-ej2-drag" id="drag-1" draggable="true">
+          <img src="com_2.png" class="fraccion2-ej2-drag" id="drag-2" draggable="true">
+          <img src="com_3.png" class="fraccion2-ej2-drag" id="drag-3" draggable="true">
+        </div>
+      </div>
+    </div>
+  `;
 
-  // Fila 3: Imágenes para arrastrar
-  const dragImgs = [
-    { src: 'com_3.png', id: 'drag-1' }, // debe ir a cont1
-    { src: 'com_1.png', id: 'drag-2' }, // debe ir a cont2
-    { src: 'com_2.png', id: 'drag-3' }  // debe ir a cont3
-  ];
-
-  // Fila 2: Dropzones vacíos
+  // Relación correcta: drop-1 -> drag-1, drop-2 -> drag-2, drop-3 -> drag-3
   const dropzones = [
     { id: 'drop-1', correcto: 'drag-1' },
     { id: 'drop-2', correcto: 'drag-2' },
     { id: 'drop-3', correcto: 'drag-3' }
   ];
 
-  app.innerHTML = `
-    <div class="container ejercicio-bg">
-      <img src="f-5-2.png" alt="Fondo ejercicio fracción 2" class="background-img">
-      <div class="fraccion2-ej2-layout">
-        <!-- Fila 2: Dropzones -->
-        <div class="fraccion2-ej2-fila2">
-          ${dropzones.map(dz => `
-            <div class="fraccion2-ej2-dropzone" id="${dz.id}"></div>
-          `).join('')}
-        </div>
-        <!-- Fila 3: Draggables -->
-        <div class="fraccion2-ej2-fila3">
-          ${dragImgs.map(img => `
-            <img src="${img.src}" id="${img.id}" class="fraccion2-ej2-drag" draggable="true" alt="">
-          `).join('')}
-        </div>
-      </div>
-    </div>
-  `;
+  function checkFraccion2Completado() {
+    let completos = 0;
+    dropzones.forEach(dz => {
+      const dropElem = document.getElementById(dz.id);
+      if (
+        dropElem.children.length === 1 &&
+        dropElem.firstElementChild.id === dz.correcto
+      ) {
+        completos++;
+      }
+    });
+    if (completos === dropzones.length) {
+      setTimeout(() => {
+        mostrarModal('¡Felicidades! Has completado el ejercicio de fracciones.', showGames);
+      }, 400);
+    }
+  }
 
-  // Drag & Drop
-  let aciertos = 0;
   const draggables = app.querySelectorAll('.fraccion2-ej2-drag');
   const dropzonesEls = app.querySelectorAll('.fraccion2-ej2-dropzone');
 
@@ -824,12 +840,12 @@ function showEjercicioFraccion2() {
     });
 
     // Soporte táctil
-    drag.addEventListener('touchstart', function(e) {
+    drag.addEventListener('touchstart', function (e) {
       drag.classList.add('dragging');
       drag.dataset.touching = 'true';
     });
 
-    drag.addEventListener('touchmove', function(e) {
+    drag.addEventListener('touchmove', function (e) {
       if (!drag.dataset.touching) return;
       const touch = e.touches[0];
       drag.style.position = 'fixed';
@@ -850,7 +866,7 @@ function showEjercicioFraccion2() {
       });
     });
 
-    drag.addEventListener('touchend', function(e) {
+    drag.addEventListener('touchend', function (e) {
       drag.style.position = '';
       drag.style.left = '';
       drag.style.top = '';
@@ -870,8 +886,8 @@ function showEjercicioFraccion2() {
           dropped = true;
         }
       });
-      if (!dropped) {
-        // Opcional: regresa la imagen a su lugar original si no se soltó en un dropzone
+      if (dropped) {
+        checkFraccion2Completado();
       }
     });
   });
@@ -891,25 +907,15 @@ function showEjercicioFraccion2() {
       const dragElem = document.getElementById(dragId);
       if (!dragElem) return;
       if (drop.childNodes.length > 0) return;
-      if (dragId === dropzones[idx].correcto) {
-        drop.appendChild(dragElem);
-        dragElem.setAttribute('draggable', 'false');
-        dragElem.classList.add('fraccion2-ej2-drag-correcto');
-        aciertos++;
-        if (aciertos === 3) {
-          setTimeout(() => {
-            mostrarModal('¡Felicidades! Has completado el ejercicio de fracciones.', showGames);
-          }, 400);
-        }
-      } else {
-        drop.classList.add('fraccion2-ej2-drop-incorrecto');
-        setTimeout(() => drop.classList.remove('fraccion2-ej2-drop-incorrecto'), 700);
-      }
+      drop.appendChild(dragElem);
+      dragElem.setAttribute('draggable', 'false');
+      dragElem.classList.add('fraccion2-ej2-drag-correcto');
+      checkFraccion2Completado();
     });
   });
 
   app.querySelector('.container').appendChild(crearVolver(() => showNiveles('fraccion')));
 }
 
-// --- Inicialización ---
+// Mostrar la pantalla de inicio al cargar la página
 window.onload = showHome;
