@@ -34,19 +34,19 @@ function showWorlds() {
       <div class="worlds-btns">
         <div class="world-btn-group" onclick="showLevels('azul')">
           <img src="mundo1.png" alt="Mundo Azul" class="world-img" />
-          <button class="mundo-btn azul">Mundo 1</button>
+          <button class="mundo-btn azul">Mundo Matemático</button>
         </div>
         <div class="world-btn-group" onclick="showLevels('amarillo')">
           <img src="mundo2.png" alt="Mundo Amarillo" class="world-img" />
-          <button class="mundo-btn amarillo">Mundo 2</button>
+          <button class="mundo-btn amarillo">Mundo Secuencial</button>
         </div>
         <div class="world-btn-group" onclick="showLevels('rojo')">
           <img src="mundo3.png" alt="Mundo Rojo" class="world-img" />
-          <button class="mundo-btn rojo">Mundo 3</button>
+          <button class="mundo-btn rojo">Mundo Animal</button>
         </div>
         <div class="world-btn-group" onclick="showLevels('extra')">
           <img src="mundo4.png" alt="Mundo Extra" class="world-img" />
-          <button class="mundo-btn extra">Mundo 4</button>
+          <button class="mundo-btn extra">Mundo de Cartas</button>
         </div>
       </div>
       <button onclick="showHome()" class="main-btn volver-btn">Volver</button>
@@ -85,7 +85,12 @@ window.showLevels = function (world) {
           <button class="nivel-btn">Nivel 5</button>
         </div>
       </div>
-      <button onclick="showWorlds()" class="main-btn volver-btn">Volver</button>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+        <button onclick="showWorlds()" class="main-btn volver-btn">Volver</button>
+        <button onclick="showHome()" class="main-btn home-btn" title="Ir a Inicio">
+          <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+        </button>
+      </div>
     </div>
   `;
 };
@@ -125,7 +130,12 @@ window.showExercise = function (world, nivel) {
           <button class="ejercicio-btn bg-primary" id="btn-5">5</button>
           <button class="ejercicio-btn bg-rojo" id="btn-6">6</button>
         </div>
-        <button onclick="showLevels('${world}')" class="main-btn volver-btn" style="margin-top:24px;">Volver</button>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+          <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+          <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+            <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+          </button>
+        </div>
       </div>
     `;
     document.getElementById('btn-3').onclick = () => showModal({
@@ -169,7 +179,12 @@ window.showExercise = function (world, nivel) {
           <button class="ejercicio-btn bg-primary" id="btn-5">3</button>
           <button class="ejercicio-btn bg-rojo" id="btn-6">5</button>
         </div>
-        <button onclick="showLevels('${world}')" class="main-btn volver-btn" style="margin-top:24px;">Volver</button>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+          <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+          <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+            <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+          </button>
+        </div>
       </div>
     `;
     document.getElementById('btn-3').onclick = () => showModal({
@@ -215,7 +230,12 @@ window.showExercise = function (world, nivel) {
           <button class="ejercicio-btn bg-primary" id="btn-3">6</button>
           <button class="ejercicio-btn bg-rojo" id="btn-4">9</button>
         </div>
-        <button onclick="showLevels('${world}')" class="main-btn volver-btn" style="margin-top:24px;">Volver</button>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+          <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+          <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+            <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+          </button>
+        </div>
       </div>
     `;
     document.getElementById('btn-1').onclick = () => showModal({
@@ -261,7 +281,12 @@ window.showExercise = function (world, nivel) {
           <button class="ejercicio-btn bg-primary" id="btn-3">9</button>
           <button class="ejercicio-btn bg-rojo" id="btn-4">20</button>
         </div>
-        <button onclick="showLevels('${world}')" class="main-btn volver-btn" style="margin-top:24px;">Volver</button>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+          <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+          <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+            <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+          </button>
+        </div>
       </div>
     `;
     document.getElementById('btn-1').onclick = () => showModal({
@@ -305,7 +330,12 @@ window.showExercise = function (world, nivel) {
           <button class="ejercicio-btn bg-primary" id="btn-3">5</button>
           <button class="ejercicio-btn bg-rojo" id="btn-4">2</button>
         </div>
-        <button onclick="showLevels('${world}')" class="main-btn volver-btn" style="margin-top:24px;">Volver</button>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+          <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+          <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+            <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+          </button>
+        </div>
       </div>
     `;
     document.getElementById('btn-1').onclick = () => showModal({
@@ -405,7 +435,12 @@ window.showExercise = function (world, nivel) {
             <div class="geo-shape square bg-secondary"></div>
           </button>
         </div>
-        <button onclick="showLevels('${world}')" class="main-btn volver-btn" style="margin-top:24px;">Volver</button>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+          <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+          <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+            <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+          </button>
+        </div>
       </div>
     `;
     // Respuesta correcta: opción 3
@@ -476,7 +511,12 @@ window.showExercise = function (world, nivel) {
             <div class="geo-shape triangle bg-rojo"></div>
           </button>
         </div>
-        <button onclick="showLevels('${world}')" class="main-btn volver-btn" style="margin-top:24px;">Volver</button>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+          <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+          <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+            <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+          </button>
+        </div>
       </div>
     `;
     // Respuesta correcta: opción 2
@@ -546,7 +586,12 @@ window.showExercise = function (world, nivel) {
             <div class="geo-shape triangle bg-rojo"></div>
           </button>
         </div>
-        <button onclick="showLevels('${world}')" class="main-btn volver-btn" style="margin-top:24px;">Volver</button>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+          <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+          <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+            <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+          </button>
+        </div>
       </div>
     `;
     // Respuesta correcta: opción 2
@@ -618,7 +663,12 @@ window.showExercise = function (world, nivel) {
             <div class="geo-shape triangle bg-secondary"></div>
           </button>
         </div>
-        <button onclick="showLevels('${world}')" class="main-btn volver-btn" style="margin-top:24px;">Volver</button>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+          <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+          <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+            <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+          </button>
+        </div>
       </div>
     `;
     // Respuesta correcta: opción 4
@@ -690,7 +740,12 @@ window.showExercise = function (world, nivel) {
           <div class="geo-shape triangle bg-secondary"></div>
         </button>
       </div>
-      <button onclick="showLevels('${world}')" class="main-btn volver-btn" style="margin-top:24px;">Volver</button>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+        <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+        <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+          <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+        </button>
+      </div>
     </div>
   `;
     // Respuesta correcta: opción 4
@@ -1045,6 +1100,23 @@ function showModal({ title, message, btnText, onClose }) {
   const btn = document.getElementById('modal-btn');
   btn.textContent = btnText;
 
+  // Limpia clases previas SIEMPRE
+  btn.classList.remove('modal-btn-correcto', 'modal-btn-incorrecto');
+
+  // Fuerza reflow para asegurar que la clase anterior se quite antes de agregar la nueva
+  void btn.offsetWidth;
+
+  // Aplica clase según el resultado
+  const t = title.toLowerCase();
+  const m = message.toLowerCase();
+  if (t.includes('correcto')) {
+    btn.classList.add('modal-btn-correcto');
+  } else if (t.includes('Incorrecto')) {
+    btn.classList.remove('modal-btn-correcto');
+
+    btn.classList.add('modal-btn-incorrecto');
+  }
+
   // Elimina estrella previa si existe
   const prevStar = modal.querySelector('.felicidad-estrella');
   if (prevStar) prevStar.remove();
@@ -1143,74 +1215,97 @@ const originalShowExercise = window.showExercise;
 window.showExercise = function (world, nivel) {
   // --- MUNDO 3: MEMORAMA ---
   if (world === 'rojo' && nivel >= 1 && nivel <= 5) {
-    const numPairs = 5 + nivel;
-    const pares = getRandomMemoramaPairs(numPairs);
-    const columns = pares.length > 12 ? 4 : 3;
+    // Cartas por nivel
+    const cartasPorNivel = [12, 16, 20, 24, 28];
+    const numCartas = cartasPorNivel[nivel - 1];
+    const numPares = numCartas / 2;
+    const imagenes = [
+      "anim1.png", "anim2.png", "anim3.png", "anim4.png", "anim5.png",
+      "anim6.png", "anim7.png", "anim8.png", "anim9.png"
+    ];
+
+    // Distribuir imágenes equitativamente
+    let pares = [];
+    let imgIdx = 0;
+    for (let i = 0; i < numPares; i++) {
+      const img = imagenes[imgIdx];
+      pares.push({ img });
+      pares.push({ img });
+      imgIdx = (imgIdx + 1) % imagenes.length;
+    }
+    // Mezclar las cartas
+    for (let i = pares.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pares[i], pares[j]] = [pares[j], pares[i]];
+    }
+
+    // Determinar columnas (máximo 7 por fila)
+    const columns = Math.min(4, Math.ceil(numCartas / 4));
     let grid = '';
-    pares.forEach(par => {
-      grid += `<button class="memorama-card ${par.color}" data-value="${par.valor}">${par.texto}</button>`;
+    pares.forEach((par, idx) => {
+      grid += `
+        <div class="memocarta animal-carta" data-img="${par.img}" data-idx="${idx}">
+          <div class="memocarta-inner">
+            <div class="memocarta-front"></div>
+            <div class="memocarta-back">
+              <img src="${par.img}" alt="Animal" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+          </div>
+        </div>
+      `;
     });
+
     app.innerHTML = `
       ${renderProgressBar(world, nivel)}
       <div class="background-img">
-        <img src="f-m4-n1.png" alt="Fondo Mundo 3 Nivel ${nivel}">
+        <img src="f-m3-n1.png" alt="Fondo Mundo Animal Nivel ${nivel}">
       </div>
       <div class="container level${nivel}-bg level-bg-rojo">
-        <p>Une los pares</p>
-        <div id="memorama-grid" >
+        <p>Memoriza y encuentra los pares de animales</p>
+        <div id="memorama-grid" style="display:grid;grid-template-columns:repeat(${columns},1fr);gap:12px;">
           ${grid}
         </div>
-        <button onclick="showLevels('${world}')" class="main-btn volver-btn" style="margin-top:24px;">Volver</button>
-      </div>
+
+<div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+          <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+          <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+            <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+          </button>
+        </div>      </div>
     `;
-    let first = null, second = null, matched = 0, locked = false;
-    const valueMap = {
-      "1": "UNO", "UNO": "1",
-      "2": "DOS", "DOS": "2",
-      "3": "TRES", "TRES": "3",
-      "4": "CUATRO", "CUATRO": "4",
-      "5": "CINCO", "CINCO": "5",
-      "6": "SEIS", "SEIS": "6",
-      "7": "SIETE", "SIETE": "7",
-      "8": "OCHO", "OCHO": "8",
-      "9": "NUEVE", "NUEVE": "9",
-      "10": "DIEZ", "DIEZ": "10"
-    };
-    const cards = Array.from(document.querySelectorAll('.memorama-card'));
+
+    // Lógica de memorama con giro y máximo 2 abiertas
+    const cards = Array.from(document.querySelectorAll('.memocarta'));
+    let openCards = [];
+    let matched = 0;
+    let locked = true; // Bloqueado hasta que termine el tiempo de memorización
+
+    // Mostrar todas las cartas por 4 segundos
+    cards.forEach(card => card.classList.add('open'));
+    setTimeout(() => {
+      cards.forEach(card => card.classList.remove('open'));
+      locked = false;
+    }, 4000);
+
     cards.forEach(card => {
       card.onclick = function () {
-        if (locked || card.classList.contains('matched')) return;
-        // Deseleccionar si ya está seleccionada
-        if (card === first) {
-          card.classList.remove('selected');
-          first = null;
-          return;
-        }
-        if (!first) {
-          card.classList.add('selected');
-          first = card;
-        } else if (!second) {
-          card.classList.add('selected');
-          second = card;
+        if (locked || card.classList.contains('matched') || card.classList.contains('open')) return;
+        card.classList.add('open');
+        openCards.push(card);
+
+        if (openCards.length === 2) {
           locked = true;
-          // Solo es par si valor, color y texto/numero coinciden
-          if (
-            (valueMap[first.textContent] === second.textContent || valueMap[second.textContent] === first.textContent) &&
-            first.dataset.value === second.dataset.value &&
-            first.className === second.className
-          ) {
+          const [c1, c2] = openCards;
+          if (c1.dataset.img === c2.dataset.img && c1 !== c2) {
             setTimeout(() => {
-              first.classList.add('matched');
-              second.classList.add('matched');
-              first.style.opacity = "0.3";
-              second.style.opacity = "0.3";
-              first.classList.remove('selected');
-              second.classList.remove('selected');
+              c1.classList.add('matched');
+              c2.classList.add('matched');
+              c1.classList.remove('open');
+              c2.classList.remove('open');
               matched += 2;
-              first = null;
-              second = null;
+              openCards = [];
               locked = false;
-              if (matched === numPairs * 2) {
+              if (matched === numCartas) {
                 setTimeout(() => {
                   showModal({
                     title: '¡Correcto!',
@@ -1225,21 +1320,25 @@ window.showExercise = function (world, nivel) {
                   });
                 }, 400);
               }
-            }, 400);
+            }, 600);
           } else {
             setTimeout(() => {
-              first.classList.remove('selected');
-              second.classList.remove('selected');
-              first = null;
-              second = null;
+              c1.classList.remove('open');
+              c2.classList.remove('open');
+              openCards = [];
               locked = false;
-            }, 600);
+            }, 900);
           }
+        } else if (openCards.length > 2) {
+          openCards.slice(0, -1).forEach(c => c.classList.remove('open'));
+          openCards = [openCards[openCards.length - 1]];
+          locked = false;
         }
       };
     });
     return;
   }
+
 
   // --- OTROS MUNDOS: LLAMA A LA FUNCIÓN ORIGINAL ---
   if (typeof originalShowExercise === "function") {
