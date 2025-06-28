@@ -1216,7 +1216,7 @@ window.showExercise = function (world, nivel) {
   // --- MUNDO 3: MEMORAMA ---
   if (world === 'rojo' && nivel >= 1 && nivel <= 5) {
     // Cartas por nivel
-    const cartasPorNivel = [12, 16, 20, 24, 28];
+    const cartasPorNivel = [8, 12, 16, 20, 20];
     const numCartas = cartasPorNivel[nivel - 1];
     const numPares = numCartas / 2;
     const imagenes = [
