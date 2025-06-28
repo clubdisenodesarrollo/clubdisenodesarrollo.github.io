@@ -1093,6 +1093,9 @@ window.showExercise = function (world, nivel) {
 
 
 // Modal reutilizable
+
+
+
 function showModal({ title, message, btnText, onClose }) {
   const modal = document.getElementById('modal');
   document.getElementById('modal-title').textContent = title;
@@ -1107,13 +1110,11 @@ function showModal({ title, message, btnText, onClose }) {
   void btn.offsetWidth;
 
   // Aplica clase según el resultado
-  const t = title.toLowerCase();
-  const m = message.toLowerCase();
-  if (t.includes('correcto')) {
+  const t = title.toLowerCase().replace(/¡|!/g, '').trim();
+  if (t === 'correcto') {
     btn.classList.add('modal-btn-correcto');
-  } else if (t.includes('Incorrecto')) {
+  } else if (t === 'incorrecto') {
     btn.classList.remove('modal-btn-correcto');
-
     btn.classList.add('modal-btn-incorrecto');
   }
 
