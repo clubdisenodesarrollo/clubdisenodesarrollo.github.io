@@ -1261,7 +1261,7 @@ window.showExercise = function (world, nivel) {
         <img src="f-m3-n1.png" alt="Fondo Mundo Animal Nivel ${nivel}">
       </div>
       <div class="container level${nivel}-bg level-bg-rojo">
-        <p>Memoriza y encuentra los pares de animales</p>
+        <p></p>
         <div id="memorama-grid" style="display:grid;grid-template-columns:repeat(${columns},1fr);gap:12px;">
           ${grid}
         </div>
