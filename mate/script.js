@@ -178,11 +178,13 @@ function seleccionarOpcionSuma1(valor, esCorrecta, btn) {
       mostrarModal('¡Correcto!', showEjercicioSuma2);
     }, 400);
   } else {
-    btn.classList.add('opcion-incorrecta');
+    btn.classList.add('respuesta-incorrecta');
+
     setTimeout(() => {
-      btn.classList.remove('opcion-incorrecta');
+      btn.classList.remove('respuesta-incorrecta');
+
       document.getElementById('respuesta-suma1').textContent = '?';
-    }, 700);
+    }, 500);
   }
 }
 
@@ -200,12 +202,12 @@ function showEjercicioSuma2() {
     </div>
   `;
   const opciones = app.querySelectorAll('.btn-s');
-  opciones[0].onclick = () => {
+  opciones[0].onclick = function () {
     mostrarModal('¡Felicidades, haz pasado todos los ejercicios de las sumas!', showGames);
   };
   opciones[1].onclick = opciones[2].onclick = opciones[3].onclick = function () {
-    this.classList.add('opcion-incorrecta');
-    setTimeout(() => this.classList.remove('opcion-incorrecta'), 700);
+    this.classList.add('respuesta-incorrecta');
+    setTimeout(() => this.classList.remove('respuesta-incorrecta'), 500);
   };
   const container = app.querySelector('.container');
   const navBtns = document.createElement('div');
@@ -257,6 +259,8 @@ function showEjercicioResta1() {
         icono.style.display = 'inline';
       } else {
         icono.style.display = 'none';
+        input.classList.add('respuesta-incorrecta');
+        setTimeout(() => input.classList.remove('respuesta-incorrecta'), 500);
       }
       const todosCorrectos = ejercicios.every((ej, i) => {
         const inp = document.getElementById(`input-resta-${i}`);
@@ -270,7 +274,7 @@ function showEjercicioResta1() {
     });
   });
 
-    const container = app.querySelector('.container');
+  const container = app.querySelector('.container');
   container.appendChild(crearVolver(() => showNiveles('resta')));
   container.appendChild(crearCasita(showGames));
 }
@@ -333,8 +337,8 @@ function showEjercicioResta2() {
           }, 400);
         }
       } else {
-        btn.classList.add('opcion-incorrecta');
-        setTimeout(() => btn.classList.remove('opcion-incorrecta'), 700);
+        btn.classList.add('respuesta-incorrecta');
+        setTimeout(() => btn.classList.remove('respuesta-incorrecta'), 500);
       }
     };
   });
@@ -391,6 +395,13 @@ function showEjercicioMulti1() {
       setTimeout(() => {
         mostrarModal('¡Correcto! Has completado el ejercicio de multiplicación.', showEjercicioMulti2);
       }, 400);
+    } else {
+      input.classList.add('respuesta-incorrecta');
+      setTimeout(() => {
+        input.classList.remove('respuesta-incorrecta');
+        document.getElementById('input-multi-1').textContent = '?';
+
+      }, 500);
     }
   });
 
@@ -432,10 +443,8 @@ function showEjercicioMulti2() {
         </div>
         <div class="multi2-opciones">
           ${opciones.map((op, idx) => `
-            <div class="multi2-opcion-row">
-              <div class="multi2-dropzone" data-resultado="${op.resultado}" id="drop-${op.id}"></div>
-              <div class="multi2-resultado">${op.resultado}</div>
-            </div>
+            <div class="multi2-dropzone" data-resultado="${op.resultado}" id="drop-${op.id}"></div>
+            <div class="multi2-resultado">${op.resultado}</div>
           `).join('')}
         </div>
       </div>
@@ -513,8 +522,8 @@ function showEjercicioMulti2() {
               }, 400);
             }
           } else {
-            drop.classList.add('multi2-incorrecto');
-            setTimeout(() => drop.classList.remove('multi2-incorrecto'), 700);
+            drop.classList.add('respuesta-incorrecta');
+            setTimeout(() => drop.classList.remove('respuesta-incorrecta'), 500);
           }
           dropped = true;
         }
@@ -738,7 +747,7 @@ function showEjercicioDivision2() {
   });
 
   const container = app.querySelector('.container');
-  container.appendChild(crearVolver(() => showNiveles('suma')));
+  container.appendChild(crearVolver(() => showNiveles('division')));
   container.appendChild(crearCasita(showGames));
 }
 
@@ -798,6 +807,7 @@ function showEjercicioFraccion1() {
 
   // Primer input (1/4)
   const inputUno = document.getElementById('fraccion1-numerador');
+  // ...código existente...
   inputUno.addEventListener('input', () => {
     if (parseInt(inputUno.value, 10) === 1) {
       inputUno.disabled = true;
@@ -806,6 +816,8 @@ function showEjercicioFraccion1() {
       checkFraccion1Completado();
     } else {
       inputUno.classList.remove('fraccion1-correcto');
+      inputUno.classList.add('respuesta-incorrecta');
+      setTimeout(() => inputUno.classList.remove('respuesta-incorrecta'), 500);
     }
   });
 
@@ -820,6 +832,8 @@ function showEjercicioFraccion1() {
         checkFraccion1Completado();
       } else {
         input.classList.remove('fraccion1-correcto');
+        input.classList.add('respuesta-incorrecta');
+        setTimeout(() => input.classList.remove('respuesta-incorrecta'), 500);
       }
     });
   });
@@ -843,9 +857,9 @@ function seleccionarOpcionFraccion1(valor, esCorrecta, btn) {
       mostrarModal('¡Correcto!', showEjercicioFraccion2);
     }, 400);
   } else {
-    btn.classList.add('opcion-incorrecta');
+    input.classList.add('respuesta-incorrecta');
     setTimeout(() => {
-      btn.classList.remove('opcion-incorrecta');
+      input.classList.remove('respuesta-incorrecta');
       document.getElementById('respuesta-fraccion1-numerador').value = '';
     }, 700);
   }
