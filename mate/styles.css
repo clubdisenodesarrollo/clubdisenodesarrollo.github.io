@@ -1176,3 +1176,18 @@ input[type="number"]::-webkit-outer-spin-button {
     transform: translateX(-50%) scale(0.96);
     box-shadow: 0 1px 4px rgba(44, 204, 64, 0.08);
 }
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-8px); }
+  80% { transform: translateX(8px); }
+  100% { transform: translateX(0); }
+}
+
+.respuesta-incorrecta {
+  background: #ffb3b3 !important; /* rojo claro */
+  animation: shake 0.4s;
+  transition: background 0.2s;
+}
