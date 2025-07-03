@@ -723,7 +723,9 @@ function showEjercicioDivision2() {
     </div>
   `;
 
-  const input = document.getElementById('division2-input');
+  const input = document.getElementById('division2-input'); // <-- ESTA LÍNEA ES CLAVE
+
+
   input.addEventListener('input', () => {
     if (parseInt(input.value, 10) === resultado) {
       input.disabled = true;
@@ -733,6 +735,8 @@ function showEjercicioDivision2() {
       }, 400);
     } else {
       input.classList.remove('division2-ej2-correcto');
+      input.classList.add('respuesta-incorrecta');
+      setTimeout(() => input.classList.remove('respuesta-incorrecta'), 500);
     }
   });
   input.addEventListener('focus', () => {
