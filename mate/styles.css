@@ -54,7 +54,7 @@ body,
     font-style: normal;
 }
 #app {
-    top: 30px;
+    top: 0px;
     width: 350px;
     height: 650px;
     position: relative;
