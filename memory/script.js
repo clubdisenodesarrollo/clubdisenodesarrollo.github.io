@@ -120,7 +120,7 @@ window.showExercise = function (world, nivel) {
         <img src="f-m1-n1.png" alt="f-m1-n1.png">
       </div>
       <div class="container ${levelBgClass}">
-        <h2>Nivel 1</h2>
+        <h2></h2>
         <div style="margin:24px 0;">
           <img src="e-m1-n1.png" alt="Ejercicio Naranjas" style="width:100%;max-width:350px;display:block;margin:auto;">
         </div>
@@ -169,7 +169,7 @@ window.showExercise = function (world, nivel) {
       <img src="f-m1-n2.png" alt="f-m1-n1.png">
     </div>
       <div class="container ${levelBgClass}">
-        <h2>Nivel 2</h2>
+        <h2></h2>
         <div style="margin:24px 0;">
           <img src="e-m1-n2.png" alt="Uvas" style="width:100%;max-width:350px;display:block;margin:auto;">
         </div>
@@ -220,7 +220,7 @@ window.showExercise = function (world, nivel) {
       <img src="f-m1-n3.png" alt="f-m1-n1.png">
     </div>
       <div class="container ${levelBgClass}">
-        <h2>Nivel 3</h2>
+        <h2></h2>
         <div style="margin:24px 0;">
           <img src="e-m1-n3.png" alt="Ejercicio 3" style="width:100%;max-width:350px;display:block;margin:auto;">
         </div>
@@ -271,7 +271,7 @@ window.showExercise = function (world, nivel) {
       <img src="f-m1-n4.png" alt="f-m1-n1.png">
     </div>
       <div class="container ${levelBgClass}">
-        <h2>Nivel 4</h2>
+        <h2></h2>
         <div style="margin:24px 0;">
           <img src="e-m1-n4.png" alt="Ejercicio 4" style="width:100%;max-width:350px;display:block;margin:auto;">
         </div>
@@ -320,7 +320,7 @@ window.showExercise = function (world, nivel) {
       <img src="f-m1-n5.png" alt="f-m1-n1.png">
     </div>
       <div class="container ${levelBgClass}">
-        <h2>Ejercicio 5</h2>
+        <h2></h2>
         <div style="margin:24px 0;">
           <img src="e-m1-n5.png" alt="Ejercicio 5" style="width:100%;max-width:350px;display:block;margin:auto;">
         </div>
@@ -405,7 +405,7 @@ window.showExercise = function (world, nivel) {
         <img src="f-m2-n1.png" alt="Fondo Mundo 2 Nivel 1">
       </div>
       <div class="container ${levelBgClass}">
-        <h2>Nivel 1</h2>
+        <h2></h2>
         <div style="display: flex; gap: 18px; justify-content: center; margin-bottom: 32px;">
           <div class="geo-box bg-secondary">
             <div class="geo-shape square bg-rojo"></div>
@@ -476,7 +476,7 @@ window.showExercise = function (world, nivel) {
         <img src="f-m2-n1.png" alt="Fondo Mundo 2 Nivel 2">
       </div>
       <div class="container level2-bg level-bg-amarillo">
-        <h2>Nivel 2</h2>
+        <h2></h2>
         <div style="display: flex; gap: 5px; justify-content: center; margin-bottom: 32px;">
           <div class="geo-box bg-primary">
             <div class="geo-shape square bg-secondary"></div>
@@ -1025,6 +1025,353 @@ window.showExercise = function (world, nivel) {
     return;
   }
 
+  // --- EJERCICIO ADICIONAL MUNDO 1 NIVEL 1 ---
+if (world === 'azul' && nivel === 1) {
+  const opciones = [
+    { valor: 3, correcta: false, color: 'bg-secondary' },
+    { valor: 4, correcta: false, color: 'bg-naranja' },
+    { valor: 5, correcta: true,  color: 'bg-primary' },
+    { valor: 6, correcta: false, color: 'bg-rojo' }
+  ];
+  app.innerHTML = `
+    ${renderProgressBar(world, nivel)}
+    <div class="background-img">
+      <img src="f-m1-n1.png" alt="f-m1-n1.png">
+    </div>
+    <div class="container ${levelBgClass}">
+      <h2>Nivel 1</h2>
+      <div style="margin:24px 0;">
+        <img src="e-m1-n1.png" alt="Ejercicio Naranjas" style="width:100%;max-width:350px;display:block;margin:auto;">
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;">
+        ${opciones.map((op, i) => `
+          <div class="math-card ${op.color}" data-correcta="${op.correcta}" id="math-card-${i}">
+            <div class="math-card-inner">
+              <div class="math-card-front"></div>
+              <div class="math-card-back">${op.valor}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+        <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+        <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+          <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Mostrar todas las cartas por 5 segundos
+  const cards = Array.from(document.querySelectorAll('.math-card'));
+  cards.forEach(card => card.classList.add('open'));
+  setTimeout(() => {
+    cards.forEach(card => card.classList.remove('open'));
+    // Habilitar click
+    cards.forEach(card => {
+      card.onclick = function () {
+        if (card.classList.contains('open') || card.classList.contains('matched')) return;
+        card.classList.add('open');
+        setTimeout(() => {
+          if (card.dataset.correcta === "true") {
+            card.classList.add('matched');
+            showModal({
+              title: '¡Correcto!',
+              message: '¡Muy bien!',
+              btnText: 'Siguiente',
+              onClose: () => showExercise(world, 2)
+            });
+          } else {
+            card.classList.remove('open');
+            showModal({
+              title: 'Incorrecto',
+              message: 'Intenta de nuevo.',
+              btnText: 'INTENTAR OTRA VEZ'
+            });
+          }
+        }, 600);
+      };
+    });
+  }, 5000);
+  return;
+}
+if (world === 'azul' && nivel === 2) {
+  const opciones = [
+    { valor: 6, correcta: false, color: 'bg-secondary' },
+    { valor: 2, correcta: true,  color: 'bg-naranja' },
+    { valor: 3, correcta: false, color: 'bg-primary' },
+    { valor: 5, correcta: false, color: 'bg-rojo' }
+  ];
+  app.innerHTML = `
+    ${renderProgressBar(world, nivel)}
+    <div class="background-img">
+      <img src="f-m1-n2.png" alt="f-m1-n2.png">
+    </div>
+    <div class="container ${levelBgClass}">
+      <h2>Nivel 2</h2>
+      <div style="margin:24px 0;">
+        <img src="e-m1-n2.png" alt="Uvas" style="width:100%;max-width:350px;display:block;margin:auto;">
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;">
+        ${opciones.map((op, i) => `
+          <div class="math-card ${op.color}" data-correcta="${op.correcta}" id="math-card2-${i}">
+            <div class="math-card-inner">
+              <div class="math-card-front"></div>
+              <div class="math-card-back">${op.valor}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+        <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+        <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+          <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Mostrar todas las cartas por 5 segundos
+  const cards = Array.from(document.querySelectorAll('.math-card'));
+  cards.forEach(card => card.classList.add('open'));
+  setTimeout(() => {
+    cards.forEach(card => card.classList.remove('open'));
+    // Habilitar click
+    cards.forEach(card => {
+      card.onclick = function () {
+        if (card.classList.contains('open') || card.classList.contains('matched')) return;
+        card.classList.add('open');
+        setTimeout(() => {
+          if (card.dataset.correcta === "true") {
+            card.classList.add('matched');
+            showModal({
+              title: '¡Correcto!',
+              message: '¡Muy bien!',
+              btnText: 'Siguiente',
+              onClose: () => showExercise(world, 3)
+            });
+          } else {
+            card.classList.remove('open');
+            showModal({
+              title: 'Incorrecto',
+              message: 'Intenta de nuevo.',
+              btnText: 'INTENTAR OTRA VEZ'
+            });
+          }
+        }, 600);
+      };
+    });
+  }, 5000);
+  return;
+}
+if (world === 'azul' && nivel === 3) {
+  const opciones = [
+    { valor: 7,  correcta: false, color: 'bg-secondary' },
+    { valor: 10, correcta: false, color: 'bg-naranja' },
+    { valor: 6,  correcta: false, color: 'bg-primary' },
+    { valor: 9,  correcta: true,  color: 'bg-rojo' }
+  ];
+  app.innerHTML = `
+    ${renderProgressBar(world, nivel)}
+    <div class="background-img">
+      <img src="f-m1-n3.png" alt="f-m1-n3.png">
+    </div>
+    <div class="container ${levelBgClass}">
+      <h2>Nivel 3</h2>
+      <div style="margin:24px 0;">
+        <img src="e-m1-n3.png" alt="Ejercicio 3" style="width:100%;max-width:350px;display:block;margin:auto;">
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;">
+        ${opciones.map((op, i) => `
+          <div class="math-card ${op.color}" data-correcta="${op.correcta}" id="math-card3-${i}">
+            <div class="math-card-inner">
+              <div class="math-card-front"></div>
+              <div class="math-card-back">${op.valor}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+        <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+        <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+          <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Mostrar todas las cartas por 5 segundos
+  const cards = Array.from(document.querySelectorAll('.math-card'));
+  cards.forEach(card => card.classList.add('open'));
+  setTimeout(() => {
+    cards.forEach(card => card.classList.remove('open'));
+    // Habilitar click
+    cards.forEach(card => {
+      card.onclick = function () {
+        if (card.classList.contains('open') || card.classList.contains('matched')) return;
+        card.classList.add('open');
+        setTimeout(() => {
+          if (card.dataset.correcta === "true") {
+            card.classList.add('matched');
+            showModal({
+              title: '¡Correcto!',
+              message: '¡Muy bien!',
+              btnText: 'Siguiente',
+              onClose: () => showExercise(world, 4)
+            });
+          } else {
+            card.classList.remove('open');
+            showModal({
+              title: 'Incorrecto',
+              message: 'Intenta de nuevo.',
+              btnText: 'INTENTAR OTRA VEZ'
+            });
+          }
+        }, 600);
+      };
+    });
+  }, 5000);
+  return;
+}
+if (world === 'azul' && nivel === 4) {
+  const opciones = [
+    { valor: 8,  correcta: false, color: 'bg-secondary' },
+    { valor: 1,  correcta: false, color: 'bg-naranja' },
+    { valor: 9,  correcta: true,  color: 'bg-primary' },
+    { valor: 20, correcta: false, color: 'bg-rojo' }
+  ];
+  app.innerHTML = `
+    ${renderProgressBar(world, nivel)}
+    <div class="background-img">
+      <img src="f-m1-n4.png" alt="f-m1-n4.png">
+    </div>
+    <div class="container ${levelBgClass}">
+      <h2>Nivel 4</h2>
+      <div style="margin:24px 0;">
+        <img src="e-m1-n4.png" alt="Ejercicio 4" style="width:100%;max-width:350px;display:block;margin:auto;">
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;">
+        ${opciones.map((op, i) => `
+          <div class="math-card ${op.color}" data-correcta="${op.correcta}" id="math-card4-${i}">
+            <div class="math-card-inner">
+              <div class="math-card-front"></div>
+              <div class="math-card-back">${op.valor}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+        <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+        <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+          <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Mostrar todas las cartas por 5 segundos
+  const cards = Array.from(document.querySelectorAll('.math-card'));
+  cards.forEach(card => card.classList.add('open'));
+  setTimeout(() => {
+    cards.forEach(card => card.classList.remove('open'));
+    // Habilitar click
+    cards.forEach(card => {
+      card.onclick = function () {
+        if (card.classList.contains('open') || card.classList.contains('matched')) return;
+        card.classList.add('open');
+        setTimeout(() => {
+          if (card.dataset.correcta === "true") {
+            card.classList.add('matched');
+            showModal({
+              title: '¡Correcto!',
+              message: '¡Muy bien!',
+              btnText: 'Siguiente',
+              onClose: () => showExercise(world, 5)
+            });
+          } else {
+            card.classList.remove('open');
+            showModal({
+              title: 'Incorrecto',
+              message: 'Intenta de nuevo.',
+              btnText: 'INTENTAR OTRA VEZ'
+            });
+          }
+        }, 600);
+      };
+    });
+  }, 5000);
+  return;
+}
+if (world === 'azul' && nivel === 5) {
+  const opciones = [
+    { valor: 12, correcta: false, color: 'bg-secondary' },
+    { valor: 3,  correcta: true,  color: 'bg-naranja' },
+    { valor: 5,  correcta: false, color: 'bg-primary' },
+    { valor: 2,  correcta: false, color: 'bg-rojo' }
+  ];
+  app.innerHTML = `
+    ${renderProgressBar(world, nivel)}
+    <div class="background-img">
+      <img src="f-m1-n5.png" alt="f-m1-n5.png">
+    </div>
+    <div class="container ${levelBgClass}">
+      <h2>Nivel 5</h2>
+      <div style="margin:24px 0;">
+        <img src="e-m1-n5.png" alt="Ejercicio 5" style="width:100%;max-width:350px;display:block;margin:auto;">
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;">
+        ${opciones.map((op, i) => `
+          <div class="math-card ${op.color}" data-correcta="${op.correcta}" id="math-card5-${i}">
+            <div class="math-card-inner">
+              <div class="math-card-front"></div>
+              <div class="math-card-back">${op.valor}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
+        <button onclick="showLevels('${world}')" class="main-btn volver-btn">Volver</button>
+        <button onclick="showWorlds()" class="main-btn home-btn" title="Ir a Mundos">
+          <img src="casita.png" alt="Inicio" style="width:28px;height:28px;vertical-align:middle;">
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Mostrar todas las cartas por 5 segundos
+  const cards = Array.from(document.querySelectorAll('.math-card'));
+  cards.forEach(card => card.classList.add('open'));
+  setTimeout(() => {
+    cards.forEach(card => card.classList.remove('open'));
+    // Habilitar click
+    cards.forEach(card => {
+      card.onclick = function () {
+        if (card.classList.contains('open') || card.classList.contains('matched')) return;
+        card.classList.add('open');
+        setTimeout(() => {
+          if (card.dataset.correcta === "true") {
+            card.classList.add('matched');
+            showModal({
+              title: '¡Correcto!',
+              message: '¡Has completado todos los ejercicios de este mundo!',
+              btnText: 'Volver a Mundos',
+              onClose: () => showWorlds()
+            });
+          } else {
+            card.classList.remove('open');
+            showModal({
+              title: 'Incorrecto',
+              message: 'Intenta de nuevo.',
+              btnText: 'INTENTAR OTRA VEZ'
+            });
+          }
+        }, 600);
+      };
+    });
+  }, 5000);
+  return;
+}
+
 };
 
 
@@ -1355,4 +1702,5 @@ window.showExercise = function (world, nivel) {
     return originalShowExercise.apply(this, arguments);
   }
 };
+
 
