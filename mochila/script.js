@@ -132,9 +132,11 @@ function renderTopBar({ backFn, audioFn }) {
   return `
     <div class="top-bar">
       <button class="back-btn" onclick="${backFn}">←</button>
+      ${audioFn ? `
       <div class="lecture-audio" id="audioBtn" tabindex="0" style="display:inline-block;">
         <img id="audioIcon" src="sonido.png" alt="Audio" style="width:32px;height:32px;vertical-align:middle;cursor:pointer;">
       </div>
+      ` : ""}
       <button class="menu-btn" onclick="toggleSidebar()">☰</button>
     </div>
     <div id="sidebar" class="sidebar" style="display:none;">
@@ -168,15 +170,15 @@ function goToGradosFromSidebar() {
   showGrades();
 }
 
-
-
-
-
-
-
-
-
-
+// Pantalla de transición animada
+function mostrarPantallaTransicion(fn) {
+  document.getElementById('app').innerHTML = `
+    <div class="pantalla-transicion">
+      <img src="grado.png" alt="Cargando..." class="transicion-img">
+    </div>
+  `;
+  setTimeout(fn, 1000); // 1 segundo
+}
 
 // Pantalla HOME
 function showHome() {
@@ -189,7 +191,7 @@ function showHome() {
     <div class="container home-container">
       <h1></h1>
       <img src="logo.png" alt="Logo" class="logo">
-      <button class="main-btn" onclick="showIntro2()">EMPEZAR</button>
+      <button class="main-btn" onclick="mostrarPantallaTransicion(showIntro2)">EMPEZAR</button>
     </div>
   `;
 }
@@ -201,9 +203,6 @@ function showIntro2() {
   if (typeof window.intro2Page === "undefined") window.intro2Page = 0;
   let page = window.intro2Page;
   let totalPages = introPages.length;
-  let audioIcon = isSpeaking ? '⏸️' : '▶️';
-  if (isPaused) audioIcon = '▶️';
-
   let baseLineHeight = 1.3;
   let baseLetterSpacing = 0.02;
   let steps = Math.floor((fontSize - 14) / 3);
@@ -219,7 +218,7 @@ function showIntro2() {
 
   document.getElementById('app').innerHTML = `
     <div class="container lecture-container">
-      ${renderTopBar({ backFn: "showHome()", audioFn: "" })}
+      ${renderTopBar({ backFn: "showHome()", audioFn: true })}
       <div class="lecture-text" id="lectureText"
         style="font-size: ${fontSize}px; line-height: ${lineHeight}; letter-spacing: ${letterSpacing}em;">
         <img src="${img}" alt="" style="max-width:120px;display:block;margin:0 auto 18px auto;">
@@ -237,30 +236,30 @@ function showIntro2() {
         <button onclick="changeFontSize(2, showIntro2)">+</button>
       </div>
       <div class="lecture-nav" style="margin-top:12px;">
-        <button class="main-btn" onclick="goToGradesFromIntro2()">SIGUIENTE</button>
+        <button class="main-btn" onclick="mostrarPantallaTransicion(goToGradesFromIntro2)">SIGUIENTE</button>
       </div>
     </div>
   `;
-  document.getElementById('audioBtn').onclick = function () {
-    toggleAudioGeneric(() => `${titulo}. ${texto}`, showIntro2);
-  };
+  const audioBtn = document.getElementById('audioBtn');
+  if (audioBtn) {
+    audioBtn.onclick = function () {
+      toggleAudioGeneric(() => `${titulo}. ${texto}`, showIntro2);
+    };
+  }
 }
 
 // Pantalla GRADOS (primero)
 function showGrades() {
   stopSpeech();
   let gradesHtml = data.grados.map(g => `
-    <div class="grade-row" onclick="showSubjects('${g.id}')">
+    <div class="grade-row" onclick="mostrarPantallaTransicion(() => showSubjects('${g.id}'))">
       <div class="grade-img"><img src="grado.png" alt="${g.nombre}"></div>
       <div class="grade-text">${g.nombre}</div>
     </div>
   `).join('');
   document.getElementById('app').innerHTML = `
     <div class="container grades-container">
-      <div class="top-bar">
-        <button class="back-btn" onclick="showHome()">←</button>
-        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
-      </div>
+      ${renderTopBar({ backFn: "showHome()", audioFn: null })}
       <div class="grades-list">${gradesHtml}</div>
     </div>
   `;
@@ -272,14 +271,14 @@ function showSubjects(gradeId) {
   currentGrade = data.grados.find(g => g.id === gradeId);
   const materias = currentGrade.materias;
   let subjectsHtml = materias.map(m => `
-    <div class="subject-row" onclick="selectSubjectAndContinue('${m.id}')">
+    <div class="subject-row" onclick="mostrarPantallaTransicion(() => selectSubjectAndContinue('${m.id}'))">
       <div class="subject-img"><img src="materia.png" alt="${m.nombre}"></div>
       <div class="subject-text">${m.nombre}</div>
     </div>
   `).join('');
   document.getElementById('app').innerHTML = `
     <div class="container subjects-container">
-      <button class="back-btn" onclick="showGrades()">←</button>
+      ${renderTopBar({ backFn: "showGrades()", audioFn: null })}
       <div class="subjects-list">${subjectsHtml}</div>
     </div>
   `;
@@ -301,35 +300,39 @@ function showMenuMateria() {
   const isSeptimo = nombreGrado.includes('séptimo') || nombreGrado.includes('septimo');
   document.getElementById('app').innerHTML = `
     <div class="container grades-container">
-      <button class="back-btn" onclick="showSubjects('${currentGrade.id}')">←</button>
+      ${renderTopBar({ backFn: `showSubjects('${currentGrade.id}')`, audioFn: null })}
+      <div class="grado-identificador">
+        <img src="grado.png" alt="Grado" class="grado-identificador-img">
+        <span class="grado-identificador-text">${currentGrade.nombre}</span>
+      </div>
       <div class="grades-list">
-        <div class="grade-row" onclick="showSignosPuntuacionIntro()">
+        <div class="grade-row" onclick="mostrarPantallaTransicion(showSignosPuntuacionIntro)">
           <div class="grade-img"><img src="signos.png" alt="Signos de puntuación"></div>
           <div class="grade-text">Signos de puntuación</div>
         </div>
         ${isQuinto ? `
-        <div class="grade-row" onclick="showGlosario5to()">
+        <div class="grade-row" onclick="mostrarPantallaTransicion(showGlosario5to)">
           <div class="grade-img"><img src="glosario.png" alt="Glosario"></div>
           <div class="grade-text">Glosario</div>
         </div>
         ` : ''}
         ${isSexto ? `
-        <div class="grade-row" onclick="showGlosario6to()">
+        <div class="grade-row" onclick="mostrarPantallaTransicion(showGlosario6to)">
           <div class="grade-img"><img src="glosario.png" alt="Glosario"></div>
           <div class="grade-text">Glosario</div>
         </div>
         ` : ''}
         ${isSeptimo ? `
-        <div class="grade-row" onclick="showGlosario7to()">
+        <div class="grade-row" onclick="mostrarPantallaTransicion(showGlosario7to)">
           <div class="grade-img"><img src="glosario.png" alt="Glosario"></div>
           <div class="grade-text">Glosario</div>
         </div>
         ` : ''}
-        <div class="grade-row" onclick="renderLecture()">
+        <div class="grade-row" onclick="mostrarPantallaTransicion(renderLecture)">
           <div class="grade-img"><img src="lectura.png" alt="Lectura"></div>
           <div class="grade-text">Lectura</div>
         </div>
-        <div class="grade-row" onclick="showAhoraVamosAJugar()">
+        <div class="grade-row" onclick="mostrarPantallaTransicion(showAhoraVamosAJugar)">
           <div class="grade-img"><img src="juegos.png" alt="Juegos"></div>
           <div class="grade-text">Juegos</div>
         </div>
@@ -337,8 +340,6 @@ function showMenuMateria() {
     </div>
   `;
 }
-
-
 
 // Estado de la página actual de signos
 window.signosPage = 0;
@@ -351,7 +352,6 @@ function showSignosPuntuacionIntro() {
   let totalPages = signosPuntuacionPages.length;
   let { img = "", titulo = "", texto = "" } = signosPuntuacionPages[page] || {};
 
-  // Ajustes de accesibilidad igual que showIntro2
   let baseLineHeight = 1.3;
   let baseLetterSpacing = 0.02;
   let steps = Math.floor((fontSize - 14) / 3);
@@ -360,7 +360,7 @@ function showSignosPuntuacionIntro() {
 
   document.getElementById('app').innerHTML = `
     <div class="container lecture-container">
-      ${renderTopBar({ backFn: "showMenuMateria()", audioFn: "" })}
+      ${renderTopBar({ backFn: "showMenuMateria()", audioFn: true })}
       <div class="lecture-text" id="lectureText"
         style="font-size: ${fontSize}px; line-height: ${lineHeight}; letter-spacing: ${letterSpacing}em;">
         <img src="${img}" alt="" style="max-width:80px;display:block;margin:0 auto 18px auto;">
@@ -382,9 +382,12 @@ function showSignosPuntuacionIntro() {
       </div>
     </div>
   `;
-  document.getElementById('audioBtn').onclick = function () {
-    toggleAudioGeneric(() => `${titulo}. ${texto}`, showSignosPuntuacionIntro);
-  };
+  const audioBtn = document.getElementById('audioBtn');
+  if (audioBtn) {
+    audioBtn.onclick = function () {
+      toggleAudioGeneric(() => `${titulo}. ${texto}`, showSignosPuntuacionIntro);
+    };
+  }
 }
 
 function showGlosario5to() {
@@ -402,10 +405,10 @@ function showGlosario5to() {
 
   document.getElementById('app').innerHTML = `
     <div class="container lecture-container">
-      ${renderTopBar({ backFn: "showMenuMateria()", audioFn: "" })}
+      ${renderTopBar({ backFn: "showMenuMateria()", audioFn: true })}
       <div class="lecture-text" id="lectureText"
         style="font-size: ${fontSize}px; line-height: ${lineHeight}; letter-spacing: ${letterSpacing}em;">
-        <img src="${img}" alt="" style="max-width:80px;display:block;margin:0 auto 18px auto;">
+        <img src="${img}" alt="" style="height:100px;display:block;margin:0 auto 18px auto;">
         <h2 style="text-align:center;">${titulo}</h2>
         <p style="text-align:center;">${texto}</p>
       </div>
@@ -424,9 +427,12 @@ function showGlosario5to() {
       </div>
     </div>
   `;
-  document.getElementById('audioBtn').onclick = function () {
-    toggleAudioGeneric(() => `${titulo}. ${texto}`, showGlosario5to);
-  };
+  const audioBtn = document.getElementById('audioBtn');
+  if (audioBtn) {
+    audioBtn.onclick = function () {
+      toggleAudioGeneric(() => `${titulo}. ${texto}`, showGlosario5to);
+    };
+  }
 }
 function nextGlosario5toPage() {
   const glosarioPages = data.glosario5Pages || [];
@@ -440,11 +446,6 @@ function prevGlosario5toPage() {
 window.showGlosario5to = showGlosario5to;
 window.nextGlosario5toPage = nextGlosario5toPage;
 window.prevGlosario5toPage = prevGlosario5toPage;
-
-
-
-
-
 
 function showGlosario6to() {
   stopSpeech();
@@ -461,7 +462,7 @@ function showGlosario6to() {
 
   document.getElementById('app').innerHTML = `
     <div class="container lecture-container">
-      ${renderTopBar({ backFn: "showMenuMateria()", audioFn: "" })}
+      ${renderTopBar({ backFn: "showMenuMateria()", audioFn: true })}
       <div class="lecture-text" id="lectureText"
         style="font-size: ${fontSize}px; line-height: ${lineHeight}; letter-spacing: ${letterSpacing}em;">
         <img src="${img}" alt="" style="max-width:80px;display:block;margin:0 auto 18px auto;">
@@ -483,9 +484,12 @@ function showGlosario6to() {
       </div>
     </div>
   `;
-  document.getElementById('audioBtn').onclick = function () {
-    toggleAudioGeneric(() => `${titulo}. ${texto}`, showGlosario6to);
-  };
+  const audioBtn = document.getElementById('audioBtn');
+  if (audioBtn) {
+    audioBtn.onclick = function () {
+      toggleAudioGeneric(() => `${titulo}. ${texto}`, showGlosario6to);
+    };
+  }
 }
 function nextGlosario6toPage() {
   const glosarioPages = data.glosario6Pages || [];
@@ -499,17 +503,6 @@ function prevGlosario6toPage() {
 window.showGlosario6to = showGlosario6to;
 window.nextGlosario6toPage = nextGlosario6toPage;
 window.prevGlosario6toPage = prevGlosario6toPage;
-
-
-
-
-
-
-
-
-
-
-
 
 function showGlosario7to() {
   stopSpeech();
@@ -526,7 +519,7 @@ function showGlosario7to() {
 
   document.getElementById('app').innerHTML = `
     <div class="container lecture-container">
-      ${renderTopBar({ backFn: "showMenuMateria()", audioFn: "" })}
+      ${renderTopBar({ backFn: "showMenuMateria()", audioFn: true })}
       <div class="lecture-text" id="lectureText"
         style="font-size: ${fontSize}px; line-height: ${lineHeight}; letter-spacing: ${letterSpacing}em;">
         <img src="${img}" alt="" style="max-width:80px;display:block;margin:0 auto 18px auto;">
@@ -548,9 +541,12 @@ function showGlosario7to() {
       </div>
     </div>
   `;
-  document.getElementById('audioBtn').onclick = function () {
-    toggleAudioGeneric(() => `${titulo}. ${texto}`, showGlosario7to);
-  };
+  const audioBtn = document.getElementById('audioBtn');
+  if (audioBtn) {
+    audioBtn.onclick = function () {
+      toggleAudioGeneric(() => `${titulo}. ${texto}`, showGlosario7to);
+    };
+  }
 }
 function nextGlosario7toPage() {
   const glosarioPages = data.glosario7Pages || [];
@@ -565,15 +561,6 @@ window.showGlosario7to = showGlosario7to;
 window.nextGlosario7toPage = nextGlosario7toPage;
 window.prevGlosario7toPage = prevGlosario7toPage;
 
-
-
-
-
-
-
-
-
-
 // Navegación para signos de puntuación
 function nextSignosPage() {
   const signosPuntuacionPages = data.signosPuntuacionPages || [];
@@ -584,22 +571,9 @@ function prevSignosPage() {
   window.signosPage = Math.max((window.signosPage || 0) - 1, 0);
   showSignosPuntuacionIntro();
 }
-
-// Exponer globalmente
 window.showSignosPuntuacionIntro = showSignosPuntuacionIntro;
 window.nextSignosPage = nextSignosPage;
 window.prevSignosPage = prevSignosPage;
-
-
-
-
-
-
-
-
-
-
-
 
 // Pantalla LECTURA
 function renderLecture() {
@@ -611,7 +585,7 @@ function renderLecture() {
   let pagina = currentLecture.paginas[currentPage] || "";
   document.getElementById('app').innerHTML = `
     <div class="container lecture-container">
-      ${renderTopBar({ backFn: "showMenuMateria()", audioFn: "" })}
+      ${renderTopBar({ backFn: "showMenuMateria()", audioFn: true })}
       <div class="lecture-text" id="lectureText" style="font-size: ${fontSize}px;">
         <h2 style="text-align:center;">${currentLecture.titulo}</h2>
         <p>${pagina}</p>
@@ -631,30 +605,29 @@ function renderLecture() {
       </div>
     </div>
   `;
-  document.getElementById('audioBtn').onclick = function () {
-    toggleAudioGeneric(() => `${currentLecture.titulo}. ${pagina}`, renderLecture);
-  };
+  const audioBtn = document.getElementById('audioBtn');
+  if (audioBtn) {
+    audioBtn.onclick = function () {
+      toggleAudioGeneric(() => `${currentLecture.titulo}. ${pagina}`, renderLecture);
+    };
+  }
 }
-
-
-
-
-
-
-
 
 // Pantalla JUEGOS (placeholder)
 function showAhoraVamosAJugar() {
   stopSpeech();
+  window.juegoPage = 0; // Reinicia el índice del juego al entrar
   document.getElementById('app').innerHTML = `
     <div class="container lecture-container">
-      ${renderTopBar({ backFn: "showMenuMateria()", audioFn: "" })}
-      <div class="lecture-text" id="lectureText" style="font-size: ${fontSize}px;">
-        <h2 style="text-align:center;">¡Ahora vamos a jugar!</h2>
-        <p style="text-align:center;">Aquí irán los juegos para este grado.</p>
+      ${renderTopBar({ backFn: "showMenuMateria()", audioFn: null })}
+      <div class="lecture-text" id="lectureText">
+        <img src="lectura.png" alt="Juegos" class="juego-img">
+        <h2 class="juego-titulo">¡Ahora vamos a jugar!</h2>
+        <p class="juego-descripcion">Aquí irán los juegos para este grado. ¡Prepárate para divertirte y aprender!</p>
       </div>
-      <div class="lecture-nav" style="margin-top:12px;">
+      <div class="lecture-nav juego-nav">
         <button class="main-btn" onclick="showMenuMateria()">VOLVER</button>
+        <button class="main-btn" onclick="mostrarPantallaTransicion(showGame)">JUGAR</button>
       </div>
     </div>
   `;
@@ -663,43 +636,119 @@ function showAhoraVamosAJugar() {
 // Pantalla GAME (placeholder)
 function showGame() {
   stopSpeech();
+  const gradoId = currentGrade?.id || "1";
+  const juegos = (data.juegos && data.juegos[gradoId]) || [];
+  if (typeof window.juegoPage === "undefined") window.juegoPage = 0;
+  let page = window.juegoPage;
+  let totalPages = juegos.length;
+  let { palabra = "", plantilla = "", pista = "" } = juegos[page] || {};
+
   document.getElementById('app').innerHTML = `
     <div class="container lecture-container">
-      ${renderTopBar({ backFn: "showAhoraVamosAJugar()", audioFn: "" })}
-      <div class="lecture-text" id="lectureText" style="font-size: ${fontSize}px;">
-        <h2 style="text-align:center;">Juego</h2>
-        <p style="text-align:center;">Aquí va el juego seleccionado.</p>
+      ${renderTopBar({ backFn: "showAhoraVamosAJugar()", audioFn: null })}
+      <div class="lecture-text" id="lectureText">
+        <h2 class="juego-titulo">Completa la palabra</h2>
+        <div class="juego-palabra-row">
+          ${plantilla.split('').map((c, i) =>
+    c === '_'
+      ? `<input type="text" maxlength="1" class="juego-input" id="juegoInput${i}" autocomplete="off">`
+      : `<span class="juego-letra">${c}</span>`
+  ).join('')}
+        </div>
+        <p class="juego-pista">Pista: ${pista}</p>
       </div>
-      <div class="lecture-nav" style="margin-top:12px;">
+      <div class="lecture-nav juego-nav">
         <button class="main-btn" onclick="showAhoraVamosAJugar()">VOLVER</button>
+        <button class="main-btn" onclick="validarJuegoPalabra()">REVISAR</button>
       </div>
     </div>
   `;
+
+  // Autofocus en el primer input vacío
+  setTimeout(() => {
+    const firstInput = document.querySelector('.juego-input');
+    if (firstInput) firstInput.focus();
+  }, 100);
 }
+
+function validarJuegoPalabra() {
+  const gradoId = currentGrade?.id || "1";
+  const juegos = (data.juegos && data.juegos[gradoId]) || [];
+  let page = window.juegoPage || 0;
+  let { palabra = "", plantilla = "" } = juegos[page] || {};
+  let respuesta = "";
+  let inputIndex = 0;
+  for (let i = 0; i < plantilla.length; i++) {
+    if (plantilla[i] === '_') {
+      const val = (document.getElementById(`juegoInput${i}`)?.value || "").toUpperCase();
+      respuesta += val;
+      inputIndex++;
+    } else {
+      respuesta += plantilla[i].toUpperCase();
+    }
+  }
+  if (respuesta === palabra.toUpperCase()) {
+    // Correcto, pasa al siguiente ejercicio o felicita si es el último
+    window.juegoPage = page + 1;
+    if (window.juegoPage >= juegos.length) {
+      showCongrats();
+    } else {
+      mostrarPantallaTransicion(showGame);
+    }
+  } else {
+    // Incorrecto, borra los inputs
+    for (let i = 0; i < plantilla.length; i++) {
+      if (plantilla[i] === '_') {
+        const input = document.getElementById(`juegoInput${i}`);
+        if (input) input.value = "";
+      }
+    }
+    // Opcional: feedback visual
+    setTimeout(() => {
+      const firstInput = document.querySelector('.juego-input');
+      if (firstInput) firstInput.focus();
+    }, 100);
+  }
+}
+window.showGame = showGame;
+window.validarJuegoPalabra = validarJuegoPalabra;
 
 // Pantalla FELICITACIONES (placeholder)
 function showCongrats() {
   stopSpeech();
   document.getElementById('app').innerHTML = `
     <div class="container lecture-container">
-      <h2 style="text-align:center;">¡Felicidades!</h2>
-      <p style="text-align:center;">Has completado la actividad.</p>
+      ${renderTopBar({ backFn: "mostrarPantallaTransicion(showMenuMateria)", audioFn: true })}
+      <div class="felicitaciones-img-container">
+        <img src="lectura.png" alt="Felicitaciones" class="felicitaciones-img">
+      </div>
+      <h2 class="felicitaciones-titulo" style="text-align:center;">¡Bien hecho!</h2>
+      <p class="felicitaciones-texto" id="felicitacionesTexto" style="text-align:center; font-size: ${fontSize}px;">
+        ¡Lo lograste! Has practicado y aprendido nuevas palabras sobre importancia de la lengua escrita.<br>
+        Sigue leyendo, escuchando y jugando... ¡cada día sabes un poco más!
+      </p>
+      <div class="font-size-bar">
+        <button onclick="changeFontSize(-2, showCongrats)">-</button>
+        <input type="range" min="14" max="40" value="${fontSize}" oninput="setFontSize(this.value, showCongrats)">
+        <button onclick="changeFontSize(2, showCongrats)">+</button>
+      </div>
       <div class="lecture-nav" style="margin-top:12px;">
-        <button class="main-btn" onclick="showMenuMateria()">VOLVER AL MENÚ</button>
+        <button class="main-btn" onclick="mostrarPantallaTransicion(showMenuMateria)">VOLVER AL MENÚ</button>
       </div>
     </div>
   `;
+  const audioBtn = document.getElementById('audioBtn');
+  if (audioBtn) {
+    audioBtn.onclick = function () {
+      toggleAudioGeneric(
+        () => "¡Bien hecho! ¡Lo lograste! Has practicado y aprendido nuevas palabras sobre importancia de la lengua escrita. Sigue leyendo, escuchando y jugando... ¡cada día sabes un poco más!",
+        showCongrats
+      );
+    };
+  }
+
+
 }
-
-
-
-
-
-
-
-
-
-
 
 // Exponer funciones globalmente para los onclicks en HTML generado
 window.showHome = showHome;
@@ -712,6 +761,8 @@ window.prevIntro2Page = prevIntro2Page;
 window.goToGradesFromIntro2 = goToGradesFromIntro2;
 window.showSignosPuntuacionIntro = showSignosPuntuacionIntro;
 window.showGlosario5to = showGlosario5to;
+window.showGlosario6to = showGlosario6to;
+window.showGlosario7to = showGlosario7to;
 window.showMenuMateria = showMenuMateria;
 window.renderLecture = renderLecture;
 window.nextPage = nextPage;
@@ -724,4 +775,4 @@ window.showCongrats = showCongrats;
 window.toggleSidebar = toggleSidebar;
 window.goToHomeFromSidebar = goToHomeFromSidebar;
 window.goToIndicacionesFromSidebar = goToIndicacionesFromSidebar;
-window.goToGradosFromSidebar = goToGradosFromSidebar;
+window.goToGradosFromSidebar = goToGradesFromIntro2;
