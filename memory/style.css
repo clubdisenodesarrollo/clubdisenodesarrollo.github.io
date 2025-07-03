@@ -918,3 +918,53 @@ p {
     transform: scale(1) rotate(0);
   }
 }
+
+/* Estilos para las tarjetas matemáticas */
+.math-card {
+  width: 70px;
+  height: 90px;
+  perspective: 600px;
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 6px;
+    border-radius: 10px;
+
+}
+
+.math-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.math-card.open .math-card-inner,
+.math-card.matched .math-card-inner {
+  transform: rotateY(180deg);
+
+}
+
+.math-card-front,
+.math-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+}
+
+.math-card-front {
+
+}
+
+.math-card-back {
+  transform: rotateY(180deg);
+  background: #fff;
+
+}
