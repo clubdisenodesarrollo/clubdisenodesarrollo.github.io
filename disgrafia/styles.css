@@ -10,7 +10,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Super Adorable', cursive, sans-serif;
+    font-family: sans-serif;
     overflow: hidden;
 }
 
