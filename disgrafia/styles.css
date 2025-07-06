@@ -17,6 +17,7 @@ body {
 
 
 #app {
+    top: -10px
     width: 350px;
     height: 650px;
     background: transparent;
@@ -467,7 +468,7 @@ body {
     align-items: center;
     justify-content: center;
     transform: rotate(-45deg);
-    scale: 0.9;
+    scale: 0.8;
     position: relative;
     overflow: hidden;
     
