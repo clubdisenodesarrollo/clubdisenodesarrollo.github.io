@@ -1,0 +1,582 @@
+/* Importar fuente Super Adorable */
+@import url('https://fonts.googleapis.com/css2?family=Super+Adorable&display=swap');
+
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Super Adorable', cursive, sans-serif;
+    overflow: hidden;
+}
+
+
+
+#app {
+    top: -15px;
+    width: 350px;
+    height: 650px;
+    background: transparent;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Contenedor general para cada pantalla */
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+
+}
+
+.background-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.home-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0 32px 0;
+}
+
+.logo-img {
+    width: 180px;
+    margin-top: 32px;
+    margin-bottom: auto;
+    display: block;
+}
+
+.main-btn-img {
+    width: 210px;
+    margin-bottom: 0;
+    cursor: pointer;
+    transition: transform 0.1s;
+    user-select: none;
+    touch-action: manipulation;
+    background: transparent;
+    border-color: transparent;
+}
+
+.main-btn-img:active {
+    transform: scale(0.96);
+}
+
+.iniciar-bottom {
+    margin-top: auto;
+    margin-bottom: 24px;
+}
+
+/* --- Juegos --- */
+.juegos-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: transparent;
+}
+
+.juegos-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 32px;
+    margin-bottom: 12px;
+}
+
+.juegos-botones {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    flex: 1;
+    justify-content: center;
+}
+
+.juego-btn-1 {
+
+    width: 90%;
+    max-width: 300px;
+    height: 80px;
+    border: none;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    padding: 0;
+}
+
+.juego-btn-1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.juegos-grid {
+
+    width: 90%;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.juego-btn {
+    width: fit-content;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.1s;
+    padding: 0;
+    background-color: transparent;
+
+}
+
+.juego-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.juego-btn:active,
+.juego-btn-1:active {
+    transform: scale(0.96);
+}
+
+.juegos-salir {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
+
+.salir-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.salir-btn img {
+    width: 50%;
+    object-fit: contain;
+}
+
+/* --- Pantalla de Juego --- */
+.juego-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    border-radius: 24px;
+    overflow: hidden;
+    background: transparent;
+}
+
+.juego-header {
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 16px;
+    z-index: 2;
+}
+
+.casita-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.casita-btn img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.juego-content {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.juego-dinamico {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.juego-titulo {
+    font-size: 2rem;
+    color: #74428a;
+    text-align: center;
+}
+
+.juego-footer {
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 2;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.nav-btn img {
+    width: 90%;
+    object-fit: contain;
+}
+
+.ejercicio-barras {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.barra-row {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.barra-slider {
+    position: relative;
+    width: 100%;
+    height: 48px;
+    background: transparent;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: visible;
+}
+.barra-fondo {
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 16px;
+    background: url('linea-horizontal.png') center center no-repeat;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    z-index: 1;
+}
+.barra-fondo-vertical {
+    position: absolute;
+    left: 50%; top: 0;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 100%;
+    background: url('linea-vertical.png') center center no-repeat;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    z-index: 1;
+}
+.estrella-slider {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: grab;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    z-index: 2;
+    transition: left 0.2s;
+    touch-action: none;
+}
+.barra-completa .estrella-slider {
+    filter: drop-shadow(0 0 8px #8bc34a);
+}
+.siguiente-img {
+    width: 80%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+.modal-bien {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+.modal-bien-content {
+    background: transparent;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    background-color: rgb(255, 255, 255);
+}
+.bien-img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+}
+.bien-tex{
+    font-size: 24px;
+}
+.ejercicio-barras-vertical {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 32px;
+    position: relative;
+}
+.barra-vertical-contenedor {
+    position: relative;
+    width: 48px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.estrella-vertical {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: grab;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: top 0.2s;
+    touch-action: none;
+}
+.barra-vertical {
+    position: relative;
+    width: 48px;
+    height: 300px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.barras-verticales {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    height: 300px;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+}
+
+.ejercicio-diagonal-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(45deg);
+    scale: 0.9;
+
+    position: relative;
+    
+}
+.ejercicio-diagonal-wrapper .barra-slider {
+    width: 70% !important; /* Ajusta este valor según lo que veas en pantalla */
+    margin: 0 auto;
+}
+
+.ejercicio-diagonal-wrapper-120 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-45deg);
+    scale: 0.7;
+    position: relative;
+    overflow: hidden;
+    left: -30px;
+    
+}
+.ejercicio-diagonal-wrapper-120 .barra-slider {
+    width: 110% !important;
+    margin: 0 auto;
+}
+
+
+
+
+
+/* Contenedor principal del canvas de la letra */
+.canvas-letra-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    position: relative;
+}
+
+/* Canvas de la letra */
+#canvas-letra {
+    background: transparent;
+    border-radius: 24px;
+    filter: drop-shadow(1px 5px 15px rgb(0, 0, 0));
+    touch-action: none;
+    display: block;
+    /* Ajusta el tamaño según tu imagen */
+    width: 250px;
+    max-width: 90vw;
+    max-height: 80vh;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+    cursor: crosshair;
+}
+
+/* Si usas la imagen como <img> (no canvas), puedes usar: */
+.img-letra {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    pointer-events: none; /* Para que no bloquee el canvas */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Agrega o reemplaza este bloque en tu CSS */
+.opciones-contenedor {
+    top: 130px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 16px;
+    justify-items: center;
+    align-items: center;
+    margin-top: 32px;
+    background: transparent;
+    transition: opacity 0.5s;
+    z-index: 2;
+    background-color: #006633;
+}
+
+.opcion-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border-radius: 16px;
+}
+.opcion-btn img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.opcion-btn:active {
+    transform: scale(0.95);
+}
