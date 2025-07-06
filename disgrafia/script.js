@@ -439,6 +439,775 @@ function showGameScreen(juego, nivel) {
     }
 
 
+    if (juego === 2 && nivel === 1) {
+        app.innerHTML = `
+      <div class="container juego-container">
+        <img src="f-2.png" alt="Fondo juego" class="background-img">
+        <div class="juego-header">
+          <button class="casita-btn" id="btn-casita">
+            <img src="casita.png" alt="Inicio">
+          </button>
+        </div>
+        <div class="juego-content">
+          <div class="canvas-letra-container" style="display:flex;justify-content:center;align-items:center;height:100%;">
+            <canvas id="canvas-letra" width="320" height="400" style="background:transparent;touch-action:none;"></canvas>
+          </div>
+        </div>
+        <div class="juego-footer">
+          <button class="nav-btn" id="btn-atras">
+            <img src="volver.png" alt="Atrás">
+          </button>
+        </div>
+        <div class="modal-bien" id="modal-bien" style="display:none;">
+          <div class="modal-bien-content">
+            <h1 class="bien-text">¡Bien hecho!</h1>
+            <button class="main-btn-img" id="btn-modal-siguiente">
+              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+        // Pintar sobre la letra
+        const canvas = document.getElementById('canvas-letra');
+        const ctx = canvas.getContext('2d');
+        let painting = false;
+
+        // Cargar la imagen de la letra
+        const img = new Image();
+        img.src = 'letra1.png';
+        let letraImageData = null;
+        img.onload = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            // Guarda los datos de la imagen de la letra
+            letraImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        };
+
+        // Funciones para pintar
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            // Ajusta la posición a la escala real del canvas
+            return {
+                x: (clientX - rect.left) * (canvas.width / rect.width),
+                y: (clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+        function startPaint(e) {
+            painting = true;
+            ctx.beginPath();
+            const { x, y } = getPos(e);
+            ctx.moveTo(x, y);
+            e.preventDefault();
+        }
+        function paint(e) {
+            if (!painting || !letraImageData) return;
+            const { x, y } = getPos(e);
+
+            // Solo pinta si el píxel de la letra es opaco
+            const px = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
+            if (letraImageData.data[px + 3] > 50) { // 50 = umbral de opacidad, ajusta si hace falta
+                ctx.lineTo(x, y);
+                ctx.strokeStyle = "#f39c12";
+                ctx.lineWidth = 60;
+                ctx.lineCap = "round";
+                ctx.stroke();
+            } else {
+                ctx.moveTo(x, y); // Salta el trazo si está fuera de la letra
+            }
+            e.preventDefault();
+        }
+        function endPaint() {
+            painting = false;
+            checkLetraPintada();
+        }
+
+        // Eventos mouse/touch
+        canvas.addEventListener('mousedown', startPaint);
+        canvas.addEventListener('mousemove', paint);
+        canvas.addEventListener('mouseup', endPaint);
+        canvas.addEventListener('mouseleave', endPaint);
+        canvas.addEventListener('touchstart', startPaint);
+        canvas.addEventListener('touchmove', paint);
+        canvas.addEventListener('touchend', endPaint);
+
+        // Validar si la letra está pintada (prueba simple)
+        function checkLetraPintada() {
+            // Datos originales de la letra
+            const letraData = letraImageData.data;
+            // Datos actuales del canvas (usuario)
+            const userData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+            let pintados = 0, total = 0;
+            for (let i = 0; i < letraData.length; i += 4) {
+                // Solo cuenta los píxeles de la letra (opacos en la imagen original)
+                if (letraData[i + 3] > 50) {
+                    total++;
+                    // Si el usuario pintó (el color ya no es blanco)
+                    if (!(userData[i] > 240 && userData[i + 1] > 240 && userData[i + 2] > 240)) {
+                        pintados++;
+                    }
+                }
+            }
+            // Ajusta el umbral, por ejemplo 0.5 = 50% de la letra debe estar pintada
+            if (pintados / total > 0.6) {
+                setTimeout(() => {
+                    document.getElementById('modal-bien').style.display = 'flex';
+                }, 400);
+            }
+        }
+
+        // Modal siguiente ejercicio
+        document.getElementById('btn-modal-siguiente').onclick = () => showGameScreen(2, 2);
+
+        // Navegación
+        document.getElementById('btn-casita').onclick = showGames;
+        document.getElementById('btn-atras').onclick = showGames;
+        return;
+    }
+    if (juego === 2 && nivel === 2) {
+        app.innerHTML = `
+      <div class="container juego-container">
+        <img src="f-2.png" alt="Fondo juego" class="background-img">
+        <div class="juego-header">
+          <button class="casita-btn" id="btn-casita">
+            <img src="casita.png" alt="Inicio">
+          </button>
+        </div>
+        <div class="juego-content">
+          <div class="canvas-letra-container" style="display:flex;justify-content:center;align-items:center;height:100%;">
+            <canvas id="canvas-letra" width="320" height="400" style="background:transparent;touch-action:none;"></canvas>
+          </div>
+        </div>
+        <div class="juego-footer">
+          <button class="nav-btn" id="btn-atras">
+            <img src="volver.png" alt="Atrás">
+          </button>
+        </div>
+        <div class="modal-bien" id="modal-bien" style="display:none;">
+          <div class="modal-bien-content">
+            <h1 class="bien-text">¡Bien hecho!</h1>
+            <button class="main-btn-img" id="btn-modal-siguiente">
+              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+        // Pintar sobre la letra
+        const canvas = document.getElementById('canvas-letra');
+        const ctx = canvas.getContext('2d');
+        let painting = false;
+
+        // Cargar la imagen de la letra
+        const img = new Image();
+        img.src = 'letra2.png';
+        let letraImageData = null;
+        img.onload = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            // Guarda los datos de la imagen de la letra
+            letraImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        };
+
+        // Funciones para pintar
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            // Ajusta la posición a la escala real del canvas
+            return {
+                x: (clientX - rect.left) * (canvas.width / rect.width),
+                y: (clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+        function startPaint(e) {
+            painting = true;
+            ctx.beginPath();
+            const { x, y } = getPos(e);
+            ctx.moveTo(x, y);
+            e.preventDefault();
+        }
+        function paint(e) {
+            if (!painting || !letraImageData) return;
+            const { x, y } = getPos(e);
+
+            // Solo pinta si el píxel de la letra es opaco
+            const px = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
+            if (letraImageData.data[px + 3] > 50) { // 50 = umbral de opacidad, ajusta si hace falta
+                ctx.lineTo(x, y);
+                ctx.strokeStyle = "#f39c12";
+                ctx.lineWidth = 60;
+                ctx.lineCap = "round";
+                ctx.stroke();
+            } else {
+                ctx.moveTo(x, y); // Salta el trazo si está fuera de la letra
+            }
+            e.preventDefault();
+        }
+        function endPaint() {
+            painting = false;
+            checkLetraPintada();
+        }
+
+        // Eventos mouse/touch
+        canvas.addEventListener('mousedown', startPaint);
+        canvas.addEventListener('mousemove', paint);
+        canvas.addEventListener('mouseup', endPaint);
+        canvas.addEventListener('mouseleave', endPaint);
+        canvas.addEventListener('touchstart', startPaint);
+        canvas.addEventListener('touchmove', paint);
+        canvas.addEventListener('touchend', endPaint);
+
+        // Validar si la letra está pintada (prueba simple)
+        function checkLetraPintada() {
+            // Datos originales de la letra
+            const letraData = letraImageData.data;
+            // Datos actuales del canvas (usuario)
+            const userData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+            let pintados = 0, total = 0;
+            for (let i = 0; i < letraData.length; i += 4) {
+                // Solo cuenta los píxeles de la letra (opacos en la imagen original)
+                if (letraData[i + 3] > 50) {
+                    total++;
+                    // Si el usuario pintó (el color ya no es blanco)
+                    if (!(userData[i] > 240 && userData[i + 1] > 240 && userData[i + 2] > 240)) {
+                        pintados++;
+                    }
+                }
+            }
+            // Ajusta el umbral, por ejemplo 0.5 = 50% de la letra debe estar pintada
+            if (pintados / total > 0.6) {
+                setTimeout(() => {
+                    document.getElementById('modal-bien').style.display = 'flex';
+                }, 400);
+            }
+        }
+
+        // Modal siguiente ejercicio
+        document.getElementById('btn-modal-siguiente').onclick = () => showGameScreen(2, 3);
+
+        // Navegación
+        document.getElementById('btn-casita').onclick = showGames;
+        document.getElementById('btn-atras').onclick = showGames;
+        return;
+    }
+
+    if (juego === 2 && nivel === 3) {
+        app.innerHTML = `
+      <div class="container juego-container">
+        <img src="f-2.png" alt="Fondo juego" class="background-img">
+        <div class="juego-header">
+          <button class="casita-btn" id="btn-casita">
+            <img src="casita.png" alt="Inicio">
+          </button>
+        </div>
+        <div class="juego-content">
+          <div class="canvas-letra-container" style="display:flex;justify-content:center;align-items:center;height:100%;">
+            <canvas id="canvas-letra" width="320" height="400" style="background:transparent;touch-action:none;"></canvas>
+          </div>
+        </div>
+        <div class="juego-footer">
+          <button class="nav-btn" id="btn-atras">
+            <img src="volver.png" alt="Atrás">
+          </button>
+        </div>
+        <div class="modal-bien" id="modal-bien" style="display:none;">
+          <div class="modal-bien-content">
+            <h1 class="bien-text">¡Bien hecho!</h1>
+            <button class="main-btn-img" id="btn-modal-siguiente">
+              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+        // Pintar sobre la letra
+        const canvas = document.getElementById('canvas-letra');
+        const ctx = canvas.getContext('2d');
+        let painting = false;
+
+        // Cargar la imagen de la letra
+        const img = new Image();
+        img.src = 'letra3.png';
+        let letraImageData = null;
+        img.onload = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            // Guarda los datos de la imagen de la letra
+            letraImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        };
+
+        // Funciones para pintar
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            // Ajusta la posición a la escala real del canvas
+            return {
+                x: (clientX - rect.left) * (canvas.width / rect.width),
+                y: (clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+        function startPaint(e) {
+            painting = true;
+            ctx.beginPath();
+            const { x, y } = getPos(e);
+            ctx.moveTo(x, y);
+            e.preventDefault();
+        }
+        function paint(e) {
+            if (!painting || !letraImageData) return;
+            const { x, y } = getPos(e);
+
+            // Solo pinta si el píxel de la letra es opaco
+            const px = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
+            if (letraImageData.data[px + 3] > 50) { // 50 = umbral de opacidad, ajusta si hace falta
+                ctx.lineTo(x, y);
+                ctx.strokeStyle = "#f39c12";
+                ctx.lineWidth = 60;
+                ctx.lineCap = "round";
+                ctx.stroke();
+            } else {
+                ctx.moveTo(x, y); // Salta el trazo si está fuera de la letra
+            }
+            e.preventDefault();
+        }
+        function endPaint() {
+            painting = false;
+            checkLetraPintada();
+        }
+
+        // Eventos mouse/touch
+        canvas.addEventListener('mousedown', startPaint);
+        canvas.addEventListener('mousemove', paint);
+        canvas.addEventListener('mouseup', endPaint);
+        canvas.addEventListener('mouseleave', endPaint);
+        canvas.addEventListener('touchstart', startPaint);
+        canvas.addEventListener('touchmove', paint);
+        canvas.addEventListener('touchend', endPaint);
+
+        // Validar si la letra está pintada (prueba simple)
+        function checkLetraPintada() {
+            // Datos originales de la letra
+            const letraData = letraImageData.data;
+            // Datos actuales del canvas (usuario)
+            const userData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+            let pintados = 0, total = 0;
+            for (let i = 0; i < letraData.length; i += 4) {
+                // Solo cuenta los píxeles de la letra (opacos en la imagen original)
+                if (letraData[i + 3] > 50) {
+                    total++;
+                    // Si el usuario pintó (el color ya no es blanco)
+                    if (!(userData[i] > 240 && userData[i + 1] > 240 && userData[i + 2] > 240)) {
+                        pintados++;
+                    }
+                }
+            }
+            // Ajusta el umbral, por ejemplo 0.5 = 50% de la letra debe estar pintada
+            if (pintados / total > 0.6) {
+                setTimeout(() => {
+                    document.getElementById('modal-bien').style.display = 'flex';
+                }, 400);
+            }
+        }
+
+        // Modal siguiente ejercicio
+        document.getElementById('btn-modal-siguiente').onclick = () => showGameScreen(2, 4);
+
+        // Navegación
+        document.getElementById('btn-casita').onclick = showGames;
+        document.getElementById('btn-atras').onclick = showGames;
+        return;
+    }
+    if (juego === 2 && nivel === 4) {
+        app.innerHTML = `
+      <div class="container juego-container">
+        <img src="f-2.png" alt="Fondo juego" class="background-img">
+        <div class="juego-header">
+          <button class="casita-btn" id="btn-casita">
+            <img src="casita.png" alt="Inicio">
+          </button>
+        </div>
+        <div class="juego-content">
+          <div class="canvas-letra-container" style="display:flex;justify-content:center;align-items:center;height:100%;">
+            <canvas id="canvas-letra" width="320" height="400" style="background:transparent;touch-action:none;"></canvas>
+          </div>
+        </div>
+        <div class="juego-footer">
+          <button class="nav-btn" id="btn-atras">
+            <img src="volver.png" alt="Atrás">
+          </button>
+        </div>
+        <div class="modal-bien" id="modal-bien" style="display:none;">
+          <div class="modal-bien-content">
+            <h1 class="bien-text">¡Bien hecho!</h1>
+            <button class="main-btn-img" id="btn-modal-siguiente">
+              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+        // Pintar sobre la letra
+        const canvas = document.getElementById('canvas-letra');
+        const ctx = canvas.getContext('2d');
+        let painting = false;
+
+        // Cargar la imagen de la letra
+        const img = new Image();
+        img.src = 'letra4.png';
+        let letraImageData = null;
+        img.onload = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            // Guarda los datos de la imagen de la letra
+            letraImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        };
+
+        // Funciones para pintar
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            // Ajusta la posición a la escala real del canvas
+            return {
+                x: (clientX - rect.left) * (canvas.width / rect.width),
+                y: (clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+        function startPaint(e) {
+            painting = true;
+            ctx.beginPath();
+            const { x, y } = getPos(e);
+            ctx.moveTo(x, y);
+            e.preventDefault();
+        }
+        function paint(e) {
+            if (!painting || !letraImageData) return;
+            const { x, y } = getPos(e);
+
+            // Solo pinta si el píxel de la letra es opaco
+            const px = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
+            if (letraImageData.data[px + 3] > 50) { // 50 = umbral de opacidad, ajusta si hace falta
+                ctx.lineTo(x, y);
+                ctx.strokeStyle = "#f39c12";
+                ctx.lineWidth = 60;
+                ctx.lineCap = "round";
+                ctx.stroke();
+            } else {
+                ctx.moveTo(x, y); // Salta el trazo si está fuera de la letra
+            }
+            e.preventDefault();
+        }
+        function endPaint() {
+            painting = false;
+            checkLetraPintada();
+        }
+
+        // Eventos mouse/touch
+        canvas.addEventListener('mousedown', startPaint);
+        canvas.addEventListener('mousemove', paint);
+        canvas.addEventListener('mouseup', endPaint);
+        canvas.addEventListener('mouseleave', endPaint);
+        canvas.addEventListener('touchstart', startPaint);
+        canvas.addEventListener('touchmove', paint);
+        canvas.addEventListener('touchend', endPaint);
+
+        // Validar si la letra está pintada (prueba simple)
+        function checkLetraPintada() {
+            // Datos originales de la letra
+            const letraData = letraImageData.data;
+            // Datos actuales del canvas (usuario)
+            const userData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+            let pintados = 0, total = 0;
+            for (let i = 0; i < letraData.length; i += 4) {
+                // Solo cuenta los píxeles de la letra (opacos en la imagen original)
+                if (letraData[i + 3] > 50) {
+                    total++;
+                    // Si el usuario pintó (el color ya no es blanco)
+                    if (!(userData[i] > 240 && userData[i + 1] > 240 && userData[i + 2] > 240)) {
+                        pintados++;
+                    }
+                }
+            }
+            // Ajusta el umbral, por ejemplo 0.5 = 50% de la letra debe estar pintada
+            if (pintados / total > 0.6) {
+                setTimeout(() => {
+                    document.getElementById('modal-bien').style.display = 'flex';
+                }, 400);
+            }
+        }
+
+        // Modal siguiente ejercicio
+        document.getElementById('btn-modal-siguiente').onclick = () => showGameScreen(2, 5);
+
+        // Navegación
+        document.getElementById('btn-casita').onclick = showGames;
+        document.getElementById('btn-atras').onclick = showGames;
+        return;
+    }
+    if (juego === 2 && nivel === 5) {
+        app.innerHTML = `
+      <div class="container juego-container">
+        <img src="f-2.png" alt="Fondo juego" class="background-img">
+        <div class="juego-header">
+          <button class="casita-btn" id="btn-casita">
+            <img src="casita.png" alt="Inicio">
+          </button>
+        </div>
+        <div class="juego-content">
+          <div class="canvas-letra-container" style="display:flex;justify-content:center;align-items:center;height:100%;">
+            <canvas id="canvas-letra" width="320" height="400" style="background:transparent;touch-action:none;"></canvas>
+          </div>
+        </div>
+        <div class="juego-footer">
+          <button class="nav-btn" id="btn-atras">
+            <img src="volver.png" alt="Atrás">
+          </button>
+        </div>
+        <div class="modal-bien" id="modal-bien" style="display:none;">
+          <div class="modal-bien-content">
+            <h1 class="bien-text">¡Bien hecho!</h1>
+            <button class="main-btn-img" id="btn-modal-siguiente">
+              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+        // Pintar sobre la letra
+        const canvas = document.getElementById('canvas-letra');
+        const ctx = canvas.getContext('2d');
+        let painting = false;
+
+        // Cargar la imagen de la letra
+        const img = new Image();
+        img.src = 'letra5.png';
+        let letraImageData = null;
+        img.onload = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            // Guarda los datos de la imagen de la letra
+            letraImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        };
+
+        // Funciones para pintar
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            // Ajusta la posición a la escala real del canvas
+            return {
+                x: (clientX - rect.left) * (canvas.width / rect.width),
+                y: (clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+        function startPaint(e) {
+            painting = true;
+            ctx.beginPath();
+            const { x, y } = getPos(e);
+            ctx.moveTo(x, y);
+            e.preventDefault();
+        }
+        function paint(e) {
+            if (!painting || !letraImageData) return;
+            const { x, y } = getPos(e);
+
+            // Solo pinta si el píxel de la letra es opaco
+            const px = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
+            if (letraImageData.data[px + 3] > 50) { // 50 = umbral de opacidad, ajusta si hace falta
+                ctx.lineTo(x, y);
+                ctx.strokeStyle = "#f39c12";
+                ctx.lineWidth = 60;
+                ctx.lineCap = "round";
+                ctx.stroke();
+            } else {
+                ctx.moveTo(x, y); // Salta el trazo si está fuera de la letra
+            }
+            e.preventDefault();
+        }
+        function endPaint() {
+            painting = false;
+            checkLetraPintada();
+        }
+
+        // Eventos mouse/touch
+        canvas.addEventListener('mousedown', startPaint);
+        canvas.addEventListener('mousemove', paint);
+        canvas.addEventListener('mouseup', endPaint);
+        canvas.addEventListener('mouseleave', endPaint);
+        canvas.addEventListener('touchstart', startPaint);
+        canvas.addEventListener('touchmove', paint);
+        canvas.addEventListener('touchend', endPaint);
+
+        // Validar si la letra está pintada (prueba simple)
+        function checkLetraPintada() {
+            // Datos originales de la letra
+            const letraData = letraImageData.data;
+            // Datos actuales del canvas (usuario)
+            const userData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+            let pintados = 0, total = 0;
+            for (let i = 0; i < letraData.length; i += 4) {
+                // Solo cuenta los píxeles de la letra (opacos en la imagen original)
+                if (letraData[i + 3] > 50) {
+                    total++;
+                    // Si el usuario pintó (el color ya no es blanco)
+                    if (!(userData[i] > 240 && userData[i + 1] > 240 && userData[i + 2] > 240)) {
+                        pintados++;
+                    }
+                }
+            }
+            // Ajusta el umbral, por ejemplo 0.5 = 50% de la letra debe estar pintada
+            if (pintados / total > 0.6) {
+                setTimeout(() => {
+                    document.getElementById('modal-bien').style.display = 'flex';
+                }, 400);
+            }
+        }
+
+        // Modal siguiente ejercicio
+        document.getElementById('btn-modal-siguiente').onclick = () => showGameScreen(2, 6);
+
+        // Navegación
+        document.getElementById('btn-casita').onclick = showGames;
+        document.getElementById('btn-atras').onclick = showGames;
+        return;
+    }
+    if (juego === 2 && nivel === 6) {
+        app.innerHTML = `
+      <div class="container juego-container">
+        <img src="f-2.png" alt="Fondo juego" class="background-img">
+        <div class="juego-header">
+          <button class="casita-btn" id="btn-casita">
+            <img src="casita.png" alt="Inicio">
+          </button>
+        </div>
+        <div class="juego-content">
+          <div class="canvas-letra-container" style="display:flex;justify-content:center;align-items:center;height:100%;">
+            <canvas id="canvas-letra" width="320" height="400" style="background:transparent;touch-action:none;"></canvas>
+          </div>
+        </div>
+        <div class="juego-footer">
+          <button class="nav-btn" id="btn-atras">
+            <img src="volver.png" alt="Atrás">
+          </button>
+        </div>
+        <div class="modal-bien" id="modal-bien" style="display:none;">
+          <div class="modal-bien-content">
+            <img src="felicidades.png" alt="felicidades" class="bien-img">
+            <button class="main-btn-img" id="btn-modal-siguiente">
+              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+        // Pintar sobre la letra
+        const canvas = document.getElementById('canvas-letra');
+        const ctx = canvas.getContext('2d');
+        let painting = false;
+
+        // Cargar la imagen de la letra
+        const img = new Image();
+        img.src = 'letra6.png';
+        let letraImageData = null;
+        img.onload = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            // Guarda los datos de la imagen de la letra
+            letraImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        };
+
+        // Funciones para pintar
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            // Ajusta la posición a la escala real del canvas
+            return {
+                x: (clientX - rect.left) * (canvas.width / rect.width),
+                y: (clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+        function startPaint(e) {
+            painting = true;
+            ctx.beginPath();
+            const { x, y } = getPos(e);
+            ctx.moveTo(x, y);
+            e.preventDefault();
+        }
+        function paint(e) {
+            if (!painting || !letraImageData) return;
+            const { x, y } = getPos(e);
+
+            // Solo pinta si el píxel de la letra es opaco
+            const px = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
+            if (letraImageData.data[px + 3] > 50) { // 50 = umbral de opacidad, ajusta si hace falta
+                ctx.lineTo(x, y);
+                ctx.strokeStyle = "#f39c12";
+                ctx.lineWidth = 60;
+                ctx.lineCap = "round";
+                ctx.stroke();
+            } else {
+                ctx.moveTo(x, y); // Salta el trazo si está fuera de la letra
+            }
+            e.preventDefault();
+        }
+        function endPaint() {
+            painting = false;
+            checkLetraPintada();
+        }
+
+        // Eventos mouse/touch
+        canvas.addEventListener('mousedown', startPaint);
+        canvas.addEventListener('mousemove', paint);
+        canvas.addEventListener('mouseup', endPaint);
+        canvas.addEventListener('mouseleave', endPaint);
+        canvas.addEventListener('touchstart', startPaint);
+        canvas.addEventListener('touchmove', paint);
+        canvas.addEventListener('touchend', endPaint);
+
+        // Validar si la letra está pintada (prueba simple)
+        function checkLetraPintada() {
+            // Datos originales de la letra
+            const letraData = letraImageData.data;
+            // Datos actuales del canvas (usuario)
+            const userData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+            let pintados = 0, total = 0;
+            for (let i = 0; i < letraData.length; i += 4) {
+                // Solo cuenta los píxeles de la letra (opacos en la imagen original)
+                if (letraData[i + 3] > 50) {
+                    total++;
+                    // Si el usuario pintó (el color ya no es blanco)
+                    if (!(userData[i] > 240 && userData[i + 1] > 240 && userData[i + 2] > 240)) {
+                        pintados++;
+                    }
+                }
+            }
+            // Ajusta el umbral, por ejemplo 0.5 = 50% de la letra debe estar pintada
+            if (pintados / total > 0.6) {
+                setTimeout(() => {
+                    document.getElementById('modal-bien').style.display = 'flex';
+                }, 400);
+            }
+        }
+
+        // Modal siguiente ejercicio
+        document.getElementById('btn-modal-siguiente').onclick = () => showGames();
+
+        // Navegación
+        document.getElementById('btn-casita').onclick = showGames;
+        document.getElementById('btn-atras').onclick = showGames;
+        return;
+    }
 
     // ...otros juegos y niveles...
 }
