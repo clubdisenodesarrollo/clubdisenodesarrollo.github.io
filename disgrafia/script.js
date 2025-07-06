@@ -388,7 +388,7 @@ function showGameScreen(juego, nivel) {
                 let clientX = e.touches ? e.touches[0].clientX : e.clientX;
                 let barraLeft = barraRect.left;
                 let x = (clientX - barraLeft) / scale;
-                let max = ((barraRect.width - estrella.offsetWidth) / scale) * 1.5; // o prueba 1.4, 1.5...
+                let max = ((barraRect.width - estrella.offsetWidth) / scale) * 2.1; // o prueba 1.4, 1.5...
                 let pos = Math.max(0, Math.min(x, max));
                 estrella.style.left = `${pos * scale}px`;
                 if (pos >= max * 0.99) {
