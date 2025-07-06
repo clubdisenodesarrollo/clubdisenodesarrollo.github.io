@@ -17,7 +17,7 @@ body {
 
 
 #app {
-    top: -10px;
+    top: -15px;
     width: 350px;
     height: 650px;
     background: transparent;
@@ -471,6 +471,7 @@ body {
     scale: 0.7;
     position: relative;
     overflow: hidden;
+    left: -30px;
     
 }
 .ejercicio-diagonal-wrapper-120 .barra-slider {
