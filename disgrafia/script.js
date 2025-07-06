@@ -49,7 +49,7 @@ function showGameScreen(juego, nivel) {
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
           <div class="modal-bien-content">
-            <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+            <h1 class="bien-text">¡Bien hecho!</h1>
             <button class="main-btn-img" id="btn-modal-siguiente">
               <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
             </button>
@@ -154,7 +154,7 @@ function showGameScreen(juego, nivel) {
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
           <div class="modal-bien-content">
-            <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+            <h1 class="bien-text">¡Bien hecho!</h1>
             <button class="main-btn-img" id="btn-modal-siguiente">
               <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
             </button>
@@ -261,7 +261,7 @@ function showGameScreen(juego, nivel) {
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
           <div class="modal-bien-content">
-            <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+            <h1 class="bien-text">¡Bien hecho!</h1>
             <button class="main-btn-img" id="btn-modal-siguiente">
               <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
             </button>
@@ -366,7 +366,7 @@ function showGameScreen(juego, nivel) {
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
           <div class="modal-bien-content">
-            <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+            <img src="felicidades.png" alt="felicidades" class="bien-img">
             <button class="main-btn-img" id="btn-modal-siguiente">
               <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
             </button>
@@ -430,7 +430,7 @@ function showGameScreen(juego, nivel) {
         });
 
         // Modal siguiente ejercicio
-        document.getElementById('btn-modal-siguiente').onclick = () => showGameScreen(1, 5);
+        document.getElementById('btn-modal-siguiente').onclick = () => showGames();
 
         // Navegación
         document.getElementById('btn-casita').onclick = showGames;
