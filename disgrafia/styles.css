@@ -580,3 +580,70 @@ body {
 .opcion-btn:active {
     transform: scale(0.95);
 }
+
+
+
+
+
+
+
+
+
+.palabra-fila {
+    margin-bottom: 32px;
+}
+.letra-faltante, .letra-presente {
+    font-size: 2.2rem;
+    min-width: 38px;
+    min-height: 48px;
+    border-radius: 8px;
+    background: #fff8;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.letra-faltante {
+    border: 2px dashed #f39c12;
+    background: #fff3;
+    color: #f39c12;
+    font-size: 2.2rem;
+    transition: background 0.2s;
+}
+.letra-presente {
+    border: 2px solid #ccc;
+    background: #fff;
+    color: #222;
+}
+.opciones-letras-fila {
+    margin-bottom: 40px;
+}
+.letra-opcion-btn {
+    font-size: 2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    border: 2px solid #f39c12;
+    background: #fff;
+    color: #f39c12;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+.letra-opcion-btn:active {
+    background: #f39c12;
+    color: #fff;
+    transform: scale(0.95);
+}
+.letra-opcion-error {
+    animation: shake 0.3s;
+}
+@keyframes shake {
+    0% { transform: translateX(0);}
+    25% { transform: translateX(-6px);}
+    50% { transform: translateX(6px);}
+    75% { transform: translateX(-6px);}
+    100% { transform: translateX(0);}
+}
