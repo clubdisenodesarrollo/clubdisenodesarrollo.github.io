@@ -14,7 +14,7 @@ body {
     overflow: hidden;
 }
 
-:root {}
+
 
 #app {
     width: 350px;
@@ -295,4 +295,184 @@ body {
 .nav-btn img {
     width: 90%;
     object-fit: contain;
+}
+
+.ejercicio-barras {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.barra-row {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.barra-slider {
+    position: relative;
+    width: 100%;
+    height: 48px;
+    background: transparent;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: visible;
+}
+.barra-fondo {
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 16px;
+    background: url('linea-horizontal.png') center center no-repeat;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    z-index: 1;
+}
+.barra-fondo-vertical {
+    position: absolute;
+    left: 50%; top: 0;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 100%;
+    background: url('linea-vertical.png') center center no-repeat;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    z-index: 1;
+}
+.estrella-slider {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: grab;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    z-index: 2;
+    transition: left 0.2s;
+    touch-action: none;
+}
+.barra-completa .estrella-slider {
+    filter: drop-shadow(0 0 8px #8bc34a);
+}
+.siguiente-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+.modal-bien {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+.modal-bien-content {
+    background: transparent;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+.bien-img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+}
+.ejercicio-barras-vertical {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 32px;
+    position: relative;
+}
+.barra-vertical-contenedor {
+    position: relative;
+    width: 48px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.estrella-vertical {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: grab;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: top 0.2s;
+    touch-action: none;
+}
+.barra-vertical {
+    position: relative;
+    width: 48px;
+    height: 300px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.barras-verticales {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    height: 300px;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+}
+
+.ejercicio-diagonal-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(45deg);
+    scale: 0.9;
+
+    position: relative;
+    
+}
+.ejercicio-diagonal-wrapper .barra-slider {
+    width: 70% !important; /* Ajusta este valor según lo que veas en pantalla */
+    margin: 0 auto;
+}
+
+.ejercicio-diagonal-wrapper-120 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-45deg);
+    scale: 0.9;
+    position: relative;
+    overflow: hidden;
+    
+}
+.ejercicio-diagonal-wrapper-120 .barra-slider {
+    width: 110% !important;
+    margin: 0 auto;
 }
