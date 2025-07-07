@@ -235,7 +235,7 @@ function showGameScreen(juego, nivel) {
         </div>
         <div class="juego-content">
           <div class="ejercicio-diagonal-wrapper">
-            <div class="ejercicio-barras">
+            <div class="ejercicio-barras diagonal2">
               ${[1, 2, 3, 4].map(i => `
                 <div class="barra-row">
                   <div class="barra-slider" data-index="${i - 1}">
