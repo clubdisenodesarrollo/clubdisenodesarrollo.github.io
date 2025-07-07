@@ -300,12 +300,14 @@ body {
 }
 
 .ejercicio-barras {
+    top: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 .barra-row {
     width: 90%;
@@ -441,6 +443,7 @@ body {
 .barras-verticales {
     display: flex;
     flex-direction: row;
+    top: 150px;
     gap: 32px;
     height: 300px;
     align-items: flex-start;
@@ -709,4 +712,69 @@ body {
     margin-top: -24px; /* Ajusta este valor para que la pieza inferior suba y encaje */
     z-index: 2;
     position: relative;
+}
+
+/* Modal genérico: centra y oscurece el fondo */
+.modal-bien,
+.modal-error {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 30, 30, 0.6);
+  z-index: 1000;
+  transition: opacity 0.3s;
+}
+
+/* Contenido del modal */
+.modal-bien-content,
+.modal-error-content {
+  background: #fff;
+  border-radius: 18px;
+  padding: 32px 32px 24px 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 220px;
+  min-height: 120px;
+  animation: modalPop 0.3s;
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Imagen de éxito o error */
+.bien-img,
+.error-img {
+  width: 180px;
+  max-width: 80vw;
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* Botón siguiente dentro del modal */
+.main-btn-img {
+  background: none;
+  border: none;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.siguiente-img {
+  width: 150px;
+  height: auto;
+}
+
+/* Opcional: para que el modal de error desaparezca suavemente */
+.modal-error {
+  animation: modalFadeOut 1s forwards;
+  animation-delay: 0.9s;
+}
+
+@keyframes modalFadeOut {
+  to { opacity: 0; pointer-events: none; }
 }
