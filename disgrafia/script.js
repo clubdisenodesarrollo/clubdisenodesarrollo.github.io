@@ -224,7 +224,7 @@ function showGameScreen(juego, nivel) {
     document.getElementById('btn-modal-siguiente').onclick = () => showGameScreen(1, 3);
     // Navegación
     document.getElementById('btn-casita').onclick = showGames;
-    document.getElementById('btn-atras').onclick = () => showGameScreen(1, 2);
+    document.getElementById('btn-atras').onclick = () => showGameScreen(1, 1);
     return;
   }
 
@@ -1097,48 +1097,62 @@ function showGameScreen(juego, nivel) {
     const opcionesMezcladas = shuffle([...opciones]);
 
     app.innerHTML = `
-      <div class="container juego-container">
-        <img src="f-3.png" alt="Fondo juego" class="background-img">
-        <div class="juego-header">
-          <button class="casita-btn" id="btn-casita">
-            <img src="casita.png" alt="Inicio">
+    <div class="container juego-container">
+      <img src="f-3.png" alt="Fondo juego" class="background-img">
+      <div class="juego-header">
+        <button class="casita-btn" id="btn-casita">
+          <img src="casita.png" alt="Inicio">
+        </button>
+      </div>
+      <div class="juego-content">
+        <div class="opciones-contenedor" id="opciones-contenedor" style="opacity:1; transition: opacity 0.5s;">
+          ${opcionesMezcladas.map((op, idx) => `
+            <button class="opcion-btn" data-correcta="${op.correcta ? "1" : ""}">
+              <img src="${op.src}" alt="Opción ${idx + 1}">
+            </button>
+          `).join('')}
+        </div>
+      </div>
+      <div class="juego-footer">
+        <button class="nav-btn" id="btn-atras">
+          <img src="volver.png" alt="Atrás">
+        </button>
+      </div>
+
+      <div class="modal-bien" id="modal-bien" style="display:none;">
+        <div class="modal-bien-content">
+          <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+          <button class="main-btn-img" id="btn-modal-siguiente">
+            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
           </button>
         </div>
-       <div class="juego-content">
-      <div class="opciones-contenedor" id="opciones-contenedor" style="opacity:1; transition: opacity 0.5s;">
-        ${opcionesMezcladas.map((op, idx) => `
-          <button class="opcion-btn" data-correcta="${op.correcta ? "1" : ""}">
-            <img src="${op.src}" alt="Opción ${idx + 1}">
-          </button>
-        `).join('')}
+      </div>
+
+      <div class="modal-error" id="modal-error" style="display:none;">
+        <div class="modal-error-content">
+          <img src="error.png" alt="Intenta de nuevo" class="error-img">
+        </div>
       </div>
     </div>
-        <div class="juego-footer">
-          <button class="nav-btn" id="btn-atras">
-            <img src="volver.png" alt="Atrás">
-          </button>
-        </div>
-        <div class="modal-bien" id="modal-bien" style="display:none;">
-          <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
-            <button class="main-btn-img" id="btn-modal-siguiente">
-              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-            </button>
-          </div>
-        </div>
-      </div>
-    `;
+  `;
 
-    // Lógica de selección de opción correcta
+    // Lógica de selección de opción correcta/incorrecta
     document.querySelectorAll('.opcion-btn').forEach(btn => {
       btn.onclick = function () {
         if (btn.dataset.correcta === "1") {
-          // Opción correcta: oculta el contenedor de botones
+          // Opción correcta: oculta el contenedor de botones y muestra el modal de bien hecho
           const cont = document.getElementById('opciones-contenedor');
           cont.style.opacity = 0;
           setTimeout(() => {
             cont.style.display = 'none';
             document.getElementById('modal-bien').style.display = 'flex';
+          }, 1000);
+        } else {
+          // Opción incorrecta: muestra el modal de error temporalmente
+          const modalError = document.getElementById('modal-error');
+          modalError.style.display = 'flex';
+          setTimeout(() => {
+            modalError.style.display = 'none';
           }, 1000);
         }
       };
@@ -1197,14 +1211,25 @@ function showGameScreen(juego, nivel) {
             <img src="volver.png" alt="Atrás">
           </button>
         </div>
+
+
         <div class="modal-bien" id="modal-bien" style="display:none;">
           <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
+            <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
             <button class="main-btn-img" id="btn-modal-siguiente">
               <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
             </button>
           </div>
         </div>
+
+        <div class="modal-error" id="modal-error" style="display:none;">
+          <div class="modal-error-content">
+            <img src="error.png" alt="Intenta de nuevo" class="error-img">
+          </div>
+        </div>
+
+
+
       </div>
     `;
 
@@ -1212,12 +1237,19 @@ function showGameScreen(juego, nivel) {
     document.querySelectorAll('.opcion-btn').forEach(btn => {
       btn.onclick = function () {
         if (btn.dataset.correcta === "1") {
-          // Opción correcta: oculta el contenedor de botones
+          // Opción correcta: oculta el contenedor de botones y muestra el modal de bien hecho
           const cont = document.getElementById('opciones-contenedor');
           cont.style.opacity = 0;
           setTimeout(() => {
             cont.style.display = 'none';
             document.getElementById('modal-bien').style.display = 'flex';
+          }, 1000);
+        } else {
+          // Opción incorrecta: muestra el modal de error temporalmente
+          const modalError = document.getElementById('modal-error');
+          modalError.style.display = 'flex';
+          setTimeout(() => {
+            modalError.style.display = 'none';
           }, 1000);
         }
       };
@@ -1277,12 +1309,21 @@ function showGameScreen(juego, nivel) {
             <img src="volver.png" alt="Atrás">
           </button>
         </div>
+
+
+
         <div class="modal-bien" id="modal-bien" style="display:none;">
           <div class="modal-bien-content">
-            <img src="felicidades.png" alt="felicidades" class="bien-img">
+            <img src="felicidades.png" alt="Bien hecho" class="bien-img">
             <button class="main-btn-img" id="btn-modal-siguiente">
               <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
             </button>
+          </div>
+        </div>
+
+        <div class="modal-error" id="modal-error" style="display:none;">
+          <div class="modal-error-content">
+            <img src="error.png" alt="Intenta de nuevo" class="error-img">
           </div>
         </div>
       </div>
@@ -1292,12 +1333,19 @@ function showGameScreen(juego, nivel) {
     document.querySelectorAll('.opcion-btn').forEach(btn => {
       btn.onclick = function () {
         if (btn.dataset.correcta === "1") {
-          // Opción correcta: oculta el contenedor de botones
+          // Opción correcta: oculta el contenedor de botones y muestra el modal de bien hecho
           const cont = document.getElementById('opciones-contenedor');
           cont.style.opacity = 0;
           setTimeout(() => {
             cont.style.display = 'none';
             document.getElementById('modal-bien').style.display = 'flex';
+          }, 1000);
+        } else {
+          // Opción incorrecta: muestra el modal de error temporalmente
+          const modalError = document.getElementById('modal-error');
+          modalError.style.display = 'flex';
+          setTimeout(() => {
+            modalError.style.display = 'none';
           }, 1000);
         }
       };
@@ -1372,7 +1420,7 @@ function showGameScreen(juego, nivel) {
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
           <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
+            <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
             <button class="main-btn-img" id="btn-modal-siguiente">
               <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
             </button>
@@ -1464,7 +1512,7 @@ function showGameScreen(juego, nivel) {
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
           <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
+            <img src="felicidades.png" alt="Bien hecho" class="bien-img">
             <button class="main-btn-img" id="btn-modal-siguiente">
               <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
             </button>
@@ -1511,7 +1559,6 @@ function showGameScreen(juego, nivel) {
 
 
 
-
   if (juego === 5 && nivel === 1) {
     const opciones = [
       { src: "letra51_2.png", correcta: true },
@@ -1527,78 +1574,101 @@ function showGameScreen(juego, nivel) {
     const opcionesMezcladas = shuffle([...opciones]);
 
     app.innerHTML = `
-      <div class="container juego-container">
-        <img src="f-5-1.png" alt="Fondo juego" class="background-img">
-        <div class="juego-header">
-          <button class="casita-btn" id="btn-casita">
-            <img src="casita.png" alt="Inicio">
-          </button>
+    <div class="container juego-container">
+      <img src="f-5-1.png" alt="Fondo juego" class="background-img">
+      <div class="juego-header">
+        <button class="casita-btn" id="btn-casita">
+          <img src="casita.png" alt="Inicio">
+        </button>
+      </div>
+      <div class="juego-content" style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+        <div class="rompe-fila1" style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:0;">
+          <img src="letra51_1.png" alt="Parte 1" id="pieza-1" style="width:120px;height:auto;">
+          <img src="" alt="Parte 2" id="pieza-2" style="width:120px;height:auto;visibility:hidden;">
         </div>
-        <div class="juego-content" style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
-          <div class="rompe-fila1" style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:0;">
-            <img src="letra51_1.png" alt="Parte 1" id="pieza-1" style="width:120px;height:auto;">
-            <img src="" alt="Parte 2" id="pieza-2" style="width:120px;height:auto;visibility:hidden;">
-          </div>
-          <div class="rompe-fila2" style="display:flex;justify-content:center;gap:32px;margin-top:32px;">
-            ${opcionesMezcladas.map((op, idx) => `
-              <button class="rompe-opcion-btn" data-correcta="${op.correcta ? "1" : ""}" id="rompe-opcion-${idx}" style="background:none;border:none;padding:0;">
-                <img src="${op.src}" alt="Opción ${idx + 1}" style="width:120px;height:auto;">
-              </button>
-            `).join('')}
-          </div>
-        </div>
-        <div class="juego-footer">
-          <button class="nav-btn" id="btn-atras">
-            <img src="volver.png" alt="Atrás">
-          </button>
-        </div>
-        <div class="modal-bien" id="modal-bien" style="display:none;">
-          <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
-            <button class="main-btn-img" id="btn-modal-siguiente">
-              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+        <div class="rompe-fila2" style="display:flex;justify-content:center;gap:32px;margin-top:32px;">
+          ${opcionesMezcladas.map((op, idx) => `
+            <button class="rompe-opcion-btn" data-correcta="${op.correcta ? "1" : ""}" id="rompe-opcion-${idx}" style="background:none;border:none;padding:0;">
+              <img src="${op.src}" alt="Opción ${idx + 1}" style="width:120px;height:auto;">
             </button>
-          </div>
+          `).join('')}
         </div>
       </div>
-    `;
+      <div class="juego-footer">
+        <button class="nav-btn" id="btn-atras">
+          <img src="volver.png" alt="Atrás">
+        </button>
+      </div>
+      <div class="modal-bien" id="modal-bien" style="display:none;">
+        <div class="modal-bien-content">
+          <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+          <button class="main-btn-img" id="btn-modal-siguiente">
+            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+          </button>
+        </div>
+      </div>
+      <div class="modal-error" id="modal-error" style="display:none;">
+        <div class="modal-error-content">
+          <img src="error.png" alt="Intenta de nuevo" class="error-img">
+        </div>
+      </div>
+    </div>
+  `;
 
     document.querySelectorAll('.rompe-opcion-btn').forEach(btn => {
-  btn.onclick = function () {
-    if (btn.dataset.correcta === "1") {
-      // Desactiva todos los botones para evitar dobles clics SOLO si es correcta
-      document.querySelectorAll('.rompe-opcion-btn').forEach(b => b.disabled = true);
+      btn.onclick = function () {
+        if (btn.dataset.correcta === "1") {
+          // Desactiva todos los botones para evitar dobles clics SOLO si es correcta
+          document.querySelectorAll('.rompe-opcion-btn').forEach(b => b.disabled = true);
 
-      // Oculta inmediatamente las opciones incorrectas
-      document.querySelectorAll('.rompe-opcion-btn').forEach(b => {
-        if (b !== btn) b.style.visibility = 'hidden';
-      });
+          // Oculta inmediatamente las opciones incorrectas
+          document.querySelectorAll('.rompe-opcion-btn').forEach(b => {
+            if (b !== btn) b.style.visibility = 'hidden';
+          });
 
-      // Solo la correcta sube
-      btn.classList.add('animar-subida');
+          // Solo la correcta sube
+          btn.classList.add('animar-subida');
 
-      setTimeout(() => {
-        const pieza2 = document.getElementById('pieza-2');
-        pieza2.src = btn.querySelector('img').src;
-        pieza2.style.visibility = 'visible';
-        pieza2.style.marginTop = '-24px'; // Ajusta según tu diseño
-        btn.style.visibility = 'hidden';
-        setTimeout(() => {
-          document.getElementById('modal-bien').style.display = 'flex';
-        }, 1000);
-      }, 500);
-    } else {
-      // Opción incorrecta: ocultar solo ese botón, NO deshabilites los demás
-      btn.style.visibility = 'hidden';
-    }
-  };
-});
+          setTimeout(() => {
+            const pieza2 = document.getElementById('pieza-2');
+            pieza2.src = btn.querySelector('img').src;
+            pieza2.style.visibility = 'visible';
+            pieza2.style.marginTop = '-24px'; // Ajusta según tu diseño
+            btn.style.visibility = 'hidden';
+            setTimeout(() => {
+              document.getElementById('modal-bien').style.display = 'flex';
+            }, 1000);
+          }, 500);
+        } else {
+          // Opción incorrecta: muestra el modal de error temporalmente
+          const modalError = document.getElementById('modal-error');
+          modalError.style.display = 'flex';
+          setTimeout(() => {
+            modalError.style.display = 'none';
+          }, 1000);
+        }
+      };
+    });
 
     document.getElementById('btn-modal-siguiente').onclick = () => showGameScreen(5, 2);
     document.getElementById('btn-casita').onclick = showGames;
     document.getElementById('btn-atras').onclick = showGames;
     return;
+
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
   if (juego === 5 && nivel === 2) {
     const opciones = [
       { src: "letra52_2.png", correcta: true },
@@ -1640,46 +1710,55 @@ function showGameScreen(juego, nivel) {
           </button>
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
-          <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
-            <button class="main-btn-img" id="btn-modal-siguiente">
-              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-            </button>
-          </div>
+        <div class="modal-bien-content">
+          <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+          <button class="main-btn-img" id="btn-modal-siguiente">
+            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+          </button>
         </div>
+      </div>
+      <div class="modal-error" id="modal-error" style="display:none;">
+        <div class="modal-error-content">
+          <img src="error.png" alt="Intenta de nuevo" class="error-img">
+        </div>
+      </div>
       </div>
     `;
 
-   document.querySelectorAll('.rompe-opcion-btn').forEach(btn => {
-  btn.onclick = function () {
-    if (btn.dataset.correcta === "1") {
-      // Desactiva todos los botones para evitar dobles clics SOLO si es correcta
-      document.querySelectorAll('.rompe-opcion-btn').forEach(b => b.disabled = true);
+    document.querySelectorAll('.rompe-opcion-btn').forEach(btn => {
+      btn.onclick = function () {
+        if (btn.dataset.correcta === "1") {
+          // Desactiva todos los botones para evitar dobles clics SOLO si es correcta
+          document.querySelectorAll('.rompe-opcion-btn').forEach(b => b.disabled = true);
 
-      // Oculta inmediatamente las opciones incorrectas
-      document.querySelectorAll('.rompe-opcion-btn').forEach(b => {
-        if (b !== btn) b.style.visibility = 'hidden';
-      });
+          // Oculta inmediatamente las opciones incorrectas
+          document.querySelectorAll('.rompe-opcion-btn').forEach(b => {
+            if (b !== btn) b.style.visibility = 'hidden';
+          });
 
-      // Solo la correcta sube
-      btn.classList.add('animar-subida');
+          // Solo la correcta sube
+          btn.classList.add('animar-subida');
 
-      setTimeout(() => {
-        const pieza2 = document.getElementById('pieza-2');
-        pieza2.src = btn.querySelector('img').src;
-        pieza2.style.visibility = 'visible';
-        pieza2.style.marginTop = '-24px'; // Ajusta según tu diseño
-        btn.style.visibility = 'hidden';
-        setTimeout(() => {
-          document.getElementById('modal-bien').style.display = 'flex';
-        }, 1000);
-      }, 500);
-    } else {
-      // Opción incorrecta: ocultar solo ese botón, NO deshabilites los demás
-      btn.style.visibility = 'hidden';
-    }
-  };
-});
+          setTimeout(() => {
+            const pieza2 = document.getElementById('pieza-2');
+            pieza2.src = btn.querySelector('img').src;
+            pieza2.style.visibility = 'visible';
+            pieza2.style.marginTop = '-24px'; // Ajusta según tu diseño
+            btn.style.visibility = 'hidden';
+            setTimeout(() => {
+              document.getElementById('modal-bien').style.display = 'flex';
+            }, 1000);
+          }, 500);
+        } else {
+          // Opción incorrecta: muestra el modal de error temporalmente
+          const modalError = document.getElementById('modal-error');
+          modalError.style.display = 'flex';
+          setTimeout(() => {
+            modalError.style.display = 'none';
+          }, 1000);
+        }
+      };
+    });
 
     document.getElementById('btn-modal-siguiente').onclick = () => showGameScreen(5, 3);
     document.getElementById('btn-casita').onclick = showGames;
@@ -1727,13 +1806,18 @@ function showGameScreen(juego, nivel) {
           </button>
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
-          <div class="modal-bien-content">
-            <img src="felicidades.png" alt="felicidades" class="bien-img">
-            <button class="main-btn-img" id="btn-modal-siguiente">
-              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-            </button>
-          </div>
+        <div class="modal-bien-content">
+          <img src="felicidades.png" alt="Bien hecho" class="bien-img">
+          <button class="main-btn-img" id="btn-modal-siguiente">
+            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+          </button>
         </div>
+      </div>
+      <div class="modal-error" id="modal-error" style="display:none;">
+        <div class="modal-error-content">
+          <img src="error.png" alt="Intenta de nuevo" class="error-img">
+        </div>
+      </div>
       </div>
     `;
 
@@ -1762,8 +1846,12 @@ function showGameScreen(juego, nivel) {
             }, 1000);
           }, 500);
         } else {
-          // Opción incorrecta: ocultar solo ese botón, NO deshabilites los demás
-          btn.style.visibility = 'hidden';
+          // Opción incorrecta: muestra el modal de error temporalmente
+          const modalError = document.getElementById('modal-error');
+          modalError.style.display = 'flex';
+          setTimeout(() => {
+            modalError.style.display = 'none';
+          }, 1000);
         }
       };
     });
