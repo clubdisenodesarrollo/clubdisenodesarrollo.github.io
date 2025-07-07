@@ -1564,35 +1564,35 @@ function showGameScreen(juego, nivel) {
     `;
 
     document.querySelectorAll('.rompe-opcion-btn').forEach(btn => {
-      btn.onclick = function () {
-        // Desactiva todos los botones para evitar dobles clics
-        document.querySelectorAll('.rompe-opcion-btn').forEach(b => b.disabled = true);
+  btn.onclick = function () {
+    if (btn.dataset.correcta === "1") {
+      // Desactiva todos los botones para evitar dobles clics SOLO si es correcta
+      document.querySelectorAll('.rompe-opcion-btn').forEach(b => b.disabled = true);
 
-        if (btn.dataset.correcta === "1") {
-          // Oculta inmediatamente las opciones incorrectas
-          document.querySelectorAll('.rompe-opcion-btn').forEach(b => {
-            if (b !== btn) b.style.visibility = 'hidden';
-          });
+      // Oculta inmediatamente las opciones incorrectas
+      document.querySelectorAll('.rompe-opcion-btn').forEach(b => {
+        if (b !== btn) b.style.visibility = 'hidden';
+      });
 
-          // Solo la correcta sube
-          btn.classList.add('animar-subida');
+      // Solo la correcta sube
+      btn.classList.add('animar-subida');
 
-          setTimeout(() => {
-            const pieza2 = document.getElementById('pieza-2');
-            pieza2.src = btn.querySelector('img').src;
-            pieza2.style.visibility = 'visible';
-            pieza2.style.marginTop = '-24px'; // Ajusta según tu diseño
-            btn.style.visibility = 'hidden';
-            setTimeout(() => {
-              document.getElementById('modal-bien').style.display = 'flex';
-            }, 1000);
-          }, 500);
-        } else {
-          // Opción incorrecta: ocultar sin animación
-          btn.style.visibility = 'hidden';
-        }
-      };
-    });
+      setTimeout(() => {
+        const pieza2 = document.getElementById('pieza-2');
+        pieza2.src = btn.querySelector('img').src;
+        pieza2.style.visibility = 'visible';
+        pieza2.style.marginTop = '-24px'; // Ajusta según tu diseño
+        btn.style.visibility = 'hidden';
+        setTimeout(() => {
+          document.getElementById('modal-bien').style.display = 'flex';
+        }, 1000);
+      }, 500);
+    } else {
+      // Opción incorrecta: ocultar solo ese botón, NO deshabilites los demás
+      btn.style.visibility = 'hidden';
+    }
+  };
+});
 
     document.getElementById('btn-modal-siguiente').onclick = () => showGameScreen(5, 2);
     document.getElementById('btn-casita').onclick = showGames;
@@ -1650,36 +1650,36 @@ function showGameScreen(juego, nivel) {
       </div>
     `;
 
-    document.querySelectorAll('.rompe-opcion-btn').forEach(btn => {
-      btn.onclick = function () {
-        // Desactiva todos los botones para evitar dobles clics
-        document.querySelectorAll('.rompe-opcion-btn').forEach(b => b.disabled = true);
+   document.querySelectorAll('.rompe-opcion-btn').forEach(btn => {
+  btn.onclick = function () {
+    if (btn.dataset.correcta === "1") {
+      // Desactiva todos los botones para evitar dobles clics SOLO si es correcta
+      document.querySelectorAll('.rompe-opcion-btn').forEach(b => b.disabled = true);
 
-        if (btn.dataset.correcta === "1") {
-          // Oculta inmediatamente las opciones incorrectas
-          document.querySelectorAll('.rompe-opcion-btn').forEach(b => {
-            if (b !== btn) b.style.visibility = 'hidden';
-          });
+      // Oculta inmediatamente las opciones incorrectas
+      document.querySelectorAll('.rompe-opcion-btn').forEach(b => {
+        if (b !== btn) b.style.visibility = 'hidden';
+      });
 
-          // Solo la correcta sube
-          btn.classList.add('animar-subida');
+      // Solo la correcta sube
+      btn.classList.add('animar-subida');
 
-          setTimeout(() => {
-            const pieza2 = document.getElementById('pieza-2');
-            pieza2.src = btn.querySelector('img').src;
-            pieza2.style.visibility = 'visible';
-            pieza2.style.marginTop = '-24px'; // Ajusta según tu diseño
-            btn.style.visibility = 'hidden';
-            setTimeout(() => {
-              document.getElementById('modal-bien').style.display = 'flex';
-            }, 1000);
-          }, 500);
-        } else {
-          // Opción incorrecta: ocultar sin animación
-          btn.style.visibility = 'hidden';
-        }
-      };
-    });
+      setTimeout(() => {
+        const pieza2 = document.getElementById('pieza-2');
+        pieza2.src = btn.querySelector('img').src;
+        pieza2.style.visibility = 'visible';
+        pieza2.style.marginTop = '-24px'; // Ajusta según tu diseño
+        btn.style.visibility = 'hidden';
+        setTimeout(() => {
+          document.getElementById('modal-bien').style.display = 'flex';
+        }, 1000);
+      }, 500);
+    } else {
+      // Opción incorrecta: ocultar solo ese botón, NO deshabilites los demás
+      btn.style.visibility = 'hidden';
+    }
+  };
+});
 
     document.getElementById('btn-modal-siguiente').onclick = () => showGameScreen(5, 3);
     document.getElementById('btn-casita').onclick = showGames;
@@ -1739,10 +1739,10 @@ function showGameScreen(juego, nivel) {
 
     document.querySelectorAll('.rompe-opcion-btn').forEach(btn => {
       btn.onclick = function () {
-        // Desactiva todos los botones para evitar dobles clics
-        document.querySelectorAll('.rompe-opcion-btn').forEach(b => b.disabled = true);
-
         if (btn.dataset.correcta === "1") {
+          // Desactiva todos los botones para evitar dobles clics SOLO si es correcta
+          document.querySelectorAll('.rompe-opcion-btn').forEach(b => b.disabled = true);
+
           // Oculta inmediatamente las opciones incorrectas
           document.querySelectorAll('.rompe-opcion-btn').forEach(b => {
             if (b !== btn) b.style.visibility = 'hidden';
@@ -1762,7 +1762,7 @@ function showGameScreen(juego, nivel) {
             }, 1000);
           }, 500);
         } else {
-          // Opción incorrecta: ocultar sin animación
+          // Opción incorrecta: ocultar solo ese botón, NO deshabilites los demás
           btn.style.visibility = 'hidden';
         }
       };
