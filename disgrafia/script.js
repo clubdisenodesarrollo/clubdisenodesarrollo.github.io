@@ -43,9 +43,7 @@ function showGameScreen(juego, nivel) {
           <button class="nav-btn" id="btn-atras">
             <img src="volver.png" alt="Atrás">
           </button>
-          <button class="nav-btn" id="btn-siguiente" style="visibility:hidden;">
-            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-          </button>
+          
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
         <div class="modal-bien-content">
@@ -148,9 +146,7 @@ function showGameScreen(juego, nivel) {
           <button class="nav-btn" id="btn-atras">
             <img src="volver.png" alt="Atrás">
           </button>
-          <button class="nav-btn" id="btn-siguiente" style="visibility:hidden;">
-            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-          </button>
+          
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
         <div class="modal-bien-content">
@@ -255,9 +251,7 @@ function showGameScreen(juego, nivel) {
           <button class="nav-btn" id="btn-atras">
             <img src="volver.png" alt="Atrás">
           </button>
-          <button class="nav-btn" id="btn-siguiente" style="visibility:hidden;">
-            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-          </button>
+         
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
           <div class="modal-bien-content">
