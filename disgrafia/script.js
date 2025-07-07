@@ -48,13 +48,13 @@ function showGameScreen(juego, nivel) {
           </button>
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
-          <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
-            <button class="main-btn-img" id="btn-modal-siguiente">
-              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-            </button>
-          </div>
+        <div class="modal-bien-content">
+          <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+          <button class="main-btn-img" id="btn-modal-siguiente">
+            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+          </button>
         </div>
+      </div>
       </div>
     `;
 
@@ -153,13 +153,13 @@ function showGameScreen(juego, nivel) {
           </button>
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
-          <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
-            <button class="main-btn-img" id="btn-modal-siguiente">
-              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-            </button>
-          </div>
+        <div class="modal-bien-content">
+          <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+          <button class="main-btn-img" id="btn-modal-siguiente">
+            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+          </button>
         </div>
+      </div>
       </div>
     `;
 
@@ -360,13 +360,13 @@ function showGameScreen(juego, nivel) {
           </button>
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
-          <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
-            <button class="main-btn-img" id="btn-modal-siguiente">
-              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-            </button>
-          </div>
+        <div class="modal-bien-content">
+          <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+          <button class="main-btn-img" id="btn-modal-siguiente">
+            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+          </button>
         </div>
+      </div>
       </div>
     `;
 
@@ -483,13 +483,13 @@ function showGameScreen(juego, nivel) {
           </button>
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
-          <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
-            <button class="main-btn-img" id="btn-modal-siguiente">
-              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-            </button>
-          </div>
+        <div class="modal-bien-content">
+          <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+          <button class="main-btn-img" id="btn-modal-siguiente">
+            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+          </button>
         </div>
+      </div>
       </div>
     `;
 
@@ -604,13 +604,13 @@ function showGameScreen(juego, nivel) {
           </button>
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
-          <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
-            <button class="main-btn-img" id="btn-modal-siguiente">
-              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-            </button>
-          </div>
+        <div class="modal-bien-content">
+          <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+          <button class="main-btn-img" id="btn-modal-siguiente">
+            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+          </button>
         </div>
+      </div>
       </div>
     `;
 
@@ -724,13 +724,13 @@ function showGameScreen(juego, nivel) {
           </button>
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
-          <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
-            <button class="main-btn-img" id="btn-modal-siguiente">
-              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-            </button>
-          </div>
+        <div class="modal-bien-content">
+          <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+          <button class="main-btn-img" id="btn-modal-siguiente">
+            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+          </button>
         </div>
+      </div>
       </div>
     `;
 
@@ -845,13 +845,13 @@ function showGameScreen(juego, nivel) {
           </button>
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
-          <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
-            <button class="main-btn-img" id="btn-modal-siguiente">
-              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-            </button>
-          </div>
+        <div class="modal-bien-content">
+          <img src="bien-hecho.png" alt="Bien hecho" class="bien-img">
+          <button class="main-btn-img" id="btn-modal-siguiente">
+            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
+          </button>
         </div>
+      </div>
       </div>
     `;
 
