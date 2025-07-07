@@ -261,7 +261,7 @@ function showGameScreen(juego, nivel) {
         </div>
         <div class="modal-bien" id="modal-bien" style="display:none;">
           <div class="modal-bien-content">
-            <h1 class="bien-text">¡Bien hecho!</h1>
+            <img src="felicidades.png" alt="felicidades" class="bien-img">
             <button class="main-btn-img" id="btn-modal-siguiente">
               <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
             </button>
@@ -326,114 +326,11 @@ function showGameScreen(juego, nivel) {
     });
 
     // Modal siguiente ejercicio
-    document.getElementById('btn-modal-siguiente').onclick = () => showGameScreen(1, 4);
-
-    // Navegación
-    document.getElementById('btn-casita').onclick = showGames;
-    document.getElementById('btn-atras').onclick = () => showGameScreen(1, 2);
-    return;
-  }
-  if (juego === 1 && nivel === 4) {
-    app.innerHTML = `
-      <div class="container juego-container">
-        <img src="f-1.png" alt="Fondo juego" class="background-img">
-        <div class="juego-header">
-          <button class="casita-btn" id="btn-casita">
-            <img src="casita.png" alt="Inicio">
-          </button>
-        </div>
-        <div class="juego-content">
-          <div class="ejercicio-diagonal-wrapper-120">
-            <div class="ejercicio-barras">
-              ${[1, 2, 3, 4].map(i => `
-                <div class="barra-row">
-                  <div class="barra-slider" data-index="${i - 1}">
-                    <div class="barra-fondo"></div>
-                    <img src="estrella.png" alt="Estrella" class="estrella-slider" id="estrella-${i}" style="left:0%;">
-                  </div>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        </div>
-        <div class="juego-footer">
-          <button class="nav-btn" id="btn-atras">
-            <img src="volver.png" alt="Atrás">
-          </button>
-          <button class="nav-btn" id="btn-siguiente" style="visibility:hidden;">
-            <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-          </button>
-        </div>
-        <div class="modal-bien" id="modal-bien" style="display:none;">
-          <div class="modal-bien-content">
-            <img src="felicidades.png" alt="felicidades" class="bien-img">
-            <button class="main-btn-img" id="btn-modal-siguiente">
-              <img src="siguiente.png" alt="Siguiente" class="siguiente-img">
-            </button>
-          </div>
-        </div>
-      </div>
-    `;
-
-    // Lógica de deslizar igual que in el ejercicio 3
-    let completados = [false, false, false, false];
-    const scale = 0.9;
-    document.querySelectorAll('.barra-slider').forEach((barra, idx) => {
-      const estrella = barra.querySelector('.estrella-slider');
-      let dragging = false, barraRect = null;
-
-      function onMove(e) {
-        if (!dragging) return;
-        let clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        let barraLeft = barraRect.left;
-        let x = (clientX - barraLeft) / scale;
-        let max = ((barraRect.width - estrella.offsetWidth) / scale) * 2.1; // o prueba 1.4, 1.5...
-        let pos = Math.max(0, Math.min(x, max));
-        estrella.style.left = `${pos * scale}px`;
-        if (pos >= max * 0.99) {
-          completados[idx] = true;
-          estrella.style.left = `${max * scale}px`;
-          barra.classList.add('barra-completa');
-          barra.removeEventListener('mousedown', onDown);
-          barra.removeEventListener('touchstart', onDown);
-          document.removeEventListener('mousemove', onMove);
-          document.removeEventListener('touchmove', onMove);
-          document.removeEventListener('mouseup', onUp);
-          document.removeEventListener('touchend', onUp);
-          if (completados.every(Boolean)) {
-            setTimeout(() => {
-              document.getElementById('modal-bien').style.display = 'flex';
-            }, 500);
-          }
-        }
-      }
-      function onUp() {
-        dragging = false;
-        document.removeEventListener('mousemove', onMove);
-        document.removeEventListener('touchmove', onMove);
-        document.removeEventListener('mouseup', onUp);
-        document.removeEventListener('touchend', onUp);
-      }
-      function onDown(e) {
-        if (completados[idx]) return;
-        dragging = true;
-        barraRect = barra.getBoundingClientRect();
-        document.addEventListener('mousemove', onMove);
-        document.addEventListener('touchmove', onMove);
-        document.addEventListener('mouseup', onUp);
-        document.addEventListener('touchend', onUp);
-      }
-      estrella.addEventListener('mousedown', onDown);
-      estrella.addEventListener('touchstart', onDown);
-      estrella.addEventListener('dragstart', e => e.preventDefault());
-    });
-
-    // Modal siguiente ejercicio
     document.getElementById('btn-modal-siguiente').onclick = () => showGames();
 
     // Navegación
     document.getElementById('btn-casita').onclick = showGames;
-    document.getElementById('btn-atras').onclick = () => showGameScreen(1, 3);
+    document.getElementById('btn-atras').onclick = () => showGameScreen(1, 2);
     return;
   }
 
@@ -500,6 +397,7 @@ function showGameScreen(juego, nivel) {
         y: (clientY - rect.top) * (canvas.height / rect.height)
       };
     }
+    // ...existing code...
     function startPaint(e) {
       painting = true;
       ctx.beginPath();
@@ -508,27 +406,20 @@ function showGameScreen(juego, nivel) {
       e.preventDefault();
     }
     function paint(e) {
-      if (!painting || !letraImageData) return;
+      if (!painting) return;
       const { x, y } = getPos(e);
-
-      // Solo pinta si el píxel de la letra es opaco
-      const px = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
-      if (letraImageData.data[px + 3] > 50) {
-        ctx.lineTo(x, y);
-        ctx.strokeStyle = "#f39c12";
-        ctx.lineWidth = 60;
-        ctx.lineCap = "round";
-        ctx.stroke();
-      } else {
-        // No hagas moveTo aquí, solo ignora el punto fuera de la letra
-        // Esto mantiene el trazo continuo cuando regresa a la letra
-      }
+      ctx.lineTo(x, y);
+      ctx.strokeStyle = "#f39c12";
+      ctx.lineWidth = 85;
+      ctx.lineCap = "round";
+      ctx.stroke();
       e.preventDefault();
     }
     function endPaint() {
       painting = false;
       checkLetraPintada();
     }
+    // ...existing code...
 
     // Eventos mouse/touch
     canvas.addEventListener('mousedown', startPaint);
@@ -557,7 +448,7 @@ function showGameScreen(juego, nivel) {
         }
       }
       // Ajusta el umbral, por ejemplo 0.5 = 50% de la letra debe estar pintada
-      if (pintados / total > 0.6) {
+      if (pintados / total > 0.5) {
         setTimeout(() => {
           document.getElementById('modal-bien').style.display = 'flex';
         }, 400);
@@ -637,21 +528,13 @@ function showGameScreen(juego, nivel) {
       e.preventDefault();
     }
     function paint(e) {
-      if (!painting || !letraImageData) return;
+      if (!painting) return;
       const { x, y } = getPos(e);
-
-      // Solo pinta si el píxel de la letra es opaco
-      const px = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
-      if (letraImageData.data[px + 3] > 50) {
-        ctx.lineTo(x, y);
-        ctx.strokeStyle = "#f39c12";
-        ctx.lineWidth = 60;
-        ctx.lineCap = "round";
-        ctx.stroke();
-      } else {
-        // No hagas moveTo aquí, solo ignora el punto fuera de la letra
-        // Esto mantiene el trazo continuo cuando regresa a la letra
-      }
+      ctx.lineTo(x, y);
+      ctx.strokeStyle = "#f39c12";
+      ctx.lineWidth = 85;
+      ctx.lineCap = "round";
+      ctx.stroke();
       e.preventDefault();
     }
     function endPaint() {
@@ -686,7 +569,7 @@ function showGameScreen(juego, nivel) {
         }
       }
       // Ajusta el umbral, por ejemplo 0.5 = 50% de la letra debe estar pintada
-      if (pintados / total > 0.6) {
+      if (pintados / total > 0.5) {
         setTimeout(() => {
           document.getElementById('modal-bien').style.display = 'flex';
         }, 400);
@@ -766,28 +649,19 @@ function showGameScreen(juego, nivel) {
       e.preventDefault();
     }
     function paint(e) {
-      if (!painting || !letraImageData) return;
+      if (!painting) return;
       const { x, y } = getPos(e);
-
-      // Solo pinta si el píxel de la letra es opaco
-      const px = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
-      if (letraImageData.data[px + 3] > 50) {
-        ctx.lineTo(x, y);
-        ctx.strokeStyle = "#f39c12";
-        ctx.lineWidth = 60;
-        ctx.lineCap = "round";
-        ctx.stroke();
-      } else {
-        // No hagas moveTo aquí, solo ignora el punto fuera de la letra
-        // Esto mantiene el trazo continuo cuando regresa a la letra
-      }
+      ctx.lineTo(x, y);
+      ctx.strokeStyle = "#f39c12";
+      ctx.lineWidth = 85;
+      ctx.lineCap = "round";
+      ctx.stroke();
       e.preventDefault();
     }
     function endPaint() {
       painting = false;
       checkLetraPintada();
     }
-
     // Eventos mouse/touch
     canvas.addEventListener('mousedown', startPaint);
     canvas.addEventListener('mousemove', paint);
@@ -815,7 +689,7 @@ function showGameScreen(juego, nivel) {
         }
       }
       // Ajusta el umbral, por ejemplo 0.5 = 50% de la letra debe estar pintada
-      if (pintados / total > 0.6) {
+      if (pintados / total > 0.5) {
         setTimeout(() => {
           document.getElementById('modal-bien').style.display = 'flex';
         }, 400);
@@ -895,21 +769,13 @@ function showGameScreen(juego, nivel) {
       e.preventDefault();
     }
     function paint(e) {
-      if (!painting || !letraImageData) return;
+      if (!painting) return;
       const { x, y } = getPos(e);
-
-      // Solo pinta si el píxel de la letra es opaco
-      const px = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
-      if (letraImageData.data[px + 3] > 50) {
-        ctx.lineTo(x, y);
-        ctx.strokeStyle = "#f39c12";
-        ctx.lineWidth = 60;
-        ctx.lineCap = "round";
-        ctx.stroke();
-      } else {
-        // No hagas moveTo aquí, solo ignora el punto fuera de la letra
-        // Esto mantiene el trazo continuo cuando regresa a la letra
-      }
+      ctx.lineTo(x, y);
+      ctx.strokeStyle = "#f39c12";
+      ctx.lineWidth = 85;
+      ctx.lineCap = "round";
+      ctx.stroke();
       e.preventDefault();
     }
     function endPaint() {
@@ -944,7 +810,7 @@ function showGameScreen(juego, nivel) {
         }
       }
       // Ajusta el umbral, por ejemplo 0.5 = 50% de la letra debe estar pintada
-      if (pintados / total > 0.6) {
+      if (pintados / total > 0.5) {
         setTimeout(() => {
           document.getElementById('modal-bien').style.display = 'flex';
         }, 400);
@@ -1024,21 +890,13 @@ function showGameScreen(juego, nivel) {
       e.preventDefault();
     }
     function paint(e) {
-      if (!painting || !letraImageData) return;
+      if (!painting) return;
       const { x, y } = getPos(e);
-
-      // Solo pinta si el píxel de la letra es opaco
-      const px = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
-      if (letraImageData.data[px + 3] > 50) {
-        ctx.lineTo(x, y);
-        ctx.strokeStyle = "#f39c12";
-        ctx.lineWidth = 60;
-        ctx.lineCap = "round";
-        ctx.stroke();
-      } else {
-        // No hagas moveTo aquí, solo ignora el punto fuera de la letra
-        // Esto mantiene el trazo continuo cuando regresa a la letra
-      }
+      ctx.lineTo(x, y);
+      ctx.strokeStyle = "#f39c12";
+      ctx.lineWidth = 85;
+      ctx.lineCap = "round";
+      ctx.stroke();
       e.preventDefault();
     }
     function endPaint() {
@@ -1073,7 +931,7 @@ function showGameScreen(juego, nivel) {
         }
       }
       // Ajusta el umbral, por ejemplo 0.5 = 50% de la letra debe estar pintada
-      if (pintados / total > 0.6) {
+      if (pintados / total > 0.5) {
         setTimeout(() => {
           document.getElementById('modal-bien').style.display = 'flex';
         }, 400);
@@ -1145,6 +1003,7 @@ function showGameScreen(juego, nivel) {
         y: (clientY - rect.top) * (canvas.height / rect.height)
       };
     }
+
     function startPaint(e) {
       painting = true;
       ctx.beginPath();
@@ -1153,21 +1012,13 @@ function showGameScreen(juego, nivel) {
       e.preventDefault();
     }
     function paint(e) {
-      if (!painting || !letraImageData) return;
+      if (!painting) return;
       const { x, y } = getPos(e);
-
-      // Solo pinta si el píxel de la letra es opaco
-      const px = (Math.floor(y) * canvas.width + Math.floor(x)) * 4;
-      if (letraImageData.data[px + 3] > 50) {
-        ctx.lineTo(x, y);
-        ctx.strokeStyle = "#f39c12";
-        ctx.lineWidth = 60;
-        ctx.lineCap = "round";
-        ctx.stroke();
-      } else {
-        // No hagas moveTo aquí, solo ignora el punto fuera de la letra
-        // Esto mantiene el trazo continuo cuando regresa a la letra
-      }
+      ctx.lineTo(x, y);
+      ctx.strokeStyle = "#f39c12";
+      ctx.lineWidth = 85;
+      ctx.lineCap = "round";
+      ctx.stroke();
       e.preventDefault();
     }
     function endPaint() {
@@ -1202,7 +1053,7 @@ function showGameScreen(juego, nivel) {
         }
       }
       // Ajusta el umbral, por ejemplo 0.5 = 50% de la letra debe estar pintada
-      if (pintados / total > 0.6) {
+      if (pintados / total > 0.5) {
         setTimeout(() => {
           document.getElementById('modal-bien').style.display = 'flex';
         }, 400);
@@ -1288,7 +1139,7 @@ function showGameScreen(juego, nivel) {
           setTimeout(() => {
             cont.style.display = 'none';
             document.getElementById('modal-bien').style.display = 'flex';
-          }, 500);
+          }, 1000);
         }
       };
     });
@@ -1367,7 +1218,7 @@ function showGameScreen(juego, nivel) {
           setTimeout(() => {
             cont.style.display = 'none';
             document.getElementById('modal-bien').style.display = 'flex';
-          }, 500);
+          }, 1000);
         }
       };
     });
@@ -1447,7 +1298,7 @@ function showGameScreen(juego, nivel) {
           setTimeout(() => {
             cont.style.display = 'none';
             document.getElementById('modal-bien').style.display = 'flex';
-          }, 500);
+          }, 1000);
         }
       };
     });
@@ -1646,7 +1497,7 @@ function showGameScreen(juego, nivel) {
           setTimeout(() => btn.classList.remove('letra-opcion-error'), 400);
         }
       };
-       });
+    });
 
     // Modal siguiente ejercicio: vuelve a la pantalla de juegos
     document.getElementById('btn-modal-siguiente').onclick = showGames;
