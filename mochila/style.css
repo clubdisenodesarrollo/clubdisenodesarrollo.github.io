@@ -653,10 +653,10 @@ footer {
 }
 
 @keyframes transicion-fondo {
-  0% { opacity: 0; }
+  0% { opacity: 0.99; }
   20% { opacity: 1; }
   80% { opacity: 1; }
-  100% { opacity: 0.7; }
+  100% { opacity: 0.99; }
 }
 
 @keyframes transicion-img-anim {
