@@ -1,0 +1,85 @@
+/* Puedes agregar esto a style.css para las cartas del equipo */
+
+.team-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 2.5rem auto 0 auto;
+    max-width: 1200px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.team-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(0,43,91,0.10);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s;
+    text-align: center;
+    min-width: 0;
+}
+
+.team-card:hover {
+    box-shadow: 0 8px 32px rgba(0,43,91,0.18);
+}
+
+.team-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 3px solid #e3eefd;
+    background: #e3eefd;
+}
+
+.team-card h3 {
+    color: #0070c9;
+    font-size: 1.18rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.team-card p {
+    color: #002b5b;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* 1024px: 3 cartas por fila */
+@media (max-width: 1024px) {
+    .team-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        max-width: 900px;
+    }
+}
+
+/* 768px: 2 cartas por fila */
+@media (max-width: 768px) {
+    .team-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+        max-width: 98vw;
+    }
+}
+
+/* 425px y menos: 1 carta por fila */
+@media (max-width: 425px) {
+    .team-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 98vw;
+    }
+    .team-card {
+        padding: 1.2rem 0.5rem;
+    }
+    .team-img {
+        width: 70px;
+        height: 70px;
+    }
+}

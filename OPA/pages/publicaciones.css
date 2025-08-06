@@ -1,0 +1,143 @@
+.publicaciones-main {
+    padding: 2rem 0;
+    background: #f7fbff;
+    min-height: 100vh;
+}
+
+.publicaciones-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.publicaciones-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #002b5b;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+}
+
+.publicaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.publicacion-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,43,91,0.10);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 340px;
+    transition: box-shadow 0.2s;
+}
+
+.publicacion-card:hover {
+    box-shadow: 0 8px 32px rgba(0,43,91,0.18);
+}
+
+.publicacion-autor {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem 0.5rem 1.5rem;
+}
+
+.publicacion-autor img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #e3eefd;
+    background: #e3eefd;
+}
+
+.publicacion-autor span {
+    font-weight: 600;
+    color: #0070c9;
+    font-size: 1.08rem;
+}
+
+.publicacion-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1.5rem 1.5rem 2rem 1.5rem;
+    background: #fff;
+}
+
+.publicacion-titulo {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #002b5b;
+    margin: 0 0 0.7rem 0;
+}
+
+.publicacion-desc {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 1.2rem;
+}
+
+.publicacion-info .btn {
+    align-self: flex-start;
+    padding: 0.5em 1.2em;
+    font-size: 1rem;
+    border-radius: 1.5em;
+}
+
+/* Responsive: 1024px */
+@media (max-width: 1024px) {
+    .publicaciones-section {
+        max-width: 900px;
+    }
+    .publicaciones-grid {
+        gap: 1.2rem;
+    }
+}
+
+/* Responsive: 768px */
+@media (max-width: 768px) {
+    .publicaciones-section {
+        max-width: 98vw;
+    }
+    .publicaciones-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .publicacion-card {
+        min-height: 280px;
+    }
+}
+
+/* Responsive: 425px */
+@media (max-width: 425px) {
+    .publicaciones-title {
+        font-size: 1.3rem;
+    }
+    .publicacion-info {
+        padding: 1rem 0.5rem 1.5rem 0.5rem;
+    }
+    .publicacion-autor img {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* Responsive: 375px */
+@media (max-width: 375px) {
+    .publicaciones-section {
+        padding: 0 0.2rem;
+    }
+}
+
+/* Responsive: 320px */
+@media (max-width: 320px) {
+    .publicaciones-title {
+        font-size: 1rem;

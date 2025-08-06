@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observatorio Politécnico del Agua</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <!-- ...existing code... -->
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="Logo OPA">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-links" id="nav-links">
+                <li><a href="pages/nosotros.html">¿Qué es OPA?</a></li>
+                <li><a href="pages/noticias.html">Noticias</a></li>
+                <li><a href="pages/publicaciones.html">Publicaciones</a></li>
+                <li><a href="#join">Únete</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn btn-login">Iniciar sesión</button>
+                <button class="btn btn-register">Registrarse</button>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section Mejorado -->
+    <section class="hero" aria-label="Hero Observatorio Politécnico del Agua">
+        <div class="hero-bg" id="hero-bg">
+            <!-- Las imágenes de fondo se gestionan por JS -->
+            <div class="hero-bg-img" aria-hidden="true"></div>
+            <div class="hero-bg-img" aria-hidden="true"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Observatorio Politécnico del Agua</h1>
+            <p>Espacio colaborativo para investigación crítica y justicia hídrica en Chimborazo y la región</p>
+            <div class="hero-cta">
+                <a href="#about" class="btn btn-primary">Conoce más</a>
+                <a href="#join" class="btn btn-outline">Únete</a>
+            </div>
+        </div>
+        <div class="hero-progress" aria-label="Progreso del carrusel">
+            <div class="hero-progress-bar" id="hero-progress-bar"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="section-title">
+            <h2>¿Qué es el Observatorio Politécnico del Agua?</h2>
+            <p>Un espacio de encuentro colaborativo para investigadores y comunidades afectadas por injusticias hídricas
+            </p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <p>El Observatorio Politécnico del Agua (OPA) busca ser un espacio de encuentro colaborativo en donde
+                    confluyan investigadores/as y académico/as bajo intereses y enfoques congruentes y complementarios
+                    alrededor de la investigación crítica.</p>
+                <p>Pretendemos tender puentes entre la investigación inspirada desde la Ecología Política y las
+                    comunidades campesinas de Chimborazo y la región aquejadas por injusticias hídricas.</p>
+                <p>Nuestro trabajo se basa en los principios de la investigación-acción como sustento metodológico que
+                    da forma a un Observatorio con relaciones horizontales entre todos los actores que lo conforman.</p>
+            </div>
+            <div class="about-image-container">
+                <!-- Aquí puedes poner una imagen ilustrativa -->
+                <img src="img1.jpg" alt="Ilustración OPA">
+            </div>
+        </div>
+
+        
+    </section>
+
+    <!-- Nueva sección de pilares -->
+    <section id="pillars" class="section pillars-section">
+        <div class="pillars">
+            <div class="pillar">
+                <i class="fas fa-handshake"></i>
+                <h3>Colaboración</h3>
+                <p>Redes horizontales entre investigadores y comunidades</p>
+            </div>
+            <div class="pillar">
+                <i class="fas fa-balance-scale"></i>
+                <h3>Justicia Hídrica</h3>
+                <p>Enfoque crítico sobre los problemas del agua</p>
+            </div>
+            <div class="pillar">
+                <i class="fas fa-book"></i>
+                <h3>Investigación-Acción</h3>
+                <p>Metodología que integra conocimiento y práctica</p>
+            </div>
+            <div class="pillar">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Incidencia</h3>
+                <p>Construcción de propuestas para escenarios más justos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="section publications">
+        <div class="section-title">
+            <h2>Últimas Publicaciones</h2>
+            <p>Artículos, investigaciones y novedades de nuestra red</p>
+        </div>
+
+        <div class="publications-grid">
+            <div class="publication-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Publicación 1">
+                </div>
+                <div class="card-content">
+                    <div class="meta">
+                        <span>María Pérez</span>
+                        <span>15 Jun 2023</span>
+                    </div>
+                    <h3>Acceso al agua en comunidades rurales de Chimborazo</h3>
+                    <p>Análisis de las condiciones de acceso al agua en 5 comunidades de la provincia y propuestas de
+                        acción.</p>
+                    <a href="#" class="btn">Leer más</a>
+                </div>
+            </div>
+
+            <div class="publication-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Publicación 2">
+                </div>
+                <div class="card-content">
+                    <div class="meta">
+                        <span>Carlos Mendez</span>
+                        <span>2 Jun 2023</span>
+                    </div>
+                    <h3>Ecología política del agua: enfoques teóricos</h3>
+                    <p>Revisión crítica de los marcos teóricos para el análisis de conflictos hídricos.</p>
+                    <a href="#" class="btn">Leer más</a>
+                </div>
+            </div>
+
+            <div class="publication-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                        alt="Publicación 3">
+                </div>
+                <div class="card-content">
+                    <div class="meta">
+                        <span>Red OPA</span>
+                        <span>20 May 2023</span>
+                    </div>
+                    <h3>Memorias del primer encuentro de investigadores</h3>
+                    <p>Resumen de las discusiones y acuerdos del primer encuentro regional del OPA.</p>
+                    <a href="#" class="btn">Leer más</a>
+                </div>
+            </div>
+        </div>
+        <div class="publications-more">
+            <a href="pages/publicaciones.html" class="btn btn-outline">Ver más publicaciones</a>
+        </div>
+    </section>
+
+    <!-- Noticias Section -->
+    <section class="section noticias">
+        <div class="section-title">
+            <h2>Últimas Noticias</h2>
+            <p>Actualidad, eventos y novedades del Observatorio</p>
+        </div>
+
+        <div class="noticias-grid">
+            <div class="noticia-card">
+                <div class="noticia-img">
+                    <img src="img1.png" alt="Noticia 1">
+                </div>
+                <div class="noticia-info">
+                    <h3 class="noticia-titulo">Primer encuentro de comunidades por el agua</h3>
+                    <p class="noticia-desc">Representantes de 10 comunidades se reunieron para dialogar sobre la gestión hídrica en Chimborazo.</p>
+                    <a href="#" class="btn">Leer más</a>
+                </div>
+            </div>
+            <div class="noticia-card">
+                <div class="noticia-img">
+                    <img src="img2.png" alt="Noticia 2">
+                </div>
+                <div class="noticia-info">
+                    <h3 class="noticia-titulo">Investigadores OPA participan en foro internacional</h3>
+                    <p class="noticia-desc">El equipo OPA presentó avances sobre justicia hídrica en el foro de Ecología Política.</p>
+                    <a href="#" class="btn">Leer más</a>
+                </div>
+            </div>
+            <div class="noticia-card">
+                <div class="noticia-img">
+                    <img src="img3.png" alt="Noticia 3">
+                </div>
+                <div class="noticia-info">
+                    <h3 class="noticia-titulo">Nueva publicación sobre gobernanza del agua</h3>
+                    <p class="noticia-desc">Ya está disponible el último artículo sobre desafíos de la gobernanza hídrica en la región.</p>
+                    <a href="#" class="btn">Leer más</a>
+                </div>
+            </div>
+        </div>
+        <div class="noticias-more">
+            <a href="pages/noticias.html" class="btn btn-outline">Ver más noticias</a>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="section join">
+        <div class="section-title">
+            <h2>Únete a nuestra red</h2>
+            <p>Conéctate con investigadores y colabora en proyectos de justicia hídrica</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <h3>45</h3>
+                <p>Investigadores</p>
+            </div>
+
+            <div class="stat-item">
+                <h3>28</h3>
+                <p>Comunidades</p>
+            </div>
+
+            <div class="stat-item">
+                <h3>76</h3>
+                <p>Publicaciones</p>
+            </div>
+
+            <div class="stat-item">
+                <h3>5</h3>
+                <p>Proyectos activos</p>
+            </div>
+        </div>
+
+        <div class="join-buttons">
+            <a href="#" class="btn">Registrarse</a>
+            <a href="#" class="btn btn-outline">Ver publicaciones</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Observatorio Politécnico del Agua</h3>
+                <p>Espacio colaborativo para investigación crítica y justicia hídrica en Chimborazo y la región.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Enlaces rápidos</h3>
+                <a href="#">Inicio</a>
+                <a href="#">Sobre el OPA</a>
+                <a href="#">Investigaciones</a>
+                <a href="#">Publicaciones</a>
+                <a href="#">Contacto</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Universidad Politécnica, Chimborazo, Ecuador</p>
+                <p><i class="fas fa-envelope"></i> contacto@opa.edu.ec</p>
+                <p><i class="fas fa-phone"></i> +593 XX XXX XXXX</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2023 Observatorio Politécnico del Agua. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal HTML: Coloca esto justo antes del cierre de </body> -->
+    <div id="auth-modal" class="auth-modal" aria-hidden="true">
+        <div class="auth-modal-overlay"></div>
+        <div class="auth-modal-content">
+            <div class="auth-modal-slider" id="auth-modal-slider">
+                <!-- Login Form -->
+                <div class="auth-modal-panel login-panel">
+                    <h2>Iniciar Sesión</h2>
+                    <form>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="password" placeholder="Contraseña" required>
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    </form>
+                    <div class="auth-modal-switch">
+                        <span>¿No tienes cuenta?</span>
+                        <button type="button" id="show-register" class="btn-link">Registrarse</button>
+                    </div>
+                </div>
+                <!-- Register Panel (tapado por defecto) -->
+                <div class="auth-modal-panel register-panel">
+                    <div class="register-cover" id="register-cover">
+                        <div class="register-message">
+                            <h2>¿Nuevo aquí?</h2>
+                            <p>Crea tu cuenta para acceder a la red OPA.</p>
+                            <button type="button" id="show-login" class="btn-link">Volver a iniciar sesión</button>
+                        </div>
+                    </div>
+                    <form class="register-form">
+                        <h2>Registrarse</h2>
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="password" placeholder="Contraseña" required>
+                        <button type="submit" class="btn btn-primary">Crear cuenta</button>
+                        <div class="auth-modal-switch">
+                            <span>¿Ya tienes cuenta?</span>
+                            <button type="button" id="show-login-bottom" class="btn-link">Volver a iniciar
+                                sesión</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <button class="auth-modal-close" id="auth-modal-close" aria-label="Cerrar">&times;</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
