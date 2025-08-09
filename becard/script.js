@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('data.json');
             if (!response.ok) throw new Error('No se pudo cargar data.json');
-            
+
             clubData = await response.json();
             renderLoginView();
         } catch (error) {
@@ -72,15 +72,26 @@ document.addEventListener('DOMContentLoaded', () => {
         app.innerHTML = `
             <div class="card-container">
                 <div class="card">
-                    <div class="card-header">
-                        <h2>${student.name}</h2>
-                        <p>${student.role}</p>
+                <div class="card-footer">
+                                    <button id="backBtn">Volver</button>
+
+                        <p>${clubData.club.name}</p>
+                        <img src="${clubData.club.logo || ''}" alt="Logo del club" class="logo-footer">
                     </div>
+
+                    
                     <div class="card-body">
                         ${student.photo ? `
                             <div class="card-photo">
                                 <img src="${student.photo}" alt="Foto de ${student.name}">
+                                <div class="card-header">
+
+                                <h2>${student.name}</h2>
+                                 <p>${student.role}</p>
+                                <p>Código: ${student.code}</p>
+                              </div>
                             </div>
+                            
                         ` : ''}
                         <div class="card-details">
                             ${renderStudentDetails(student)}
@@ -88,11 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             ${renderStudentLinks(student)}
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <p>${clubData.club.name}</p>
-                    </div>
+
+                    
                 </div>
-                <button id="backBtn">Volver</button>
             </div>
         `;
 
@@ -114,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderStudentProjects(student) {
         if (!student.projects || student.projects.length === 0) return '';
-        
+
         return `
             <div class="card-projects">
                 <h3>Proyectos</h3>
@@ -127,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderStudentLinks(student) {
         if (!student.links || student.links.length === 0) return '';
-        
+
         return `
             <div class="card-links">
                 <h3>Enlaces</h3>
@@ -151,12 +160,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const errorElement = document.querySelector('.error-message') || document.createElement('p');
         errorElement.className = 'error-message';
         errorElement.textContent = message;
-        
+
         const inputGroup = document.querySelector('.input-group');
         if (inputGroup && !inputGroup.contains(errorElement)) {
             inputGroup.appendChild(errorElement);
         }
-        
+
         // Eliminar el mensaje después de 3 segundos
         setTimeout(() => {
             if (errorElement.parentNode) {
