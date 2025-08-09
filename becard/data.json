@@ -1,0 +1,40 @@
+{
+    "club": {
+        "name": "Club Diseño y Desarrollo",
+        "logo": "img/logo.png",
+        "description": "Club académico de la Universidad Ejemplo"
+    },
+    "members": [
+        {
+            "code": "328",
+            "name": "Jhordy Camacho",
+            "role": "Fundador - Asesor Externo",
+            "photo": "img/jhordy.png",
+            "details": {
+                "Correo": "jhordyjhon0@gmail.com",
+                "Carrera": "Lic. Diseño Gráfico, Máster en Diseño y Desarrollo del usuario Web",
+                "Semestre": "",
+                "Rango": "V",
+                "Miembro desde": "2022"
+            },
+            "projects": [
+                "bePoli",
+                "Ludotek"
+            ],
+            "achievements": [
+                "Ganadora Hackathon 2023"
+            ],
+            "links": [
+                {
+                    "label": "Portafolio",
+                    "url": "https://jhordy-camacho15.github.io"
+                },
+                {
+                    "label": "GitHub",
+                    "url": "github.com/maria-dev"
+                }
+            ],
+            "extraInfo": "Especialista en UI/UX"
+        }
+    ]
+}
