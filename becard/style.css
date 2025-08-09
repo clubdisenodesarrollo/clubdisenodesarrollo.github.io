@@ -1,22 +1,26 @@
 :root {
     /* Colores principales */
-    --primary-bg: #ffffff;
-    --primary-text: #222;
-    --button-bg: #4CAF50;
-    --button-text: #fff;
-    --card-border: #4CAF50;
-    --header-bg: #4CAF50;
-    --header-text: #fff;
+    --primary: #234f9e;
+    --accent: #e23c1b;
+    --white: #fff;
+    --black: #222;
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.2);
+    --header-bg: var(--primary);
+    --header-text: var(--white);
     --footer-bg: #f5f5f5;
-    --footer-text: #333;
-    --error-color: #f44336;
-
-    /* Espaciados */
+    --footer-text: var(--primary);
+    --button-bg: var(--accent);
+    --button-text: var(--white);
+    --error-color: var(--accent);
+    --card-border: var(--primary);
+    --primary-text: var(--black);
     --padding-lg: 20px;
     --padding-md: 15px;
     --padding-sm: 10px;
-    --border-radius: 12px;
-    --shadow: 0 4px 16px rgba(0,0,0,0.08);
+    --border-radius: 14px;
+    --shadow: var(--shadow-md);
 }
 
 /* Reset y estilos base */
@@ -28,7 +32,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #e0f7fa 0%, #f0f2f5 100%);
+    background: linear-gradient(135deg, #000000 0%, var(--primary) 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -43,7 +47,7 @@ body {
 
 /* Contenedor de login */
 .container {
-    background: var(--primary-bg);
+    background: black;
     padding: var(--padding-lg);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
@@ -57,12 +61,12 @@ body {
     object-fit: contain;
     margin-bottom: var(--padding-md);
     border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(76,175,80,0.08);
+    box-shadow: var(--shadow-sm);
 }
 
 h1 {
     margin-bottom: var(--padding-md);
-    color: var(--primary-text);
+    color: var(--primary);
     font-size: 1.7rem;
     font-weight: 700;
 }
@@ -84,26 +88,29 @@ input[type="number"] {
 }
 
 input:focus {
-    border-color: var(--button-bg);
+    border-color: var(--primary);
     outline: none;
 }
 
 button {
     padding: var(--padding-sm);
     background: var(--button-bg);
-    color: var(--button-text);
+    color: var(--white);
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 1.05rem;
     font-weight: 600;
     transition: background 0.3s, transform 0.2s;
-    box-shadow: 0 2px 8px rgba(76,175,80,0.08);
+    box-shadow: var(--shadow-sm);
 }
 
-button:hover, .card-links a:hover {
-    background: #388e3c;
+
+button:hover,
+.card-links a:hover {
+    background: #b92c13;
     transform: translateY(-2px);
+    color: var(--white);
 }
 
 /* Tarjeta de identificación */
@@ -113,7 +120,7 @@ button:hover, .card-links a:hover {
 }
 
 .card {
-    background: var(--primary-bg);
+    background: black;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     overflow: hidden;
@@ -122,6 +129,7 @@ button:hover, .card-links a:hover {
 }
 
 .card-header {
+    width: 100%;
     background: var(--header-bg);
     color: var(--header-text);
     padding: var(--padding-md);
@@ -140,9 +148,10 @@ button:hover, .card-links a:hover {
 
 .card-body {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    padding: var(--padding-lg);
     gap: var(--padding-lg);
+
 }
 
 .card-photo {
@@ -155,23 +164,25 @@ button:hover, .card-links a:hover {
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid var(--header-bg);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.10);
+    box-shadow: var(--shadow-sm);
     background: #f0f0f0;
 }
 
 .card-details {
     flex: 1;
     margin-top: var(--padding-md);
+    text-align: left;
+    padding: 10px;
 }
 
 .card-details p {
     margin-bottom: 12px;
     line-height: 1.5;
-    color: var(--primary-text);
+    color: var(--white);
 }
 
 .card-details strong {
-    color: var(--header-bg);
+    color: var(--primary);
 }
 
 .card-footer {
@@ -180,6 +191,17 @@ button:hover, .card-links a:hover {
     padding: var(--padding-md);
     text-align: center;
     font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-footer {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--shadow-sm);
 }
 
 /* Enlaces (Portafolio, LinkedIn, etc.) */
@@ -189,6 +211,8 @@ button:hover, .card-links a:hover {
     gap: var(--padding-sm);
     margin-top: var(--padding-md);
     justify-content: center;
+    color: var(--white);
+    align-items: center;
 }
 
 .card-links a {
@@ -200,30 +224,45 @@ button:hover, .card-links a:hover {
     text-decoration: none;
     font-size: 0.95rem;
     transition: background 0.3s;
-    box-shadow: 0 2px 8px rgba(76,175,80,0.08);
+    box-shadow: var(--shadow-sm);
 }
 
 .card-links a:hover {
-    background: #388e3c;
+    background: #b92c13;
 }
 
 /* Proyectos */
-.card-projects {
+.card-projects,
+.card-achievements,
+.card-extra {
     margin-top: 12px;
     text-align: left;
 }
-.card-projects h3 {
+
+.card-projects h3,
+.card-achievements h3,
+.card-extra h3 {
     margin-bottom: 6px;
-    color: var(--header-bg);
+    color: var(--primary);
     font-size: 1.05rem;
 }
-.card-projects ul {
+
+.card-projects ul,
+.card-achievements ul {
     padding-left: 18px;
     margin: 0;
 }
-.card-projects li {
+
+.card-projects li,
+.card-achievements li {
     margin-bottom: 4px;
-    color: var(--primary-text);
+    color: var(--white);
+}
+
+.card-extra {
+    font-size: 1rem;
+    color: var(--accent);
+    margin-top: 10px;
 }
 
 /* Responsive Design */
@@ -231,12 +270,17 @@ button:hover, .card-links a:hover {
     #app {
         max-width: 600px;
     }
+
     .card-body {
         flex-direction: row;
         align-items: center;
     }
+
     .card-photo {
-        margin-right: var(--padding-lg);
+    }
+
+    .card-details {
+        text-align: left;
     }
 }
 
@@ -245,6 +289,7 @@ button:hover, .card-links a:hover {
         width: 100px;
         height: 100px;
     }
+
     .logo {
         width: 60px;
         height: 60px;
@@ -253,8 +298,15 @@ button:hover, .card-links a:hover {
 
 /* Animaciones */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Clases utilitarias */
