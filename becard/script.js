@@ -87,18 +87,20 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="card-header">
 
                                 <h2>${student.name}</h2>
-                                 <p>${student.role}</p>
+                                <p>${student.role}</p>
                                 <p>Código: ${student.code}</p>
-                              </div>
                             </div>
+                                                                ${renderStudentLinks(student)}
+
+                        </div>
                             
                         ` : ''}
                         <div class="card-details">
-                            ${renderStudentDetails(student)}
-                            ${renderStudentProjects(student)}
-                            ${renderStudentLinks(student)}
+                                    ${renderStudentDetails(student)}
+                                    ${renderStudentProjects(student)}
+                                    ${renderStudentAchievements(student)}
                         </div>
-                    </div>
+                    </div>s
 
                     
                 </div>
@@ -107,6 +109,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('backBtn').addEventListener('click', renderLoginView);
     }
+
+    function renderStudentAchievements(student) {
+    if (!student.achievements || student.achievements.length === 0) return '';
+    return `
+        <div class="card-achievements">
+            <h3>Premios / Logros</h3>
+            <ul>
+                ${student.achievements.map(ach => `<li>${ach}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+}
 
     function renderStudentDetails(student) {
         return Object.entries(student.details || {}).map(([key, value]) => `
