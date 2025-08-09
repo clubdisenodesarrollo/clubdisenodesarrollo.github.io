@@ -1,6 +1,6 @@
 {
     "club": {
-        "name": "Club Diseño y Desarrollo",
+        "name": "Club de Diseño y Desarrollo",
         "logo": "img/logo.png",
         "description": "Club académico de la Universidad Ejemplo"
     },
@@ -28,10 +28,6 @@
                 {
                     "label": "Portafolio",
                     "url": "https://jhordy-camacho15.github.io"
-                },
-                {
-                    "label": "GitHub",
-                    "url": "github.com/maria-dev"
                 }
             ],
             "extraInfo": "Especialista en UI/UX"
