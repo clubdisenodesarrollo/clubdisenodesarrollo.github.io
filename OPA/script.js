@@ -233,14 +233,14 @@ const closeModalBtn = document.getElementById('auth-modal-close');
 
 // Abrir modal desde botones
 document.querySelector('.btn-login').addEventListener('click', () => {
-  authModal.setAttribute('aria-hidden', 'false');
-  authModalSlider.style.transform = 'translateX(0)';
-  registerPanel.classList.remove('active');
+    authModal.setAttribute('aria-hidden', 'false');
+    authModalSlider.style.transform = 'translateX(0)';
+    registerPanel.classList.remove('active');
 });
 document.querySelector('.btn-register').addEventListener('click', () => {
-  authModal.setAttribute('aria-hidden', 'false');
-  authModalSlider.style.transform = 'translateX(-600px)';
-  setTimeout(() => registerPanel.classList.add('active'), 400);
+    authModal.setAttribute('aria-hidden', 'false');
+    authModalSlider.style.transform = 'translateX(-600px)';
+    setTimeout(() => registerPanel.classList.add('active'), 400);
 });
 
 // Abrir modal desde botón "Únete" del carrusel
@@ -252,28 +252,28 @@ document.querySelector('.hero-cta .btn-outline').addEventListener('click', funct
 
 // Cambiar entre login y registro dentro del modal
 showRegisterBtn.addEventListener('click', () => {
-  authModalSlider.style.transform = 'translateX(-600px)';
-  setTimeout(() => registerPanel.classList.add('active'), 400);
+    authModalSlider.style.transform = 'translateX(-600px)';
+    setTimeout(() => registerPanel.classList.add('active'), 400);
 });
 showLoginBtn.addEventListener('click', () => {
-  authModalSlider.style.transform = 'translateX(0)';
-  setTimeout(() => registerPanel.classList.remove('active'), 400);
+    authModalSlider.style.transform = 'translateX(0)';
+    setTimeout(() => registerPanel.classList.remove('active'), 400);
 });
 showLoginBottomBtn.addEventListener('click', () => {
-  authModalSlider.style.transform = 'translateX(0)';
-  setTimeout(() => registerPanel.classList.remove('active'), 400);
+    authModalSlider.style.transform = 'translateX(0)';
+    setTimeout(() => registerPanel.classList.remove('active'), 400);
 });
 
 // Cerrar modal
 closeModalBtn.addEventListener('click', () => {
-  authModal.setAttribute('aria-hidden', 'true');
-  authModalSlider.style.transform = 'translateX(0)';
-  registerPanel.classList.remove('active');
+    authModal.setAttribute('aria-hidden', 'true');
+    authModalSlider.style.transform = 'translateX(0)';
+    registerPanel.classList.remove('active');
 });
 authModal.querySelector('.auth-modal-overlay').addEventListener('click', () => {
-  authModal.setAttribute('aria-hidden', 'true');
-  authModalSlider.style.transform = 'translateX(0)';
-  registerPanel.classList.remove('active');
+    authModal.setAttribute('aria-hidden', 'true');
+    authModalSlider.style.transform = 'translateX(0)';
+    registerPanel.classList.remove('active');
 });
 
 // Menú hamburguesa dinámico
@@ -293,4 +293,89 @@ navLinks.querySelectorAll('a').forEach(link => {
             navToggle.classList.remove('active');
         }
     });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Carrusel para publicaciones tipo Facebook
+document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.querySelector('.fb-post-carousel');
+    if (!carousel) return;
+
+    const images = carousel.querySelectorAll('.fb-carousel-img');
+    const prevBtn = carousel.querySelector('.fb-carousel-btn.prev');
+    const nextBtn = carousel.querySelector('.fb-carousel-btn.next');
+    let current = 0;
+
+    function showImage(index) {
+        images.forEach((img, i) => {
+            img.classList.toggle('active', i === index);
+        });
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === images.length - 1;
+    }
+
+    prevBtn.addEventListener('click', function () {
+        if (current > 0) {
+            current--;
+            showImage(current);
+        }
+    });
+
+    nextBtn.addEventListener('click', function () {
+        if (current < images.length - 1) {
+            current++;
+            showImage(current);
+        }
+    });
+
+    showImage(current);
 });
