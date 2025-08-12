@@ -948,18 +948,133 @@ footer {
     color: #002b5b;
 }
 
-/* Responsive: 768px */
-@media (max-width: 768px) {
-    .noticias-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+/* Publicación tipo Facebook */
+.publicacion-facebook {
+    max-width: 600px;
+    margin: 40px auto 32px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 24px;
+}
 
-    .noticia-card {
-        min-height: 220px;
-    }
+.fb-post-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+}
 
-    .noticia-img {
-        height: 110px;
+.fb-user-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e3e3e3;
+}
+
+.fb-user-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.fb-post-time {
+    color: #888;
+    font-size: 0.95rem;
+    margin-left: 2px;
+    display: block;
+}
+
+.fb-post-body {
+    margin-top: 8px;
+}
+
+.fb-post-text {
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+    color: #333;
+}
+
+.fb-post-files {
+    margin-bottom: 16px;
+}
+
+.fb-file-link {
+    display: inline-block;
+    background: #205072;
+    color: #fff;
+    padding: 7px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.98rem;
+    margin-right: 8px;
+    transition: background 0.2s;
+}
+
+.fb-file-link:hover {
+    background: #2a4d69;
+}
+
+.fb-post-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.fb-carousel-images {
+    display: flex;
+    gap: 10px;
+}
+
+.fb-carousel-img {
+    width: 160px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 7px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.fb-carousel-img.active {
+    opacity: 1;
+    border: 2px solid #205072;
+}
+
+.fb-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #205072;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.8;
+}
+
+.fb-carousel-btn.prev {
+    left: 0;
+}
+
+.fb-carousel-btn.next {
+    right: 0;
+}
+
+/* Responsive para publicaciones tipo Facebook */
+@media (max-width: 700px) {
+    .publicacion-facebook {
+        max-width: 98vw;
+        padding: 12px;
+    }
+    .fb-carousel-img {
+        width: 100px;
+        height: 70px;
     }
 }
