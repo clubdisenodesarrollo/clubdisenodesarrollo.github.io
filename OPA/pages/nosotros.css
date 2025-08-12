@@ -1,85 +1,162 @@
-/* Puedes agregar esto a style.css para las cartas del equipo */
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nosotros | Observatorio Politécnico del Agua</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../header.css">
+        <link rel="stylesheet" href="nosotros.css">
 
-.team-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin: 2.5rem auto 0 auto;
-    max-width: 1200px;
-    justify-content: center;
-    align-items: stretch;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!-- Header reutilizable -->
+    <header class="main-header">
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../logo.png" alt="Logo OPA" style="height:40px; vertical-align:middle;">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-links" id="nav-links">
+                <li><a href="nosotros.html">¿Qué es OPA?</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="publicaciones.html">Publicaciones</a></li>
+                <li><a href="../index.html#join">Únete</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn btn-login">Iniciar sesión</button>
+                <button class="btn btn-register">Registrarse</button>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
 
-.team-card {
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 4px 24px rgba(0,43,91,0.10);
-    padding: 2rem 1.5rem 1.5rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: box-shadow 0.2s;
-    text-align: center;
-    min-width: 0;
-}
+    <!-- About Section (similar al index) -->
+    <section id="about" class="section">
+        <div class="section-title">
+            <h2>¿Quiénes somos?</h2>
+            <p>Equipo multidisciplinario comprometido con la investigación y la justicia hídrica en Chimborazo y la región.</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>El Observatorio Politécnico del Agua (OPA) es un espacio de encuentro colaborativo donde confluyen investigadores/as y académicos/as bajo intereses y enfoques congruentes y complementarios alrededor de la investigación crítica.</p>
+                <p>Pretendemos tender puentes entre la investigación inspirada desde la Ecología Política y las comunidades campesinas de Chimborazo y la región aquejadas por injusticias hídricas.</p>
+                <p>Nuestro trabajo se basa en los principios de la investigación-acción como sustento metodológico que da forma a un Observatorio con relaciones horizontales entre todos los actores que lo conforman.</p>
+            </div>
+            <div class="about-image-container">
+                <img src="../img1.jpg" alt="Ilustración OPA">
+            </div>
+        </div>
+    </section>
 
-.team-card:hover {
-    box-shadow: 0 8px 32px rgba(0,43,91,0.18);
-}
 
-.team-img {
-    width: 90px;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    border: 3px solid #e3eefd;
-    background: #e3eefd;
-}
 
-.team-card h3 {
-    color: #0070c9;
-    font-size: 1.18rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
+    <!-- Cartas informativas sobre OPA -->
+        <div class="about-cards">
+            <div class="about-card">
+                <h3>¿Cómo funciona?</h3>
+                <p>
+                    El OPA operará a través del establecimiento de una red de investigación colaborativa, cobijada bajo
+                    el enfoque de Ecología Política, conformada por actores académicos nacionales y extranjeros cuyo
+                    propósito es la profundización del conocimiento entorno a la problemática de la gestión y la
+                    gobernanza del agua en Chimborazo y la región.
+                </p>
+            </div>
+            <div class="about-card">
+                <h3>Misión</h3>
+                <p>
+                    Promover la investigación crítica en torno a las principales problemáticas del agua en Chimborazo y
+                    la región a través del trabajo transdisciplinario basado en el tejido de relaciones de colaboración
+                    académica en donde confluyen académicos e investigadores locales, nacionales e internacionales con
+                    intereses comunes.
+                </p>
+            </div>
+            <div class="about-card">
+                <h3>Visión</h3>
+                <p>
+                    El Observatorio Politécnico del Agua de la Escuela Superior Politécnica de Chimborazo se constituirá
+                    en el espacio provincial que, a partir de la investigación crítica, visibiliza las principales
+                    problemáticas del agua en Chimborazo y la región a fin de que éstas puedan ser abordadas y superadas
+                    como estrategia de consolidación de un territorio ambiental y socialmente más justo.
+                </p>
+            </div>
+        </div>
 
-.team-card p {
-    color: #002b5b;
-    font-size: 1rem;
-    margin: 0;
-}
 
-/* 1024px: 3 cartas por fila */
-@media (max-width: 1024px) {
-    .team-cards {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-        max-width: 900px;
-    }
-}
 
-/* 768px: 2 cartas por fila */
-@media (max-width: 768px) {
-    .team-cards {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.2rem;
-        max-width: 98vw;
-    }
-}
 
-/* 425px y menos: 1 carta por fila */
-@media (max-width: 425px) {
-    .team-cards {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        max-width: 98vw;
-    }
-    .team-card {
-        padding: 1.2rem 0.5rem;
-    }
-    .team-img {
-        width: 70px;
-        height: 70px;
-    }
-}
+    <!-- Equipo principal -->
+    <section class="section team">
+        <div class="section-title">
+            <h2>Equipo OPA</h2>
+        </div>
+        <div class="team-cards">
+            <!-- Ejemplo de carta para una persona del equipo -->
+            <div class="team-card">
+                <img src="../equipo/isaac.jpg" alt="Isaac David Torres" class="team-img">
+                <h3>Isaac David Torres</h3>
+                <p>
+                    Ingeniero en Sistemas Informáticos (ESPOCH)<br>
+                    Especialista en Data y Business Analytics (Miami)
+                </p>
+            </div>
+            <div class="team-card">
+                <img src="../equipo/paul.jpg" alt="Paúl Buenaño" class="team-img">
+                <h3>Paúl Buenaño</h3>
+                <p>Ingeniero en Diseño Gráfico (ESPOCH)<br>
+                Master Universitario en Comunicación e Identidad Corporativa UNIR</p>
+            </div>
+            <div class="team-card">
+                <img src="../equipo/juan.jpg" alt="Juan Sebastián Silva" class="team-img">
+                <h3>Juan Sebastián Silva</h3>
+                <p>Ingeniero Agrónomo (ESPOCH)<br>
+                Master en Gestión Integrada de Recursos Hídricos (UCE)</p>
+            </div>
+             <div class="team-card">
+                <img src="../equipo/juan.jpg" alt="Juan Sebastián Silva" class="team-img">
+                <h3>Juan Sebastián Silva</h3>
+                <p>Ingeniero Agrónomo (ESPOCH)<br>
+                Master en Gestión Integrada de Recursos Hídricos (UCE)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Miembros invitados -->
+    <section class="section team">
+        <div class="section-title">
+            <h2>Miembros Invitados</h2>
+        </div>
+        <div class="team-cards">
+            <div class="team-card">
+                <img src="../equipo/marco.jpg" alt="Marco Gabilanes" class="team-img">
+                <h3>Marco Gabilanes</h3>
+                <p>Estudiante de ingeniería de software<br>
+                Escuela Superior Politécnica de Chimborazo</p>
+            </div>
+            <div class="team-card">
+                <img src="../equipo/vanessa.jpg" alt="Vanessa Heredia" class="team-img">
+                <h3>Vanessa Heredia</h3>
+                <p>Estudiante de ingeniería de software<br>
+                Escuela Superior Politécnica de Chimborazo</p>
+            </div>
+            <div class="team-card">
+                <img src="../equipo/miembro3.jpg" alt="Miembro3" class="team-img">
+                <h3>Miembro3</h3>
+                <p>Estudiante de ingeniería de software<br>
+                Escuela Superior Politécnica de Chimborazo</p>
+            </div>
+            <div class="team-card">
+                <img src="../equipo/miembro3.jpg" alt="Miembro3" class="team-img">
+                <h3>Miembro3</h3>
+                <p>Estudiante de ingeniería de software<br>
+                Escuela Superior Politécnica de Chimborazo</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
