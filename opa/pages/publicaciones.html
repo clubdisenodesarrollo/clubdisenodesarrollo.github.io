@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Publicaciones | Observatorio Politécnico del Agua</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/footer.css">
+
+    <link rel="stylesheet" href="publicaciones.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <!-- Header reutilizable -->
+    <header class="main-header">
+        <div class="logo">
+            <a href="/index.html">
+                <img src="/logo.png" alt="Logo OPA">
+            </a>
+        </div>
+        <nav class="nav">
+            <ul class="nav-links" id="nav-links">
+                <li><a href="/pages/nosotros.html">¿Qué es OPA?</a></li>
+                <li><a href="/pages/noticias.html">Noticias</a></li>
+                <li><a href="/pages/publicaciones.html">Publicaciones</a></li>
+                <li><a href="/index.html">Únete</a></li>
+                <li>
+                    <div class="auth-buttons">
+                        <button class="btn btn-login">Iniciar sesión</button>
+                        <button class="btn btn-register">Registrarse</button>
+                    </div>
+                </li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="nav-overlay" id="nav-overlay"></div>
+    </header>
+
+    <main class="publicaciones-main">
+        <section class="publicaciones-section">
+            <h1 class="publicaciones-title">Publicaciones OPA</h1>
+            <div class="publicaciones-grid">
+                <!-- Ejemplo de carta de publicación -->
+                <div class="publicacion-card">
+                    <div class="publicacion-autor">
+                        <img src="../img1.png" alt="Autor 1">
+                        <span>Carlos Mendez</span>
+                    </div>
+                    <div class="publicacion-info">
+                        <h2 class="publicacion-titulo">Ecología política del agua: enfoques teóricos</h2>
+                        <p class="publicacion-desc">Revisión crítica de los marcos teóricos para el análisis de
+                            conflictos hídricos.</p>
+                        <a href="#" class="btn btn-primary">Leer más</a>
+                    </div>
+                </div>
+                <div class="publicacion-card">
+                    <div class="publicacion-autor">
+                        <img src="../img2.png" alt="Autor 2">
+                        <span>Red OPA</span>
+                    </div>
+                    <div class="publicacion-info">
+                        <h2 class="publicacion-titulo">Memorias del primer encuentro de investigadores</h2>
+                        <p class="publicacion-desc">Resumen de las discusiones y acuerdos del primer encuentro regional
+                            del OPA.</p>
+                        <a href="#" class="btn btn-primary">Leer más</a>
+                    </div>
+                </div>
+                <div class="publicacion-card">
+                    <div class="publicacion-autor">
+                        <img src="../img3.png" alt="Autor 3">
+                        <span>María López</span>
+                    </div>
+                    <div class="publicacion-info">
+                        <h2 class="publicacion-titulo">Gestión comunitaria del agua en Chimborazo</h2>
+                        <p class="publicacion-desc">Experiencias y aprendizajes de la autogestión hídrica en comunidades
+                            rurales.</p>
+                        <a href="#" class="btn btn-primary">Leer más</a>
+                    </div>
+                </div>
+                <!-- Puedes agregar más cartas aquí -->
+            </div>
+        </section>
+
+
+        <!-- Publicación estilo Facebook -->
+        <section class="publicacion-facebook">
+            <div class="fb-post-header">
+                <img src="../img_usuario.png" alt="Usuario" class="fb-user-img">
+                <div>
+                    <span class="fb-user-name">Andrea Torres</span>
+                    <span class="fb-post-time">Hace 2 horas</span>
+                </div>
+            </div>
+            <div class="fb-post-body">
+                <p class="fb-post-text">
+                    Comparto el resumen de mi investigación sobre la gestión participativa del agua en comunidades
+                    indígenas. El artículo completo está disponible para descarga y pueden ver imágenes del trabajo de
+                    campo.
+                </p>
+                <div class="fb-post-files">
+                    <a href="../articulo_andrea.pdf" class="fb-file-link" target="_blank">Descargar artículo completo
+                        (PDF)</a>
+                </div>
+                <div class="fb-post-carousel">
+                    <div class="fb-carousel-images">
+                        <img src="../img_proyecto1.jpg" alt="Proyecto 1" class="fb-carousel-img active">
+                        <img src="../img_proyecto2.jpg" alt="Proyecto 2" class="fb-carousel-img">
+                        <img src="../img_proyecto3.jpg" alt="Proyecto 3" class="fb-carousel-img">
+                    </div>
+                    <!-- Flechas del carrusel (sin JS por ahora) -->
+                    <button class="fb-carousel-btn prev" disabled>&lt;</button>
+                    <button class="fb-carousel-btn next">&gt;</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Observatorio Politécnico del Agua</h3>
+                <p>Espacio colaborativo para investigación crítica y justicia hídrica en Chimborazo y la región.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Enlaces rápidos</h3>
+                <a href="/index.html">Inicio</a>
+                <a href="/pages/nosotros.html">Sobre el OPA</a>
+                <a href="/pages/noticias.html">Noticias</a>
+                <a href="/pages/publicaciones.html">Publicaciones</a>
+                <a href="#">Contacto</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Universidad Politécnica, Chimborazo, Ecuador</p>
+                <p><i class="fas fa-envelope"></i> contacto@opa.edu.ec</p>
+                <p><i class="fas fa-phone"></i> +593 XX XXX XXXX</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2023 Observatorio Politécnico del Agua. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal HTML: Coloca esto justo antes del cierre de </body> -->
+    <div id="auth-modal" class="auth-modal" aria-hidden="true">
+        <div class="auth-modal-overlay"></div>
+        <div class="auth-modal-content">
+            <button class="auth-modal-close">&times;</button>
+            <div class="auth-modal-slider">
+                <div class="auth-modal-panel login-panel">
+                    <!-- Formulario de login -->
+                    <h2>Iniciar sesión</h2>
+                    <form>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="password" placeholder="Contraseña" required>
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    </form>
+                    <button class="auth-modal-switch" type="button">¿No tienes cuenta? Regístrate</button>
+                </div>
+                <div class="auth-modal-panel register-panel">
+                    <!-- Formulario de registro -->
+                    <h2>Crear cuenta</h2>
+                    <form class="register-form">
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="password" placeholder="Contraseña" required>
+                        <button type="submit" class="btn btn-primary">Crear cuenta</button>
+                    </form>
+                    <button class="auth-modal-switch" type="button">¿Ya tienes cuenta? Inicia sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/script.js"></script>
+</body>
+
+</html>
