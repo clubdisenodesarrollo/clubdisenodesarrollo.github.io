@@ -1,0 +1,271 @@
+/* =====================
+   NOSOTROS PAGE STYLES
+====================== */
+
+/* Hero Section */
+.hero-nosotros {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  padding: 120px 20px 80px;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Areas de Trabajo Section */
+.areas-trabajo {
+  padding: 80px 20px;
+  background-color: var(--white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.titulo-seccion {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+.area-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 80px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.area-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.area-item.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.area-item.reverse .area-imagen {
+  order: 2;
+}
+
+.area-item.reverse .area-contenido {
+  order: 1;
+}
+
+.area-imagen {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.area-imagen img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.area-item:hover .area-imagen img {
+  transform: scale(1.05);
+}
+
+.area-contenido {
+  padding: 0 20px;
+}
+
+.area-contenido h3 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.area-contenido p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+  text-align: justify;
+}
+
+/* CTA Section */
+.cta-nosotros {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+  color: white;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.cta-content .boton {
+  display: inline-block;
+  background-color: white;
+  color: var(--primary);
+  padding: 15px 40px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-content .boton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background-color: #f8f8f8;
+}
+
+/* =====================
+   RESPONSIVE DESIGN
+====================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .titulo-seccion {
+    font-size: 2rem;
+  }
+
+  .area-item {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+    padding: 30px;
+  }
+
+  .area-item.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .area-item.reverse .area-imagen {
+    order: 1;
+  }
+
+  .area-item.reverse .area-contenido {
+    order: 2;
+  }
+
+  .area-imagen img {
+    height: 250px;
+  }
+
+  .area-contenido {
+    padding: 0;
+    text-align: center;
+  }
+
+  .area-contenido h3 {
+    font-size: 1.8rem;
+  }
+
+  .area-contenido p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .cta-content p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero-nosotros {
+    padding: 100px 15px 60px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .areas-trabajo {
+    padding: 60px 15px;
+  }
+
+  .titulo-seccion {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  .area-item {
+    margin-bottom: 40px;
+    padding: 20px;
+  }
+
+  .area-imagen img {
+    height: 200px;
+  }
+
+  .area-contenido h3 {
+    font-size: 1.5rem;
+  }
+
+  .cta-nosotros {
+    padding: 60px 15px;
+  }
+
+  .cta-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-content p {
+    font-size: 1rem;
+  }
+
+  .cta-content .boton {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}

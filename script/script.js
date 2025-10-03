@@ -1,5 +1,73 @@
+// Sidebar navegación móvil
+document.addEventListener('DOMContentLoaded', function () {
+  const btnHamburguesa = document.getElementById('btn-hamburguesa');
+  const sidebar = document.getElementById('sidebar-nav');
+  const closeSidebar = document.getElementById('close-sidebar');
+
+  if (btnHamburguesa && sidebar && closeSidebar) {
+    // Abrir sidebar
+    btnHamburguesa.addEventListener('click', function (e) {
+      e.stopPropagation(); // Evitar que el evento se propague
+      sidebar.classList.add('open');
+      btnHamburguesa.classList.add('hide');
+    });
+
+    // Cerrar sidebar
+    closeSidebar.addEventListener('click', function (e) {
+      e.stopPropagation(); // Evitar que el evento se propague
+      sidebar.classList.remove('open');
+      btnHamburguesa.classList.remove('hide');
+    });
+
+    // Cerrar sidebar al hacer clic fuera
+    document.addEventListener('click', function (e) {
+      if (
+        sidebar.classList.contains('open') &&
+        !sidebar.contains(e.target) &&
+        e.target !== btnHamburguesa
+      ) {
+        sidebar.classList.remove('open');
+        btnHamburguesa.classList.remove('hide');
+      }
+    });
+
+    // Evitar que el clic dentro del sidebar lo cierre
+    sidebar.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  }
+});
+// Carrusel tipo slide horizontal automático
+document.addEventListener('DOMContentLoaded', function () {
+  const carrusel = document.getElementById('carrusel');
+  if (!carrusel) return;
+  const imagenes = carrusel.querySelectorAll('.carrusel-img');
+  const contenedor = carrusel.querySelector('.carrusel-imagenes');
+  let actual = 0;
+  let intervalo;
+  const total = imagenes.length;
+
+  function moverCarrusel(idx) {
+    contenedor.style.transform = `translateX(-${idx * 100}%)`;
+  }
+
+  function siguiente() {
+    actual = (actual + 1) % total;
+    moverCarrusel(actual);
+  }
+
+  function autoPlay() {
+    intervalo = setInterval(() => {
+      siguiente();
+    }, 4000);
+  }
+
+  contenedor.style.transform = 'translateX(0)';
+  autoPlay();
+});
 window.addEventListener('scroll', function () {
   var navbar = document.getElementById('navbar');
+  if (!navbar) return;
   if (window.pageYOffset > 0) {
     navbar.classList.add('scrolled');
   } else {
@@ -224,6 +292,7 @@ const cartas = [
 // Función para renderizar cartas
 function renderCartas(filterTag = "todos") {
   const contenedorCartas = document.getElementById("cartas");
+  if (!contenedorCartas) return;
   contenedorCartas.innerHTML = ""; // Limpiar el contenedor
 
   // Filtrar cartas según la etiqueta
@@ -248,13 +317,15 @@ function renderCartas(filterTag = "todos") {
   });
 }
 // Eventos para los botones de filtro
-document.querySelectorAll(".boton-filtro").forEach((boton) => {
-  boton.addEventListener("click", () => {
-    const tag = boton.getAttribute("data-tag"); // Obtener la etiqueta del botón
-    renderCartas(tag); // Renderizar cartas con la etiqueta seleccionada
+if (document.querySelectorAll(".boton-filtro").length > 0) {
+  document.querySelectorAll(".boton-filtro").forEach((boton) => {
+    boton.addEventListener("click", () => {
+      const tag = boton.getAttribute("data-tag"); // Obtener la etiqueta del botón
+      renderCartas(tag); // Renderizar cartas con la etiqueta seleccionada
+    });
   });
-});
+}
 
 // Renderizar todas las cartas al cargar la página
 document.addEventListener("DOMContentLoaded", () => renderCartas());
-window.onload = generarCartas;
+// Eliminar llamada a generarCartas inexistente

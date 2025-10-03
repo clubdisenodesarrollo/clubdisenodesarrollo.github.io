@@ -1,25 +1,217 @@
+/* =====================
+   VARIABLES ROOT
+====================== */
+:root {
+  --primary: #234f9e;
+  --primary-light: #3d5f9f;
+  --primary-dark: #19376f;
+  --secondary: #e23c1b;
+  --secondary-light: #e2573c;
+  --accent: #e74c3c;
+  --light: #ecf0f1;
+  --dark: #2c3e50;
+  --gray: #95a5a6;
+  --gray-light: #bdc3c7;
+  --white: #fff;
+  --black: #222;
+  --background: #f5f5f5;
+  --background-dark: #09152c;
+  --text: #333;
+  --text-dark: #ddd;
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+
+/* =====================
+   RESET Y BASE
+====================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #000;
+  color: var(--text);
+}
 
 
 
+/* =====================
+   HEADER Y NAVEGACIÓN
+====================== */
+header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  background-color: #000;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
 
-/* Sección de Introducción (50/50) */
+.logo {
+  grid-column: 1 / 3;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+.menu-principal {
+  grid-column: 5 / 9;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.menu-principal a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  background-color: var(--primary);
+  /* width: 20%;  <-- Eliminado para que el ancho sea automático */
+  padding: 12px 32px; /* Más espacio a los lados */
+  width: auto;
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.menu-principal a:last-child {
+  background-color: var(--secondary);
+}
+
+.menu-principal a:hover {
+  background-color: #234e9eda;
+}
+
+.menu-principal a:last-child:hover {
+  background-color: #e23c1be0;
+}
+
+.redes-sociales {
+  grid-column: 11 / 13;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.redes-sociales a {
+  background-color: white;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.icono-red-social img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.icono-red-social:hover img {
+  transform: scale(1.2);
+}
+
+/* =====================
+   HAMBURGUESA Y SIDEBAR NAV
+====================== */
+.btn-hamburguesa {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.btn-hamburguesa span {
+  display: block;
+  width: 28px;
+  height: 4px;
+  margin: 4px 0;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.sidebar-nav {
+  display: none;
+}
+
+.sidebar-redes-sociales {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.sidebar-redes-sociales .icono-red-social img {
+  width: 32px;
+  height: 32px;
+}
+
+.sidebar-nav.open~.btn-hamburguesa,
+.btn-hamburguesa.hide {
+  display: none !important;
+}
+
+/* =====================
+   UTILIDADES DE IMAGEN
+====================== */
+.img-ancla-abajo {
+  object-fit: cover !important;
+  object-position: center bottom !important;
+}
+
+.carrusel-img {
+  object-fit: cover;
+  object-position: center center !important;
+  border-radius: 10px;
+}
+
+.contenedor-imagen img:not(.img-ancla-abajo):not(.carrusel-img) {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+
+/* =====================
+   SECCIÓN INTRODUCCIÓN
+====================== */
 .introduccion {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 50px;
-  background-color: #000000;
-  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
-
+  background-color: var(--black);
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-md);
 }
 
 .nosotros {
-  background-color: #c0c0c0 !important;
+  background-color: var(--gray-light) !important;
 }
 
 .contenedor-texto {
-  width: 45%; /* Ocupa el 45% del ancho en desktop */
+  width: 45%;
   justify-content: center;
 }
 
@@ -34,25 +226,26 @@
 
 .contenedor-texto h2 {
   font-size: 5rem;
-  color: #234F9E;
+  color: var(--primary);
   margin-bottom: 0px;
 }
 
 .contenedor-texto p {
   font-size: 2rem;
-  color: #ffffff;
+  color: var(--white);
   line-height: 1;
 }
 
 .nosotros .contenedor-texto p {
   font-size: 1.2rem;
-  color: #000000;
+  color: var(--black);
   line-height: 1.5;
   text-align: justify;
 }
+
 .nosotros .contenedor-texto h2 {
   font-size: 3rem;
-  color: #234F9E;
+  color: var(--primary);
   margin: 0px;
   padding: 0px;
 }
@@ -61,8 +254,8 @@
   display: inline-block;
   width: 75%;
   padding: 10px 20px;
-  background-color: #E23C1B;
-  color: #fff;
+  background-color: var(--secondary);
+  color: var(--white);
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
@@ -70,78 +263,63 @@
 }
 
 .contenedor-texto .boton:hover {
-  background-color: #c53316;
+  background-color: var(--secondary-light);
 }
 
 .contenedor-imagen {
-  width: 50%; /* Ocupa el 50% del ancho en desktop */
+  width: 50%;
   background-size: cover;
   background-position: center;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
 }
 
 .contenedor-imagen img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   border-radius: 10px;
 }
 
-/* Slider */
-.slider-frame {
+/* =====================
+   CARRUSEL SLIDE HORIZONTAL
+====================== */
+.carrusel {
+  position: relative;
   width: 100%;
+  height: 540px;
+  max-height: 75vh;
   overflow: hidden;
-}
-
-.slider-frame ul {
   display: flex;
-  padding: 0;
-  margin: 0;
-  width: 400%;
-  animation: slide 20s infinite alternate ease-in-out;
+  align-items: center;
+  justify-content: center;
 }
 
-.slider-frame li {
-  list-style: none;
+.carrusel-imagenes {
   width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.7s cubic-bezier(.4, 0, .2, 1);
+  will-change: transform;
 }
 
-.slider-frame img {
-  width: 100%;
-  height:auto;
+.carrusel-img {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+  user-select: none;
+  pointer-events: none;
 }
 
-@keyframes slide {
-  0% { margin-left: 0; }
-  20% { margin-left: 0; }
-  25% { margin-left: -100%; }
-  45% { margin-left: -100%; }
-  50% { margin-left: -200%; }
-  70% { margin-left: -200%; }
-  75% { margin-left: -300%; }
-  95% { margin-left: -300%; }
-  100% { margin-left: 0; }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* Sección de Logos */
+/* =====================
+   SECCIÓN LOGOS
+====================== */
 .logos {
   text-align: center;
   padding: 20px;
-  background-color: #323232;
+  background-color: var(--dark);
 }
 
 .contenedor-logos img {
@@ -149,32 +327,19 @@
   margin: 0 20px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Sección de Proyectos */
+/* =====================
+   SECCIÓN PROYECTOS Y CARTAS
+====================== */
 .proyectos {
   padding: 30px 10px;
   background-color: #c0c0c0;
   box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
-
 }
 
 .titulo-seccion {
   text-align: center;
   font-size: 3rem;
-  color: #234F9E;
+  color: var(--primary);
   margin: 10px;
 }
 
@@ -188,15 +353,14 @@
 
 .carta {
   width: 40%;
-  height:300px;
-  background-color: #ffffff;
+  height: 300px;
+  background-color: var(--white);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
   position: relative;
   transition: 0.3s;
 }
-
 
 .carta .contenedor-imagen {
   width: 100%;
@@ -227,13 +391,13 @@
 
 .carta .contenido h2 {
   font-size: 1.1rem;
-  color: #234F9E;
+  color: var(--primary);
   margin: 5px;
 }
 
 .carta .contenido p {
   font-size: 0.9rem;
-  color: #333;
+  color: var(--text);
   margin: 0;
 }
 
@@ -243,11 +407,11 @@
 }
 
 .c-boton a.boton {
-  color: #ffffff;
+  color: var(--white);
   text-decoration: none;
   font-size: 1rem;
   transition: background-color 0.3s ease;
-  background-color: #E23C1B;
+  background-color: var(--secondary);
   width: 20%;
   padding: 10px 10px;
   border-radius: 5px;
@@ -255,23 +419,27 @@
 }
 
 .c-boton a.boton:hover {
-  background-color: #e23c1bdb;
+  background-color: var(--secondary-light);
 }
 
-/* Sección de Integrantes */
+/* =====================
+   SECCIÓN INTEGRANTES
+====================== */
 .integrantes {
-  background-color: #234F9E;
+  background-color: var(--primary);
   padding: 10px;
   text-align: center;
 }
 
 .integrantes h2 {
-  color: #ffffff;
+  color: var(--white);
   font-size: 1.2rem;
   margin: 0;
 }
 
-/* Sección de Museo Virtual */
+/* =====================
+   SECCIÓN MUSEO VIRTUAL
+====================== */
 .museo-virtual {
   padding: 20px;
   text-align: center;
@@ -282,135 +450,283 @@
   height: 600px;
   border: none;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-md);
 }
 
+/* =====================
+   MEDIA QUERIES
+====================== */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Media Queries para Responsividad */
-
-/* Tablets (768px - 1024px) */
+/* 1024px */
 @media (max-width: 1024px) {
   .carta {
     width: 45%;
     height: 250px;
-
-    /* 2 cartas por fila */
   }
 
   .introduccion {
     padding: 30px;
   }
 
-  .contenedor-texto, .contenedor-imagen {
-    width: 100%; /* Ocupa el 100% del ancho en tablets */
+  .contenedor-texto,
+  .contenedor-imagen {
+    width: 100%;
     margin-bottom: 20px;
   }
 
   .contenedor-imagen {
-    height: 400px; /* Reducir la altura de la imagen en tablets */
-  }
-  .nosotros .contenedor-texto p{
-    font-size: 1rem;
-    color: #333;
-    margin: 10px;
-    
+    height: 400px;
   }
 
-  .contenedor-texto .boton {
-    width: 60%; /* Aumentar el ancho del botón en tablets */
+  .cartas {
+    gap: 12px;
   }
 
+  .carrusel {
+    height: 350px;
+  }
 
+  .menu-principal {
+    grid-column: 3 / 11;
+  }
+
+  .redes-sociales {
+    grid-column: 11 / 13;
+  }
 }
 
-/* Móviles (hasta 767px) */
-@media (max-width: 768px) {
-  .carta{
-    width: 80%;
-    height: 250px  
-  }
-  .introduccion {
-    padding: 20px;
-    flex-direction: column; /* Cambia a disposición vertical en móviles */
+/* 900px (sidebar y hamburguesa) */
+@media (max-width: 900px) {
+
+  .menu-principal,
+  .redes-sociales {
+    display: none !important;
   }
 
-  .contenedor-texto, .contenedor-imagen {
-    width: 100%; /* Ocupa el 100% del ancho en móviles */
+  .btn-hamburguesa {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 20px 20px 30px;
+    transform: translateX(100%);
+    transition: transform 0.7s cubic-bezier(.77, 0, .18, 1);
+  }
+
+  .sidebar-nav.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-nav nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sidebar-nav nav a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 1.3rem;
+    margin: 18px 0;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .sidebar-nav nav a:hover {
+    color: var(--secondary);
+  }
+
+  .close-sidebar {
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    color: var(--primary);
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    cursor: pointer;
+    z-index: 1002;
+  }
+}
+
+/* 901px+ (ocultar sidebar) */
+@media (min-width: 901px) {
+  .sidebar-nav {
+    display: none !important;
+    transform: none !important;
+  }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+  .carta {
+    width: 80%;
+    height: 250px;
+  }
+
+  .introduccion {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .contenedor-texto,
+  .contenedor-imagen {
+    width: 100%;
     margin-bottom: 20px;
   }
 
   .contenedor-imagen {
-    height: 250px; /* Reducir la altura de la imagen en móviles */
+    height: 400px;
+  }
+
+  .carrusel {
+    height: 40vw;
+    min-height: 140px;
+    height: 400px;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  .carrusel-imagenes {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    display: flex;
+  }
+
+  .carrusel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    border-radius: 8px;
+    flex: 1 0 100%;
+    min-width: 0;
   }
 
   .contenedor-texto h2 {
-    font-size: 2rem; /* Reducir el tamaño del título en móviles */
+    font-size: 2rem;
   }
 
   .contenedor-texto p {
-    font-size: 1rem; /* Reducir el tamaño del texto en móviles */
+    font-size: 1rem;
   }
 
   .contenedor-texto .boton {
-    width: 80%; /* Aumentar el ancho del botón en móviles */
+    width: 80%;
   }
 
+  .menu-principal {
+    display: none;
+    grid-column: 1 / 13;
+    flex-direction: column;
+    gap: 10px;
+  }
 
+  .menu-principal a {
+    width: 100%;
+  }
 
+  .redes-sociales {
+    grid-column: 1 / 13;
+    justify-content: center;
+    display: none;
+  }
 }
 
-
-
+/* 500px */
 @media (max-width: 500px) {
   .carta {
     width: 90%;
     height: 200px;
-
-    /* 1 carta por fila */
   }
 
-
+  .carrusel {
+    height: 450px;
+  }
 }
 
-
-@media (max-width: 450px) {
+/* 425px */
+@media (max-width: 425px) {
   .carta {
-    width: 90%;
+    width: 95%;
     height: 180px;
-
-    /* 1 carta por fila */
   }
 
+  .sidebar-nav {
+    width: 90vw;
+    padding-left: 10vw;
+  }
 
+  .carrusel {
+    height: 400px;
+  }
+  .contenedor-imagen {
+    height: 275px;
+  }
 }
 
-
-
-
-@media (max-width: 350px) {
+/* 375px */
+@media (max-width: 375px) {
   .carta {
-    width: 90%;
-    height: 150px;
-
-    /* 1 carta por fila */
+    width: 98%;
+    height: 200px;
   }
 
+  .sidebar-nav {
+    width: 98vw;
+    padding-left: 2vw;
+  }
 
+  .carrusel {
+    height: 300px;
+  }
+  .contenedor-imagen {
+    height: 250px;
+  }
 }
+
+/* 320px */
+@media (max-width: 320px) {
+  .carta {
+    width: 100%;
+    height: 200px;
+  }
+
+  .sidebar-nav {
+    width: 94vw;
+    min-width: 0;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    box-sizing: border-box;
+  }
+
+  .carrusel {
+    height: 300px;
+  }
+  .contenedor-imagen {
+    height: 200px;
+  }
+}
+
+
+
+
+
+

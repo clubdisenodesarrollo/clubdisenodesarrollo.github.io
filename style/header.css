@@ -1,36 +1,20 @@
-/* Estilos generales */
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #000000;
-  color: #333;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-}
-
-/* Header */
+/* =====================
+   HEADER Y NAVEGACIÓN
+====================== */
 header {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  /* 12 columnas */
   align-items: center;
-  background-color: #000000;
+  background-color: #000;
   padding: 10px 20px;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-
 }
 
-/* Logo (2 columnas) */
 .logo {
   grid-column: 1 / 3;
-  /* Ocupa las columnas 1 y 2 */
 }
 
 .logo img {
@@ -38,29 +22,29 @@ header {
   width: auto;
 }
 
-/* Menú de navegación (4 columnas) */
 .menu-principal {
   grid-column: 5 / 9;
-  /* Ocupa las columnas 5 a 8 */
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 
 .menu-principal a {
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
-  background-color: #234F9E;
-  width: 20%;
-  padding: 5px 10px;
+  background-color: var(--primary);
+  padding: 12px 32px; /* Más espacio a los lados */
+  width: auto;
+  box-sizing: border-box;
+  display: inline-block;
   border-radius: 5px;
   text-align: center;
+  transition: background-color 0.3s ease;
 }
 
 .menu-principal a:last-child {
-  background-color: #E23C1B;
+  background-color: var(--secondary);
 }
 
 .menu-principal a:hover {
@@ -71,10 +55,8 @@ header {
   background-color: #e23c1be0;
 }
 
-/* Redes sociales (2 columnas) */
 .redes-sociales {
   grid-column: 11 / 13;
-  /* Ocupa las columnas 11 y 12 */
   display: flex;
   justify-content: flex-end;
   gap: 10px;
@@ -96,61 +78,131 @@ header {
   transform: scale(1.2);
 }
 
+/* =====================
+   HAMBURGUESA Y SIDEBAR NAV
+====================== */
+.btn-hamburguesa {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+}
 
+.btn-hamburguesa span {
+  display: block;
+  width: 28px;
+  height: 4px;
+  margin: 4px 0;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: 0.3s;
+}
 
+.sidebar-nav {
+  display: none;
+}
 
+.sidebar-redes-sociales {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 30px;
+  width: 100%;
+}
 
+.sidebar-redes-sociales .icono-red-social img {
+  width: 32px;
+  height: 32px;
+}
 
+.sidebar-nav.open~.btn-hamburguesa,
+.btn-hamburguesa.hide {
+  display: none !important;
+}
 
+/* =====================
+   MEDIA QUERIES PARA HEADER
+====================== */
 
-
-
-
-/* Tablets (768px - 1024px) */
-@media (max-width: 1024px) {
-
-
-
-
-  .menu-principal {
-    grid-column: 3 / 11;
-    /* Ajustar el menú para tablets */
+/* 900px (sidebar y hamburguesa) */
+@media (max-width: 900px) {
+  .menu-principal,
+  .redes-sociales {
+    display: none !important;
   }
 
-  .redes-sociales {
-    grid-column: 11 / 13;
-    /* Mantener las redes sociales a la derecha */
+  .btn-hamburguesa {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: var(--white);
+    box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 20px 20px 30px;
+    transform: translateX(100%);
+    transition: transform 0.7s cubic-bezier(.77, 0, .18, 1);
+  }
+
+  .sidebar-nav.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-nav nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sidebar-nav nav a {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 1.3rem;
+    margin: 18px 0;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .sidebar-nav nav a:hover {
+    color: var(--secondary);
+  }
+
+  .close-sidebar {
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    color: var(--primary);
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    cursor: pointer;
+    z-index: 1002;
   }
 }
 
-/* Móviles (hasta 767px) */
-@media (max-width: 767px) {
-
-
-
-
-
-
-
-  .menu-principal {
-    display: none;
-    grid-column: 1 / 13;
-    /* Ocupar todo el ancho en móviles */
-    flex-direction: column;
-    /* Cambiar a disposición vertical */
-    gap: 10px;
-  }
-
-  .menu-principal a {
-    width: 100%;
-    /* Botones de ancho completo en móviles */
-  }
-
-  .redes-sociales {
-    grid-column: 1 / 13;
-    /* Ocupar todo el ancho en móviles */
-    justify-content: center;
-    /* Centrar las redes sociales */
-    display: none;
+/* 901px+ (ocultar sidebar) */
+@media (min-width: 901px) {
+  .sidebar-nav {
+    display: none !important;
+    transform: none !important;
   }
 }
