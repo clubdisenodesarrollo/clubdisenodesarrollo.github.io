@@ -138,7 +138,7 @@ const cartas = [
     descripcion: "",
     imagen: "/miniProyectos/avatar/fondo.png",
     tag: "otros", // Etiqueta para filtrar
-    enlace: "/Proyectos/avatar/index.html", // Enlace a la página del proyecto
+    enlace: "/miniProyectos/avatar/index.html", // Enlace a la página del proyecto
   },
   {
     titulo: "Carrusel de Imágenes",
