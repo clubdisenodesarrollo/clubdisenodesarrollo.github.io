@@ -85,9 +85,44 @@ window.addEventListener('scroll', function () {
 // Array de cartas
 const cartas = [
   {
+    titulo: "Disgrafia",
+    descripcion: "",
+    imagen: "/proyectos/disgrafia/fondo_1.png",
+    tag: "prototipos", // Etiqueta para filtrar
+    enlace: "/proyectos/disgrafia/index.html", // Enlace a la página del proyecto
+  },
+  {
+    titulo: "Memory",
+    descripcion: "",
+    imagen: "/proyectos/memory/fondo_1.png",
+    tag: "prototipos", // Etiqueta para filtrar
+    enlace: "/proyectos/memory/index.html", // Enlace a la página del proyecto
+  },
+  {
+    titulo: "Mate Monstruos",
+    descripcion: "",
+    imagen: "/proyectos/mate/fondo_1.png",
+    tag: "prototipos", // Etiqueta para filtrar
+    enlace: "/proyectos/mate/index.html", // Enlace a la página del proyecto
+  },
+   {
+    titulo: "Mochila",
+    descripcion: "",
+    imagen: "/proyectos/mochila/fondo_1.png",
+    tag: "prototipos", // Etiqueta para filtrar
+    enlace: "/proyectos/mochila/index.html", // Enlace a la página del proyecto
+  },
+  {
+    titulo: "Avatar Tech Portada",
+    descripcion: "",
+    imagen: "/img/proyectos/avatartech.png",
+    tag: "proyectos", // Etiqueta para filtrar
+    enlace: "/proyectos/observatorioEspacial/index.html", // Enlace a la página del proyecto
+  },
+  {
     titulo: "Observatorio",
     descripcion: "",
-    imagen: "/Proyectos/observatorioEspacial/fondo.png",
+    imagen: "/proyectos/observatorioEspacial/fondo.png",
     tag: "proyectos", // Etiqueta para filtrar
     enlace: "/Proyectos/observatorioEspacial/index.html", // Enlace a la página del proyecto
   },
@@ -101,37 +136,37 @@ const cartas = [
   {
     titulo: "Ruta Turística",
     descripcion: "",
-    imagen: "/Proyectos/rutaTuristica/fondo.png",
+    imagen: "/proyectos/rutaTuristica/fondo.png",
     tag: "proyectos", // Etiqueta para filtrar
-    enlace: "/Proyectos/rutaTuristica/index.html", // Enlace a la página del proyecto
+    enlace: "/proyectos/rutaTuristica/index.html", // Enlace a la página del proyecto
   },
   {
     titulo: "Filtro Web",
     descripcion: "",
-    imagen: "/Proyectos/filtroWeb/fondo.png",
+    imagen: "/proyectos/filtroWeb/fondo.png",
     tag: "proyectos", // Etiqueta para filtrar
-    enlace: "/Proyectos/filtroWeb/index.html", // Enlace a la página del proyecto
+    enlace: "/proyectos/filtroWeb/index.html", // Enlace a la página del proyecto
   },
   {
     titulo: "Restaurante",
     descripcion: "",
-    imagen: "/Proyectos/CakeWorld/fondo.png",
+    imagen: "/proyectos/CakeWorld/fondo.png",
     tag: "proyectos", // Etiqueta para filtrar
-    enlace: "/Proyectos/CakeWorld/index.html", // Enlace a la página del proyecto
+    enlace: "/proyectos/CakeWorld/index.html", // Enlace a la página del proyecto
   },
   {
     titulo: "Cartelera",
     descripcion: "",
-    imagen: "/Proyectos/cartelera/fondo.png",
+    imagen: "/proyectos/cartelera/fondo.png",
     tag: "proyectos", // Etiqueta para filtrar
-    enlace: "/Proyectos/cartelera/index.html", // Enlace a la página del proyecto
+    enlace: "/proyectos/cartelera/index.html", // Enlace a la página del proyecto
   },
   {
     titulo: "Particulas - Imágenes",
     descripcion: "",
-    imagen: "/Proyectos/ParticulasTerminado/fondo.png",
+    imagen: "/proyectos/ParticulasTerminado/fondo.png",
     tag: "proyectos", // Etiqueta para filtrar
-    enlace: "/Proyectos/ParticulasTerminado/index.html", // Enlace a la página del proyecto
+    enlace: "/proyectos/ParticulasTerminado/index.html", // Enlace a la página del proyecto
   },
   {
     titulo: "Avatar, El último maestro del aire",

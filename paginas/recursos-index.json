@@ -1,0 +1,11 @@
+{
+  "categories": [
+    { "id": "espoch", "title": "ESPOCH", "file": "/paginas/recursos-espoch.json", "count": 2 },
+    { "id": "gobierno", "title": "Gobierno", "file": "/paginas/recursos-gobierno.json", "count": 0 },
+    { "id": "ciudad", "title": "Ciudad", "file": "/paginas/recursos-ciudad.json", "count": 0 },
+    { "id": "marcas_comerciales", "title": "Marcas comerciales", "file": "/paginas/recursos-marcas_comerciales.json", "count": 0 },
+    { "id": "marcas_tecnologicas", "title": "Marcas tecnológicas", "file": "/paginas/recursos-marcas_tecnologicas.json", "count": 0 },
+    { "id": "marcas_herramientas", "title": "Marcas herramientas", "file": "/paginas/recursos-marcas_herramientas.json", "count": 0 },
+    { "id": "plantillas", "title": "Plantillas", "file": "/paginas/recursos-plantillas.json", "count": 0 }
+  ]
+}

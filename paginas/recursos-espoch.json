@@ -1,0 +1,44 @@
+[
+  {
+    "id": "espoch-logo",
+    "title": "Logo ESPOCH",
+    "description": "Logo institucional ESPOCH con dos variantes PNG.",
+    "category": "espoch",
+    "tags": ["logo", "institucional", "png"],
+    "license": {
+      "name": "Uso institucional",
+      "url": "/licenses/espoch-license.html",
+      "attribution_required": true
+    },
+    "author": "Oficina de Comunicación",
+    "date_added": "2025-10-27T12:00:00Z",
+    "variants": [
+      {
+        "id": "logo",
+        "title": "Logo ESPOCH",
+        "preview": "/img/recursos/espoch/logo-espoch.png",
+        "files": [
+          {
+            "type": "png",
+            "url": "/img/recursos/espoch/logo-espoch.png",
+            "filename": "logo-espoch.png",
+            "mime": "image/png"
+          }
+        ]
+      },
+      {
+        "id": "banderin",
+        "title": "Banderín ESPOCH",
+        "preview": "/img/recursos/espoch/banderin-espoch.png",
+        "files": [
+          {
+            "type": "png",
+            "url": "/img/recursos/espoch/banderin-espoch.png",
+            "filename": "banderin-espoch.png",
+            "mime": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+]

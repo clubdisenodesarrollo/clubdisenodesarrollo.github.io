@@ -1,0 +1,213 @@
+:root {
+    --card-gap: 18px;
+    --card-bg: #111;
+    --card-radius: 8px;
+}
+
+.recursos-page {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: 0 auto
+}
+
+.recursos-page .intro {
+    margin-bottom: 20px
+}
+
+.grid-recursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--card-gap)
+}
+
+.recurso-card {
+    background: var(--card-bg);
+    color: #fff;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    position: relative
+}
+
+.recurso-card{box-shadow: 0 6px 16px rgba(0,0,0,0.45);transition:transform .18s ease,box-shadow .18s ease}
+.recurso-card:hover{transform:translateY(-6px);box-shadow:0 18px 30px rgba(0,0,0,0.5)}
+
+.recurso-media {
+    width: 100%;
+    background: #8383837a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px; /* espacio interior alrededor de la imagen */
+}
+
+.recurso-media {
+    aspect-ratio: 16/9;
+}
+
+.recurso-media-inner{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
+
+.recurso-thumb{
+    display:block;
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+}
+
+/* variant arrows */
+.variant-arrow{
+    background: linear-gradient(180deg, rgba(0,0,0,0.65), rgba(0,0,0,0.45));
+    color: #fff;
+    border: none;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index: 200; /* above overlay */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.45);
+    transition: transform .12s ease, box-shadow .12s ease, background .12s;
+}
+.variant-arrow.left{left:8px}
+.variant-arrow.right{right:8px}
+.variant-arrow:focus{outline:2px solid rgba(255,255,255,0.18);transform:translateY(-50%) scale(1.02)}
+.variant-arrow:hover{transform:translateY(-50%) scale(1.06)}
+.recurso-media-inner img{max-width:calc(100% - 120px); /* leave space for arrows */}
+
+.recurso-content {
+    padding: 12px
+}
+
+.recurso-title {
+    font-weight: 700;
+    margin: 0 0 6px
+}
+
+/* overlay */
+.recurso-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 12px;
+    opacity: 0;
+    transition: opacity .18s ease;
+    pointer-events: none; /* allow clicks through overlay */
+}
+
+.recurso-card:hover .recurso-overlay,
+.recurso-card:focus-within .recurso-overlay {
+    opacity: 1
+}
+
+/* enable pointer events for overlay only when visible */
+.recurso-card:hover .recurso-overlay,
+.recurso-card:focus-within .recurso-overlay { pointer-events: auto }
+
+.format-buttons {
+    display: flex;
+    gap: 8px
+}
+
+/* re-enable pointer events only for buttons inside the overlay */
+.recurso-overlay .format-buttons button{pointer-events:auto}
+
+.format-buttons button {
+    background: rgba(255, 255, 255, 0.95);
+    border: 0;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600
+}
+
+/* filters/search */
+.recursos-filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0}
+.recursos-filters #recursos-search{padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:#121212;color:#fff}
+.recursos-filters .cat-btn{
+    background: rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    color:#000000;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:background .12s ease, border-color .12s ease, transform .08s ease;
+}
+.recursos-filters .cat-btn:hover{background:rgba(255,255,255,0.06);transform:translateY(-1px)}
+
+/* per-category accents (use data-cat attribute) */
+.recursos-filters .cat-btn[data-cat="espoch"]{border-color:rgba(0,87,184,0.95)}
+.recursos-filters .cat-btn[data-cat="gobierno"]{border-color:rgba(0,122,51,0.95)}
+.recursos-filters .cat-btn[data-cat="ciudad"]{border-color:rgba(184,90,0,0.95)}
+.recursos-filters .cat-btn[data-cat="marcas_comerciales"]{border-color:rgba(199,0,57,0.95)}
+.recursos-filters .cat-btn[data-cat="marcas_tecnologicas"]{border-color:rgba(15,98,254,0.95)}
+.recursos-filters .cat-btn[data-cat="marcas_herramientas"]{border-color:rgba(111,66,193,0.95)}
+.recursos-filters .cat-btn[data-cat="plantillas"]{border-color:rgba(46,125,50,0.95)}
+
+/* active state */
+.recursos-filters .cat-btn.active{background:var(--cat-active-bg, #0078d4);border-color:var(--cat-active-bg, #0078d4);color:#fff;box-shadow:0 8px 18px rgba(0,0,0,0.45)}
+
+/* allow per-category active color via inline style variable (JS can set --cat-active-bg if desired) */
+
+.variant-counter{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,0.6);padding:6px 8px;border-radius:6px;font-size:13px;color:#fff}
+
+.format-buttons button:active {
+    transform: translateY(1px)
+}
+
+/* accessibility */
+.format-buttons button[aria-pressed="true"] {
+    outline: 2px solid #0078d4
+}
+
+@media (max-width:520px) {
+    .recurso-media {
+        aspect-ratio: 4/3
+    }
+    .variant-arrow{width:36px;height:36px}
+    .recurso-media-inner img{max-width:calc(100% - 88px)}
+}
+
+/* Fallback for browsers without aspect-ratio: use padding-top trick */
+@supports not (aspect-ratio: 1/1) {
+    .recurso-media {
+        position: relative;
+        padding-top: 56.25%;
+        padding:10px 10px 0 10px; /* keep top padding trick and inner padding */
+    }
+
+    .recurso-media .recurso-media-inner{
+        position:absolute;
+        left:0;
+        top:0;
+        right:0;
+        bottom:0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:10px;
+        box-sizing:border-box;
+    }
+
+    .recurso-media .recurso-thumb {
+        max-width:100%;
+        max-height:100%;
+    }
+}
+
+/* variant counter */
+.variant-counter{position:absolute;left:12px;bottom:12px;background:rgba(0,0,0,0.5);padding:6px 8px;border-radius:6px;font-size:13px}

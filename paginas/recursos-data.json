@@ -1,0 +1,24 @@
+[
+    {
+        "id": "nike-logo",
+        "title": "Logo Espoch",
+        "thumbnail": "/img/recursos/logo-espoch.png",
+        "files": [
+            {
+                "type": "png",
+                "url": "/img/recursos/logo-espoch.png"
+            }
+        ]
+    },
+    {
+        "id": "adobe-icon",
+        "title": "Banderin - ESPOCH",
+        "thumbnail": "/img/recursos/banderin-espoch.png",
+        "files": [
+            {
+                "type": "png",
+                "url": "/img/recursos/banderin-espoch.png"
+            }
+        ]
+    }
+]
