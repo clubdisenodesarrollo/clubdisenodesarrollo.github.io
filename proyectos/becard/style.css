@@ -1,0 +1,322 @@
+:root {
+    /* Colores principales */
+    --primary: #234f9e;
+    --accent: #e23c1b;
+    --white: #fff;
+    --black: #222;
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.2);
+    --header-bg: var(--primary);
+    --header-text: var(--white);
+    --footer-bg: #f5f5f5;
+    --footer-text: var(--primary);
+    --button-bg: var(--accent);
+    --button-text: var(--white);
+    --error-color: var(--accent);
+    --card-border: var(--primary);
+    --primary-text: var(--black);
+    --padding-lg: 20px;
+    --padding-md: 15px;
+    --padding-sm: 10px;
+    --border-radius: 14px;
+    --shadow: var(--shadow-md);
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #000000 0%, var(--primary) 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding-md);
+}
+
+#app {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Contenedor de login */
+.container {
+    background: black;
+    padding: var(--padding-lg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: var(--padding-md);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+h1 {
+    margin-bottom: var(--padding-md);
+    color: var(--primary);
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-md);
+    margin-top: var(--padding-md);
+}
+
+input[type="number"] {
+    padding: var(--padding-sm);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    transition: border 0.3s;
+    background: #f9f9f9;
+}
+
+input:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+button {
+    padding: var(--padding-sm);
+    background: var(--button-bg);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+
+
+button:hover,
+.card-links a:hover {
+    background: #b92c13;
+    transform: translateY(-2px);
+    color: var(--white);
+}
+
+/* Tarjeta de identificación */
+.card-container {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.card {
+    background: black;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border-left: 5px solid var(--card-border);
+    margin-bottom: var(--padding-md);
+}
+
+.card-header {
+    width: 100%;
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: var(--padding-md);
+    text-align: center;
+}
+
+.card-header h2 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.card-header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.card-body {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: var(--padding-lg);
+
+}
+
+.card-photo {
+    text-align: center;
+}
+
+.card-photo img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--header-bg);
+    box-shadow: var(--shadow-sm);
+    background: #f0f0f0;
+}
+
+.card-details {
+    flex: 1;
+    margin-top: var(--padding-md);
+    text-align: left;
+    padding: 10px;
+}
+
+.card-details p {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    color: var(--white);
+}
+
+.card-details strong {
+    color: var(--primary);
+}
+
+.card-footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: var(--padding-md);
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-footer {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Enlaces (Portafolio, LinkedIn, etc.) */
+.card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--padding-sm);
+    margin-top: var(--padding-md);
+    justify-content: center;
+    color: var(--white);
+    align-items: center;
+}
+
+.card-links a {
+    display: inline-block;
+    padding: 8px 14px;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background 0.3s;
+    box-shadow: var(--shadow-sm);
+}
+
+.card-links a:hover {
+    background: #b92c13;
+}
+
+/* Proyectos */
+.card-projects,
+.card-achievements,
+.card-extra {
+    margin-top: 12px;
+    text-align: left;
+}
+
+.card-projects h3,
+.card-achievements h3,
+.card-extra h3 {
+    margin-bottom: 6px;
+    color: var(--primary);
+    font-size: 1.05rem;
+}
+
+.card-projects ul,
+.card-achievements ul {
+    padding-left: 18px;
+    margin: 0;
+}
+
+.card-projects li,
+.card-achievements li {
+    margin-bottom: 4px;
+    color: var(--white);
+}
+
+.card-extra {
+    font-size: 1rem;
+    color: var(--accent);
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (min-width: 600px) {
+    #app {
+        max-width: 600px;
+    }
+
+    .card-body {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .card-photo {
+    }
+
+    .card-details {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-photo img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Clases utilitarias */
+.hidden {
+    display: none !important;
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-top: var(--padding-sm);
+    font-size: 0.95rem;
+    font-weight: 500;
+}

@@ -1,0 +1,91 @@
+{
+    "club": {
+        "name": "Club de Diseño y Desarrollo",
+        "logo": "img/logo.png",
+        "description": "Club académico de la Universidad Ejemplo"
+    },
+    "members": [
+        {
+            "code": "328",
+            "name": "Jhordy Camacho",
+            "role": "Fundador - Asesor Externo",
+            "photo": "img/jhordy.png",
+            "details": {
+                "Correo": "jhordyjhon0@gmail.com",
+                "Carrera": "Lic. Diseño Gráfico, Máster en Diseño y Desarrollo del usuario Web",
+                "Rango": "V",
+                "Miembro desde": "2022"
+            },
+            "projects": [
+                "bePoli",
+                "Ludotek"
+            ],
+            "achievements": [
+                "Ganador Hackathon 2023"
+            ],
+            "links": [
+                {
+                    "label": "Portafolio",
+                    "url": "https://jhordy-camacho15.github.io"
+                }
+            ],
+            "extraInfo": "Especialista en UI/UX"
+        },
+        {
+            "code": "271",
+            "name": "Bryan Elian Sislema",
+            "role": "Cofundador - Coordinador del Club",
+            "photo": "img/bryan.png",
+            "details": {
+                "Correo": "bryan.sislema@espoch.edu.ec",
+                "Carrera": "Diseño Gráfico",
+                "Semestre": "8",
+                "Rango": "IV",
+                "Miembro desde": "2022"
+            },
+            "projects": [
+                "bePoli",
+                "Ludotek"
+            ],
+            "achievements": [
+                "Ganador Hackathon 2023"
+            ],
+            "links": [
+                {
+                    "label": "Portafolio",
+                    "url": "https://jhordy-camacho15.github.io/"
+                }
+            ],
+            "extraInfo": ""
+        },
+         {
+            "code": "949",
+            "name": "Zuleyka Naomi Ortiz Salazar",
+            "role": "Vicecoordinadora del Club",
+            "photo": "img/zuleyka.png",
+            "details": {
+                "Correo": "zuleyka.ortiz@espoch.edu.ec",
+                "Carrera": "Diseño Gráfico",
+                "Semestre": "2",
+                "Rango": "II",
+                "Miembro desde": "2025",
+                "Cédula": "1805022983",
+                "Teléfono": "0995729344"
+            },
+            "projects": [
+                "bePoli",
+                "Ludotek"
+            ],
+            "achievements": [
+                "Ganadora feria científica Maxwel"
+            ],
+            "links": [
+                {
+                    "label": "Portafolio",
+                    "url": "https://jhordy-camacho15.github.io/"
+                }
+            ],
+            "extraInfo": ""
+        }
+    ]
+}
