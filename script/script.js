@@ -124,7 +124,7 @@ const cartas = [
     descripcion: "",
     imagen: "/proyectos/observatorioEspacial/fondo.png",
     tag: "proyectos", // Etiqueta para filtrar
-    enlace: "/Proyectos/observatorioEspacial/index.html", // Enlace a la página del proyecto
+    enlace: "/proyectos/observatorioEspacial/index.html", // Enlace a la página del proyecto
   },
   {
     titulo: "Pump It Up - Juego",
