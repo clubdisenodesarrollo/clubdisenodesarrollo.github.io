@@ -117,7 +117,7 @@ const cartas = [
     descripcion: "",
     imagen: "/img/proyectos/avatartech.png",
     tag: "proyectos", // Etiqueta para filtrar
-    enlace: "/proyectos/observatorioEspacial/index.html", // Enlace a la página del proyecto
+    enlace: "/proyectos/avatar/index.html", // Enlace a la página del proyecto
   },
   {
     titulo: "Observatorio",
