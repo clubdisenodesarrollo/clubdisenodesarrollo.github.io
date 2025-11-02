@@ -15,31 +15,54 @@
 
 <body>
   <header>
-    <!-- Logo (2 columnas) -->
     <div class="logo">
       <a href="/index.html">
         <img src="/img/logo_png.png" alt="Logo del Club de Desarrollo">
       </a>
     </div>
-
-
-    <!-- Botones de navegación (4 columnas) -->
-    <nav class="menu-principal">
+    <button class="btn-hamburguesa" id="btn-hamburguesa" aria-label="Abrir menú de navegación">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="menu-principal" aria-label="Navegación principal">
       <a href="/paginas/nosotros.html">Nosotros</a>
       <a href="/paginas/proyectos.html">Proyectos</a>
       <a href="/paginas/recursos.html">Recursos</a>
-      <a href="/paginas/contacto.html">Únete</a>
+      <a href="https://wa.me/593991194932?text=Quiero%20unirme%20al%20Club">Únete</a>
     </nav>
-
-    <!-- Espacios vacíos (2 columnas) -->
-
-
-    <!-- Iconos de redes sociales (2 columnas) -->
     <div class="redes-sociales">
-      <a href="#" class="icono-red-social"><img src="/img/whatsapp.png" alt="Facebook"></a>
-      <a href="#" class="icono-red-social"><img src="/img/instagram.png" alt="Instagram"></a>
-      <a href="#" class="icono-red-social"><img src="/img/facebook.png" alt="LinkedIn"></a>
+      <a href="https://wa.me/593991194932?text=Quiero%20unirme%20al%20Club" class="icono-red-social"
+        aria-label="WhatsApp">
+        <img src="/img/whatsapp.png" alt="WhatsApp">
+      </a>
+      <a href="https://www.instagram.com/clubdisenodesarrollo/?hl=es" class="icono-red-social" aria-label="Instagram">
+        <img src="/img/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.instagram.com/clubdisenodesarrollo/?hl=es" class="icono-red-social" aria-label="Facebook">
+        <img src="/img/facebook.png" alt="Facebook">
+      </a>
     </div>
+    <aside class="sidebar-nav" id="sidebar-nav">
+      <button class="close-sidebar" id="close-sidebar" aria-label="Cerrar menú">&times;</button>
+      <nav>
+        <a href="/index.html">Inicio</a>
+        <a href="/paginas/nosotros.html">Nosotros</a>
+        <a href="/paginas/proyectos.html">Proyectos</a>
+        <a href="/paginas/recursos.html">Recursos</a>
+        <a href="https://wa.me/593991194932?text=Quiero%20unirme%20al%20Club">Únete</a>
+      </nav>
+      <div class="sidebar-redes-sociales">
+        <a href="https://wa.me/593991194932?text=Quiero%20unirme%20al%20Club" class="icono-red-social"
+          aria-label="WhatsApp">
+          <img src="/img/whatsapp.png" alt="WhatsApp">
+        </a>
+        <a href="https://www.instagram.com/clubdisenodesarrollo/?hl=es" class="icono-red-social" aria-label="Instagram">
+          <img src="/img/instagram.png" alt="Instagram">
+        </a>
+        <a href="https://www.instagram.com/clubdisenodesarrollo/?hl=es" class="icono-red-social" aria-label="Facebook">
+          <img src="/img/facebook.png" alt="Facebook">
+        </a>
+      </div>
+    </aside>
   </header>
 
 
@@ -75,7 +98,7 @@
     <div class="footer-content">
       <p>&copy; 2025 Club de Diseño y Desarrollo. Todos los derechos reservados.</p>
       <nav class="footer-nav">
-        <a href="/paginas/nosotros.html">Nosotros</a>
+        <a href="/index.html">Inicio</a>
         <a href="/paginas/proyectos.html">Proyectos</a>
         <a href="/paginas/recursos.html">Recursos</a>
         <a href="/paginas/contacto.html">Contacto</a>
