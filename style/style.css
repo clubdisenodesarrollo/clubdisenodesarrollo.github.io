@@ -192,6 +192,130 @@ header {
   border-radius: 10px;
 }
 
+/* =====================
+   SECCIÓN TALLER
+====================== */
+.taller-inscripcion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  min-height: 300px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: visible;
+}
+
+.taller-inscripcion::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/img/patron-taller.png') repeat;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.taller-inscripcion > * {
+  position: relative;
+  z-index: 2;
+}
+
+.taller-inscripcion .contenedor-texto {
+  width: 55%;
+  color: var(--white);
+}
+
+.taller-inscripcion .contenedor-texto h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+}
+
+.taller-inscripcion .contenedor-texto p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.boton-taller {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: var(--white);
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  transition: var(--transition);
+  box-shadow: 0 8px 25px rgba(238, 90, 36, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.boton-taller:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(238, 90, 36, 0.4);
+  background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+}
+
+.taller-inscripcion .contenedor-imagen {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 40px;
+  box-sizing: border-box;
+}
+
+/* Keyframes para animación de imagen del taller */
+@keyframes flotar-taller {
+  0% {
+    transform: rotate(-2deg) scale(1);
+  }
+  25% {
+    transform: rotate(2deg) scale(1.02);
+  }
+  50% {
+    transform: rotate(-1deg) scale(0.98);
+  }
+  75% {
+    transform: rotate(1deg) scale(1.01);
+  }
+  100% {
+    transform: rotate(-2deg) scale(1);
+  }
+}
+
+.imagen-taller {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  transform: rotate(-2deg);
+  animation: flotar-taller 4s ease-in-out infinite;
+  transition: var(--transition);
+}
+
+.imagen-taller:hover {
+  animation-play-state: paused;
+  transform: rotate(0deg) scale(1.05);
+}
+
+.img-taller {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: var(--transition);
+}
 
 /* =====================
    SECCIÓN INTRODUCCIÓN
@@ -464,6 +588,12 @@ header {
     height: 250px;
   }
 
+  /* Taller - Reducir altura */
+  .taller-inscripcion {
+    min-height: 200px;
+    padding: 20px 30px;
+  }
+
   .introduccion {
     padding: 30px;
   }
@@ -576,6 +706,38 @@ header {
   .carta {
     width: 80%;
     height: 250px;
+  }
+
+  /* Sección Taller - Mobile */
+  .taller-inscripcion {
+    flex-direction: column;
+    padding: 10px 15px;
+    min-height: 150px;
+    text-align: center;
+  }
+
+  .taller-inscripcion .contenedor-texto,
+  .taller-inscripcion .contenedor-imagen {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .taller-inscripcion .contenedor-texto h2 {
+    font-size: 2rem;
+  }
+
+  .taller-inscripcion .contenedor-texto p {
+    font-size: 1rem;
+  }
+
+  .imagen-taller {
+    max-width: 350px;
+    animation: flotar-taller 4s ease-in-out infinite;
+  }
+
+  .boton-taller {
+    padding: 12px 25px;
+    font-size: 1rem;
   }
 
   .introduccion {
@@ -700,6 +862,38 @@ header {
   .contenedor-imagen {
     height: 250px;
   }
+
+  /* Taller - Imagen ancho completo */
+  .taller-inscripcion {
+    padding: 10px;
+    overflow: visible;
+  }
+
+  .taller-inscripcion .contenedor-imagen {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  .imagen-taller {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    border-radius: 10px;
+    box-shadow: none;
+    box-sizing: border-box;
+    animation: flotar-taller 4s ease-in-out infinite;
+  }
+
+  .img-taller {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    box-sizing: border-box;
+  }
 }
 
 /* 320px */
@@ -722,6 +916,38 @@ header {
   }
   .contenedor-imagen {
     height: 200px;
+  }
+
+  /* Taller - Imagen ancho completo pantallas pequeñas */
+  .taller-inscripcion {
+    padding: 8px;
+    overflow: visible;
+  }
+
+  .taller-inscripcion .contenedor-imagen {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  .imagen-taller {
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: none;
+    box-sizing: border-box;
+    animation: flotar-taller 4s ease-in-out infinite;
+  }
+
+  .img-taller {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    box-sizing: border-box;
   }
 }
 
