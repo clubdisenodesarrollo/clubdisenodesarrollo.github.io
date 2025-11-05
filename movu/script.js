@@ -174,7 +174,7 @@ async function cargarDatosSeccion(section) {
 function renderizarSeccion(section, data) {
     console.log(`Renderizando sección ${section} con data:`, data);
     
-    // Actualizar Hero Section y contenido según la sección
+    // Actualizar Hero Section y ocultar section header para evitar duplicación
     const sectionHeader = document.getElementById('section-header');
     
     if (section === 'inicio' && data.seccion_principal) {
@@ -182,18 +182,15 @@ function renderizarSeccion(section, data) {
         // Hero Section
         document.getElementById('hero-title').textContent = data.seccion_principal.titulo;
         document.getElementById('hero-description').textContent = data.seccion_principal.descripcion;
-        // Ocultar section header en inicio para evitar duplicación
-        sectionHeader.style.display = 'none';
     } else {
         console.log('Actualizando con datos generales');
         // Hero Section
         document.getElementById('hero-title').textContent = data.titulo;
         document.getElementById('hero-description').textContent = data.descripcion;
-        // Mostrar y actualizar section header en otras secciones
-        sectionHeader.style.display = 'block';
-        document.getElementById('section-title').textContent = data.titulo;
-        document.getElementById('section-description').textContent = data.descripcion;
     }
+    
+    // Ocultar section header en todas las secciones para evitar duplicación
+    sectionHeader.style.display = 'none';
 
     
     // Limpiar contenido anterior
@@ -281,18 +278,11 @@ function renderizarAlianzas(data) {
 function renderizarEmprende(data) {
     const contenedor = document.getElementById('contenido-dinamico');
     
-    // Crear estadísticas
-    if (data.estadisticas) {
-        const statsContainer = crearEstadisticas(data.estadisticas);
-        contenedor.appendChild(statsContainer);
-    }
-    
-    // Crear grid de programas
     const grid = document.createElement('div');
     grid.className = 'movu-grid';
     
-    data.programas.forEach((programa, index) => {
-        const card = crearTarjetaPrograma(programa, index);
+    data.negocios.forEach((negocio, index) => {
+        const card = crearTarjetaNegocio(negocio, index);
         grid.appendChild(card);
     });
     
@@ -623,6 +613,61 @@ function crearTarjetaListaAliada(lista, index) {
     return card;
 }
 
+// Crear tarjeta de negocio estudiantil
+function crearTarjetaNegocio(negocio, index) {
+    const card = document.createElement('div');
+    card.className = 'negocio-card';
+    card.style.animationDelay = `${index * 0.2}s`;
+    
+    // Determinar si mostrar logo o iniciales
+    const logoContent = negocio.logo 
+        ? `<img src="${negocio.logo}" alt="${negocio.nombre}" onerror="this.style.display='none'; this.parentElement.innerHTML='${obtenerIniciales(negocio.nombre)}'">`
+        : obtenerIniciales(negocio.nombre);
+    
+    // Crear carrusel de imágenes
+    let carruselHTML = '';
+    if (negocio.imagenes && negocio.imagenes.length > 0) {
+        carruselHTML = `
+            <div class="carrusel-container">
+                <div class="carrusel-imagenes" data-negocio="${negocio.id}">
+                    ${negocio.imagenes.map((imagen, imgIndex) => 
+                        `<img src="${imagen}" alt="${negocio.nombre} imagen ${imgIndex + 1}" class="carrusel-imagen ${imgIndex === 0 ? 'active' : ''}">`
+                    ).join('')}
+                </div>
+                <div class="carrusel-indicadores">
+                    ${negocio.imagenes.map((_, imgIndex) => 
+                        `<span class="indicador ${imgIndex === 0 ? 'active' : ''}" data-slide="${imgIndex}"></span>`
+                    ).join('')}
+                </div>
+            </div>
+        `;
+    }
+    
+    // Crear red social
+    let redSocialHTML = '';
+    if (negocio.red_social) {
+        redSocialHTML = `
+            <div class="negocio-red-social">
+                <a href="${negocio.red_social.url}" target="_blank" class="red-social-btn" aria-label="${negocio.red_social.tipo}">
+                    <img src="${negocio.red_social.icono}" alt="${negocio.red_social.tipo}" class="red-social-icono">
+                </a>
+            </div>
+        `;
+    }
+    
+    card.innerHTML = `
+        <div class="negocio-logo">
+            ${logoContent}
+        </div>
+        <div class="negocio-nombre">${negocio.nombre}</div>
+        <div class="negocio-descripcion">${negocio.descripcion}</div>
+        ${carruselHTML}
+        ${redSocialHTML}
+    `;
+    
+    return card;
+}
+
 // Obtener iniciales de un nombre
 function obtenerIniciales(nombre) {
     return nombre.split(' ')
@@ -707,6 +752,41 @@ function aplicarAnimacionesEscalonadas() {
         setTimeout(() => {
             card.classList.add('fade-in');
         }, index * 200);
+    });
+    
+    // Inicializar carruseles después de las animaciones
+    setTimeout(() => {
+        inicializarCarruseles();
+    }, 500);
+}
+
+// Inicializar todos los carruseles
+function inicializarCarruseles() {
+    const carruseles = document.querySelectorAll('.carrusel-imagenes');
+    
+    carruseles.forEach(carrusel => {
+        const negocioId = carrusel.getAttribute('data-negocio');
+        const imagenes = carrusel.querySelectorAll('.carrusel-imagen');
+        
+        if (imagenes.length > 1) {
+            let indiceActual = 0;
+            
+            // Cambiar imagen cada 3 segundos
+            const intervalo = setInterval(() => {
+                // Ocultar imagen actual
+                imagenes[indiceActual].classList.remove('active');
+                const indicadores = carrusel.parentElement.querySelectorAll('.indicador');
+                indicadores[indiceActual].classList.remove('active');
+                
+                // Mostrar siguiente imagen
+                indiceActual = (indiceActual + 1) % imagenes.length;
+                imagenes[indiceActual].classList.add('active');
+                indicadores[indiceActual].classList.add('active');
+            }, 3000);
+            
+            // Guardar referencia para poder pausar después
+            carrusel.dataset.interval = intervalo;
+        }
     });
 }
 

@@ -1,51 +1,72 @@
 {
   "titulo": "Emprendimiento Estudiantil",
-  "descripcion": "Impulsando el espíritu emprendedor en la comunidad politécnica",
-  "programas": [
+  "descripcion": "Negocios impulsados por estudiantes politécnicos",
+  "negocios": [
     {
       "id": 1,
-      "titulo": "Incubadora de Startups",
-      "descripcion": "Programa de incubación para ideas innovadoras con mentoría especializada y financiamiento inicial.",
-      "recursos": [
-        "Mentoría empresarial",
-        "Financiamiento seed",
-        "Espacios de co-working",
-        "Networking empresarial"
+      "nombre": "TechSolutions",
+      "descripcion": "Desarrollo de software y aplicaciones móviles para pequeñas y medianas empresas.",
+      "logo": "img/emprende/techsolutions-logo.jpg",
+      "imagenes": [
+        "img/emprende/techsolutions-1.jpg",
+        "img/emprende/techsolutions-2.jpg",
+        "img/emprende/techsolutions-3.jpg",
+        "img/emprende/techsolutions-4.jpg"
       ],
-      "duracion": "6 meses",
-      "icono": "🚀"
+      "red_social": {
+        "tipo": "instagram",
+        "url": "https://www.instagram.com/techsolutions.espoch/",
+        "icono": "img/instagram.png"
+      }
     },
     {
       "id": 2,
-      "titulo": "Talleres de Emprendimiento",
-      "descripcion": "Capacitaciones sobre plan de negocios, marketing digital y gestión financiera para emprendedores.",
-      "recursos": [
-        "Talleres semanales",
-        "Material educativo",
-        "Certificaciones",
-        "Red de contactos"
+      "nombre": "EcoVerde",
+      "descripcion": "Productos ecológicos y sostenibles elaborados a partir de materiales reciclados.",
+      "logo": "img/emprende/ecoverde-logo.jpg",
+      "imagenes": [
+        "img/emprende/ecoverde-1.jpg",
+        "img/emprende/ecoverde-2.jpg",
+        "img/emprende/ecoverde-3.jpg"
       ],
-      "duracion": "3 meses",
-      "icono": "📚"
+      "red_social": {
+        "tipo": "instagram",
+        "url": "https://www.instagram.com/ecoverde.poli/",
+        "icono": "img/instagram.png"
+      }
     },
     {
       "id": 3,
-      "titulo": "Competencia de Ideas",
-      "descripcion": "Concurso anual de ideas de negocio con premios en efectivo y oportunidades de financiamiento.",
-      "recursos": [
-        "Premio en efectivo",
-        "Mentoría post-competencia",
-        "Exposición mediática",
-        "Inversionistas ángeles"
+      "nombre": "Delicias Caseras",
+      "descripcion": "Comida casera y saludable preparada por estudiantes para la comunidad universitaria.",
+      "logo": "img/emprende/delicias-logo.jpg",
+      "imagenes": [
+        "img/emprende/delicias-1.jpg",
+        "img/emprende/delicias-2.jpg",
+        "img/emprende/delicias-3.jpg",
+        "img/emprende/delicias-4.jpg",
+        "img/emprende/delicias-5.jpg"
       ],
-      "duracion": "1 mes",
-      "icono": "🏆"
+      "red_social": {
+        "tipo": "facebook",
+        "url": "https://www.facebook.com/delicias.caseras.espoch",
+        "icono": "img/facebook.png"
+      }
+    },
+    {
+      "id": 4,
+      "nombre": "Tutorías Plus",
+      "descripcion": "Plataforma de tutorías personalizadas y cursos de refuerzo académico para estudiantes.",
+      "logo": "img/emprende/tutorias-logo.jpg",
+      "imagenes": [
+        "img/emprende/tutorias-1.jpg",
+        "img/emprende/tutorias-2.jpg"
+      ],
+      "red_social": {
+        "tipo": "instagram",
+        "url": "https://www.instagram.com/tutorias.plus/",
+        "icono": "img/instagram.png"
+      }
     }
-  ],
-  "estadisticas": {
-    "emprendimientos_activos": 15,
-    "estudiantes_participantes": 120,
-    "empresas_graduadas": 8,
-    "inversion_total": "50,000"
-  }
+  ]
 }
