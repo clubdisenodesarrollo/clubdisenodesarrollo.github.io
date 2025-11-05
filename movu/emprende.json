@@ -1,0 +1,51 @@
+{
+  "titulo": "Emprendimiento Estudiantil",
+  "descripcion": "Impulsando el espíritu emprendedor en la comunidad politécnica",
+  "programas": [
+    {
+      "id": 1,
+      "titulo": "Incubadora de Startups",
+      "descripcion": "Programa de incubación para ideas innovadoras con mentoría especializada y financiamiento inicial.",
+      "recursos": [
+        "Mentoría empresarial",
+        "Financiamiento seed",
+        "Espacios de co-working",
+        "Networking empresarial"
+      ],
+      "duracion": "6 meses",
+      "icono": "🚀"
+    },
+    {
+      "id": 2,
+      "titulo": "Talleres de Emprendimiento",
+      "descripcion": "Capacitaciones sobre plan de negocios, marketing digital y gestión financiera para emprendedores.",
+      "recursos": [
+        "Talleres semanales",
+        "Material educativo",
+        "Certificaciones",
+        "Red de contactos"
+      ],
+      "duracion": "3 meses",
+      "icono": "📚"
+    },
+    {
+      "id": 3,
+      "titulo": "Competencia de Ideas",
+      "descripcion": "Concurso anual de ideas de negocio con premios en efectivo y oportunidades de financiamiento.",
+      "recursos": [
+        "Premio en efectivo",
+        "Mentoría post-competencia",
+        "Exposición mediática",
+        "Inversionistas ángeles"
+      ],
+      "duracion": "1 mes",
+      "icono": "🏆"
+    }
+  ],
+  "estadisticas": {
+    "emprendimientos_activos": 15,
+    "estudiantes_participantes": 120,
+    "empresas_graduadas": 8,
+    "inversion_total": "50,000"
+  }
+}

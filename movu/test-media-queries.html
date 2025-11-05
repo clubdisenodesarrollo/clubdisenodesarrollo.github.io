@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Media Queries - Hero Section</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .test-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 9999;
+            font-size: 12px;
+        }
+        
+        /* Variables */
+        :root {
+            --movu-primary: #8c1f25;
+            --movu-dark: #1a0b0c;
+            --movu-light: #ffffff;
+        }
+        
+        /* Hero base */
+        .hero-test {
+            background: linear-gradient(135deg, var(--movu-primary) 0%, var(--movu-dark) 100%);
+            color: var(--movu-light);
+            padding: 120px 20px 80px;
+            text-align: center;
+        }
+        
+        .hero-test h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-test p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* Media queries específicas */
+        @media (max-width: 425px) {
+            .hero-test h1 {
+                font-size: 2.2rem !important;
+                margin-bottom: 15px !important;
+                background: rgba(255, 0, 0, 0.2); /* Debug color */
+            }
+            .hero-test {
+                padding: 80px 10px 50px;
+            }
+        }
+        
+        @media (max-width: 375px) {
+            .hero-test h1 {
+                font-size: 1.4rem !important;
+                background: rgba(0, 255, 0, 0.2); /* Debug color */
+            }
+            .hero-test {
+                padding: 55px 8px 30px;
+            }
+        }
+        
+        @media (max-width: 320px) {
+            .hero-test h1 {
+                font-size: 1.2rem !important;
+                background: rgba(0, 0, 255, 0.2); /* Debug color */
+            }
+            .hero-test {
+                padding: 40px 5px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <strong>Debug Info:</strong><br>
+        Ancho: <span id="width"></span>px<br>
+        Media Query: <span id="mediaQuery"></span><br>
+        Tamaño esperado: <span id="expectedSize"></span>
+    </div>
+    
+    <div class="hero-test">
+        <h1>Movimiento Unión Politécnica</h1>
+        <p>Plan de trabajo, Alianzas y Emprendimientos estudiantiles</p>
+        <p>Unidos por una Poli Mejor</p>
+    </div>
+    
+    <script>
+        function updateInfo() {
+            const width = window.innerWidth;
+            let mediaQuery = 'Desktop';
+            let expectedSize = '4rem';
+            
+            if (width <= 320) {
+                mediaQuery = '320px';
+                expectedSize = '1.2rem';
+            } else if (width <= 375) {
+                mediaQuery = '375px';
+                expectedSize = '1.4rem';
+            } else if (width <= 425) {
+                mediaQuery = '425px';
+                expectedSize = '2.2rem';
+            }
+            
+            document.getElementById('width').textContent = width;
+            document.getElementById('mediaQuery').textContent = mediaQuery;
+            document.getElementById('expectedSize').textContent = expectedSize;
+        }
+        
+        window.addEventListener('resize', updateInfo);
+        updateInfo();
+    </script>
+</body>
+</html>

@@ -1,0 +1,648 @@
+/* =====================
+   MOVU PROJECT STYLES
+====================== */
+
+/* Importar estilos del proyecto Movu */
+@import url('header.css');
+@import url('footer.css');
+@import url('media.css');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  background-color: var(--movu-light);
+  color: var(--movu-text);
+  line-height: 1.6;
+}
+
+/* =====================
+   VARIABLES ESPECÍFICAS MOVU
+====================== */
+:root {
+  --movu-primary: #8c1f25;
+  --movu-secondary: #a02328;
+  --movu-accent: #d4495a;
+  --movu-dark: #1a0b0c;
+  --movu-light: #ffffff;
+  --movu-gray: #f5f5f5;
+  --movu-gray-dark: #333333;
+  --movu-shadow: rgba(140, 31, 37, 0.15);
+  --movu-hover: #701a1f;
+  --movu-text: #2c2c2c;
+}
+
+/* =====================
+   HERO SECTION MOVU
+====================== */
+.hero-movu {
+  background: linear-gradient(135deg, var(--movu-primary) 0%, var(--movu-dark) 100%);
+  color: var(--movu-light);
+  padding: 120px 20px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-movu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('img/patron-movu.png') repeat;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+/* =====================
+   CONTENIDO PRINCIPAL
+====================== */
+.contenido-movu {
+  padding: 80px 20px;
+  background-color: var(--movu-gray);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contenido-movu h2 {
+  font-size: 2.5rem;
+  color: var(--movu-primary);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contenido-movu p {
+  font-size: 1.2rem;
+  color: var(--movu-text);
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#contenido-dinamico {
+  margin-top: 40px;
+}
+
+/* =====================
+   COMPONENTES DINÁMICOS
+====================== */
+.movu-card {
+  background: var(--movu-light);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px var(--movu-shadow);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(140, 31, 37, 0.1);
+}
+
+.movu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--movu-shadow);
+  border-color: var(--movu-accent);
+}
+
+.movu-card h3 {
+  color: var(--movu-primary);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.movu-card p {
+  color: var(--movu-text);
+  line-height: 1.6;
+  text-align: left;
+}
+
+.movu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* =====================
+   ANIMACIONES
+====================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* =====================
+   BREADCRUMB NAVIGATION
+====================== */
+.breadcrumb {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-item {
+  color: var(--movu-gray-dark);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.breadcrumb-item.active {
+  background-color: var(--movu-primary);
+  color: var(--movu-light);
+}
+
+/* =====================
+   SECTION HEADER
+====================== */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Sección del Plan de Trabajo */
+.plan-trabajo-section {
+  margin-bottom: 60px;
+}
+
+.plan-trabajo-titulo {
+  color: var(--movu-primary);
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+.seccion-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.seccion-header h3 {
+  color: var(--movu-primary);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.seccion-header p {
+  color: var(--movu-text);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#section-title {
+  color: var(--movu-primary);
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+#section-description {
+  font-size: 1.2rem;
+  color: var(--movu-text);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =====================
+   EQUIPO DE TRABAJO
+====================== */
+.section-divider {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--movu-primary), var(--movu-accent));
+  margin: 60px auto 40px;
+  border-radius: 2px;
+}
+
+.equipo-title {
+  text-align: center;
+  color: var(--movu-primary);
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.equipo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.equipo-card {
+  background: var(--movu-light);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px var(--movu-shadow);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(140, 31, 37, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.equipo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--movu-primary), var(--movu-accent));
+}
+
+.equipo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px var(--movu-shadow);
+}
+
+.equipo-imagen {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--movu-primary), var(--movu-accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--movu-light);
+  border: 4px solid var(--movu-light);
+  box-shadow: 0 5px 15px rgba(140, 31, 37, 0.3);
+}
+
+.equipo-imagen img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.equipo-nombre {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--movu-primary);
+  margin-bottom: 5px;
+}
+
+.equipo-cargo {
+  font-size: 1rem;
+  color: var(--movu-accent);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.equipo-carrera {
+  font-size: 0.9rem;
+  color: var(--movu-gray-dark);
+  margin-bottom: 15px;
+}
+
+.equipo-descripcion {
+  font-size: 0.9rem;
+  color: var(--movu-text);
+  line-height: 1.5;
+}
+
+/* Redes sociales en las tarjetas de listas aliadas */
+.lista-redes-sociales {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.red-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, var(--movu-primary), var(--movu-secondary));
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(140, 31, 37, 0.2);
+}
+
+.red-social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(140, 31, 37, 0.3);
+}
+
+.red-social-icono {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1); /* Convierte las imágenes a blanco */
+}
+
+/* =====================
+   TARJETAS ESPECÍFICAS
+====================== */
+.card-icon {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 2px 4px rgba(140, 31, 37, 0.2));
+}
+
+/* Tarjetas de alianzas */
+.alianza-card .beneficios h4,
+.programa-card .recursos h4,
+.servicio-card .detalles h4 {
+  color: var(--movu-primary);
+  font-size: 1rem;
+  margin: 20px 0 10px;
+}
+
+.alianza-card ul,
+.programa-card ul,
+.servicio-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.alianza-card li,
+.programa-card li,
+.servicio-card li {
+  padding: 5px 0;
+  color: var(--movu-text);
+  position: relative;
+  padding-left: 20px;
+}
+
+.alianza-card li::before,
+.programa-card li::before,
+.servicio-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--movu-accent);
+  font-weight: bold;
+}
+
+.estado-badge {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.estado-badge.activo {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.estado-badge.en-proceso {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.estado-badge.planificado {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+/* Duración y horario */
+.duracion,
+.horario {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--movu-gray);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.duracion-label,
+.horario-label {
+  font-weight: 500;
+  color: var(--movu-primary);
+}
+
+.duracion-valor,
+.horario-valor {
+  color: var(--movu-text);
+  font-weight: 600;
+}
+
+/* =====================
+   ESTADÍSTICAS
+====================== */
+.estadisticas-container {
+  margin-bottom: 40px;
+}
+
+.estadisticas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.estadistica-item {
+  background: linear-gradient(135deg, var(--movu-primary), var(--movu-accent));
+  color: var(--movu-light);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(140, 31, 37, 0.3);
+  transition: all 0.3s ease;
+}
+
+.estadistica-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(140, 31, 37, 0.4);
+}
+
+.estadistica-valor {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.estadistica-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* =====================
+   ERROR STATES
+====================== */
+.error-message {
+  text-align: center;
+  padding: 40px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 15px;
+}
+
+.error-message h3 {
+  color: #721c24;
+  margin-bottom: 15px;
+}
+
+.btn-retry {
+  background-color: var(--movu-primary);
+  color: var(--movu-light);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.btn-retry:hover {
+  background-color: var(--movu-hover);
+  transform: translateY(-2px);
+}
+
+/* =====================
+   LOADING STATES
+====================== */
+.loading {
+  text-align: center;
+  padding: 40px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--movu-gray);
+  border-top: 4px solid var(--movu-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* =====================
+   BOTTOM NAVIGATION
+====================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--movu-light);
+  border-top: 1px solid rgba(140, 31, 37, 0.1);
+  box-shadow: 0 -5px 20px var(--movu-shadow);
+  display: none; /* Se muestra solo en móvil */
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 10px 12px;
+  z-index: 1001; /* Mayor z-index para asegurar visibilidad */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Para Safari */
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--movu-gray-dark);
+  padding: 5px 8px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  min-width: 60px;
+}
+
+.bottom-nav-item.active {
+  color: var(--movu-primary);
+  background-color: rgba(140, 31, 37, 0.05);
+}
+
+.bottom-nav-item:hover {
+  color: var(--movu-primary);
+  background-color: rgba(140, 31, 37, 0.08);
+  transform: translateY(-2px);
+}
+
+.bottom-nav-icon {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+  transition: all 0.3s ease;
+}
+
+.bottom-nav-item.active .bottom-nav-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 4px rgba(140, 31, 37, 0.3));
+}
+
+.bottom-nav-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+}
+
+/* =====================
+   RESPONSIVE DESIGN
+====================== */
+/* Los media queries se encuentran en media.css */

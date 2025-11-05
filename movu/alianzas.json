@@ -1,0 +1,68 @@
+{
+  "titulo": "Alianzas Estudiantiles",
+  "descripcion": "Listas aliadas para representación estudiantil",
+  "listas_aliadas": [
+    {
+      "id": 1,
+      "nombre_lista": "Voz Estudiantil",
+      "carrera": "Ingeniería en Sistemas",
+      "imagen": "img/listas/voz-estudiantil.jpg",
+      "redes_sociales": [
+        {
+          "tipo": "instagram",
+          "url": "https://www.instagram.com/voz_estudiantil_sistemas/",
+          "icono": "img/instagram.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre_lista": "Impulso Académico",
+      "carrera": "Ingeniería Industrial",
+      "imagen": "img/listas/impulso-academico.jpg",
+      "redes_sociales": [
+        {
+          "tipo": "instagram",
+          "url": "https://www.instagram.com/impulso_academico_industrial/",
+          "icono": "img/instagram.png"
+        },
+        {
+          "tipo": "facebook",
+          "url": "https://www.facebook.com/impulso.academico.industrial",
+          "icono": "img/facebook.png"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre_lista": "Futuro Verde",
+      "carrera": "Ingeniería Ambiental",
+      "imagen": "img/listas/futuro-verde.jpg",
+      "redes_sociales": [
+        {
+          "tipo": "instagram",
+          "url": "https://www.instagram.com/futuro_verde_ambiental/",
+          "icono": "img/instagram.png"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nombre_lista": "Conexión Eléctrica",
+      "carrera": "Ingeniería Eléctrica",
+      "imagen": "img/listas/conexion-electrica.jpg",
+      "redes_sociales": [
+        {
+          "tipo": "instagram",
+          "url": "https://www.instagram.com/conexion_electrica/",
+          "icono": "img/instagram.png"
+        },
+        {
+          "tipo": "facebook",
+          "url": "https://www.facebook.com/conexion.electrica",
+          "icono": "img/facebook.png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "titulo": "Bepoli - Bienestar Politécnico",
+  "descripcion": "Cuidando el bienestar integral de nuestra comunidad estudiantil",
+  "servicios": [
+    {
+      "id": 1,
+      "titulo": "Apoyo Psicológico",
+      "descripcion": "Servicio de acompañamiento psicológico gratuito para estudiantes que lo necesiten.",
+      "detalles": [
+        "Consultas individuales",
+        "Terapia grupal",
+        "Talleres de manejo del estrés",
+        "Orientación vocacional"
+      ],
+      "horario": "Lunes a Viernes 8:00-17:00",
+      "icono": "🧠"
+    },
+    {
+      "id": 2,
+      "titulo": "Becas de Alimentación",
+      "descripcion": "Programa de becas para garantizar la alimentación de estudiantes en situación económica vulnerable.",
+      "detalles": [
+        "Desayuno y almuerzo gratuito",
+        "Evaluación socioeconómica",
+        "Renovación semestral",
+        "300 cupos disponibles"
+      ],
+      "horario": "Cafetería central",
+      "icono": "🍽️"
+    },
+    {
+      "id": 3,
+      "titulo": "Espacios Recreativos",
+      "descripción": "Desarrollo y mantenimiento de áreas deportivas y de esparcimiento para la comunidad estudiantil.",
+      "detalles": [
+        "Canchas deportivas",
+        "Áreas verdes",
+        "Gimnasio estudiantil",
+        "Biblioteca 24/7"
+      ],
+      "horario": "Disponible siempre",
+      "icono": "🏃‍♂️"
+    }
+  ]
+}

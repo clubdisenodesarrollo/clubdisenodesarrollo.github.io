@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Inicio JSON</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .debug { background: #f0f0f0; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .error { background: #ffe6e6; color: #cc0000; }
+        .success { background: #e6ffe6; color: #006600; }
+    </style>
+</head>
+<body>
+    <h1>Debug: Carga de inicio.json</h1>
+    <div id="status">Cargando...</div>
+    <div id="data"></div>
+
+    <script>
+        async function debugCargarInicio() {
+            const statusDiv = document.getElementById('status');
+            const dataDiv = document.getElementById('data');
+
+            try {
+                statusDiv.innerHTML = '<div class="debug">Intentando cargar inicio.json...</div>';
+                
+                const response = await fetch('inicio.json');
+                statusDiv.innerHTML += `<div class="debug">Response status: ${response.status}</div>`;
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                statusDiv.innerHTML += '<div class="success">✅ JSON cargado exitosamente</div>';
+                
+                dataDiv.innerHTML = `
+                    <h2>Contenido del JSON:</h2>
+                    <pre style="background: #f9f9f9; padding: 15px; border-radius: 5px; overflow-x: auto;">
+${JSON.stringify(data, null, 2)}
+                    </pre>
+                    
+                    <h2>Verificaciones:</h2>
+                    <div class="debug">
+                        <strong>Sección principal:</strong> ${data.seccion_principal ? '✅ Existe' : '❌ No existe'}<br>
+                        <strong>Plan de trabajo:</strong> ${data.plan_trabajo ? '✅ Existe' : '❌ No existe'}<br>
+                        <strong>Propuestas:</strong> ${data.plan_trabajo?.propuestas ? data.plan_trabajo.propuestas.length + ' encontradas' : '❌ No encontradas'}<br>
+                        <strong>Equipo:</strong> ${data.equipo ? '✅ Existe' : '❌ No existe'}<br>
+                        <strong>Integrantes:</strong> ${data.equipo?.integrantes ? data.equipo.integrantes.length + ' encontrados' : '❌ No encontrados'}
+                    </div>
+                `;
+                
+            } catch (error) {
+                statusDiv.innerHTML += `<div class="error">❌ Error: ${error.message}</div>`;
+                console.error('Error cargando inicio.json:', error);
+            }
+        }
+
+        // Cargar cuando la página esté lista
+        document.addEventListener('DOMContentLoaded', debugCargarInicio);
+    </script>
+</body>
+</html>
