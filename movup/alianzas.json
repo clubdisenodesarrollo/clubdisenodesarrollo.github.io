@@ -1,0 +1,84 @@
+{
+  "titulo": "Alianzas Estudiantiles",
+  "descripcion": "Listas aliadas para representación estudiantil",
+  "listas_aliadas": [
+    {
+      "id": 1,
+      "nombre_lista": "A",
+      "carrera": "Medicina",
+      "imagen": "img/listas/",
+      "redes_sociales": [
+        {
+          "tipo": "instagram",
+          "url": "",
+          "icono": "img/instagram.png"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre_lista": "S",
+      "carrera": "Promoción para la Salud",
+      "imagen": "img/listas/",
+      "redes_sociales": [
+        {
+          "tipo": "instagram",
+          "url": "",
+          "icono": "img/instagram.png"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre_lista": "A",
+      "carrera": "Mecánica",
+      "imagen": "img/listas/",
+      "redes_sociales": [
+        {
+          "tipo": "instagram",
+          "url": "",
+          "icono": "img/instagram.png"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nombre_lista": "S",
+      "carrera": "Ingeniería Química",
+      "imagen": "img/listas/",
+      "redes_sociales": [
+        {
+          "tipo": "instagram",
+          "url": "",
+          "icono": "img/instagram.png"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nombre_lista": "M",
+      "carrera": "Marketing",
+      "imagen": "img/listas/",
+      "redes_sociales": [
+        {
+          "tipo": "instagram",
+          "url": "",
+          "icono": "img/instagram.png"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nombre_lista": "U",
+      "carrera": "Administración de Empresas",
+      "imagen": "img/listas/",
+      "redes_sociales": [
+        {
+          "tipo": "instagram",
+          "url": "",
+          "icono": "img/instagram.png"
+        }
+      ]
+    }
+  ]
+}

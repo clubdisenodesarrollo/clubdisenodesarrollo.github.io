@@ -1,0 +1,36 @@
+{
+  "titulo": "Emprendimiento Estudiantil",
+  "descripcion": "Negocios impulsados por estudiantes politécnicos",
+  "negocios": [
+    {
+      "id": 1,
+      "nombre": "Jenn",
+      "descripcion": "Llaveros, bufandas y accesorios personalizados hechos a mano con crochet.",
+      "logo": "img/emprende/techsolutions-logo.jpg",
+      "imagenes": [
+        "img/emprende/jenn1.png"
+      ],
+      "red_social": {
+        "tipo": "instagram",
+        "url": "https://www.instagram.com/jenni_ale__",
+        "icono": "img/instagram.png"
+      }
+    },
+    {
+      "id": 2,
+      "nombre": "Universal Pets",
+      "descripcion": "Snacks y accesorios",
+      "logo": "img/emprende/unipets.png",
+      "imagenes": [
+        "img/emprende/unipets1.png",
+        "img/emprende/unipets2.png",
+        "img/emprende/unipets3.png"
+      ],
+      "red_social": {
+        "tipo": "instagram",
+        "url": "https://www.instagram.com/universalpets_",
+        "icono": "img/instagram.png"
+      }
+    }
+  ]
+}

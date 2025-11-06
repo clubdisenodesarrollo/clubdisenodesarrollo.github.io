@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movu - Club de Diseño y Desarrollo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- ===================== HEADER ===================== -->
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo1.png" alt="Logo de Movu">
+            </a>
+        </div>
+        <button class="btn-hamburguesa" id="btn-hamburguesa" aria-label="Abrir menú de navegación">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="menu-principal" aria-label="Navegación principal">
+            <a href="#inicio" data-section="inicio">Inicio</a>
+            <a href="#alianzas" data-section="alianzas">Alianzas</a>
+            <a href="#emprende" data-section="emprende">Emprende</a>
+            <a href="#bepoli" data-section="bepoli">Bepoli</a>
+        </nav>
+        <div class="redes-sociales">
+            
+            <a href="https://www.instagram.com/up.espoch" class="icono-red-social"
+                aria-label="Instagram">
+                <img src="/img/instagram.png" alt="Instagram">
+            </a>
+        </div>
+        <aside class="sidebar-nav" id="sidebar-nav">
+            <button class="close-sidebar" id="close-sidebar" aria-label="Cerrar menú">&times;</button>
+            <nav>
+                <a href="#inicio" data-section="inicio">Inicio</a>
+                <a href="#alianzas" data-section="alianzas">Alianzas</a>
+                <a href="#emprende" data-section="emprende">Emprende</a>
+                <a href="#bepoli" data-section="bepoli">Bepoli</a>
+            </nav>
+            <div class="sidebar-redes-sociales">
+                
+                <a href="https://www.instagram.com/clubdisenodesarrollo/?hl=es" class="icono-red-social"
+                    aria-label="Instagram">
+                    <img src="/img/instagram.png" alt="Instagram">
+                </a>
+               
+            </div>
+        </aside>
+    </header>
+
+    <main>
+        <!-- ===================== HERO SECTION ===================== -->
+        <section class="hero-movu">
+            <div class="hero-content">
+                <h1 id="hero-title">Cargando...</h1>
+                <p id="hero-description">Por favor espera...</p>
+            </div>
+        </section>
+
+        <!-- ===================== CONTENIDO PRINCIPAL ===================== -->
+        <section class="contenido-movu" id="contenido-principal">
+            <div class="container">
+                <div class="section-header" id="section-header">
+                    <h2 id="section-title">Cargando...</h2>
+                    <p id="section-description">Por favor espera...</p>
+                </div>
+
+                
+
+                <!-- Contenedor para el equipo de trabajo (solo en inicio) -->
+                <div id="equipo-container" style="display: none;">
+                    <h3 class="equipo-title">Nuestro Equipo</h3>
+                    <div id="equipo-grid" class="equipo-grid">
+                        <!-- JavaScript cargará el equipo aquí -->
+                    </div>
+                </div>
+
+                <!-- El contenido dinámico se cargará aquí -->
+                <div id="contenido-dinamico">
+                    <!-- JavaScript cargará el contenido aquí -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===================== BOTTOM NAVIGATION ===================== -->
+    <nav class="bottom-nav" id="bottom-nav">
+        <a href="#inicio" class="bottom-nav-item active" data-section="inicio">
+            <div class="bottom-nav-icon">🏠</div>
+            <span class="bottom-nav-label">Inicio</span>
+        </a>
+        <a href="#alianzas" class="bottom-nav-item" data-section="alianzas">
+            <div class="bottom-nav-icon">🤝</div>
+            <span class="bottom-nav-label">Alianzas</span>
+        </a>
+        <a href="#emprende" class="bottom-nav-item" data-section="emprende">
+            <div class="bottom-nav-icon">💡</div>
+            <span class="bottom-nav-label">Emprende</span>
+        </a>
+        <a href="#bepoli" class="bottom-nav-item" data-section="bepoli">
+            <div class="bottom-nav-icon">📚</div>
+            <span class="bottom-nav-label">Bepoli</span>
+        </a>
+    </nav>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Movimiento Unión Politécnica - MOVU. Todos los derechos reservados.</p>
+            <div class="footer-line"></div>
+            <nav class="footer-nav">
+                <a href="#inicio" data-section="inicio">Inicio</a>
+                <a href="#alianzas" data-section="alianzas">Alianzas</a>
+                <a href="#emprende" data-section="emprende">Emprende</a>
+                <a href="#bepoli" data-section="bepoli">Bepoli</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

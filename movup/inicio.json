@@ -1,0 +1,119 @@
+{
+  "seccion_principal": {
+    "titulo": "Movimiento Unión Politécnica",
+    "descripcion": "Unidos por una Poli Mejor - Plan de trabajo, Alianzas y Emprendimientos estudiantiles"
+  },
+  "plan_trabajo": {
+    "titulo": "Plan de Trabajo", 
+    "descripcion": "Conoce nuestras propuestas para una mejor Politécnica",
+    "propuestas": [
+      {
+        "id": 1,
+        "titulo": "Mejora de Infraestructura",
+        "descripcion": "Gestión para el mejoramiento de aulas, laboratorios y espacios comunes que beneficien a toda la comunidad estudiantil.",
+        "icono": "🏢"
+      },
+      {
+        "id": 2,
+        "titulo": "Tecnología e Innovación", 
+        "descripcion": "Implementación de nuevas tecnologías y herramientas digitales para facilitar el aprendizaje y la investigación.",
+        "icono": "💻"
+      },
+      {
+        "id": 3,
+        "titulo": "Bienestar Estudiantil",
+        "descripcion": "Programas de apoyo psicológico, becas de alimentación y espacios de recreación para el bienestar integral del estudiante.",
+        "icono": "❤️"
+      },
+      {
+        "id": 4,
+        "titulo": "Representación Estudiantil",
+        "descripcion": "Fortalecimiento de los canales de comunicación entre estudiantes y autoridades para una mejor representación.",
+        "icono": "🎯"
+      }
+    ]
+  },
+  "equipo": {
+    "titulo": "Nuestro Equipo",
+    "descripcion": "Conoce a los integrantes comprometidos con el cambio",
+    "integrantes": [
+      {
+        "id": 1,
+        "nombre": "Angela Eduarda Garzón Gómez ",
+        "rol": "Presidenta", 
+        "carrera": "Medicina",
+        "imagen": "img/equipo/angie_1647.png"
+      },
+      {
+        "id": 2,
+        "nombre": "Karla Gabriela Alencastro Morocho",
+        "rol": "Vicepresidenta Académica",
+        "carrera": "", 
+        "imagen": "img/equipo/karla_1581.png"
+      },
+       {
+        "id": 3,
+        "nombre": "Oscar Stalin Medina Moya",
+        "rol": "Vicepresidente Administrativo",
+        "carrera": "", 
+        "imagen": "img/equipo/oscar_1595.png"
+      },
+      {
+        "id": 4,
+        "nombre": "Steeven Darío Velasco Álvarez",
+        "rol": "Presidente de la Liga Deportiva Politécnica",
+        "carrera": "", 
+        "imagen": "img/equipo/velasco_1504_1.png"
+      },
+       {
+        "id": 5,
+        "nombre": "Rodrigo Antonio Mayorga Avalo",
+        "rol": "Vicepresidente de la Liga Deportiva Politécnica",
+        "carrera": "", 
+        "imagen": "img/equipo/antony_1540.png"
+      },
+       {
+        "id": 6,
+        "nombre": "María Anamilé Sánchez Alban",
+        "rol": "Secretaria Principal de Relaciones Nacionales e Internacionales",
+        "carrera": "", 
+        "imagen": "img/equipo/sanchez_1626.png"
+      },
+      {
+        "id": 7,
+        "nombre": "Paola Micaela Castillo Caja",
+        "rol": "Suplente de Relaciones Nacionales e Internacionales",
+        "carrera": "", 
+        "imagen": "img/equipo/castillo_1546.png"
+      },
+      {
+        "id": 8,
+        "nombre": "Stalin Josué  Ramiréz Medina",
+        "rol": "Representante Principal a Secretaría de Inclusión y Equidad de Género",
+        "carrera": "", 
+        "imagen": "img/equipo/stalin_1637.png"
+      },
+      {
+        "id": 9,
+        "nombre": "Edwin Mateo Rodríguez Villacrés",
+        "rol": "Suplente a Secretaría de Inclusión y Equidad de Género",
+        "carrera": "", 
+        "imagen": "img/equipo/rodriguez_1531.png"
+      },
+      {
+        "id": 9,
+        "nombre": "María Fernanda Acurio Olivo",
+        "rol": "Secretaria",
+        "carrera": "", 
+        "imagen": "img/equipo/mafer_1505_3.png"
+      },
+      {
+        "id": 10,
+        "nombre": "Esteban Patricio Echeverría Oviedo",
+        "rol": "Tesorero",
+        "carrera": "", 
+        "imagen": "img/equipo/esteban_1663.png"
+      }
+    ]
+  }
+}

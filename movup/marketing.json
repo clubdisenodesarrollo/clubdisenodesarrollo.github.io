@@ -1,0 +1,49 @@
+{
+  "carrera": "Marketing",
+  "descripcion": "Trivias y estrategias de marketing para estudiantes",
+  "trivias": {
+    "marketing-digital": {
+      "titulo": "Marketing Digital",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "¿Qué significa SEO?",
+          "opciones": ["Social Engine Optimization", "Search Engine Optimization", "Secure Electronic Operations", "Sales Efficiency Online"],
+          "respuesta_correcta": 1,
+          "explicacion": "SEO significa Search Engine Optimization (Optimización para Motores de Búsqueda), conjunto de técnicas para mejorar la visibilidad en buscadores."
+        },
+        {
+          "id": 2,
+          "pregunta": "¿Cuál es el objetivo principal del marketing de contenidos?",
+          "opciones": ["Vender directamente", "Atraer y retener audiencia", "Aumentar precios", "Reducir competencia"],
+          "respuesta_correcta": 1,
+          "explicacion": "El marketing de contenidos busca atraer y retener una audiencia claramente definida mediante contenido valioso, relevante y consistente."
+        }
+      ]
+    },
+    "comportamiento-consumidor": {
+      "titulo": "Comportamiento del Consumidor",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "¿Qué es la pirámide de Maslow en marketing?",
+          "opciones": ["Estrategia de precios", "Jerarquía de necesidades", "Modelo de ventas", "Técnica publicitaria"],
+          "respuesta_correcta": 1,
+          "explicacion": "La pirámide de Maslow representa la jerarquía de necesidades humanas, útil en marketing para entender motivaciones de compra del consumidor."
+        }
+      ]
+    },
+    "investigacion-mercados": {
+      "titulo": "Investigación de Mercados",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "¿Qué es una muestra representativa?",
+          "opciones": ["Toda la población", "Subconjunto que refleja la población", "Solo clientes satisfechos", "Datos históricos"],
+          "respuesta_correcta": 1,
+          "explicacion": "Una muestra representativa es un subconjunto de la población que refleja accuradamente las características del grupo total que se está estudiando."
+        }
+      ]
+    }
+  }
+}
