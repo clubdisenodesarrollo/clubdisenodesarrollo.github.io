@@ -125,7 +125,6 @@ body {
 
 #contenido-dinamico {
   margin-top: 40px;
-   display: none;
 }
 
 /* =====================
@@ -226,6 +225,7 @@ body {
 /* Sección del Plan de Trabajo */
 .plan-trabajo-section {
   margin-bottom: 60px;
+  display: none; /* Oculto temporalmente */
 }
 
 .plan-trabajo-titulo {
@@ -1075,5 +1075,4 @@ body {
 /* =====================
    RESPONSIVE DESIGN
 ====================== */
-
 /* Los media queries se encuentran en media.css */

@@ -10,7 +10,20 @@
       "redes_sociales": [
         {
           "tipo": "instagram",
-          "url": "",
+          "url": "https://www.instagram.com/lista_aasomed",
+          "icono": "img/instagram.png"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nombre_lista": "U",
+      "carrera": "Administración de Empresas",
+      "imagen": "img/listas/",
+      "redes_sociales": [
+        {
+          "tipo": "instagram",
+          "url": "https://www.instagram.com/lista_u_oficial",
           "icono": "img/instagram.png"
         }
       ]
@@ -62,23 +75,11 @@
       "redes_sociales": [
         {
           "tipo": "instagram",
-          "url": "",
-          "icono": "img/instagram.png"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "nombre_lista": "U",
-      "carrera": "Administración de Empresas",
-      "imagen": "img/listas/",
-      "redes_sociales": [
-        {
-          "tipo": "instagram",
-          "url": "",
+          "url": "https://www.instagram.com/marketing_listam",
           "icono": "img/instagram.png"
         }
       ]
     }
+    
   ]
 }
