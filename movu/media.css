@@ -326,6 +326,38 @@
     width: 16px;
     height: 16px;
   }
+
+  /* Trivias - 375px */
+  .trivia-contenido {
+    padding: 8px 5px; /* Reducido a la mitad de 15px 10px */
+    margin: 0 8px;
+  }
+
+  .trivia-header h3 {
+    font-size: 1.5rem;
+    margin: 12px 0 6px;
+  }
+
+  .pregunta {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .explicacion {
+    padding: 0;
+    margin-top: 12px;
+    font-size: 0.9rem;
+  }
+
+  .opcion-btn {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+
+  .opciones {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
 }
 
 /* =====================
@@ -516,6 +548,47 @@
     padding: 12px 15px;
     font-size: 0.9rem;
   }
+
+  /* Trivias - 320px */
+  .trivia-contenido {
+    padding: 6px 4px; /* Reducido a la mitad de 12px 8px */
+    margin: 0 5px;
+  }
+
+  .trivia-header h3 {
+    font-size: 1.4rem;
+    margin: 10px 0 5px;
+  }
+
+  .pregunta {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    line-height: 1.3;
+  }
+
+  .explicacion {
+    padding: 0;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .opcion-btn {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  .opciones {
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .btn-siguiente,
+  .btn-finalizar {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    margin-top: 15px;
+  }
 }
 
 /* =====================
@@ -531,5 +604,34 @@
 
   .bepoli-carrera-card {
     padding: 25px 15px;
+  }
+
+  /* Trivias - 425px */
+  .trivia-contenido {
+    padding: 10px 8px; /* Reducido a la mitad de 20px 15px */
+    margin: 0 10px; /* Reducir margen lateral */
+  }
+
+  .trivia-header h3 {
+    font-size: 1.6rem;
+    margin: 15px 0 8px;
+  }
+
+  .pregunta {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+  }
+
+  .explicacion {
+    padding: 0; /* Sin padding */
+    margin-top: 15px;
+  }
+
+  .opcion-btn {
+    padding: 12px 15px; /* Reducido de 15px 20px */
+  }
+
+  .opciones {
+    margin-bottom: 25px;
   }
 }

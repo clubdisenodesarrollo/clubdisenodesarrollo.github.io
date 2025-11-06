@@ -1,63 +1,630 @@
 {
-  "carrera": "Medicina",
-  "descripcion": "Trivias y contenido médico para estudiantes",
-  "trivias": {
-    "anatomia-humana": {
-      "titulo": "Anatomía Humana",
-      "preguntas": [
-        {
-          "id": 1,
-          "pregunta": "¿Cuántos huesos tiene el cuerpo humano adulto?",
-          "opciones": ["206", "208", "210", "204"],
-          "respuesta_correcta": 0,
-          "explicacion": "El cuerpo humano adulto tiene 206 huesos. Al nacer tenemos aproximadamente 270 huesos, pero muchos se fusionan durante el crecimiento."
+    "carrera": "Medicina",
+    "descripcion": "Trivias y contenido médico para estudiantes",
+    "trivias": {
+        "anatomia-general": {
+            "titulo": "Anatomía General y Terminología",
+            "preguntas": [
+                {
+                    "id": 1,
+                    "pregunta": "¿Qué tipo de anatomía describe la disposición recíproca de las estructuras en las diferentes regiones del cuerpo?",
+                    "opciones": [
+                        "Anatomía descriptiva",
+                        "Anatomía topográfica",
+                        "Anatomía funcional",
+                        "Anatomía comparada"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "La anatomía topográfica es la que expone la disposición recíproca de las estructuras en las diferentes regiones del cuerpo. Se diferencia de la anatomía descriptiva que solo describe la organización, y de la anatomía funcional que relaciona formas con funciones."
+                },
+                {
+                    "id": 2,
+                    "pregunta": "¿Qué término anatómico se utiliza para describir una estructura que está más cercana a la raíz de un miembro?",
+                    "opciones": [
+                        "Distal",
+                        "Lateral",
+                        "Proximal",
+                        "Medial"
+                    ],
+                    "respuesta_correcta": 2,
+                    "explicacion": "El término proximal indica la parte más cercana a la raíz del miembro, mientras que distal se refiere a la parte más alejada. Esta terminología es esencial para describir con precisión la ubicación de estructuras en relación con su punto de origen."
+                },
+                {
+                    "id": 3,
+                    "pregunta": "¿Qué plano divide el cuerpo en partes anterior y posterior?",
+                    "opciones": [
+                        "Plano sagital",
+                        "Plano frontal",
+                        "Plano transversal",
+                        "Plano horizontal"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "El plano frontal, también llamado plano coronal, divide el cuerpo en partes anterior (ventral) y posterior (dorsal). El plano sagital divide en partes derecha e izquierda, mientras el plano transversal divide en superior e inferior."
+                },
+                {
+                    "id": 4,
+                    "pregunta": "¿Qué término se utiliza para describir la palma de la mano?",
+                    "opciones": [
+                        "Cara dorsal",
+                        "Cara cubital",
+                        "Cara palmar",
+                        "Cara radial"
+                    ],
+                    "respuesta_correcta": 2,
+                    "explicacion": "La mano tiene una cara palmar (la palma de la mano) y una cara dorsal (el dorso de la mano). Esta terminología específica permite describir con precisión la orientación de las estructuras de la mano en relación con su función."
+                },
+                {
+                    "id": 5,
+                    "pregunta": "¿Qué significa el término 'craneal' en anatomía?",
+                    "opciones": [
+                        "Hacia los pies",
+                        "Hacia el cráneo",
+                        "Hacia la línea media",
+                        "Hacia el exterior"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "El término craneal se refiere a la orientación hacia el cráneo, mientras que caudal se orienta hacia el extremo inferior del tronco. Esta terminología es particularmente útil para describir relaciones en el eje longitudinal del cuerpo."
+                },
+                {
+                    "id": 6,
+                    "pregunta": "¿Qué tipo de eminencia ósea está determinada principalmente por inserciones tendinosas o ligamentosas?",
+                    "opciones": [
+                        "Tuberosidad articular",
+                        "Espina de origen embrionario",
+                        "Tubérculo por osificación secundaria",
+                        "Cresta ligamentosa"
+                    ],
+                    "respuesta_correcta": 3,
+                    "explicacion": "Las eminencias no articulares determinadas por inserciones tendinosas o ligamentosas proporcionan la extensión necesaria para la inserción de tendones o ligamentos. Su volumen depende de la importancia de las estructuras que se insertan en ellas."
+                },
+                {
+                    "id": 7,
+                    "pregunta": "¿Qué característica define a los huesos planos según su configuración externa?",
+                    "opciones": [
+                        "Predominio del espesor sobre longitud y anchura",
+                        "Tres dimensiones casi iguales",
+                        "Predominio de longitud y anchura sobre el espesor",
+                        "Presencia de epífisis diferenciadas"
+                    ],
+                    "respuesta_correcta": 2,
+                    "explicacion": "Los huesos planos se caracterizan por el predominio de la longitud y la anchura sobre el espesor. Presentan dos caras y el número de bordes varía según la forma del hueso, como se observa en los huesos del cráneo."
+                },
+                {
+                    "id": 8,
+                    "pregunta": "¿Qué estructura forma el armazón del cuerpo y sirve de órgano de sostén a las partes blandas?",
+                    "opciones": [
+                        "Sistema muscular",
+                        "Esqueleto",
+                        "Sistema nervioso",
+                        "Aparato articular"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "El esqueleto forma el armazón del cuerpo, sirve de órgano de sostén a las partes blandas y forma palancas sobre las que actúan los músculos. Está constituido por huesos unidos entre sí por articulaciones."
+                },
+                {
+                    "id": 9,
+                    "pregunta": "¿Qué término describe la cara que mira hacia el eje del cuerpo?",
+                    "opciones": [
+                        "Lateral",
+                        "Medial",
+                        "Anterior",
+                        "Posterior"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "La cara medial es la que mira hacia el eje del cuerpo, mientras que la cara lateral mira hacia el exterior. Esta terminología es fundamental para describir la posición relativa de las estructuras en relación con el plano medio del cuerpo."
+                },
+                {
+                    "id": 10,
+                    "pregunta": "¿Cuál es el número aproximado de huesos en el esqueleto humano adulto, sin contar los huesecillos del oído?",
+                    "opciones": [
+                        "150 huesos",
+                        "200 huesos",
+                        "250 huesos",
+                        "300 huesos"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "El número de huesos en el esqueleto humano adulto es de aproximadamente doscientos, sin contar los huesecillos del oído, los pequeños sesamoideos y los huesos suturales. Esta cifra puede variar ligeramente entre individuos."
+                }
+            ]
         },
-        {
-          "id": 2,
-          "pregunta": "¿Cuál es el músculo más grande del cuerpo humano?",
-          "opciones": ["Bíceps", "Cuádriceps", "Glúteo mayor", "Deltoides"],
-          "respuesta_correcta": 2,
-          "explicacion": "El glúteo mayor es el músculo más grande y potente del cuerpo humano, fundamental para la postura erguida y la locomoción."
+        "osteologia": {
+            "titulo": "Osteología - Estudio de los Huesos",
+            "preguntas": [
+                {
+                    "id": 11,
+                    "pregunta": "¿Qué estructura de los huesos largos contiene la cavidad medular?",
+                    "opciones": [
+                        "Epífisis",
+                        "Diáfisis",
+                        "Cartílago articular",
+                        "Periostio"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "La diáfisis o cuerpo de los huesos largos contiene la cavidad medular, que se extiende a lo largo de todo el cuerpo del hueso y está rellena de médula ósea. Los extremos o epífisis están formados por hueso esponjoso."
+                },
+                {
+                    "id": 12,
+                    "pregunta": "¿Qué tipo de hueso se caracteriza por tener tres dimensiones casi iguales?",
+                    "opciones": [
+                        "Huesos largos",
+                        "Huesos planos",
+                        "Huesos cortos",
+                        "Huesos irregulares"
+                    ],
+                    "respuesta_correcta": 2,
+                    "explicacion": "Los huesos cortos son aquellos cuyas tres dimensiones (longitud, anchura y espesor) son casi iguales. Se componen de una delgada envoltura de hueso compacto que rodea al hueso esponjoso, como los huesos del carpo."
+                },
+                {
+                    "id": 13,
+                    "pregunta": "¿Qué función principal cumple el periostio en los huesos?",
+                    "opciones": [
+                        "Producir líquido sinovial",
+                        "Formar cartílago articular",
+                        "Desempeñar papel en desarrollo y vascularización",
+                        "Absorber impactos"
+                    ],
+                    "respuesta_correcta": 2,
+                    "explicacion": "El periostio es una membrana fibrosa que recubre los huesos, excepto en las superficies articulares. Desempeña un papel esencial en el desarrollo y la vascularización de los huesos, y su adherencia varía según la irregularidad de la superficie ósea."
+                },
+                {
+                    "id": 14,
+                    "pregunta": "¿Qué característica del hueso esponjoso le permite ofrecer resistencia a las presiones?",
+                    "opciones": [
+                        "Su composición de cartílago hialino",
+                        "La orientación de sus trabéculas",
+                        "Su alta densidad mineral",
+                        "La presencia de cavidades sinusales"
+                    ],
+                    "explicacion": "Las trabéculas o laminillas del hueso esponjoso se orientan en cada hueso de manera que ofrecen la mayor resistencia posible a las presiones que deben soportar. Esta disposición arquitectónica optimiza la resistencia con mínimo peso."
+                },
+                {
+                    "id": 15,
+                    "pregunta": "¿En qué tipo de osificación el hueso se desarrolla directamente en el tejido conjuntivo?",
+                    "opciones": [
+                        "Osificación cartilaginosa",
+                        "Osificación membranosa",
+                        "Osificación perióstica",
+                        "Osificación endocondral"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "En la osificación membranosa, los huesos se desarrollan directamente en el tejido conjuntivo embrionario sin esbozo cartilaginoso previo. Los huesos de la bóveda del cráneo y de la cara se desarrollan por este mecanismo."
+                },
+                {
+                    "id": 16,
+                    "pregunta": "¿Qué estructura separa los centros de osificación diafisario y epifisario durante el crecimiento óseo?",
+                    "opciones": [
+                        "Membrana sinovial",
+                        "Cartílago epifisario",
+                        "Lámina perióstica",
+                        "Disco articular"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "El cartílago epifisario es una delgada capa de cartílago que separa el centro diafisario de los centros epifisarios durante todo el desarrollo y crecimiento del hueso. Permite el crecimiento en longitud del hueso hasta que se osifica completamente."
+                },
+                {
+                    "id": 17,
+                    "pregunta": "¿Qué arteria penetra en el conducto nutricia de primer orden de los huesos largos?",
+                    "opciones": [
+                        "Arteria epifisaria",
+                        "Arteria nutricia principal",
+                        "Arteria perióstica",
+                        "Arteria metafisaria"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "La arteria nutricia principal del hueso penetra en el conducto nutricia de primer orden, que pertenece a la diáfisis de los huesos largos. Esta arteria se divide en la cavidad medular en dos ramas que divergen hacia los extremos del hueso."
+                },
+                {
+                    "id": 18,
+                    "pregunta": "¿Qué hueso constituye una excepción entre los huesos largos por no presentar epífisis diferenciadas?",
+                    "opciones": [
+                        "Fémur",
+                        "Clavícula",
+                        "Húmero",
+                        "Radio"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "La clavícula es una excepción entre los huesos largos porque no presenta epífisis diferenciadas. La mayoría de los huesos largos tienen un cuerpo o diáfisis y dos extremos engrosados o epífisis."
+                },
+                {
+                    "id": 19,
+                    "pregunta": "¿Qué nombre recibe la capa esponjosa intermedia en los huesos de la bóveda craneal?",
+                    "opciones": [
+                        "Médula ósea",
+                        "Diploe",
+                        "Sustancia trabecular",
+                        "Tejido osteoide"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "En los huesos de la bóveda craneal, las dos láminas de hueso compacto se denominan láminas interna y externa, y la capa esponjosa intermedia se denomina diploe. Esta estructura proporciona resistencia con ligereza."
+                },
+                {
+                    "id": 20,
+                    "pregunta": "¿Qué proceso explica la formación de la cavidad medular en los huesos largos?",
+                    "opciones": [
+                        "Osificación perióstica",
+                        "Reabsorción ósea central",
+                        "Formación de cartílago",
+                        "Deposición de sales minerales"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "La cavidad medular se forma por fenómenos de reabsorción en la parte central de la diáfisis. A medida que la diáfisis se engruesa por aposición de capas óseas periósticas, el hueso endocondral desaparece y el proceso de reabsorción se extiende a las capas profundas del hueso perióstico."
+                }
+            ]
         },
-        {
-          "id": 3,
-          "pregunta": "¿Qué órgano produce la insulina?",
-          "opciones": ["Hígado", "Páncreas", "Riñón", "Estómago"],
-          "respuesta_correcta": 1,
-          "explicacion": "El páncreas produce la insulina a través de las células beta de los islotes de Langerhans, regulando los niveles de glucosa en sangre."
-        }
-      ]
-    },
-    "farmacologia-basica": {
-      "titulo": "Farmacología Básica",
-      "preguntas": [
-        {
-          "id": 1,
-          "pregunta": "¿Qué significa 'biodisponibilidad' de un fármaco?",
-          "opciones": ["Toxicidad del medicamento", "Fracción que llega a circulación sistémica", "Tiempo de eliminación", "Dosis máxima segura"],
-          "respuesta_correcta": 1,
-          "explicacion": "La biodisponibilidad es la fracción del fármaco administrado que llega inalterada a la circulación sistémica y está disponible para ejercer su efecto."
+        "artrologia": {
+            "titulo": "Artrología - Estudio de las Articulaciones",
+            "preguntas": [
+                {
+                    "id": 21,
+                    "pregunta": "¿Qué tipo de articulación se caracteriza por tener superficies articulares unidas por tejido fibroso?",
+                    "opciones": [
+                        "Articulaciones sinoviales",
+                        "Articulaciones cartilaginosas",
+                        "Articulaciones fibrosas",
+                        "Articulaciones esferoideas"
+                    ],
+                    "respuesta_correcta": 2,
+                    "explicacion": "Las articulaciones fibrosas se caracterizan por tener dos superficies articulares unidas por tejido fibroso. Incluyen las sindesmosis (entre huesos de origen cartilaginoso) y las suturas (entre huesos de origen fibroso)."
+                },
+                {
+                    "id": 22,
+                    "pregunta": "¿Qué elemento NO forma parte de una articulación sinovial típica?",
+                    "opciones": [
+                        "Superficies articulares lisas",
+                        "Cápsula articular",
+                        "Membrana sinovial",
+                        "Ligamento interóseo"
+                    ],
+                    "respuesta_correcta": 3,
+                    "explicacion": "Las articulaciones sinoviales presentan superficies articulares lisas separadas por una cavidad articular, cápsula articular con ligamentos, y membrana sinovial. El ligamento interóseo es característico de las articulaciones cartilaginosas."
+                },
+                {
+                    "id": 23,
+                    "pregunta": "¿Qué tipo de articulación sinovial permite movimientos alrededor de tres ejes principales?",
+                    "opciones": [
+                        "Gínglimo",
+                        "Articulación trocoide",
+                        "Articulación esferoidea",
+                        "Articulación plana"
+                    ],
+                    "respuesta_correcta": 2,
+                    "explicacion": "Las articulaciones esferoideas o enartrosis permiten movimientos alrededor de tres ejes principales: anteroposterior (abducción-aducción), transversal (flexión-extensión) y longitudinal (rotación). Ejemplos incluyen las articulaciones del hombro y cadera."
+                },
+                {
+                    "id": 24,
+                    "pregunta": "¿Qué función cumple el líquido sinovial en las articulaciones?",
+                    "opciones": [
+                        "Proporcionar nutrientes al cartílago",
+                        "Facilitar el deslizamiento de superficies articulares",
+                        "Fijar las superficies articulares",
+                        "Producir células sanguíneas"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "El líquido sinovial es un líquido incoloro, viscoso y filante que lubrica las superficies articulares, facilitando su deslizamiento. Esta función es esencial para el movimiento articular sin fricción y desgaste."
+                },
+                {
+                    "id": 25,
+                    "pregunta": "¿Qué tipo de sutura se caracteriza por superficies articulares talladas en bisel?",
+                    "opciones": [
+                        "Sutura dentada",
+                        "Sutura escamosa",
+                        "Sutura plana",
+                        "Esquindilesis"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "La sutura escamosa es una sutura dentada en que las superficies articulares están talladas en bisel. La sutura dentada presenta engranaje de superficies con dientes, mientras la sutura plana tiene superficies relativamente planas."
+                },
+                {
+                    "id": 26,
+                    "pregunta": "¿Qué estructura articular asegura la perfecta adaptación de superficies articulares que no se adaptan exactamente?",
+                    "opciones": [
+                        "Ligamentos capsulares",
+                        "Menisco articular",
+                        "Membrana sinovial",
+                        "Cartílago hialino"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "Los meniscos articulares son láminas fibrocartilaginosas interarticulares que restablecen la concordancia cuando las superficies articulares no se adaptan exactamente. Sus caras libres se aplican sobre las superficies articulares correspondientes."
+                },
+                {
+                    "id": 27,
+                    "pregunta": "¿Qué tipo de articulación sinovial permite sólo movimientos de flexión y extensión?",
+                    "opciones": [
+                        "Articulación trocoide",
+                        "Gínglimo",
+                        "Articulación condílea",
+                        "Articulación en silla de montar"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "El gínglimo o tróclea es una articulación de un eje que permite sólo movimientos de flexión y extensión. Un ejemplo típico es la articulación humerocubital del codo, donde el cúbito gira alrededor de la tróclea humeral."
+                },
+                {
+                    "id": 28,
+                    "pregunta": "¿Qué característica de la cápsula articular favorece una mayor movilidad?",
+                    "opciones": [
+                        "Su inserción cercana al cartílago articular",
+                        "Su gran espesor",
+                        "Su inserción a distancia del cartílago articular",
+                        "La presencia de múltiples ligamentos"
+                    ],
+                    "respuesta_correcta": 2,
+                    "explicacion": "La inserción de la cápsula a distancia del cartílago articular, observada en articulaciones muy móviles, permite una mayor movilidad. La cápsula es más laxa cuanto más móvil es la articulación y más amplios son sus movimientos."
+                },
+                {
+                    "id": 29,
+                    "pregunta": "¿Qué tipo de articulación cartilaginosa presenta tejido intermedio diferenciado en cartílago hialino?",
+                    "opciones": [
+                        "Sínfisis",
+                        "Sincondrosis",
+                        "Sindesmosis",
+                        "Sinostosis"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "La sincondrosis es una articulación cartilaginosa donde el tejido intermedio o ligamento interóseo se diferencia en cartílago hialino. Las sínfisis presentan una masa de tejido fibrocartilaginoso entre las superficies articulares."
+                },
+                {
+                    "id": 30,
+                    "pregunta": "¿Qué movimiento articular describe el paso por todas las posiciones extremas volviendo a la de partida?",
+                    "opciones": [
+                        "Rotación",
+                        "Circunducción",
+                        "Abducción",
+                        "Deslizamiento"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "La circunducción es un movimiento en que el hueso pasa por todas las posiciones extremas (aducción, flexión, abducción y extensión) para volver finalmente a la posición de partida. Es característico de las articulaciones esferoideas."
+                }
+            ]
         },
-        {
-          "id": 2,
-          "pregunta": "¿Cuál es la vía de administración más rápida?",
-          "opciones": ["Oral", "Intramuscular", "Intravenosa", "Subcutánea"],
-          "respuesta_correcta": 2,
-          "explicacion": "La vía intravenosa es la más rápida porque el fármaco se introduce directamente al torrente sanguíneo, evitando procesos de absorción."
+        "miologia": {
+            "titulo": "Miología - Estudio de los Músculos",
+            "preguntas": [
+                {
+                    "id": 31,
+                    "pregunta": "¿Qué parte del músculo estriado corresponde a la parte contráctil?",
+                    "opciones": [
+                        "Tendón",
+                        "Vientre muscular",
+                        "Aponeurosis",
+                        "Fascículo"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "El vientre o cuerpo muscular es la parte gruesa, blanda y roja que corresponde a la parte contráctil del músculo estriado. Ocupa la parte media del músculo, mientras los extremos forman la parte tendinosa."
+                },
+                {
+                    "id": 32,
+                    "pregunta": "¿Qué tipo de disposición de fibras musculares produce una tracción fuerte pero un desplazamiento débil?",
+                    "opciones": [
+                        "Fibras largas y paralelas",
+                        "Disposición penniforme",
+                        "Fibras helicoidales",
+                        "Disposición circular"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "Los músculos penniformes y semipenniformes, con fascículos musculares superpuestos y orientados oblicuamente, producen una tracción fuerte pero un desplazamiento débil. Esta disposición aumenta la sección transversal de fibras musculares."
+                },
+                {
+                    "id": 33,
+                    "pregunta": "¿Qué función cumplen las bolsas sinoviales en relación con los músculos y tendones?",
+                    "opciones": [
+                        "Producir contracción muscular",
+                        "Facilitar el deslizamiento de órganos",
+                        "Transmitir fuerza muscular",
+                        "Producir líquido sinovial"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "Las bolsas sinoviales son membranas conjuntivas que limitan cavidades cerradas y facilitan el deslizamiento de los órganos a los que se encuentran anexas, especialmente donde un tendón se desliza sobre una superficie dura."
+                },
+                {
+                    "id": 34,
+                    "pregunta": "¿Qué característica de los tendones largos y cilíndricos les proporciona elasticidad?",
+                    "opciones": [
+                        "Su composición de colágeno",
+                        "La disposición helicoidal de sus fibras",
+                        "Su diámetro uniforme",
+                        "La presencia de vasos sanguíneos"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "Los fascículos tendinosos de los tendones largos y cilíndricos describen un trayecto helicoidal que proporciona cierta elasticidad al tendón. Esto permite transmitir la fuerza sin contratiempos y sin pérdida ni daño."
+                },
+                {
+                    "id": 35,
+                    "pregunta": "¿Qué diferencia principal existe entre fascias de revestimiento y aponeurosis?",
+                    "opciones": [
+                        "Las fascias son tendinosas, las aponeurosis son membranosas",
+                        "Las fascias envuelven músculos, las aponeurosis son tendones aplanados",
+                        "Las fascias producen movimiento, las aponeurosis dan inserción",
+                        "Las fascias son elásticas, las aponeurosis son rígidas"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "Las fascias de revestimiento son membranas fibrosas que envuelven los músculos y los separan de órganos vecinos, mientras que las aponeurosis son tendones aplanados y membranosos que se unen a los músculos anchos y planos."
+                },
+                {
+                    "id": 36,
+                    "pregunta": "¿Qué tipo de músculo está formado por dos, tres o cuatro cuerpos musculares con origen distinto?",
+                    "opciones": [
+                        "Músculos digástricos",
+                        "Músculos bíceps, tríceps o cuádriceps",
+                        "Músculos orbiculares",
+                        "Músculos seudopenniformes"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "Los músculos denominados bíceps, tríceps o cuádriceps están formados por dos, tres o cuatro cuerpos musculares que tienen un origen distinto y se reúnen en uno de sus extremos. Los músculos digástricos tienen el cuerpo dividido por tendones intermedios."
+                },
+                {
+                    "id": 37,
+                    "pregunta": "¿En qué situación la inserción muscular se realiza directamente mediante fibras musculares?",
+                    "opciones": [
+                        "Cuando la superficie de inserción es rugosa",
+                        "Cuando la superficie de inserción es lisa",
+                        "Cuando existe una depresión ósea",
+                        "Cuando hay un saliente óseo"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "La inserción se realiza mediante fibras musculares cuando la superficie de inserción es lisa. Los tendones o láminas tendinosas se fijan en salientes o en depresiones, ya que requieren una superficie de inserción mayor que su sección."
+                },
+                {
+                    "id": 38,
+                    "pregunta": "¿Qué son las intersecciones tendinosas en los músculos poligástricos?",
+                    "opciones": [
+                        "Uniones entre músculos diferentes",
+                        "Divisiones del cuerpo muscular por tendones intermedios",
+                        "Puntos de unión con los huesos",
+                        "Zonas de transición entre fibras musculares"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "Las intersecciones tendinosas son tendones intermedios que dividen el cuerpo muscular en dos o más vientres en los músculos digástricos o poligástricos. Se forman en el límite de los territorios de inervación cuando éste es perpendicular a la dirección de los fascículos."
+                },
+                {
+                    "id": 39,
+                    "pregunta": "¿Qué tipo de músculo está formado por fascículos curvilíneos?",
+                    "opciones": [
+                        "Músculos largos",
+                        "Músculos anchos",
+                        "Músculos orbiculares",
+                        "Músculos cortos"
+                    ],
+                    "respuesta_correcta": 2,
+                    "explicacion": "Los músculos orbiculares son una categoría especial formada por fascículos curvilíneos. La mayoría de los músculos se clasifican en largos, anchos y cortos según su configuración exterior."
+                },
+                {
+                    "id": 40,
+                    "pregunta": "¿Qué adaptación presentan los músculos largos y fuertes con tendones cortos?",
+                    "opciones": [
+                        "Fibras musculares con dirección helicoidal",
+                        "Inserción directa al hueso",
+                        "Músculos seudopenniformes",
+                        "Tendones planos"
+                    ],
+                    "respuesta_correcta": 0,
+                    "explicacion": "Los músculos largos y fuertes con tendones cortos presentan a veces fibras musculares con dirección helicoidal. Esta disposición puede observarse en músculos como el tríceps braquial y proporciona ventajas mecánicas específicas."
+                }
+            ]
+        },
+        "neurologia": {
+            "titulo": "Neurología - Sistema Nervioso",
+            "preguntas": [
+                {
+                    "id": 41,
+                    "pregunta": "¿Qué parte del sistema nervioso cerebroespinal ocupa la cavidad craneal?",
+                    "opciones": [
+                        "Médula espinal",
+                        "Encéfalo",
+                        "Nervios espinales",
+                        "Ganglios espinales"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "El sistema nervioso central se divide en encéfalo, que ocupa la cavidad craneal, y médula espinal, situada en el conducto vertebral. El encéfalo es el segmento superior del neuroeje."
+                },
+                {
+                    "id": 42,
+                    "pregunta": "¿Qué tipo de prolongación neuronal conduce los impulsos desde el cuerpo celular hacia el extremo terminal?",
+                    "opciones": [
+                        "Dendritas",
+                        "Axón",
+                        "Prolongaciones protoplasmáticas",
+                        "Conexiones sinápticas"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "El axón o cilindroeje es la prolongación única de cada neurona en la que la conducción es celulífuga, es decir, se dirige desde el cuerpo celular hacia el extremo terminal. Las dendritas conducen en sentido celulípeta."
+                },
+                {
+                    "id": 43,
+                    "pregunta": "¿Qué estructura presenta la raíz posterior de los nervios espinales en su trayecto?",
+                    "opciones": [
+                        "Astas anteriores de la médula",
+                        "Ganglio espinal",
+                        "Raíz motora",
+                        "Ramo meníngeo"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "La raíz posterior de los nervios espinales presenta en su trayecto un abultamiento ganglionar denominado ganglio espinal o ganglio sensitivo. Este ganglio contiene los cuerpos celulares de las neuronas sensitivas."
+                },
+                {
+                    "id": 44,
+                    "pregunta": "¿Cuántos pares de nervios espinales existen en total en el ser humano?",
+                    "opciones": [
+                        "28 pares",
+                        "31 pares",
+                        "33 pares",
+                        "35 pares"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "Existen 31 pares de nervios espinales: 8 cervicales, 12 torácicos, 5 lumbares, 5 sacros y 1 coccígeo. Cada nervio espinal se origina de la médula espinal por medio de dos raíces, anterior (motora) y posterior (sensitiva)."
+                },
+                {
+                    "id": 45,
+                    "pregunta": "¿Qué ramo del nervio espinal se distribuye por la piel y músculos de la parte dorsal del cuerpo?",
+                    "opciones": [
+                        "Ramo anterior",
+                        "Ramo posterior",
+                        "Ramo meníngeo",
+                        "Ramo comunicante"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "El ramo posterior del nervio espinal se distribuye por la piel y los músculos de la parte dorsal o posterior del cuerpo, mientras que el ramo anterior inerva los tegumentos y músculos de la parte anterior o ventral."
+                },
+                {
+                    "id": 46,
+                    "pregunta": "¿Qué característica diferencia a los nervios craneales de los espinales en cuanto a su composición?",
+                    "opciones": [
+                        "Todos son exclusivamente motores",
+                        "Algunos son sólo sensitivos o sólo motores",
+                        "Todos son mixtos",
+                        "Carecen de ganglios sensitivos"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "A diferencia de los nervios espinales que son todos mixtos, los nervios craneales pueden ser sensitivomotores (como los espinales) o sólo motores. Excepciones como los nervios ópticos, olfatorios y cocleares tienen significación particular."
+                },
+                {
+                    "id": 47,
+                    "pregunta": "¿Qué sustancia del sistema nervioso central contiene los cuerpos de las neuronas?",
+                    "opciones": [
+                        "Sustancia blanca",
+                        "Sustancia gris",
+                        "Sustancia negra",
+                        "Sustancia reticular"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "La sustancia gris contiene los cuerpos celulares de las neuronas, cuya pigmentación le da su color característico. La sustancia blanca está formada por fibras nerviosas con mielina y se continúa con los nervios periféricos."
+                },
+                {
+                    "id": 48,
+                    "pregunta": "¿Cómo se transmite el impulso nervioso de una neurona a otra?",
+                    "opciones": [
+                        "Por continuidad citoplasmática",
+                        "Por relaciones de contigüidad",
+                        "Por fusión de membranas",
+                        "Por puentes intercelulares"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "Las neuronas son elementos individualizados que sólo presentan con las neuronas vecinas relaciones de contigüidad. La transmisión nerviosa pasa de una neurona a otra por el contacto entre las ramificaciones terminales del axón y las dendritas de otra célula."
+                },
+                {
+                    "id": 49,
+                    "pregunta": "¿Qué ramo del nervio espinal da origen al nervio senovertebral?",
+                    "opciones": [
+                        "Ramo anterior",
+                        "Ramo posterior",
+                        "Ramo meníngeo",
+                        "Ramo comunicante"
+                    ],
+                    "respuesta_correcta": 2,
+                    "explicacion": "El ramo meníngeo, también llamado nervio senovertebral, es una de las dos raíces que da el nervio espinal al salir del agujero intervertebral. Este ramo tiene importancia en la inervación de las meninges."
+                },
+                {
+                    "id": 50,
+                    "pregunta": "¿Qué característica presentan las células de los ganglios espinales en cuanto a sus prolongaciones?",
+                    "opciones": [
+                        "Son multipolares",
+                        "Tienen una prolongación que se divide en T",
+                        "Carecen de dendritas",
+                        "Tienen axones muy cortos"
+                    ],
+                    "respuesta_correcta": 1,
+                    "explicacion": "Las células de los ganglios espinales presentan una prolongación que se divide en T: una rama se dirige hacia la periferia (dendrita) y la otra penetra en la médula (axón). Esta disposición permite la conducción sensitiva desde la periferia hacia los centros nerviosos."
+                }
+            ]
         }
-      ]
-    },
-    "patologia-general": {
-      "titulo": "Patología General",
-      "preguntas": [
-        {
-          "id": 1,
-          "pregunta": "¿Qué es la apoptosis?",
-          "opciones": ["Muerte celular accidental", "Muerte celular programada", "División celular", "Crecimiento celular"],
-          "respuesta_correcta": 1,
-          "explicacion": "La apoptosis es un proceso de muerte celular programada y controlada, esencial para el desarrollo normal y el mantenimiento de la homeostasis."
-        }
-      ]
     }
-  }
 }

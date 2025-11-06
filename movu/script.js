@@ -150,7 +150,8 @@ async function cargarDatosSeccion(section) {
     }
     
     try {
-        const response = await fetch(`${section}.json`);
+        const timestamp = new Date().getTime();
+        const response = await fetch(`${section}.json?v=${timestamp}`);
         console.log(`Response para ${section}.json:`, response.status);
         
         if (!response.ok) {
@@ -776,8 +777,9 @@ function crearTarjetaLibro(libro, carreraId, index) {
 // Iniciar trivia
 async function iniciarTrivia(carreraId, libro) {
     try {
-        // Cargar datos de trivia de la carrera
-        const response = await fetch(`${carreraId}.json`);
+        // Cargar datos de trivia de la carrera con cache-busting
+        const timestamp = new Date().getTime();
+        const response = await fetch(`${carreraId}.json?v=${timestamp}`);
         const triviaData = await response.json();
         
         // Obtener trivia específica del libro

@@ -11,24 +11,38 @@
       "libros": [
         {
           "id": 1,
-          "titulo": "Anatomía Humana",
-          "descripcion": "Fundamentos de anatomía y fisiología",
+          "titulo": "Anatomía General",
+          "descripcion": "Terminología y conceptos básicos de anatomía",
           "imagen": "img/bepoli/medicina/anatomia.jpg",
-          "archivo_pdf": "docs/medicina/anatomia-humana.pdf"
+          "archivo_pdf": "docs/medicina/anatomia-general.pdf"
         },
         {
           "id": 2,
-          "titulo": "Farmacología Básica",
-          "descripcion": "Principios de farmacología clínica",
-          "imagen": "img/bepoli/medicina/farmacologia.jpg",
-          "archivo_pdf": "docs/medicina/farmacologia-basica.pdf"
+          "titulo": "Osteología",
+          "descripcion": "Estudio de los huesos del cuerpo humano",
+          "imagen": "img/bepoli/medicina/osteologia.jpg",
+          "archivo_pdf": "docs/medicina/osteologia.pdf"
         },
         {
           "id": 3,
-          "titulo": "Patología General",
-          "descripcion": "Estudio de las enfermedades",
-          "imagen": "img/bepoli/medicina/patologia.jpg",
-          "archivo_pdf": "docs/medicina/patologia-general.pdf"
+          "titulo": "Artrología",
+          "descripcion": "Estudio de las articulaciones",
+          "imagen": "img/bepoli/medicina/artrologia.jpg",
+          "archivo_pdf": "docs/medicina/artrologia.pdf"
+        },
+        {
+          "id": 4,
+          "titulo": "Miología",
+          "descripcion": "Estudio de los músculos",
+          "imagen": "img/bepoli/medicina/miologia.jpg",
+          "archivo_pdf": "docs/medicina/miologia.pdf"
+        },
+        {
+          "id": 5,
+          "titulo": "Neurología",
+          "descripcion": "Sistema nervioso y funcionamiento",
+          "imagen": "img/bepoli/medicina/neurologia.jpg",
+          "archivo_pdf": "docs/medicina/neurologia.pdf"
         }
       ]
     },
