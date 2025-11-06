@@ -125,6 +125,7 @@ body {
 
 #contenido-dinamico {
   margin-top: 40px;
+   display: none;
 }
 
 /* =====================
@@ -1074,4 +1075,5 @@ body {
 /* =====================
    RESPONSIVE DESIGN
 ====================== */
+
 /* Los media queries se encuentran en media.css */
