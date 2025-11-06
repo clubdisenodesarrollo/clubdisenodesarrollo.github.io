@@ -293,16 +293,38 @@ function renderizarEmprende(data) {
 function renderizarBepoli(data) {
     const contenedor = document.getElementById('contenido-dinamico');
     
-    // Crear grid de servicios
-    const grid = document.createElement('div');
-    grid.className = 'movu-grid';
+    // Crear sección de selección de carreras
+    const seleccionSection = document.createElement('div');
+    seleccionSection.className = 'bepoli-seleccion-section';
+    seleccionSection.innerHTML = `
+        <h3 class="bepoli-titulo-seccion">Selecciona la carrera</h3>
+    `;
     
-    data.servicios.forEach((servicio, index) => {
-        const card = crearTarjetaServicio(servicio, index);
+    // Crear grid de carreras
+    const grid = document.createElement('div');
+    grid.className = 'bepoli-carreras-grid';
+    
+    data.carreras.forEach((carrera, index) => {
+        const card = crearTarjetaCarrera(carrera, index);
         grid.appendChild(card);
     });
     
-    contenedor.appendChild(grid);
+    seleccionSection.appendChild(grid);
+    contenedor.appendChild(seleccionSection);
+    
+    // Crear contenedor oculto para libros
+    const librosContainer = document.createElement('div');
+    librosContainer.id = 'bepoli-libros-container';
+    librosContainer.className = 'bepoli-libros-container';
+    librosContainer.style.display = 'none';
+    contenedor.appendChild(librosContainer);
+    
+    // Crear contenedor oculto para trivias
+    const triviasContainer = document.createElement('div');
+    triviasContainer.id = 'bepoli-trivias-container';
+    triviasContainer.className = 'bepoli-trivias-container';
+    triviasContainer.style.display = 'none';
+    contenedor.appendChild(triviasContainer);
 }
 
 // Funcionalidad del bottom navigation
@@ -666,6 +688,244 @@ function crearTarjetaNegocio(negocio, index) {
     `;
     
     return card;
+}
+
+// Crear tarjeta de carrera para Bepoli
+function crearTarjetaCarrera(carrera, index) {
+    const card = document.createElement('div');
+    card.className = 'bepoli-carrera-card';
+    card.style.animationDelay = `${index * 0.2}s`;
+    card.setAttribute('data-carrera', carrera.id);
+    
+    card.innerHTML = `
+        <div class="carrera-icono" style="color: ${carrera.color};">
+            ${carrera.icono}
+        </div>
+        <h4 class="carrera-nombre">${carrera.nombre}</h4>
+        <p class="carrera-descripcion">${carrera.descripcion}</p>
+    `;
+    
+    // Agregar evento click
+    card.addEventListener('click', () => {
+        mostrarLibrosCarrera(carrera);
+    });
+    
+    return card;
+}
+
+// Mostrar libros de una carrera
+async function mostrarLibrosCarrera(carrera) {
+    const seleccionSection = document.querySelector('.bepoli-seleccion-section');
+    const librosContainer = document.getElementById('bepoli-libros-container');
+    
+    // Ocultar selección de carreras
+    seleccionSection.style.display = 'none';
+    
+    // Mostrar contenedor de libros
+    librosContainer.style.display = 'block';
+    
+    // Crear header con botón de regreso
+    librosContainer.innerHTML = `
+        <div class="bepoli-header">
+            <button class="btn-regresar" onclick="regresarACarreras()">← Regresar</button>
+            <h3 class="bepoli-titulo-seccion">${carrera.nombre}</h3>
+        </div>
+    `;
+    
+    // Crear grid de libros
+    const grid = document.createElement('div');
+    grid.className = 'bepoli-libros-grid';
+    
+    carrera.libros.forEach((libro, index) => {
+        const card = crearTarjetaLibro(libro, carrera.id, index);
+        grid.appendChild(card);
+    });
+    
+    librosContainer.appendChild(grid);
+}
+
+// Crear tarjeta de libro
+function crearTarjetaLibro(libro, carreraId, index) {
+    const card = document.createElement('div');
+    card.className = 'bepoli-libro-card';
+    card.style.animationDelay = `${index * 0.2}s`;
+    
+    // Determinar si mostrar imagen o iniciales
+    const imagenContent = libro.imagen 
+        ? `<img src="${libro.imagen}" alt="${libro.titulo}" onerror="this.style.display='none'; this.parentElement.innerHTML='${obtenerIniciales(libro.titulo)}'">`
+        : obtenerIniciales(libro.titulo);
+    
+    card.innerHTML = `
+        <div class="libro-imagen">
+            ${imagenContent}
+        </div>
+        <h4 class="libro-titulo">${libro.titulo}</h4>
+        <p class="libro-descripcion">${libro.descripcion}</p>
+        <button class="btn-trivia">Iniciar Trivia</button>
+    `;
+    
+    // Agregar evento click al botón de trivia
+    const btnTrivia = card.querySelector('.btn-trivia');
+    btnTrivia.addEventListener('click', () => {
+        iniciarTrivia(carreraId, libro);
+    });
+    
+    return card;
+}
+
+// Iniciar trivia
+async function iniciarTrivia(carreraId, libro) {
+    try {
+        // Cargar datos de trivia de la carrera
+        const response = await fetch(`${carreraId}.json`);
+        const triviaData = await response.json();
+        
+        // Obtener trivia específica del libro
+        const libroKey = libro.archivo_pdf.split('/').pop().replace('.pdf', '');
+        const trivia = triviaData.trivias[libroKey];
+        
+        if (trivia) {
+            mostrarTrivia(trivia, libro);
+        } else {
+            alert('Trivia no disponible para este libro');
+        }
+    } catch (error) {
+        console.error('Error cargando trivia:', error);
+        alert('Error cargando la trivia');
+    }
+}
+
+// Mostrar trivia
+function mostrarTrivia(trivia, libro) {
+    const librosContainer = document.getElementById('bepoli-libros-container');
+    const triviasContainer = document.getElementById('bepoli-trivias-container');
+    
+    // Ocultar libros
+    librosContainer.style.display = 'none';
+    
+    // Mostrar trivias
+    triviasContainer.style.display = 'block';
+    
+    // Inicializar trivia
+    let preguntaActual = 0;
+    let puntuacion = 0;
+    
+    function renderizarPregunta() {
+        const pregunta = trivia.preguntas[preguntaActual];
+        
+        triviasContainer.innerHTML = `
+            <div class="trivia-header">
+                <button class="btn-regresar" onclick="regresarALibros()">← Regresar</button>
+                <h3>${trivia.titulo}</h3>
+                <p>Pregunta ${preguntaActual + 1} de ${trivia.preguntas.length}</p>
+            </div>
+            <div class="trivia-contenido">
+                <h4 class="pregunta">${pregunta.pregunta}</h4>
+                <div class="opciones">
+                    ${pregunta.opciones.map((opcion, index) => `
+                        <button class="opcion-btn" data-index="${index}">${opcion}</button>
+                    `).join('')}
+                </div>
+                <div id="explicacion" class="explicacion" style="display: none;"></div>
+                <div class="trivia-footer">
+                    <div class="puntuacion">Puntuación: ${puntuacion}/${trivia.preguntas.length}</div>
+                </div>
+            </div>
+        `;
+        
+        // Agregar eventos a opciones
+        const opciones = triviasContainer.querySelectorAll('.opcion-btn');
+        opciones.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const respuestaSeleccionada = parseInt(e.target.getAttribute('data-index'));
+                verificarRespuesta(respuestaSeleccionada, pregunta);
+            });
+        });
+    }
+    
+    function verificarRespuesta(respuestaSeleccionada, pregunta) {
+        const opciones = triviasContainer.querySelectorAll('.opcion-btn');
+        const explicacion = document.getElementById('explicacion');
+        
+        // Deshabilitar botones
+        opciones.forEach(btn => btn.disabled = true);
+        
+        // Marcar respuesta correcta e incorrecta
+        opciones.forEach((btn, index) => {
+            if (index === pregunta.respuesta_correcta) {
+                btn.classList.add('correcto');
+            } else if (index === respuestaSeleccionada && respuestaSeleccionada !== pregunta.respuesta_correcta) {
+                btn.classList.add('incorrecto');
+            }
+        });
+        
+        // Mostrar explicación
+        if (respuestaSeleccionada === pregunta.respuesta_correcta) {
+            puntuacion++;
+            explicacion.innerHTML = `<p class="explicacion-correcta">¡Correcto! ${pregunta.explicacion}</p>`;
+        } else {
+            explicacion.innerHTML = `<p class="explicacion-incorrecta">Incorrecto. ${pregunta.explicacion}</p>`;
+        }
+        
+        explicacion.style.display = 'block';
+        
+        // Botón para siguiente pregunta
+        setTimeout(() => {
+            if (preguntaActual < trivia.preguntas.length - 1) {
+                const btnSiguiente = document.createElement('button');
+                btnSiguiente.className = 'btn-siguiente';
+                btnSiguiente.textContent = 'Siguiente Pregunta';
+                btnSiguiente.addEventListener('click', () => {
+                    preguntaActual++;
+                    renderizarPregunta();
+                });
+                explicacion.appendChild(btnSiguiente);
+            } else {
+                // Mostrar resultado final
+                const btnFinalizar = document.createElement('button');
+                btnFinalizar.className = 'btn-finalizar';
+                btnFinalizar.textContent = 'Finalizar Trivia';
+                btnFinalizar.addEventListener('click', () => {
+                    mostrarResultadoFinal();
+                });
+                explicacion.appendChild(btnFinalizar);
+            }
+        }, 2000);
+    }
+    
+    function mostrarResultadoFinal() {
+        const porcentaje = Math.round((puntuacion / trivia.preguntas.length) * 100);
+        triviasContainer.innerHTML = `
+            <div class="resultado-final">
+                <h3>¡Trivia Completada!</h3>
+                <div class="puntuacion-final">
+                    <p>Puntuación: ${puntuacion}/${trivia.preguntas.length}</p>
+                    <p>Porcentaje: ${porcentaje}%</p>
+                </div>
+                <button class="btn-regresar" onclick="regresarALibros()">Regresar a Libros</button>
+            </div>
+        `;
+    }
+    
+    // Iniciar con la primera pregunta
+    renderizarPregunta();
+}
+
+// Funciones de navegación
+function regresarACarreras() {
+    const seleccionSection = document.querySelector('.bepoli-seleccion-section');
+    const librosContainer = document.getElementById('bepoli-libros-container');
+    
+    librosContainer.style.display = 'none';
+    seleccionSection.style.display = 'block';
+}
+
+function regresarALibros() {
+    const librosContainer = document.getElementById('bepoli-libros-container');
+    const triviasContainer = document.getElementById('bepoli-trivias-container');
+    
+    triviasContainer.style.display = 'none';
+    librosContainer.style.display = 'block';
 }
 
 // Obtener iniciales de un nombre

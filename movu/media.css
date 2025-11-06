@@ -466,4 +466,70 @@
     top: 15px;
     right: 15px;
   }
+
+  /* Bepoli - 320px */
+  .bepoli-carreras-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .bepoli-carrera-card {
+    padding: 20px 12px;
+  }
+
+  .carrera-icono {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .carrera-nombre {
+    font-size: 1.2rem;
+  }
+
+  .carrera-descripcion {
+    font-size: 0.85rem;
+  }
+
+  .bepoli-libros-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .bepoli-libro-card {
+    padding: 20px;
+  }
+
+  .libro-imagen {
+    width: 80px;
+    height: 100px;
+  }
+
+  .trivia-contenido {
+    padding: 20px;
+  }
+
+  .pregunta {
+    font-size: 1.2rem;
+  }
+
+  .opcion-btn {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+/* =====================
+   BEPOLI RESPONSIVE ADICIONAL
+====================== */
+
+/* 425px - Móviles grandes */
+@media (max-width: 425px) and (min-width: 321px) {
+  .bepoli-carreras-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .bepoli-carrera-card {
+    padding: 25px 15px;
+  }
 }

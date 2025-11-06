@@ -1,0 +1,63 @@
+{
+  "carrera": "Medicina",
+  "descripcion": "Trivias y contenido médico para estudiantes",
+  "trivias": {
+    "anatomia-humana": {
+      "titulo": "Anatomía Humana",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "¿Cuántos huesos tiene el cuerpo humano adulto?",
+          "opciones": ["206", "208", "210", "204"],
+          "respuesta_correcta": 0,
+          "explicacion": "El cuerpo humano adulto tiene 206 huesos. Al nacer tenemos aproximadamente 270 huesos, pero muchos se fusionan durante el crecimiento."
+        },
+        {
+          "id": 2,
+          "pregunta": "¿Cuál es el músculo más grande del cuerpo humano?",
+          "opciones": ["Bíceps", "Cuádriceps", "Glúteo mayor", "Deltoides"],
+          "respuesta_correcta": 2,
+          "explicacion": "El glúteo mayor es el músculo más grande y potente del cuerpo humano, fundamental para la postura erguida y la locomoción."
+        },
+        {
+          "id": 3,
+          "pregunta": "¿Qué órgano produce la insulina?",
+          "opciones": ["Hígado", "Páncreas", "Riñón", "Estómago"],
+          "respuesta_correcta": 1,
+          "explicacion": "El páncreas produce la insulina a través de las células beta de los islotes de Langerhans, regulando los niveles de glucosa en sangre."
+        }
+      ]
+    },
+    "farmacologia-basica": {
+      "titulo": "Farmacología Básica",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "¿Qué significa 'biodisponibilidad' de un fármaco?",
+          "opciones": ["Toxicidad del medicamento", "Fracción que llega a circulación sistémica", "Tiempo de eliminación", "Dosis máxima segura"],
+          "respuesta_correcta": 1,
+          "explicacion": "La biodisponibilidad es la fracción del fármaco administrado que llega inalterada a la circulación sistémica y está disponible para ejercer su efecto."
+        },
+        {
+          "id": 2,
+          "pregunta": "¿Cuál es la vía de administración más rápida?",
+          "opciones": ["Oral", "Intramuscular", "Intravenosa", "Subcutánea"],
+          "respuesta_correcta": 2,
+          "explicacion": "La vía intravenosa es la más rápida porque el fármaco se introduce directamente al torrente sanguíneo, evitando procesos de absorción."
+        }
+      ]
+    },
+    "patologia-general": {
+      "titulo": "Patología General",
+      "preguntas": [
+        {
+          "id": 1,
+          "pregunta": "¿Qué es la apoptosis?",
+          "opciones": ["Muerte celular accidental", "Muerte celular programada", "División celular", "Crecimiento celular"],
+          "respuesta_correcta": 1,
+          "explicacion": "La apoptosis es un proceso de muerte celular programada y controlada, esencial para el desarrollo normal y el mantenimiento de la homeostasis."
+        }
+      ]
+    }
+  }
+}
