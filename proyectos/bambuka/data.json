@@ -1,0 +1,190 @@
+{
+  "restaurant": {
+    "name": "Bambuka",
+    "description": "Restaurante de cocina moderna y tradicional",
+    "categories": [
+      {
+        "id": "entradas",
+        "name": "Entradas",
+        "icon": "🥗",
+        "color": "#007A33"
+      },
+      {
+        "id": "principales",
+        "name": "Platos Principales",
+        "icon": "🍖",
+        "color": "#0057B8"
+      },
+      {
+        "id": "postres",
+        "name": "Postres",
+        "icon": "🍰",
+        "color": "#B85A00"
+      },
+      {
+        "id": "bebidas",
+        "name": "Bebidas",
+        "icon": "🥤",
+        "color": "#0078d4"
+      },
+      {
+        "id": "especialidades",
+        "name": "Especialidades",
+        "icon": "⭐",
+        "color": "#6F42C1"
+      }
+    ],
+    "products": [
+      {
+        "id": 1,
+        "name": "Ensalada César Premium",
+        "category": "entradas",
+        "price": 15.90,
+        "image": "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=300&h=200&fit=crop",
+        "description": "Lechuga romana fresca, crutones artesanales, queso parmesano",
+        "details": {
+          "ingredients": ["Lechuga romana", "Queso parmesano", "Crutones caseros", "Anchoas", "Aderezo césar tradicional"],
+          "allergens": ["Gluten", "Lácteos", "Pescado"],
+          "calories": 280,
+          "preparation_time": "8-10 min",
+          "spicy_level": 0
+        }
+      },
+      {
+        "id": 2,
+        "name": "Carpaccio de Res",
+        "category": "entradas",
+        "price": 22.50,
+        "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop",
+        "description": "Láminas de res premium con rúcula y parmesano",
+        "details": {
+          "ingredients": ["Lomo de res premium", "Rúcula fresca", "Queso parmesano", "Aceite de oliva extra virgen", "Limón"],
+          "allergens": ["Lácteos"],
+          "calories": 320,
+          "preparation_time": "12-15 min",
+          "spicy_level": 0
+        }
+      },
+      {
+        "id": 3,
+        "name": "Salmón a la Parrilla",
+        "category": "principales",
+        "price": 28.90,
+        "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=300&h=200&fit=crop",
+        "description": "Salmón fresco con vegetales de temporada y salsa de eneldo",
+        "details": {
+          "ingredients": ["Salmón fresco", "Espárragos", "Brócoli", "Zanahoria", "Salsa de eneldo", "Aceite de oliva"],
+          "allergens": ["Pescado"],
+          "calories": 450,
+          "preparation_time": "18-20 min",
+          "spicy_level": 0
+        }
+      },
+      {
+        "id": 4,
+        "name": "Ribeye Premium",
+        "category": "principales",
+        "price": 35.90,
+        "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=300&h=200&fit=crop",
+        "description": "Corte premium 300g con guarnición de papa y vegetales",
+        "details": {
+          "ingredients": ["Ribeye 300g", "Papas al romero", "Vegetales asados", "Mantequilla de hierbas"],
+          "allergens": ["Lácteos"],
+          "calories": 680,
+          "preparation_time": "25-30 min",
+          "spicy_level": 0
+        }
+      },
+      {
+        "id": 5,
+        "name": "Pasta Carbonara Artesanal",
+        "category": "principales",
+        "price": 19.90,
+        "image": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=300&h=200&fit=crop",
+        "description": "Pasta fresca con panceta, huevo y queso parmesano",
+        "details": {
+          "ingredients": ["Pasta fresca", "Panceta ahumada", "Huevos frescos", "Queso parmesano", "Pimienta negra"],
+          "allergens": ["Gluten", "Lácteos", "Huevos"],
+          "calories": 520,
+          "preparation_time": "15-18 min",
+          "spicy_level": 0
+        }
+      },
+      {
+        "id": 6,
+        "name": "Tiramisú de la Casa",
+        "category": "postres",
+        "price": 12.90,
+        "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=300&h=200&fit=crop",
+        "description": "Tradicional tiramisú italiano con café espresso",
+        "details": {
+          "ingredients": ["Mascarpone", "Café espresso", "Bizcochos savoiardi", "Cacao en polvo", "Huevos"],
+          "allergens": ["Lácteos", "Gluten", "Huevos"],
+          "calories": 380,
+          "preparation_time": "5 min",
+          "spicy_level": 0
+        }
+      },
+      {
+        "id": 7,
+        "name": "Cheesecake de Frutos Rojos",
+        "category": "postres",
+        "price": 11.50,
+        "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=300&h=200&fit=crop",
+        "description": "Cremoso cheesecake con coulis de frutos rojos",
+        "details": {
+          "ingredients": ["Queso crema", "Frutos rojos frescos", "Base de galleta", "Azúcar", "Vainilla"],
+          "allergens": ["Lácteos", "Gluten", "Huevos"],
+          "calories": 420,
+          "preparation_time": "5 min",
+          "spicy_level": 0
+        }
+      },
+      {
+        "id": 8,
+        "name": "Vino Tinto Reserva",
+        "category": "bebidas",
+        "price": 8.90,
+        "image": "https://images.unsplash.com/photo-1506377247022-6cd25ac4c76b?w=300&h=200&fit=crop",
+        "description": "Copa de vino tinto reserva seleccionado",
+        "details": {
+          "ingredients": ["Vino tinto reserva", "Uvas seleccionadas"],
+          "allergens": ["Sulfitos"],
+          "calories": 125,
+          "preparation_time": "2 min",
+          "spicy_level": 0
+        }
+      },
+      {
+        "id": 9,
+        "name": "Mojito Clásico",
+        "category": "bebidas",
+        "price": 9.50,
+        "image": "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=300&h=200&fit=crop",
+        "description": "Refrescante mojito con ron blanco y hierbabuena",
+        "details": {
+          "ingredients": ["Ron blanco", "Hierbabuena fresca", "Limón", "Azúcar", "Agua con gas", "Hielo"],
+          "allergens": [],
+          "calories": 180,
+          "preparation_time": "5 min",
+          "spicy_level": 0
+        }
+      },
+      {
+        "id": 10,
+        "name": "Paella Marinera",
+        "category": "especialidades",
+        "price": 42.90,
+        "image": "https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=300&h=200&fit=crop",
+        "description": "Auténtica paella española con mariscos frescos (para 2 personas)",
+        "details": {
+          "ingredients": ["Arroz bomba", "Langostinos", "Mejillones", "Calamares", "Azafrán", "Pimiento rojo"],
+          "allergens": ["Moluscos", "Crustáceos"],
+          "calories": 650,
+          "preparation_time": "35-40 min",
+          "spicy_level": 1
+        }
+      }
+    ]
+  }
+}

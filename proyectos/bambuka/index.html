@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambuka - Menú Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>🍽️ Bambuka</h1>
+                    <span>Menú Digital</span>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>🍽️ Bambuka</h3>
+            <button class="close-btn" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#home" class="nav-link active">Inicio</a>
+            <a href="#categories" class="nav-link">Categorías</a>
+            <a href="#about" class="nav-link">Nosotros</a>
+            <a href="#contact" class="nav-link">Contacto</a>
+        </nav>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Buscar platillos, bebidas..." class="search-input">
+                        <button class="search-clear" id="searchClear" style="display: none;">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="categories-section">
+                <h2 class="section-title">Categorías</h2>
+                <div class="categories-grid" id="categoriesGrid">
+                    <!-- Categories will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section class="products-section">
+                <div class="products-header">
+                    <h2 class="section-title" id="productsTitle">Todos los productos</h2>
+                </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be populated by JavaScript -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Detalles del producto</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h4 id="modalProductName"></h4>
+                    <p class="modal-price" id="modalPrice"></p>
+                    <p class="modal-description" id="modalDescription"></p>
+                    
+                    <div class="product-details">
+                        <div class="detail-carousel">
+                            <div class="carousel-nav">
+                                <button class="carousel-btn active" data-tab="ingredients">
+                                    <i class="fas fa-list"></i>
+                                    <span>Ingredientes</span>
+                                </button>
+                                <button class="carousel-btn" data-tab="nutrition">
+                                    <i class="fas fa-heartbeat"></i>
+                                    <span>Nutrición</span>
+                                </button>
+                                <button class="carousel-btn" data-tab="info">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Información</span>
+                                </button>
+                            </div>
+                            
+                            <div class="carousel-content">
+                                <div class="carousel-slide active" id="ingredients-tab">
+                                    <h5>Ingredientes</h5>
+                                    <ul id="ingredientsList"></ul>
+                                    <div class="allergens" id="allergens">
+                                        <strong>Alérgenos:</strong>
+                                        <span id="allergensList"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="carousel-slide" id="nutrition-tab">
+                                    <h5>Información Nutricional</h5>
+                                    <div class="nutrition-info">
+                                        <div class="nutrition-item">
+                                            <span class="nutrition-label">Calorías:</span>
+                                            <span class="nutrition-value" id="calories"></span>
+                                        </div>
+                                        <div class="spicy-level">
+                                            <span class="nutrition-label">Nivel de picante:</span>
+                                            <div class="spicy-icons" id="spicyLevel"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="carousel-slide" id="info-tab">
+                                    <h5>Información Adicional</h5>
+                                    <div class="additional-info">
+                                        <div class="info-item">
+                                            <i class="fas fa-clock"></i>
+                                            <span>Tiempo de preparación:</span>
+                                            <strong id="prepTime"></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Cargando menú...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
